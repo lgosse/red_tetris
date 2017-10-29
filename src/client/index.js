@@ -1,26 +1,43 @@
-import React from 'react'
-import ReactDom from 'react-dom'
-import createLogger from 'redux-logger'
-import thunk from 'redux-thunk'
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'                                                                                                                                                    
-import {storeStateMiddleWare} from './middleware/storeStateMiddleWare'
-import reducer from './reducers'
-import App from './containers/app'
-import {alert} from './actions/alert'
+import React from "react";
+import ReactDom from "react-dom";
+import createLogger from "redux-logger";
+import thunk from "redux-thunk";
+import { createStore, applyMiddleware, combineReducers } from "redux";
+import { Provider } from "react-redux";
+import { storeStateMiddleWare } from "./middleware/storeStateMiddleWare";
+import reducers from "./reducers";
+import App from "./components/App";
+import { alert } from "./actions/alert";
+import createHistory from "history/createBrowserHistory";
+import {
+  ConnectedRouter,
+  routerReducer,
+  routerMiddleware,
+  push
+} from "react-router-redux";
+import { Route } from "react-router";
 
-const initialState = {}
+const history = createHistory();
+
+const appRouterMiddleware = routerMiddleware(history);
+
+const initialState = {};
 
 const store = createStore(
-  reducer,
+  combineReducers({ ...reducers }),
   initialState,
-  applyMiddleware(thunk, createLogger())
-)
+  applyMiddleware(thunk, createLogger(), appRouterMiddleware)
+);
 
-ReactDom.render((
+ReactDom.render(
   <Provider store={store}>
-    <App/>
-  </Provider>
-), document.getElementById('tetris'))
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById("tetris")
+);
 
-store.dispatch(alert('Soon, will be here a fantastic Tetris ...'))
+store.dispatch(alert("Soon, will be here a fantastic Tetris ..."));
+
+export { history, store };
