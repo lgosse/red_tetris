@@ -13,16 +13,7 @@ import {
   Button
 } from "../../helpers/Common";
 
-const PlayerForm = ({ props, player }) => {
-  const changeNickName = event => {
-    store.dispatch(
-      updatePlayer({
-        ...player,
-        nickname: event.target.value
-      })
-    );
-  };
-
+const PlayerForm = ({ player, changeNickName }) => {
   const saveNickName = event => {
     event.preventDefault();
     localStorage.setItem("player", JSON.stringify(player));
@@ -56,9 +47,23 @@ const PlayerForm = ({ props, player }) => {
 
 const mapStateToPlayerFormProps = (state, props) => {
   return {
-    props,
     player: state.state.player
   };
 };
 
-export default connect(mapStateToPlayerFormProps)(PlayerForm);
+const mapDispatchToPlayerFormProps = (dispatch, { props, player }) => {
+  return {
+    changeNickName: event => {
+      dispatch(
+        updatePlayer({
+          ...player,
+          nickname: event.target.value
+        })
+      );
+    }
+  };
+};
+
+export default connect(mapStateToPlayerFormProps, mapDispatchToPlayerFormProps)(
+  PlayerForm
+);

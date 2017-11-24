@@ -7,8 +7,7 @@ injectGlobalCssRules();
 
 // Reduc stuff
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware, combineReducers } from "redux";
-import createLogger from "redux-logger";
+import { createStore, applyMiddleware, combineReducers, compose } from "redux";
 import thunk from "redux-thunk";
 
 // Routing stuff
@@ -36,14 +35,13 @@ import NewGame from "./components/views/new-game/NewGame";
 import NotFound from "./components/views/NotFound";
 
 let initialState;
-if (localStorage.getItem("player")) {
+if (localStorage && localStorage.getItem("player")) {
   initialState = {
     state: {
       player: JSON.parse(localStorage.getItem("player"))
     }
   };
 } else {
-  console.log("ntm");
   initialState = {
     state: {
       player: {
@@ -57,10 +55,11 @@ const history = createBrowserHistory();
 
 const routingMiddleware = routerMiddleware(history);
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   combineReducers({ state: rootReducer, routing: routerReducer }),
   initialState,
-  applyMiddleware(thunk, createLogger(), routingMiddleware)
+  composeEnhancers(applyMiddleware(thunk, routingMiddleware))
 );
 
 ReactDom.render(
