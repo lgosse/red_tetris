@@ -36,27 +36,7 @@ describe("Navbar", () => {
       const renderer = createRenderer();
       renderer.render(React.createElement(Navbar));
       const output = renderer.getRenderOutput();
-      output.should.equalJSX(
-        <Bar>
-          <Title>RED TETRIS</Title>
-          <Spacer />
-          <Link to="/" id="home-link">
-            <NavLink>
-              <i className="fa fa-home" /> HOME
-            </NavLink>
-          </Link>
-          <Link to="ranking" id="ranking-link">
-            <NavLink>
-              <i className="fa fa-trophy" /> RANKING
-            </NavLink>
-          </Link>
-          <Link to="new-game" id="new-game-link">
-            <NavLink>
-              <i className="fa fa-plus" /> NEW GAME
-            </NavLink>
-          </Link>
-        </Bar>
-      );
+      output.should.matchSnapshot();
     });
   });
 });
@@ -80,6 +60,7 @@ describe("App", () => {
       });
     });
   });
+
   describe("Component rendering", () => {
     it("should render", () => {
       const state = {
@@ -91,12 +72,7 @@ describe("App", () => {
       const appProps = mapStateToAppProps(state, alert);
 
       const output = App(...appProps, <div />);
-      output.should.equalJSX(
-        <div>
-          <Connect />
-          <StyledComponent />
-        </div>
-      );
+      output.should.matchSnapshot();
     });
   });
 });

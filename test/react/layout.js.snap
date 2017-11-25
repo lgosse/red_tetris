@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component rendering should render 1`] = `
+<div>
+  <Connect(Navbar) />
+  <styled.div />
+  <Footer />
+</div>
+`;
+
+exports[`Navbar Component rendering should render as expected 1`] = `
+<styled.div>
+  <styled.span>
+    RED TETRIS
+  </styled.span>
+  <styled.div />
+  <Link
+    id="home-link"
+    replace={false}
+    to="/"
+  >
+    <styled.button>
+      <i
+        className="fa fa-home"
+      />
+       HOME
+    </styled.button>
+  </Link>
+  <Link
+    id="ranking-link"
+    replace={false}
+    to="ranking"
+  >
+    <styled.button>
+      <i
+        className="fa fa-trophy"
+      />
+       RANKING
+    </styled.button>
+  </Link>
+  <Link
+    id="new-game-link"
+    replace={false}
+    to="new-game"
+  >
+    <styled.button>
+      <i
+        className="fa fa-plus"
+      />
+       NEW GAME
+    </styled.button>
+  </Link>
+</styled.div>
+`;

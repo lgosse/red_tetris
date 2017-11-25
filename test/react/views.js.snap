@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should render as expected 1`] = `
+<styled.div>
+  <RedTetrisHeader />
+  <HexaSeparator />
+  <RedTetrisPreview />
+  <BeginAdventure />
+</styled.div>
+`;
+
+exports[`NewGame should render as expected 1`] = `
+<styled.div>
+  <styled.div>
+    <Connect(PlayerForm) />
+  </styled.div>
+  <styled.div>
+    <styled.div />
+    <styled.div>
+      <styled.button
+        marginTop="20px"
+        primary={true}
+        width="100%"
+      >
+        CREATE A NEW GAME
+      </styled.button>
+      <styled.button
+        marginTop="20px"
+        primary={true}
+        width="100%"
+      >
+        JOIN A GAME
+      </styled.button>
+    </styled.div>
+    <styled.div />
+  </styled.div>
+</styled.div>
+`;
+
+exports[`NotFound should render as expected 1`] = `
+<div
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <styled.div>
+    404
+  </styled.div>
+  <styled.div>
+    We're sorry but your requested page is unknown to us :(
+  </styled.div>
+</div>
+`;
+
+exports[`Ranking should render as expected 1`] = `
+<div>
+  this is the ranking page
+</div>
+`;

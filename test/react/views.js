@@ -5,9 +5,9 @@ import { createRenderer } from "react-dom/test-utils";
 
 import { Connect, StyledComponent } from "../helpers/mockComponents";
 
-import Home from "../../src/client/containers/views/home/Home";
+import Home from "../../src/client/containers/views/Home";
 import Ranking from "../../src/client/containers/views/Ranking";
-import NewGame from "../../src/client/containers/views/new-game/NewGame";
+import NewGame from "../../src/client/containers/views/NewGame";
 import NotFound from "../../src/client/containers/views/NotFound";
 import {
   containerStyle,
@@ -23,7 +23,7 @@ describe("Ranking", () => {
     const renderer = createRenderer();
     renderer.render(React.createElement(Ranking));
     const output = renderer.getRenderOutput();
-    output.should.equalJSX(<div>this is the ranking page</div>);
+    output.should.matchSnapshot();
   });
 });
 
@@ -32,7 +32,7 @@ describe("Home", () => {
     const renderer = createRenderer();
     renderer.render(React.createElement(Home));
     const output = renderer.getRenderOutput();
-    output.should.equalJSX(<div>this is a test</div>);
+    output.should.matchSnapshot();
   });
 });
 
@@ -41,7 +41,7 @@ describe("NewGame", () => {
     const renderer = createRenderer();
     renderer.render(React.createElement(NewGame));
     const output = renderer.getRenderOutput();
-    output.should.exist;
+    output.should.matchSnapshot();
   });
 });
 
@@ -50,13 +50,6 @@ describe("NotFound", () => {
     const renderer = createRenderer();
     renderer.render(React.createElement(NotFound));
     const output = renderer.getRenderOutput();
-    output.should.equalJSX(
-      <div style={containerStyle}>
-        <Code404>404</Code404>
-        <Message>
-          We're sorry but your requested page is unknown to us :(
-        </Message>
-      </div>
-    );
+    output.should.matchSnapshot();
   });
 });
