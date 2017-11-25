@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import global from "../../../styles/global";
+import global from "../../styles/global";
 import {
   FullSizeContainer,
   FlexContainer,
@@ -9,7 +9,7 @@ import {
   Icon,
   GameFont,
   HexaSeparator
-} from "../../helpers/Common";
+} from "../helpers/Common";
 
 const ParagraphContainer = styled.span`
   color: ${global.color.primary};

@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Switch, Route, withRouter } from "react-router-dom";
-import Home from "../components/views/home/Home";
-import Navbar from "../components/layout/Navbar";
-import Body from "../components/layout/Body";
-import Footer from "../components/layout/Footer";
-import Ranking from "../components/views/Ranking";
+import Home from "../containers/views/Home";
+import Navbar from "../containers/layout/Navbar";
+import Body from "../containers/layout/Body";
+import Footer from "../containers/layout/Footer";
+import Ranking from "../containers/views/Ranking";
 
 const App = ({ alert, props }) => {
   return (

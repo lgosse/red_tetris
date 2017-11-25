@@ -2,15 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
-import global from "../../../styles/global";
-import { newGame, joinGame } from "../../../actions/newGame";
-import PlayerForm from "./PlayerForm";
+import global from "../../styles/global";
+import { newGame, joinGame } from "../../actions/newGame";
+import PlayerForm from "../forms/PlayerForm";
 import {
   FullSizeContainer,
   Button,
   FlexContainer,
   FlexSpacer
-} from "../../helpers/Common";
+} from "../../components/helpers/Common";
 
 const ButtonsContainer = styled.div`
   box-sizing: border-box;

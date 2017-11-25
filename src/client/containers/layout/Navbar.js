@@ -3,7 +3,7 @@ import styled from "styled-components";
 import global from "../../styles/global";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { Spacer } from "../helpers/Common";
+import { Spacer } from "../../components/helpers/Common";
 
 const Bar = styled.div`
   width: 100%;

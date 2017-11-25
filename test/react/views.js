@@ -5,15 +5,15 @@ import { createRenderer } from "react-dom/test-utils";
 
 import { Connect, StyledComponent } from "../helpers/mockComponents";
 
-import Home from "../../src/client/components/views/home/Home";
-import Ranking from "../../src/client/components/views/Ranking";
-import NewGame from "../../src/client/components/views/new-game/NewGame";
-import NotFound from "../../src/client/components/views/NotFound";
+import Home from "../../src/client/containers/views/home/Home";
+import Ranking from "../../src/client/containers/views/Ranking";
+import NewGame from "../../src/client/containers/views/new-game/NewGame";
+import NotFound from "../../src/client/containers/views/NotFound";
 import {
   containerStyle,
   Code404,
   Message
-} from "../../src/client/components/views/NotFound";
+} from "../../src/client/containers/views/NotFound";
 
 chai.should();
 chai.use(equalJSX);

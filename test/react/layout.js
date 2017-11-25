@@ -11,10 +11,10 @@ import {
   NavLink,
   Navbar,
   mapStateToNavbarProps
-} from "../../src/client/components/layout/Navbar";
+} from "../../src/client/containers/layout/Navbar";
 import { Spacer } from "../../src/client/components/helpers/Common.js";
 
-import { App, mapStateToAppProps } from "../../src/client/components/App";
+import { App, mapStateToAppProps } from "../../src/client/containers/App";
 
 import { Connect, StyledComponent } from "../helpers/mockComponents";
 

@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import global from "../../../styles/global";
+import global from "../../styles/global";
 import {
   FlexContainer,
   FlexSpacer,
   FullSizeContainer
-} from "../../helpers/Common";
+} from "../helpers/Common";
 
 const blockLength = 100;
 

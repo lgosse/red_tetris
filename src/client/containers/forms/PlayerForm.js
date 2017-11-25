@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { updatePlayer } from "../../../actions/player";
-import { store } from "../../../index";
+import { updatePlayer, savePlayer } from "../../actions/player";
 
 import {
   FullSizeContainer,
@@ -11,14 +10,9 @@ import {
   FlexContainer,
   FlexSpacer,
   Button
-} from "../../helpers/Common";
+} from "../../components/helpers/Common";
 
-const PlayerForm = ({ player, changeNickName }) => {
-  const saveNickName = event => {
-    event.preventDefault();
-    localStorage.setItem("player", JSON.stringify(player));
-  };
-
+const PlayerForm = ({ player, changeNickName, saveNickName }) => {
   return (
     <FullSizeContainer padding="20px">
       <Paragraph center size="20px" padding="20px" gameFont color="accent">
@@ -26,13 +20,13 @@ const PlayerForm = ({ player, changeNickName }) => {
       </Paragraph>
       <FlexContainer flex>
         <FlexSpacer />
-        <form onSubmit={saveNickName}>
+        <form onSubmit={e => saveNickName(e, player)}>
           <FlexContainer>
             <Input
               placeholder="Nickname..."
               name="nickname"
               value={player.nickname}
-              onChange={changeNickName}
+              onChange={e => changeNickName(e, player)}
             />
             <Button type="submit" primary style={{ marginLeft: "20px" }}>
               SAVE
@@ -52,15 +46,23 @@ const mapStateToPlayerFormProps = (state, props) => {
 };
 
 const mapDispatchToPlayerFormProps = (dispatch, { props, player }) => {
+  const changeNickName = (event, player) => {
+    dispatch(
+      updatePlayer({
+        ...player,
+        nickname: event.target.value
+      })
+    );
+  };
+
+  const saveNickName = (event, player) => {
+    event.preventDefault();
+    dispatch(savePlayer(player));
+  };
+
   return {
-    changeNickName: event => {
-      dispatch(
-        updatePlayer({
-          ...player,
-          nickname: event.target.value
-        })
-      );
-    }
+    changeNickName,
+    saveNickName
   };
 };
 

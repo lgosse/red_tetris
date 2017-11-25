@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import global from "../../styles/global";
 
-import { FlexSpacer, Paragraph, Icon } from "../helpers/Common";
+import { FlexSpacer, Paragraph, Icon } from "../../components/helpers/Common";
 
 const Bar = styled.div`
   width: 100%;
@@ -20,7 +20,7 @@ const Footer = () => {
     <Bar padding="20px">
       <FlexSpacer />
       <Paragraph size="16px" gameFont>
-        Made with <Icon className="terminal" /> by lgosse
+        Made with <Icon className="terminal" /> by lgosse and tbayet
       </Paragraph>
     </Bar>
   );

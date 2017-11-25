@@ -13,11 +13,11 @@
 // import { Switch, Route } from "react-router";
 
 // // make sure to import your connected component, not your react class
-// import App from "../../src/client/components/App";
+// import App from "../../src/client/containers/App";
 // // Routed components
-// import Home from "../../src/client/components/views/home/Home";
-// import Ranking from "../../src/client/components/views/Ranking";
-// import NotFound from "../../src/client/components/views/NotFound";
+// import Home from "../../src/client/containers/views/home/Home";
+// import Ranking from "../../src/client/containers/views/Ranking";
+// import NotFound from "../../src/client/containers/views/NotFound";
 
 // configure({ adapter: new Adapter() });
 

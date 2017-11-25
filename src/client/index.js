@@ -27,29 +27,14 @@ import {
 } from "react-router";
 
 // Project stuff
-import App from "./components/App";
-import { alert } from "./actions/alert";
-import Home from "./components/views/home/Home";
-import Ranking from "./components/views/Ranking";
-import NewGame from "./components/views/new-game/NewGame";
-import NotFound from "./components/views/NotFound";
+import { getPlayer } from "./actions/player";
+import App from "./containers/App";
+import Home from "./containers/views/Home";
+import Ranking from "./containers/views/Ranking";
+import NewGame from "./containers/views/NewGame";
+import NotFound from "./containers/views/NotFound";
 
-let initialState;
-if (localStorage && localStorage.getItem("player")) {
-  initialState = {
-    state: {
-      player: JSON.parse(localStorage.getItem("player"))
-    }
-  };
-} else {
-  initialState = {
-    state: {
-      player: {
-        nickname: ""
-      }
-    }
-  };
-}
+let initialState = {};
 
 const history = createBrowserHistory();
 
@@ -78,6 +63,6 @@ ReactDom.render(
   document.getElementById("tetris")
 );
 
-store.dispatch(alert("Soon, will be here a fantastic Tetris ..."));
+store.dispatch(getPlayer());
 
-export { history, store };
+export { history };

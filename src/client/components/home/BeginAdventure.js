@@ -8,7 +8,7 @@ import {
   Button,
   FlexContainer,
   FlexSpacer
-} from "../../helpers/Common";
+} from "../helpers/Common";
 
 const BeginAdventure = () => {
   return (
