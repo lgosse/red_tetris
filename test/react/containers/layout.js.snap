@@ -8,6 +8,24 @@ exports[`App Component rendering should render 1`] = `
 </div>
 `;
 
+exports[`Footer Component rendering should render as expected 1`] = `
+<styled.div
+  padding="20px"
+>
+  <styled.div />
+  <styled.div
+    gameFont={true}
+    size="16px"
+  >
+    Made with 
+    <Styled(FaIcon)
+      className="terminal"
+    />
+     by lgosse and tbayet
+  </styled.div>
+</styled.div>
+`;
+
 exports[`Navbar Component rendering should render as expected 1`] = `
 <styled.div>
   <styled.span>

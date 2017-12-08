@@ -16,7 +16,7 @@ const ParagraphContainer = styled.span`
   font-size: ${global.font.size.subtitle};
 `;
 
-const TilePreview = props => {
+export const TilePreview = props => {
   return (
     <FullSizeContainer flex>
       <Paragraph center>

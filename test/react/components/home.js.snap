@@ -1,0 +1,2679 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home components BeginAdventure should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <BeginAdventure />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.div
+          center={true}
+          color="accent"
+          gameFont={true}
+          padding="10px"
+          size="20px"
+        >
+          Are you ready to fight for your tetriminos' lives?
+        </styled.div>,
+        <styled.div>
+          <styled.div />
+          <Link
+            replace={false}
+            to="/new-game"
+          >
+            <styled.button
+              primary={true}
+            >
+              PLAY NOW
+            </styled.button>
+          </Link>
+          <styled.div />
+        </styled.div>,
+      ],
+      "padding": "40px",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "center": true,
+          "children": "Are you ready to fight for your tetriminos' lives?",
+          "color": "accent",
+          "gameFont": true,
+          "padding": "10px",
+          "size": "20px",
+        },
+        "ref": null,
+        "rendered": "Are you ready to fight for your tetriminos' lives?",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled.div />,
+            <Link
+              replace={false}
+              to="/new-game"
+            >
+              <styled.button
+                primary={true}
+              >
+                PLAY NOW
+              </styled.button>
+            </Link>,
+            <styled.div />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <styled.button
+                primary={true}
+              >
+                PLAY NOW
+              </styled.button>,
+              "replace": false,
+              "to": "/new-game",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "PLAY NOW",
+                "primary": true,
+              },
+              "ref": null,
+              "rendered": "PLAY NOW",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div
+            center={true}
+            color="accent"
+            gameFont={true}
+            padding="10px"
+            size="20px"
+          >
+            Are you ready to fight for your tetriminos' lives?
+          </styled.div>,
+          <styled.div>
+            <styled.div />
+            <Link
+              replace={false}
+              to="/new-game"
+            >
+              <styled.button
+                primary={true}
+              >
+                PLAY NOW
+              </styled.button>
+            </Link>
+            <styled.div />
+          </styled.div>,
+        ],
+        "padding": "40px",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "center": true,
+            "children": "Are you ready to fight for your tetriminos' lives?",
+            "color": "accent",
+            "gameFont": true,
+            "padding": "10px",
+            "size": "20px",
+          },
+          "ref": null,
+          "rendered": "Are you ready to fight for your tetriminos' lives?",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled.div />,
+              <Link
+                replace={false}
+                to="/new-game"
+              >
+                <styled.button
+                  primary={true}
+                >
+                  PLAY NOW
+                </styled.button>
+              </Link>,
+              <styled.div />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <styled.button
+                  primary={true}
+                >
+                  PLAY NOW
+                </styled.button>,
+                "replace": false,
+                "to": "/new-game",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "PLAY NOW",
+                  "primary": true,
+                },
+                "ref": null,
+                "rendered": "PLAY NOW",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Home components RedTetrisHeader should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <RedTetrisHeader />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.div>
+          <styled.div>
+            <styled.div />
+            <styled.div>
+              <styled.div>
+                <styled.div
+                  className="boucingBlock"
+                >
+                  R
+                </styled.div>
+                <styled.div
+                  className="boucingBlock"
+                >
+                  E
+                </styled.div>
+                <styled.div
+                  className="boucingBlock"
+                >
+                  D
+                </styled.div>
+              </styled.div>
+              <styled.div>
+                <styled.div
+                  className="boucingBlock"
+                />
+                <styled.div
+                  className="boucingBlock"
+                />
+                <styled.div
+                  className="boucingBlock"
+                />
+              </styled.div>
+            </styled.div>
+            <styled.div />
+          </styled.div>
+        </styled.div>,
+        <styled.div>
+          <styled.div>
+            Enter the futuristic era of retro-gaming
+          </styled.div>
+        </styled.div>,
+      ],
+      "padding": "40px",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <styled.div>
+            <styled.div />
+            <styled.div>
+              <styled.div>
+                <styled.div
+                  className="boucingBlock"
+                >
+                  R
+                </styled.div>
+                <styled.div
+                  className="boucingBlock"
+                >
+                  E
+                </styled.div>
+                <styled.div
+                  className="boucingBlock"
+                >
+                  D
+                </styled.div>
+              </styled.div>
+              <styled.div>
+                <styled.div
+                  className="boucingBlock"
+                />
+                <styled.div
+                  className="boucingBlock"
+                />
+                <styled.div
+                  className="boucingBlock"
+                />
+              </styled.div>
+            </styled.div>
+            <styled.div />
+          </styled.div>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled.div />,
+              <styled.div>
+                <styled.div>
+                  <styled.div
+                    className="boucingBlock"
+                  >
+                    R
+                  </styled.div>
+                  <styled.div
+                    className="boucingBlock"
+                  >
+                    E
+                  </styled.div>
+                  <styled.div
+                    className="boucingBlock"
+                  >
+                    D
+                  </styled.div>
+                </styled.div>
+                <styled.div>
+                  <styled.div
+                    className="boucingBlock"
+                  />
+                  <styled.div
+                    className="boucingBlock"
+                  />
+                  <styled.div
+                    className="boucingBlock"
+                  />
+                </styled.div>
+              </styled.div>,
+              <styled.div />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <styled.div>
+                    <styled.div
+                      className="boucingBlock"
+                    >
+                      R
+                    </styled.div>
+                    <styled.div
+                      className="boucingBlock"
+                    >
+                      E
+                    </styled.div>
+                    <styled.div
+                      className="boucingBlock"
+                    >
+                      D
+                    </styled.div>
+                  </styled.div>,
+                  <styled.div>
+                    <styled.div
+                      className="boucingBlock"
+                    />
+                    <styled.div
+                      className="boucingBlock"
+                    />
+                    <styled.div
+                      className="boucingBlock"
+                    />
+                  </styled.div>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <styled.div
+                        className="boucingBlock"
+                      >
+                        R
+                      </styled.div>,
+                      <styled.div
+                        className="boucingBlock"
+                      >
+                        E
+                      </styled.div>,
+                      <styled.div
+                        className="boucingBlock"
+                      >
+                        D
+                      </styled.div>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "R",
+                        "className": "boucingBlock",
+                      },
+                      "ref": null,
+                      "rendered": "R",
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "E",
+                        "className": "boucingBlock",
+                      },
+                      "ref": null,
+                      "rendered": "E",
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "D",
+                        "className": "boucingBlock",
+                      },
+                      "ref": null,
+                      "rendered": "D",
+                      "type": [Function],
+                    },
+                  ],
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <styled.div
+                        className="boucingBlock"
+                      />,
+                      <styled.div
+                        className="boucingBlock"
+                      />,
+                      <styled.div
+                        className="boucingBlock"
+                      />,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "className": "boucingBlock",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "className": "boucingBlock",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "className": "boucingBlock",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                  ],
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <styled.div>
+            Enter the futuristic era of retro-gaming
+          </styled.div>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Enter the futuristic era of retro-gaming",
+          },
+          "ref": null,
+          "rendered": "Enter the futuristic era of retro-gaming",
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div>
+            <styled.div>
+              <styled.div />
+              <styled.div>
+                <styled.div>
+                  <styled.div
+                    className="boucingBlock"
+                  >
+                    R
+                  </styled.div>
+                  <styled.div
+                    className="boucingBlock"
+                  >
+                    E
+                  </styled.div>
+                  <styled.div
+                    className="boucingBlock"
+                  >
+                    D
+                  </styled.div>
+                </styled.div>
+                <styled.div>
+                  <styled.div
+                    className="boucingBlock"
+                  />
+                  <styled.div
+                    className="boucingBlock"
+                  />
+                  <styled.div
+                    className="boucingBlock"
+                  />
+                </styled.div>
+              </styled.div>
+              <styled.div />
+            </styled.div>
+          </styled.div>,
+          <styled.div>
+            <styled.div>
+              Enter the futuristic era of retro-gaming
+            </styled.div>
+          </styled.div>,
+        ],
+        "padding": "40px",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <styled.div>
+              <styled.div />
+              <styled.div>
+                <styled.div>
+                  <styled.div
+                    className="boucingBlock"
+                  >
+                    R
+                  </styled.div>
+                  <styled.div
+                    className="boucingBlock"
+                  >
+                    E
+                  </styled.div>
+                  <styled.div
+                    className="boucingBlock"
+                  >
+                    D
+                  </styled.div>
+                </styled.div>
+                <styled.div>
+                  <styled.div
+                    className="boucingBlock"
+                  />
+                  <styled.div
+                    className="boucingBlock"
+                  />
+                  <styled.div
+                    className="boucingBlock"
+                  />
+                </styled.div>
+              </styled.div>
+              <styled.div />
+            </styled.div>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <styled.div />,
+                <styled.div>
+                  <styled.div>
+                    <styled.div
+                      className="boucingBlock"
+                    >
+                      R
+                    </styled.div>
+                    <styled.div
+                      className="boucingBlock"
+                    >
+                      E
+                    </styled.div>
+                    <styled.div
+                      className="boucingBlock"
+                    >
+                      D
+                    </styled.div>
+                  </styled.div>
+                  <styled.div>
+                    <styled.div
+                      className="boucingBlock"
+                    />
+                    <styled.div
+                      className="boucingBlock"
+                    />
+                    <styled.div
+                      className="boucingBlock"
+                    />
+                  </styled.div>
+                </styled.div>,
+                <styled.div />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <styled.div>
+                      <styled.div
+                        className="boucingBlock"
+                      >
+                        R
+                      </styled.div>
+                      <styled.div
+                        className="boucingBlock"
+                      >
+                        E
+                      </styled.div>
+                      <styled.div
+                        className="boucingBlock"
+                      >
+                        D
+                      </styled.div>
+                    </styled.div>,
+                    <styled.div>
+                      <styled.div
+                        className="boucingBlock"
+                      />
+                      <styled.div
+                        className="boucingBlock"
+                      />
+                      <styled.div
+                        className="boucingBlock"
+                      />
+                    </styled.div>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": Array [
+                        <styled.div
+                          className="boucingBlock"
+                        >
+                          R
+                        </styled.div>,
+                        <styled.div
+                          className="boucingBlock"
+                        >
+                          E
+                        </styled.div>,
+                        <styled.div
+                          className="boucingBlock"
+                        >
+                          D
+                        </styled.div>,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": "R",
+                          "className": "boucingBlock",
+                        },
+                        "ref": null,
+                        "rendered": "R",
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": "E",
+                          "className": "boucingBlock",
+                        },
+                        "ref": null,
+                        "rendered": "E",
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": "D",
+                          "className": "boucingBlock",
+                        },
+                        "ref": null,
+                        "rendered": "D",
+                        "type": [Function],
+                      },
+                    ],
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": Array [
+                        <styled.div
+                          className="boucingBlock"
+                        />,
+                        <styled.div
+                          className="boucingBlock"
+                        />,
+                        <styled.div
+                          className="boucingBlock"
+                        />,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "className": "boucingBlock",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "className": "boucingBlock",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "className": "boucingBlock",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                    ],
+                    "type": [Function],
+                  },
+                ],
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <styled.div>
+              Enter the futuristic era of retro-gaming
+            </styled.div>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Enter the futuristic era of retro-gaming",
+            },
+            "ref": null,
+            "rendered": "Enter the futuristic era of retro-gaming",
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Home components RedTetrisPreview FullComponent should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <RedTetrisPreview />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.div
+          flexContainer={true}
+          padding="40px"
+        >
+          <TilePreview
+            icon="users"
+          >
+            <p>
+              <styled.span>
+                Multiplayer
+              </styled.span>
+            </p>
+            <p>
+              Did you ever dream of playing 
+              <styled.span>
+                TETRIS
+              </styled.span>
+               with your friends without the fear of boring them? We made your dream come true.
+            </p>
+          </TilePreview>
+          <TilePreview
+            icon="gamepad"
+          >
+            <p>
+              <styled.span>
+                TETRIS, but better
+              </styled.span>
+            </p>
+            <p>
+              Beautiful, powerful, extendable, and yet still your beloved simple game.
+            </p>
+          </TilePreview>
+          <TilePreview
+            icon="university"
+          >
+            <p>
+              <styled.span>
+                Competitive
+              </styled.span>
+            </p>
+            <p>
+              Ever thought of being the first 
+              <styled.span>
+                TETRIS
+              </styled.span>
+               pro player in the world? It's time to unleash your OCD and become the very best.
+            </p>
+          </TilePreview>
+        </styled.div>,
+        <styled.div>
+          <HexaSeparator
+            primary={true}
+          />
+        </styled.div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <TilePreview
+              icon="users"
+            >
+              <p>
+                <styled.span>
+                  Multiplayer
+                </styled.span>
+              </p>
+              <p>
+                Did you ever dream of playing 
+                <styled.span>
+                  TETRIS
+                </styled.span>
+                 with your friends without the fear of boring them? We made your dream come true.
+              </p>
+            </TilePreview>,
+            <TilePreview
+              icon="gamepad"
+            >
+              <p>
+                <styled.span>
+                  TETRIS, but better
+                </styled.span>
+              </p>
+              <p>
+                Beautiful, powerful, extendable, and yet still your beloved simple game.
+              </p>
+            </TilePreview>,
+            <TilePreview
+              icon="university"
+            >
+              <p>
+                <styled.span>
+                  Competitive
+                </styled.span>
+              </p>
+              <p>
+                Ever thought of being the first 
+                <styled.span>
+                  TETRIS
+                </styled.span>
+                 pro player in the world? It's time to unleash your OCD and become the very best.
+              </p>
+            </TilePreview>,
+          ],
+          "flexContainer": true,
+          "padding": "40px",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <p>
+                  <styled.span>
+                    Multiplayer
+                  </styled.span>
+                </p>,
+                <p>
+                  Did you ever dream of playing 
+                  <styled.span>
+                    TETRIS
+                  </styled.span>
+                   with your friends without the fear of boring them? We made your dream come true.
+                </p>,
+              ],
+              "icon": "users",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <styled.span>
+                    Multiplayer
+                  </styled.span>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Multiplayer",
+                  },
+                  "ref": null,
+                  "rendered": "Multiplayer",
+                  "type": [Function],
+                },
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Did you ever dream of playing ",
+                    <styled.span>
+                      TETRIS
+                    </styled.span>,
+                    " with your friends without the fear of boring them? We made your dream come true.",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Did you ever dream of playing ",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "TETRIS",
+                    },
+                    "ref": null,
+                    "rendered": "TETRIS",
+                    "type": [Function],
+                  },
+                  " with your friends without the fear of boring them? We made your dream come true.",
+                ],
+                "type": "p",
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <p>
+                  <styled.span>
+                    TETRIS, but better
+                  </styled.span>
+                </p>,
+                <p>
+                  Beautiful, powerful, extendable, and yet still your beloved simple game.
+                </p>,
+              ],
+              "icon": "gamepad",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <styled.span>
+                    TETRIS, but better
+                  </styled.span>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "TETRIS, but better",
+                  },
+                  "ref": null,
+                  "rendered": "TETRIS, but better",
+                  "type": [Function],
+                },
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Beautiful, powerful, extendable, and yet still your beloved simple game.",
+                },
+                "ref": null,
+                "rendered": "Beautiful, powerful, extendable, and yet still your beloved simple game.",
+                "type": "p",
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <p>
+                  <styled.span>
+                    Competitive
+                  </styled.span>
+                </p>,
+                <p>
+                  Ever thought of being the first 
+                  <styled.span>
+                    TETRIS
+                  </styled.span>
+                   pro player in the world? It's time to unleash your OCD and become the very best.
+                </p>,
+              ],
+              "icon": "university",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <styled.span>
+                    Competitive
+                  </styled.span>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Competitive",
+                  },
+                  "ref": null,
+                  "rendered": "Competitive",
+                  "type": [Function],
+                },
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Ever thought of being the first ",
+                    <styled.span>
+                      TETRIS
+                    </styled.span>,
+                    " pro player in the world? It's time to unleash your OCD and become the very best.",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Ever thought of being the first ",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "TETRIS",
+                    },
+                    "ref": null,
+                    "rendered": "TETRIS",
+                    "type": [Function],
+                  },
+                  " pro player in the world? It's time to unleash your OCD and become the very best.",
+                ],
+                "type": "p",
+              },
+            ],
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <HexaSeparator
+            primary={true}
+          />,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "primary": true,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div
+            flexContainer={true}
+            padding="40px"
+          >
+            <TilePreview
+              icon="users"
+            >
+              <p>
+                <styled.span>
+                  Multiplayer
+                </styled.span>
+              </p>
+              <p>
+                Did you ever dream of playing 
+                <styled.span>
+                  TETRIS
+                </styled.span>
+                 with your friends without the fear of boring them? We made your dream come true.
+              </p>
+            </TilePreview>
+            <TilePreview
+              icon="gamepad"
+            >
+              <p>
+                <styled.span>
+                  TETRIS, but better
+                </styled.span>
+              </p>
+              <p>
+                Beautiful, powerful, extendable, and yet still your beloved simple game.
+              </p>
+            </TilePreview>
+            <TilePreview
+              icon="university"
+            >
+              <p>
+                <styled.span>
+                  Competitive
+                </styled.span>
+              </p>
+              <p>
+                Ever thought of being the first 
+                <styled.span>
+                  TETRIS
+                </styled.span>
+                 pro player in the world? It's time to unleash your OCD and become the very best.
+              </p>
+            </TilePreview>
+          </styled.div>,
+          <styled.div>
+            <HexaSeparator
+              primary={true}
+            />
+          </styled.div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <TilePreview
+                icon="users"
+              >
+                <p>
+                  <styled.span>
+                    Multiplayer
+                  </styled.span>
+                </p>
+                <p>
+                  Did you ever dream of playing 
+                  <styled.span>
+                    TETRIS
+                  </styled.span>
+                   with your friends without the fear of boring them? We made your dream come true.
+                </p>
+              </TilePreview>,
+              <TilePreview
+                icon="gamepad"
+              >
+                <p>
+                  <styled.span>
+                    TETRIS, but better
+                  </styled.span>
+                </p>
+                <p>
+                  Beautiful, powerful, extendable, and yet still your beloved simple game.
+                </p>
+              </TilePreview>,
+              <TilePreview
+                icon="university"
+              >
+                <p>
+                  <styled.span>
+                    Competitive
+                  </styled.span>
+                </p>
+                <p>
+                  Ever thought of being the first 
+                  <styled.span>
+                    TETRIS
+                  </styled.span>
+                   pro player in the world? It's time to unleash your OCD and become the very best.
+                </p>
+              </TilePreview>,
+            ],
+            "flexContainer": true,
+            "padding": "40px",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <p>
+                    <styled.span>
+                      Multiplayer
+                    </styled.span>
+                  </p>,
+                  <p>
+                    Did you ever dream of playing 
+                    <styled.span>
+                      TETRIS
+                    </styled.span>
+                     with your friends without the fear of boring them? We made your dream come true.
+                  </p>,
+                ],
+                "icon": "users",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <styled.span>
+                      Multiplayer
+                    </styled.span>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "Multiplayer",
+                    },
+                    "ref": null,
+                    "rendered": "Multiplayer",
+                    "type": [Function],
+                  },
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Did you ever dream of playing ",
+                      <styled.span>
+                        TETRIS
+                      </styled.span>,
+                      " with your friends without the fear of boring them? We made your dream come true.",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Did you ever dream of playing ",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "TETRIS",
+                      },
+                      "ref": null,
+                      "rendered": "TETRIS",
+                      "type": [Function],
+                    },
+                    " with your friends without the fear of boring them? We made your dream come true.",
+                  ],
+                  "type": "p",
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <p>
+                    <styled.span>
+                      TETRIS, but better
+                    </styled.span>
+                  </p>,
+                  <p>
+                    Beautiful, powerful, extendable, and yet still your beloved simple game.
+                  </p>,
+                ],
+                "icon": "gamepad",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <styled.span>
+                      TETRIS, but better
+                    </styled.span>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "TETRIS, but better",
+                    },
+                    "ref": null,
+                    "rendered": "TETRIS, but better",
+                    "type": [Function],
+                  },
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Beautiful, powerful, extendable, and yet still your beloved simple game.",
+                  },
+                  "ref": null,
+                  "rendered": "Beautiful, powerful, extendable, and yet still your beloved simple game.",
+                  "type": "p",
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <p>
+                    <styled.span>
+                      Competitive
+                    </styled.span>
+                  </p>,
+                  <p>
+                    Ever thought of being the first 
+                    <styled.span>
+                      TETRIS
+                    </styled.span>
+                     pro player in the world? It's time to unleash your OCD and become the very best.
+                  </p>,
+                ],
+                "icon": "university",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <styled.span>
+                      Competitive
+                    </styled.span>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "Competitive",
+                    },
+                    "ref": null,
+                    "rendered": "Competitive",
+                    "type": [Function],
+                  },
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Ever thought of being the first ",
+                      <styled.span>
+                        TETRIS
+                      </styled.span>,
+                      " pro player in the world? It's time to unleash your OCD and become the very best.",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Ever thought of being the first ",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "TETRIS",
+                      },
+                      "ref": null,
+                      "rendered": "TETRIS",
+                      "type": [Function],
+                    },
+                    " pro player in the world? It's time to unleash your OCD and become the very best.",
+                  ],
+                  "type": "p",
+                },
+              ],
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <HexaSeparator
+              primary={true}
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "primary": true,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Home components RedTetrisPreview TilePreview should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <TilePreview
+    icon="users"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.div
+          center={true}
+        >
+          <Styled(FaIcon)
+            className="users"
+            primary={true}
+            size="50px"
+          />
+        </styled.div>,
+        <styled.div
+          center={true}
+          width="70%"
+        >
+          <styled.span />
+        </styled.div>,
+      ],
+      "flex": true,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "center": true,
+          "children": <Styled(FaIcon)
+            className="users"
+            primary={true}
+            size="50px"
+          />,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "className": "users",
+            "primary": true,
+            "size": "50px",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "center": true,
+          "children": <styled.span />,
+          "width": "70%",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div
+            center={true}
+          >
+            <Styled(FaIcon)
+              className="users"
+              primary={true}
+              size="50px"
+            />
+          </styled.div>,
+          <styled.div
+            center={true}
+            width="70%"
+          >
+            <styled.span />
+          </styled.div>,
+        ],
+        "flex": true,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "center": true,
+            "children": <Styled(FaIcon)
+              className="users"
+              primary={true}
+              size="50px"
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "users",
+              "primary": true,
+              "size": "50px",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "center": true,
+            "children": <styled.span />,
+            "width": "70%",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Home components RedTetrisPreview should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <RedTetrisPreview />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.div
+          flexContainer={true}
+          padding="40px"
+        >
+          <TilePreview
+            icon="users"
+          >
+            <p>
+              <styled.span>
+                Multiplayer
+              </styled.span>
+            </p>
+            <p>
+              Did you ever dream of playing 
+              <styled.span>
+                TETRIS
+              </styled.span>
+               with your friends without the fear of boring them? We made your dream come true.
+            </p>
+          </TilePreview>
+          <TilePreview
+            icon="gamepad"
+          >
+            <p>
+              <styled.span>
+                TETRIS, but better
+              </styled.span>
+            </p>
+            <p>
+              Beautiful, powerful, extendable, and yet still your beloved simple game.
+            </p>
+          </TilePreview>
+          <TilePreview
+            icon="university"
+          >
+            <p>
+              <styled.span>
+                Competitive
+              </styled.span>
+            </p>
+            <p>
+              Ever thought of being the first 
+              <styled.span>
+                TETRIS
+              </styled.span>
+               pro player in the world? It's time to unleash your OCD and become the very best.
+            </p>
+          </TilePreview>
+        </styled.div>,
+        <styled.div>
+          <HexaSeparator
+            primary={true}
+          />
+        </styled.div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <TilePreview
+              icon="users"
+            >
+              <p>
+                <styled.span>
+                  Multiplayer
+                </styled.span>
+              </p>
+              <p>
+                Did you ever dream of playing 
+                <styled.span>
+                  TETRIS
+                </styled.span>
+                 with your friends without the fear of boring them? We made your dream come true.
+              </p>
+            </TilePreview>,
+            <TilePreview
+              icon="gamepad"
+            >
+              <p>
+                <styled.span>
+                  TETRIS, but better
+                </styled.span>
+              </p>
+              <p>
+                Beautiful, powerful, extendable, and yet still your beloved simple game.
+              </p>
+            </TilePreview>,
+            <TilePreview
+              icon="university"
+            >
+              <p>
+                <styled.span>
+                  Competitive
+                </styled.span>
+              </p>
+              <p>
+                Ever thought of being the first 
+                <styled.span>
+                  TETRIS
+                </styled.span>
+                 pro player in the world? It's time to unleash your OCD and become the very best.
+              </p>
+            </TilePreview>,
+          ],
+          "flexContainer": true,
+          "padding": "40px",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <p>
+                  <styled.span>
+                    Multiplayer
+                  </styled.span>
+                </p>,
+                <p>
+                  Did you ever dream of playing 
+                  <styled.span>
+                    TETRIS
+                  </styled.span>
+                   with your friends without the fear of boring them? We made your dream come true.
+                </p>,
+              ],
+              "icon": "users",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <styled.span>
+                    Multiplayer
+                  </styled.span>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Multiplayer",
+                  },
+                  "ref": null,
+                  "rendered": "Multiplayer",
+                  "type": [Function],
+                },
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Did you ever dream of playing ",
+                    <styled.span>
+                      TETRIS
+                    </styled.span>,
+                    " with your friends without the fear of boring them? We made your dream come true.",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Did you ever dream of playing ",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "TETRIS",
+                    },
+                    "ref": null,
+                    "rendered": "TETRIS",
+                    "type": [Function],
+                  },
+                  " with your friends without the fear of boring them? We made your dream come true.",
+                ],
+                "type": "p",
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <p>
+                  <styled.span>
+                    TETRIS, but better
+                  </styled.span>
+                </p>,
+                <p>
+                  Beautiful, powerful, extendable, and yet still your beloved simple game.
+                </p>,
+              ],
+              "icon": "gamepad",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <styled.span>
+                    TETRIS, but better
+                  </styled.span>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "TETRIS, but better",
+                  },
+                  "ref": null,
+                  "rendered": "TETRIS, but better",
+                  "type": [Function],
+                },
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Beautiful, powerful, extendable, and yet still your beloved simple game.",
+                },
+                "ref": null,
+                "rendered": "Beautiful, powerful, extendable, and yet still your beloved simple game.",
+                "type": "p",
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <p>
+                  <styled.span>
+                    Competitive
+                  </styled.span>
+                </p>,
+                <p>
+                  Ever thought of being the first 
+                  <styled.span>
+                    TETRIS
+                  </styled.span>
+                   pro player in the world? It's time to unleash your OCD and become the very best.
+                </p>,
+              ],
+              "icon": "university",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <styled.span>
+                    Competitive
+                  </styled.span>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Competitive",
+                  },
+                  "ref": null,
+                  "rendered": "Competitive",
+                  "type": [Function],
+                },
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Ever thought of being the first ",
+                    <styled.span>
+                      TETRIS
+                    </styled.span>,
+                    " pro player in the world? It's time to unleash your OCD and become the very best.",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Ever thought of being the first ",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "TETRIS",
+                    },
+                    "ref": null,
+                    "rendered": "TETRIS",
+                    "type": [Function],
+                  },
+                  " pro player in the world? It's time to unleash your OCD and become the very best.",
+                ],
+                "type": "p",
+              },
+            ],
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <HexaSeparator
+            primary={true}
+          />,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "primary": true,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div
+            flexContainer={true}
+            padding="40px"
+          >
+            <TilePreview
+              icon="users"
+            >
+              <p>
+                <styled.span>
+                  Multiplayer
+                </styled.span>
+              </p>
+              <p>
+                Did you ever dream of playing 
+                <styled.span>
+                  TETRIS
+                </styled.span>
+                 with your friends without the fear of boring them? We made your dream come true.
+              </p>
+            </TilePreview>
+            <TilePreview
+              icon="gamepad"
+            >
+              <p>
+                <styled.span>
+                  TETRIS, but better
+                </styled.span>
+              </p>
+              <p>
+                Beautiful, powerful, extendable, and yet still your beloved simple game.
+              </p>
+            </TilePreview>
+            <TilePreview
+              icon="university"
+            >
+              <p>
+                <styled.span>
+                  Competitive
+                </styled.span>
+              </p>
+              <p>
+                Ever thought of being the first 
+                <styled.span>
+                  TETRIS
+                </styled.span>
+                 pro player in the world? It's time to unleash your OCD and become the very best.
+              </p>
+            </TilePreview>
+          </styled.div>,
+          <styled.div>
+            <HexaSeparator
+              primary={true}
+            />
+          </styled.div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <TilePreview
+                icon="users"
+              >
+                <p>
+                  <styled.span>
+                    Multiplayer
+                  </styled.span>
+                </p>
+                <p>
+                  Did you ever dream of playing 
+                  <styled.span>
+                    TETRIS
+                  </styled.span>
+                   with your friends without the fear of boring them? We made your dream come true.
+                </p>
+              </TilePreview>,
+              <TilePreview
+                icon="gamepad"
+              >
+                <p>
+                  <styled.span>
+                    TETRIS, but better
+                  </styled.span>
+                </p>
+                <p>
+                  Beautiful, powerful, extendable, and yet still your beloved simple game.
+                </p>
+              </TilePreview>,
+              <TilePreview
+                icon="university"
+              >
+                <p>
+                  <styled.span>
+                    Competitive
+                  </styled.span>
+                </p>
+                <p>
+                  Ever thought of being the first 
+                  <styled.span>
+                    TETRIS
+                  </styled.span>
+                   pro player in the world? It's time to unleash your OCD and become the very best.
+                </p>
+              </TilePreview>,
+            ],
+            "flexContainer": true,
+            "padding": "40px",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <p>
+                    <styled.span>
+                      Multiplayer
+                    </styled.span>
+                  </p>,
+                  <p>
+                    Did you ever dream of playing 
+                    <styled.span>
+                      TETRIS
+                    </styled.span>
+                     with your friends without the fear of boring them? We made your dream come true.
+                  </p>,
+                ],
+                "icon": "users",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <styled.span>
+                      Multiplayer
+                    </styled.span>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "Multiplayer",
+                    },
+                    "ref": null,
+                    "rendered": "Multiplayer",
+                    "type": [Function],
+                  },
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Did you ever dream of playing ",
+                      <styled.span>
+                        TETRIS
+                      </styled.span>,
+                      " with your friends without the fear of boring them? We made your dream come true.",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Did you ever dream of playing ",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "TETRIS",
+                      },
+                      "ref": null,
+                      "rendered": "TETRIS",
+                      "type": [Function],
+                    },
+                    " with your friends without the fear of boring them? We made your dream come true.",
+                  ],
+                  "type": "p",
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <p>
+                    <styled.span>
+                      TETRIS, but better
+                    </styled.span>
+                  </p>,
+                  <p>
+                    Beautiful, powerful, extendable, and yet still your beloved simple game.
+                  </p>,
+                ],
+                "icon": "gamepad",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <styled.span>
+                      TETRIS, but better
+                    </styled.span>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "TETRIS, but better",
+                    },
+                    "ref": null,
+                    "rendered": "TETRIS, but better",
+                    "type": [Function],
+                  },
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Beautiful, powerful, extendable, and yet still your beloved simple game.",
+                  },
+                  "ref": null,
+                  "rendered": "Beautiful, powerful, extendable, and yet still your beloved simple game.",
+                  "type": "p",
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <p>
+                    <styled.span>
+                      Competitive
+                    </styled.span>
+                  </p>,
+                  <p>
+                    Ever thought of being the first 
+                    <styled.span>
+                      TETRIS
+                    </styled.span>
+                     pro player in the world? It's time to unleash your OCD and become the very best.
+                  </p>,
+                ],
+                "icon": "university",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <styled.span>
+                      Competitive
+                    </styled.span>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "Competitive",
+                    },
+                    "ref": null,
+                    "rendered": "Competitive",
+                    "type": [Function],
+                  },
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Ever thought of being the first ",
+                      <styled.span>
+                        TETRIS
+                      </styled.span>,
+                      " pro player in the world? It's time to unleash your OCD and become the very best.",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Ever thought of being the first ",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "TETRIS",
+                      },
+                      "ref": null,
+                      "rendered": "TETRIS",
+                      "type": [Function],
+                    },
+                    " pro player in the world? It's time to unleash your OCD and become the very best.",
+                  ],
+                  "type": "p",
+                },
+              ],
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <HexaSeparator
+              primary={true}
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "primary": true,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;

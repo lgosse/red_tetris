@@ -1,6 +1,8 @@
 import { configureStore, startServer } from "../helpers/server";
 import rootReducer from "../../src/client/reducers";
 import chai from "chai";
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
 
 // alert
 import { ALERT_POP, alert } from "../../src/client/actions/alert";
@@ -9,11 +11,22 @@ import { ALERT_POP, alert } from "../../src/client/actions/alert";
 import {
   NEW_GAME_CREATE,
   NEW_GAME_JOIN,
-  newGame
+  newGame,
+  joinGame
 } from "../../src/client/actions/newGame";
 
 // server
 import { SERVER_PING, ping } from "../../src/client/actions/server";
+
+// player
+import {
+  PLAYER_UPDATE,
+  PLAYER_SAVE,
+  PLAYER_GET,
+  getPlayer,
+  updatePlayer,
+  savePlayer
+} from "../../src/client/actions/player";
 
 chai.should();
 
@@ -62,13 +75,33 @@ describe("Reducers", () => {
         };
         const initialState = {};
         const store = configureStore(rootReducer, null, initialState, {
-          JOIN_GAME: ({ dispatch, getState }) => {
+          NEW_GAME_JOIN: ({ dispatch, getState }) => {
             const state = getState();
             state.newGame.infos.should.deep.equal(INFOS);
           }
         });
 
-        store.dispatch(newGame(INFOS));
+        store.dispatch(joinGame(INFOS));
+        done();
+      });
+    });
+  });
+
+  describe("player", () => {
+    describe("PLAYER_UPDATE", () => {
+      it("should update player infos", done => {
+        const PLAYER = {
+          nickname: "test"
+        };
+        const initialState = {};
+        const store = configureStore(rootReducer, null, initialState, {
+          PLAYER_UPDATE: ({ dispatch, getState }) => {
+            const state = getState();
+            state.player.should.deep.equal(PLAYER);
+          }
+        });
+
+        store.dispatch(updatePlayer(PLAYER));
         done();
       });
     });
