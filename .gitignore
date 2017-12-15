@@ -1,6 +1,7 @@
 *~
 *.swp
 *.swo
+.idea
 log
 tmp
 node_modules
