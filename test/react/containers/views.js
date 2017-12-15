@@ -3,17 +3,17 @@ import React from "react";
 import equalJSX from "chai-equal-jsx";
 import { createRenderer } from "react-dom/test-utils";
 
-import { Connect, StyledComponent } from "../helpers/mockComponents";
+import { Connect, StyledComponent } from "../../helpers/mockComponents";
 
-import Home from "../../src/client/containers/views/Home";
-import Ranking from "../../src/client/containers/views/Ranking";
-import NewGame from "../../src/client/containers/views/NewGame";
-import NotFound from "../../src/client/containers/views/NotFound";
+import Home from "../../../src/client/containers/views/Home";
+import Ranking from "../../../src/client/containers/views/Ranking";
+import NewGame from "../../../src/client/containers/views/NewGame";
+import NotFound from "../../../src/client/containers/views/NotFound";
 import {
   containerStyle,
   Code404,
   Message
-} from "../../src/client/containers/views/NotFound";
+} from "../../../src/client/containers/views/NotFound";
 
 chai.should();
 chai.use(equalJSX);

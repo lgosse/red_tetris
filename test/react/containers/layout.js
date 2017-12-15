@@ -11,12 +11,13 @@ import {
   NavLink,
   Navbar,
   mapStateToNavbarProps
-} from "../../src/client/containers/layout/Navbar";
-import { Spacer } from "../../src/client/components/helpers/Common.js";
+} from "../../../src/client/containers/layout/Navbar";
+import { Spacer } from "../../../src/client/components/helpers/Common.js";
+import Footer from "../../../src/client/containers/layout/Footer";
 
-import { App, mapStateToAppProps } from "../../src/client/containers/App";
+import { App, mapStateToAppProps } from "../../../src/client/containers/App";
 
-import { Connect, StyledComponent } from "../helpers/mockComponents";
+import { Connect, StyledComponent } from "../../helpers/mockComponents";
 
 chai.should();
 chai.use(equalJSX);
@@ -72,6 +73,17 @@ describe("App", () => {
       const appProps = mapStateToAppProps(state, alert);
 
       const output = App(...appProps, <div />);
+      output.should.matchSnapshot();
+    });
+  });
+});
+
+describe("Footer", () => {
+  describe("Component rendering", () => {
+    it("should render as expected", () => {
+      const renderer = createRenderer();
+      renderer.render(React.createElement(Footer));
+      const output = renderer.getRenderOutput();
       output.should.matchSnapshot();
     });
   });

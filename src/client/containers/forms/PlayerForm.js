@@ -12,7 +12,7 @@ import {
   Button
 } from "../../components/helpers/Common";
 
-const PlayerForm = ({ player, changeNickName, saveNickName }) => {
+export const PlayerForm = ({ player, changeNickname, saveNickname }) => {
   return (
     <FullSizeContainer padding="20px">
       <Paragraph center size="20px" padding="20px" gameFont color="accent">
@@ -20,15 +20,21 @@ const PlayerForm = ({ player, changeNickName, saveNickName }) => {
       </Paragraph>
       <FlexContainer flex>
         <FlexSpacer />
-        <form onSubmit={e => saveNickName(e, player)}>
+        <form onSubmit={e => saveNickname(e, player)}>
           <FlexContainer>
             <Input
+              id="nicknameInput"
               placeholder="Nickname..."
               name="nickname"
               value={player.nickname}
-              onChange={e => changeNickName(e, player)}
+              onChange={e => changeNickname(e, player)}
             />
-            <Button type="submit" primary style={{ marginLeft: "20px" }}>
+            <Button
+              id="submitButton"
+              type="submit"
+              primary
+              style={{ marginLeft: "20px" }}
+            >
               SAVE
             </Button>
           </FlexContainer>
@@ -39,14 +45,14 @@ const PlayerForm = ({ player, changeNickName, saveNickName }) => {
   );
 };
 
-const mapStateToPlayerFormProps = (state, props) => {
+export const mapStateToPlayerFormProps = state => {
   return {
     player: state.state.player
   };
 };
 
-const mapDispatchToPlayerFormProps = (dispatch, { props, player }) => {
-  const changeNickName = (event, player) => {
+export const mapDispatchToPlayerFormProps = dispatch => {
+  const changeNickname = (event, player) => {
     dispatch(
       updatePlayer({
         ...player,
@@ -55,14 +61,14 @@ const mapDispatchToPlayerFormProps = (dispatch, { props, player }) => {
     );
   };
 
-  const saveNickName = (event, player) => {
+  const saveNickname = (event, player) => {
     event.preventDefault();
     dispatch(savePlayer(player));
   };
 
   return {
-    changeNickName,
-    saveNickName
+    changeNickname,
+    saveNickname
   };
 };
 

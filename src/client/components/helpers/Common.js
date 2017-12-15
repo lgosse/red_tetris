@@ -3,7 +3,9 @@ import React from "react";
 import styled from "styled-components";
 import global from "../../styles/global";
 
-export const Spacer = styled.div`flex: 1;`;
+export const Spacer = styled.div`
+  flex: 1;
+`;
 
 export const Button = styled.button`
   padding: 15px 25px;
@@ -51,7 +53,9 @@ export const FlexContainer = styled.div`
   ${props => props.flex && `flex: 1`};
 `;
 
-export const FlexSpacer = styled.div`flex: 1;`;
+export const FlexSpacer = styled.div`
+  flex: 1;
+`;
 
 export const FullSizeContainer = styled.div`
   width: 100%;
@@ -96,15 +100,9 @@ const Hexagone = styled.span`
   }
 `;
 
-const HexaContainer = styled.div`height: 6px;`;
-
-export const HexaSeparator = props => {
-  return (
-    <HexaContainer>
-      <Hexagone primary={props.primary} />
-    </HexaContainer>
-  );
-};
+const HexaContainer = styled.div`
+  height: 6px;
+`;
 
 export const Paragraph = styled.div`
   ${props => {
@@ -122,14 +120,6 @@ export const Paragraph = styled.div`
   ${props => props.gameFont && `font-family: ${global.font.family.game}`};
 `;
 
-const FaIcon = props => <i className={`fa fa-${props.className}`} />;
-
-export const Icon = styled(FaIcon)`
-  ${props => props.primary && `color: ${global.color.primary}`};
-  ${props => props.accent && `color: ${global.color.accent}`};
-  ${props => props.size && `font-size: ${props.size}`};
-`;
-
 export const RedContainer = FullSizeContainer.extend`
   background-color: ${global.color.primary};
   background-image: ${global.assets.backgroundRed};
@@ -140,7 +130,9 @@ export const LightContainer = FullSizeContainer.extend`
   background-color: ${global.color.accent};
 `;
 
-export const GameFont = styled.span`font-family: ${global.font.family.game};`;
+export const GameFont = styled.span`
+  font-family: ${global.font.family.game};
+`;
 
 export const Input = styled.input`
   box-sizing: border-box;
@@ -161,4 +153,18 @@ export const Input = styled.input`
   &::placeholder {
     color: ${global.color.accent};
   }
+`;
+
+export const HexaSeparator = props => (
+  <HexaContainer>
+    <Hexagone primary={props.primary} />
+  </HexaContainer>
+);
+
+const FaIcon = props => <i className={`fa fa-${props.className}`} />;
+
+export const Icon = styled(FaIcon)`
+  ${props => props.primary && `color: ${global.color.primary}`};
+  ${props => props.accent && `color: ${global.color.accent}`};
+  ${props => props.size && `font-size: ${props.size}`};
 `;
