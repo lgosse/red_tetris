@@ -3,7 +3,7 @@ import styled from "styled-components";
 import global from "../../styles/global";
 
 const Code404 = styled.div`
-  color: ${global.color.primary};
+  color: ${global.color.accent};
   font-family: ${global.font.family.game};
   font-size: 40px;
   text-align: center;
@@ -13,7 +13,7 @@ const Code404 = styled.div`
 const Message = styled.div`
   text-align: center;
   font-size: ${global.font.size.subtitle};
-  color: ${global.color.primary};
+  color: ${global.color.accent};
   width: 300px;
   margin: auto;
 `;

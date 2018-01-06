@@ -1,5 +1,6 @@
 import * as server from "../../src/server/index";
 import { createStore, applyMiddleware } from "redux";
+import socketIoMiddleWare from "../../src/client/middleware/socketIoMiddleware";
 import thunk from "redux-thunk";
 
 export const startServer = (params, cb) => {
@@ -32,14 +33,5 @@ const myMiddleware = (types = {}) => {
       cb({ getState: store.getState, dispatch: store.dispatch, action });
     }
     return result;
-  };
-};
-
-const socketIoMiddleWare = socket => ({ dispatch, getState }) => {
-  if (socket) socket.on("action", dispatch);
-  return next => action => {
-    if (socket && action.type && action.type.indexOf("server/") === 0)
-      socket.emit("action", action);
-    return next(action);
   };
 };
