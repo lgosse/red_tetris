@@ -21,6 +21,7 @@ import {
 import {
   Switch,
   Router,
+  Redirect,
   Route,
   hashHistory,
   browserHistory
@@ -33,6 +34,7 @@ import Home from "./containers/views/Home";
 import Ranking from "./containers/views/Ranking";
 import NewGame from "./containers/views/NewGame";
 import NotFound from "./containers/views/NotFound";
+import CreateParty from "./containers/views/CreateParty";
 
 let initialState = {};
 
@@ -47,6 +49,11 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk, routingMiddleware))
 );
 
+const checkNickname = () => {
+  const player = store.getState().state.player;
+  return (Boolean(player.nickname));
+}
+
 ReactDom.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
@@ -55,6 +62,7 @@ ReactDom.render(
           <Route exact path="/" component={Home} />
           <Route path="/ranking" component={Ranking} />
           <Route path="/new-game" component={NewGame} />
+          <Route path="/create-party" render={() => { return checkNickname() ? <CreateParty /> : <Redirect to="/new-game" />}} />
           <Route component={NotFound} />
         </Switch>
       </App>
