@@ -1,28 +1,26 @@
 import { configureStore, startServer } from "../helpers/server";
+import io from "socket.io-client";
+import params from "../../params";
 import rootReducer from "../../src/client/reducers";
 import chai from "chai";
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
 // alert
-import { ALERT_POP, alert } from "../../src/client/actions/alert";
+import { ALERT_POP } from "../../src/actionsTypes";
+import { alert } from "../../src/client/actions/alert";
 
 // newGame
-import {
-  NEW_GAME_CREATE,
-  NEW_GAME_JOIN,
-  newGame,
-  joinGame
-} from "../../src/client/actions/newGame";
+import { NEW_GAME_CREATE, NEW_GAME_JOIN } from "../../src/actionsTypes";
+import { newGame, joinGame } from "../../src/client/actions/newGame";
 
 // server
-import { SERVER_PING, ping } from "../../src/client/actions/server";
+import { PLAYER_UPDATE, PLAYER_SAVE, PLAYER_GET } from "../../src/actionsTypes";
+import { ping } from "../../src/client/actions/server";
 
 // player
+import { SERVER_PING } from "../../src/actionsTypes";
 import {
-  PLAYER_UPDATE,
-  PLAYER_SAVE,
-  PLAYER_GET,
   getPlayer,
   updatePlayer,
   savePlayer
@@ -31,6 +29,18 @@ import {
 chai.should();
 
 describe("Reducers", () => {
+  let tetrisServer;
+  before(cb =>
+    startServer(params.server, (err, server) => {
+      tetrisServer = server;
+      cb();
+    })
+  );
+
+  after(done => {
+    tetrisServer.stop(done);
+  });
+
   describe("alert", () => {
     describe("Type: ALERT_POP", () => {
       it("should store alert in state", done => {
@@ -88,6 +98,7 @@ describe("Reducers", () => {
   });
 
   describe("player", () => {
+    beforeEach(() => {});
     describe("PLAYER_UPDATE", () => {
       it("should update player infos", done => {
         const PLAYER = {
@@ -103,6 +114,52 @@ describe("Reducers", () => {
 
         store.dispatch(updatePlayer(PLAYER));
         done();
+      });
+    });
+    describe("PLAYER_GET", () => {
+      it("should call localStorage getItem method", done => {
+        let firstTry = true;
+        global.localStorage = {
+          getItem: key => {
+            if (firstTry === true) {
+              firstTry = false;
+              return null;
+            } else {
+              done();
+              return `{ "name": "${key}" }`;
+            }
+          }
+        };
+
+        const initialState = {};
+        const store = configureStore(rootReducer, null, initialState, {
+          [PLAYER_GET]: ({ dispatch, getState }) => {
+            const state = getState();
+            state.player.should.deep.equal({});
+          }
+        });
+
+        store.dispatch(getPlayer());
+        store.dispatch(getPlayer());
+      });
+    });
+    describe("PLAYER_SAVE", () => {
+      it("should call localStorage setItem method", done => {
+        global.localStorage = {
+          setItem: (key, value) => {
+            done();
+          }
+        };
+
+        const initialState = {};
+        const store = configureStore(rootReducer, null, initialState, {
+          [PLAYER_SAVE]: ({ dispatch, getState }) => {
+            const state = getState();
+            state.player.should.deep.equal({});
+          }
+        });
+
+        store.dispatch(savePlayer({ name: "toto" }));
       });
     });
   });

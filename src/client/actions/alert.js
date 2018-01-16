@@ -1,4 +1,4 @@
-export const ALERT_POP = "ALERT_POP";
+import { ALERT_POP } from "../../actionsTypes";
 
 export const alert = message => {
   return {

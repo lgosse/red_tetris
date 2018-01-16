@@ -1,4 +1,4 @@
-import { NEW_GAME_CREATE, NEW_GAME_JOIN } from "../actions/newGame";
+import { NEW_GAME_CREATE, NEW_GAME_JOIN } from "../../actionsTypes";
 
 const newGame = (state = {}, action) => {
   switch (action.type) {

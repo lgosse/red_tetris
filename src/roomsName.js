@@ -1,0 +1,1 @@
+export const ROOM_PARTY_LIST = "ROOM_PARTY_LIST";

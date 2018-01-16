@@ -1,17 +1,16 @@
-import { PLAYER_UPDATE, PLAYER_SAVE, PLAYER_GET } from "../actions/player";
+import { PLAYER_UPDATE, PLAYER_SAVE, PLAYER_GET } from "../../actionsTypes";
 
-// Not tested because JSDOM do not support localStorage
 const getPlayer = () => {
-  if (localStorage.getItem("player")) {
-    return JSON.parse(window.localStorage.getItem("player"));
+  const playerItem = localStorage.getItem("player");
+  if (playerItem !== null) {
+    return JSON.parse(playerItem);
   }
 
   return {};
 };
 
-// Not tested because JSDOM do not support localStorage
 const savePlayer = action => {
-  window.localStorage.setItem("player", JSON.stringify(action.player));
+  localStorage.setItem("player", JSON.stringify(action.player));
 };
 
 const player = (state = {}, action) => {

@@ -1,5 +1,9 @@
 import fs from "fs";
 import debug from "debug";
+import ioReducer from "./serverReducer";
+import Store from "./store";
+
+export const store = new Store();
 
 const logerror = debug("tetris:error"),
   loginfo = debug("tetris:info");
@@ -32,9 +36,7 @@ const initEngine = io => {
   io.on("connection", function(socket) {
     loginfo("Socket connected: " + socket.id);
     socket.on("action", action => {
-      if (action.type === "server/ping") {
-        socket.emit("action", { type: "pong" });
-      }
+      ioReducer(io, socket, action, store);
     });
   });
 };

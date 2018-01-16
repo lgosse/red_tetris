@@ -1,4 +1,4 @@
-export const SERVER_PING = "server/ping";
+import { SERVER_PING } from "../../actionsTypes";
 
 export const ping = () => {
   return {

@@ -1,6 +1,4 @@
-export const PLAYER_UPDATE = "PLAYER_UPDATE";
-export const PLAYER_SAVE = "PLAYER_SAVE";
-export const PLAYER_GET = "PLAYER_GET";
+import { PLAYER_GET, PLAYER_SAVE, PLAYER_UPDATE } from "../../actionsTypes";
 
 export const getPlayer = () => {
   return {
