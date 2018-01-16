@@ -12,12 +12,9 @@ import {
   mapDispatchToPlayerFormProps
 } from "../../../src/client/containers/forms/PlayerForm";
 
-import {
-  PLAYER_UPDATE,
-  updatePlayer,
-  PLAYER_SAVE,
-  savePlayer
-} from "../../../src/client/actions/player";
+import { PLAYER_UPDATE, PLAYER_SAVE } from "../../../src/actionsTypes";
+
+import { updatePlayer, savePlayer } from "../../../src/client/actions/player";
 
 const assertEqualShallowElements = (firstElem, secondElem) => {
   firstElem.getElement().should.equal(secondElem.getElement());

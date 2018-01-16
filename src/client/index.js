@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { storeStateMiddleWare } from "./middleware/storeStateMiddleWare";
 import rootReducer from "./reducers";
 import injectGlobalCssRules from "./styles/injectGlobalCssRules";
 injectGlobalCssRules();
@@ -27,12 +26,20 @@ import {
 } from "react-router";
 
 // Project stuff
+import socketIoMiddleware from "./middleware/socketIoMiddleware";
+import io from "socket.io-client";
+import params from "../../params";
+
+const socket = io(params.server.url);
+
 import { getPlayer } from "./actions/player";
+import { getParties } from "./actions/party";
 import App from "./containers/App";
 import Home from "./containers/views/Home";
 import Ranking from "./containers/views/Ranking";
 import NewGame from "./containers/views/NewGame";
 import NotFound from "./containers/views/NotFound";
+import PartyList from "./containers/views/PartyList";
 
 let initialState = {};
 
@@ -44,7 +51,9 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   combineReducers({ state: rootReducer, routing: routerReducer }),
   initialState,
-  composeEnhancers(applyMiddleware(thunk, routingMiddleware))
+  composeEnhancers(
+    applyMiddleware(thunk, routingMiddleware, socketIoMiddleware(socket))
+  )
 );
 
 ReactDom.render(
@@ -55,6 +64,7 @@ ReactDom.render(
           <Route exact path="/" component={Home} />
           <Route path="/ranking" component={Ranking} />
           <Route path="/new-game" component={NewGame} />
+          <Route path="/party-list" component={PartyList} />
           <Route component={NotFound} />
         </Switch>
       </App>

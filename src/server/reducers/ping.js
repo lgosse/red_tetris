@@ -1,12 +1,13 @@
 import { SERVER_PING } from "../../actionsTypes";
 
-const server = (state = {}, action) => {
+const ping = (state = {}, action, io, socket) => {
   switch (action.type) {
     case SERVER_PING:
-      return {};
+      socket.emit("action", { type: "pong" });
+      return state;
     default:
       return state;
   }
 };
 
-export default server;
+export default ping;

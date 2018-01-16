@@ -1,5 +1,6 @@
 import chai from "chai";
 import React from "react";
+import { shallow } from "enzyme";
 import equalJSX from "chai-equal-jsx";
 import { createRenderer } from "react-dom/test-utils";
 
@@ -9,6 +10,7 @@ import Home from "../../../src/client/containers/views/Home";
 import Ranking from "../../../src/client/containers/views/Ranking";
 import NewGame from "../../../src/client/containers/views/NewGame";
 import NotFound from "../../../src/client/containers/views/NotFound";
+import { PartyList } from "../../../src/client/containers/views/PartyList";
 import {
   containerStyle,
   Code404,
@@ -50,6 +52,18 @@ describe("NotFound", () => {
     const renderer = createRenderer();
     renderer.render(React.createElement(NotFound));
     const output = renderer.getRenderOutput();
+    output.should.matchSnapshot();
+  });
+});
+
+describe("PartyList", () => {
+  it("should render as expected", () => {
+    const renderer = createRenderer();
+    const partyList = [{ name: "toto" }, { name: "tata" }];
+    const goToParty = () => {};
+    const output = shallow(
+      <PartyList partyList={partyList} goToParty={goToParty} />
+    );
     output.should.matchSnapshot();
   });
 });
