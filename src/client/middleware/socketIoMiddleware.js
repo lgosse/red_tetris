@@ -1,13 +1,13 @@
 import { LOCATION_CHANGE } from "../../actionsTypes";
 import { ROOM_PARTY_LIST } from "../../roomsName";
 import { joinRoom } from "../actions/room";
-import { getParties } from "../actions/party";
+import { getParties } from "../actions/partyList";
 
 const roomHandler = (socket, action) => {
   if (action.type !== LOCATION_CHANGE) return;
 
   switch (action.payload.pathname) {
-    case "/party-list":
+    case "/partyList-list":
       socket.emit("action", joinRoom(ROOM_PARTY_LIST));
       socket.emit("action", getParties());
       break;

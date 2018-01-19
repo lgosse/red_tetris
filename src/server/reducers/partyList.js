@@ -6,11 +6,11 @@ const getParties = state => {
   return {
     type: RESPONSE_PARTY_LIST,
     parties: [{ name: "toto" }]
-    // parties: state.party
+    // parties: state.partyList
   };
 };
 
-const party = (state = {}, action, io, socket) => {
+const partyList = (state = {}, action, io, socket) => {
   switch (action.type) {
     case PARTY_LIST:
       const response = getParties();
@@ -22,4 +22,4 @@ const party = (state = {}, action, io, socket) => {
   }
 };
 
-export default party;
+export default partyList;
