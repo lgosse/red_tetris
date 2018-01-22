@@ -7,7 +7,7 @@ const roomHandler = (socket, action) => {
   if (action.type !== LOCATION_CHANGE) return;
 
   switch (action.payload.pathname) {
-    case "/partyList-list":
+    case "/party-list":
       socket.emit("action", joinRoom(ROOM_PARTY_LIST));
       socket.emit("action", getParties());
       break;

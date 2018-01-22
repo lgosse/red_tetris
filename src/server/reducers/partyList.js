@@ -10,7 +10,7 @@ const getParties = state => {
   };
 };
 
-const partyList = (state = {}, action, io, socket) => {
+const partyList = (state = [], action, io, socket) => {
   switch (action.type) {
     case PARTY_LIST:
       const response = getParties();
