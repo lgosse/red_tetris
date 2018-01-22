@@ -4,10 +4,7 @@ class Store {
   }
 
   setState(state) {
-    this.state = {
-      ...state,
-      ...this.state
-    };
+    this.state = state;
   }
 
   getState() {
