@@ -9,7 +9,7 @@ const partyList = (state = [], action) => {
     case PARTY_LIST:
       return state;
     case RESPONSE_PARTY_LIST:
-      return extractParties(action.parties);
+      return extractParties(action.partyList);
     default:
       return state;
   }
