@@ -65,7 +65,7 @@ export const PartyList = ({ partyList, goToParty }) => {
 
 export const mapStateToPartyListProps = state => {
   return {
-    partyList: state.state.partyList.partyList
+    partyList: state.state.partyList
   };
 };
 
