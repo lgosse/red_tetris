@@ -5,14 +5,14 @@ import { ping } from "../../src/client/actions/server";
 import io from "socket.io-client";
 import params from "../../params";
 
-// party
+// partyList
 import {
   PARTY_LIST,
   RESPONSE_PARTY_LIST,
   ROOM_JOIN,
   LOCATION_CHANGE
 } from "../../src/actionsTypes";
-import { getParties } from "../../src/client/actions/party";
+import { getParties } from "../../src/client/actions/partyList";
 
 // room
 import { joinRoom } from "../../src/client/actions/room";
@@ -47,9 +47,9 @@ describe("Server reducers", () => {
     });
   });
 
-  describe("party", () => {
+  describe("partyList", () => {
     describe("RESPONSE_PARTY_LIST", () => {
-      it("should receive the server response for party list", done => {
+      it("should receive the server response for partyList list", done => {
         const initialState = {};
         const socket = io(params.server.url);
         const store = configureStore(rootReducer, socket, initialState, {
@@ -92,10 +92,10 @@ describe("Server reducers", () => {
             done();
           }
         });
-        store.dispatch(joinRoom("party-list"));
+        store.dispatch(joinRoom("partyList-list"));
         store.dispatch({
           type: LOCATION_CHANGE,
-          payload: { pathname: "/party-list" }
+          payload: { pathname: "/partyList-list" }
         });
       });
     });

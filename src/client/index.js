@@ -20,6 +20,7 @@ import {
 import {
   Switch,
   Router,
+  Redirect,
   Route,
   hashHistory,
   browserHistory
@@ -33,12 +34,14 @@ import params from "../../params";
 const socket = io(params.server.url);
 
 import { getPlayer } from "./actions/player";
-import { getParties } from "./actions/party";
+import { getParties } from "./actions/partyList";
 import App from "./containers/App";
 import Home from "./containers/views/Home";
 import Ranking from "./containers/views/Ranking";
 import NewGame from "./containers/views/NewGame";
 import NotFound from "./containers/views/NotFound";
+import CreateParty from "./containers/views/CreateParty"
+
 import PartyList from "./containers/views/PartyList";
 
 let initialState = {};
@@ -56,6 +59,12 @@ const store = createStore(
   )
 );
 
+const checkNickname = () => {
+  store.dispatch(getPlayer());
+  const player = store.getState().state.player;
+  return (Boolean(player.nickname));
+}
+
 ReactDom.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
@@ -64,7 +73,8 @@ ReactDom.render(
           <Route exact path="/" component={Home} />
           <Route path="/ranking" component={Ranking} />
           <Route path="/new-game" component={NewGame} />
-          <Route path="/party-list" component={PartyList} />
+          <Route path="/create-party" render={() => { return checkNickname() ? <CreateParty /> : <Redirect to="/new-game" />}} />
+          <Route path="/party-list" render={() => { return checkNickname() ? <PartyList /> : <Redirect to="/new-game" />}} />
           <Route component={NotFound} />
         </Switch>
       </App>

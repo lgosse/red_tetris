@@ -11,7 +11,7 @@ import rootReducer from "../../src/client/reducers";
 
 import { socketIoMiddleware } from "../../src/client/middleware/socketIoMiddleware";
 import { LOCATION_CHANGE, PARTY_LIST } from "../../src/actionsTypes";
-import { getParties } from "../../src/client/actions/party";
+import { getParties } from "../../src/client/actions/partyList";
 import { ping } from "../../src/client/actions/server";
 import { configureStore, startServer } from "../helpers/server";
 import io from "socket.io-client";
@@ -65,7 +65,7 @@ describe("Middlewares", () => {
       store.dispatch(ping());
       store.dispatch({
         type: LOCATION_CHANGE,
-        payload: { pathname: "/party-list" }
+        payload: { pathname: "/partyList-list" }
       });
       store.dispatch({
         type: LOCATION_CHANGE,

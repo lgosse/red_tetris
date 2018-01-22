@@ -1,7 +1,7 @@
 import { LOCATION_CHANGE } from "../../actionsTypes";
 import { ROOM_PARTY_LIST } from "../../roomsName";
 import { joinRoom } from "../actions/room";
-import { getParties } from "../actions/party";
+import { getParties } from "../actions/partyList";
 
 const roomHandler = (socket, action) => {
   if (action.type !== LOCATION_CHANGE) return;

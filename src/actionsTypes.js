@@ -2,9 +2,13 @@
 export const NEW_GAME_CREATE = "NEW_GAME";
 export const NEW_GAME_JOIN = "JOIN_GAME";
 
-// Party actions
+// PartyList actions
 export const PARTY_LIST = "server/party-list";
 export const RESPONSE_PARTY_LIST = "server/response/party-list";
+
+// Party actions
+export const PARTY_ADD = "server/party-add";
+export const PARTY_UPDATE = "PARTY_UPDATE";
 
 // Player actions
 export const PLAYER_UPDATE = "PLAYER_UPDATE";

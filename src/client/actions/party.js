@@ -1,7 +1,15 @@
-import { PARTY_LIST } from "../../actionsTypes";
+import {PARTY_ADD, PARTY_UPDATE} from "../../actionsTypes";
 
-export const getParties = () => {
+export const addParty = party => {
   return {
-    type: PARTY_LIST
+    type: PARTY_ADD,
+    party
+  };
+};
+
+export const updateParty = party => {
+  return {
+    type: PARTY_UPDATE,
+    party
   };
 };

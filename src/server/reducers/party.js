@@ -1,22 +1,10 @@
-import { PARTY_LIST, RESPONSE_PARTY_LIST } from "../../actionsTypes";
-import { ROOM_PARTY_LIST } from "../../roomsName";
-import { setTimeout } from "timers";
-
-const getParties = state => {
-  return {
-    type: RESPONSE_PARTY_LIST,
-    parties: [{ name: "toto" }]
-    // parties: state.party
-  };
-};
+import { PARTY_ADD } from "../../actionsTypes";
 
 const party = (state = {}, action, io, socket) => {
   switch (action.type) {
-    case PARTY_LIST:
-      const response = getParties();
-      socket.emit("action", response);
-      return response.parties;
-    // return state
+    case PARTY_ADD:
+      socket.emit("action", state);
+      return state;
     default:
       return state;
   }

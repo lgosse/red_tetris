@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { connect } from "react-redux";
-
-import global from "../../styles/global";
-import { newGame, joinGame } from "../../actions/newGame";
-import PlayerForm from "../forms/PlayerForm";
+import React from 'react';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
+import global from '../../styles/global';
+import { newGame, joinGame } from '../../actions/newGame';
+import PlayerForm from '../forms/PlayerForm';
+
 import {
   FullSizeContainer,
   Button,

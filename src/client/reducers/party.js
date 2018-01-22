@@ -1,20 +1,11 @@
-import { PARTY_LIST, RESPONSE_PARTY_LIST } from "../../actionsTypes";
+import { PARTY_ADD, PARTY_UPDATE } from "../../actionsTypes";
 
-const partyList = {
-  room1: "toto",
-  room2: "lulu"
-};
-
-const extractParties = parties => {
-  return { partyList: parties.map(party => party) };
-};
-
-const party = (state = {}, action) => {
+const party = (state = { size: 10 }, action) => {
   switch (action.type) {
-    case PARTY_LIST:
-      return state;
-    case RESPONSE_PARTY_LIST:
-      return extractParties(action.parties);
+    case PARTY_ADD:
+      return action.party;
+    case PARTY_UPDATE:
+      return action.party;
     default:
       return state;
   }
