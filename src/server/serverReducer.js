@@ -5,11 +5,14 @@ const logerror = debug("tetris:error"),
 
 export const merge = (store, reducerKey, state, newState) => {
   if (state[reducerKey] != newState) {
+    const reducerState =
+      newState && newState.length !== undefined
+        ? state ? [...newState] : [...state[reducerKey], ...newState]
+        : state ? { ...newState } : { ...state[reducerKey], ...newState };
+
     store.setState({
       ...state,
-      [reducerKey]: {
-        ...newState
-      }
+      [reducerKey]: reducerState
     });
   }
 };
@@ -17,7 +20,6 @@ export const merge = (store, reducerKey, state, newState) => {
 const ioReducer = (io, socket, action, store) => {
   Object.keys(reducers).map(reducerKey => {
     const state = store.getState();
-    loginfo(state);
     const newState = reducers[reducerKey](
       state[reducerKey],
       action,

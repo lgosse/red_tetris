@@ -33,7 +33,7 @@ export const PartyButton = ({ roomName, onClick }) => {
 export const renderList = (partyList, goToParty) => {
   if (partyList) {
     return partyList.map(party => (
-      <PartyButton roomName={party.name} key={party.name} onClick={goToParty} />
+      <PartyButton roomName={party.name} key={party.id} onClick={goToParty} />
     ));
   } else {
     return (
