@@ -13,7 +13,7 @@ const partyList = (state = [], action, io, socket) => {
     case PARTY_LIST: {
       const response = getParties(state);
       socket.emit("action", response);
-      return response.parties;
+      return response.partyList;
     }
 
     case PARTY_ADD: {
