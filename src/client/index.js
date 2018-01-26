@@ -41,7 +41,7 @@ import Ranking from "./containers/views/Ranking";
 import NewGame from "./containers/views/NewGame";
 import NotFound from "./containers/views/NotFound";
 import CreateParty from "./containers/views/CreateParty";
-
+import Party from "./containers/views/Party";
 import PartyList from "./containers/views/PartyList";
 
 let initialState = {};
@@ -64,12 +64,16 @@ const checkNickname = () => {
   return Boolean(player.nickname);
 };
 
+const checkHash = () => {
+  return (window.location.hash.length > 1);
+}
+
 ReactDom.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <App>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" render={() => { return checkHash() ? <Party /> : <Home /> }} />
           <Route path="/ranking" component={Ranking} />
           <Route path="/new-game" component={NewGame} />
           <Route
