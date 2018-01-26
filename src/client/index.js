@@ -42,7 +42,6 @@ import NewGame from "./containers/views/NewGame";
 import NotFound from "./containers/views/NotFound";
 import CreateParty from "./containers/views/CreateParty";
 import Party from "./containers/views/Party";
-
 import PartyList from "./containers/views/PartyList";
 
 let initialState = {};
@@ -61,10 +60,9 @@ const store = createStore(
 );
 
 const checkNickname = () => {
-  store.dispatch(getPlayer());
   const player = store.getState().state.player;
-  return (Boolean(player.nickname));
-}
+  return Boolean(player.nickname);
+};
 
 const checkHash = () => {
   return (window.location.hash.length > 1);
@@ -78,8 +76,26 @@ ReactDom.render(
           <Route exact path="/" render={() => { return checkHash() ? <Party /> : <Home /> }} />
           <Route path="/ranking" component={Ranking} />
           <Route path="/new-game" component={NewGame} />
-          <Route path="/create-party" render={() => { return checkNickname() ? <CreateParty /> : <Redirect to="/new-game" />}} />
-          <Route path="/party-list" render={() => { return checkNickname() ? <PartyList /> : <Redirect to="/new-game" />}} />
+          <Route
+            path="/create-party"
+            render={() => {
+              return checkNickname() ? (
+                <CreateParty />
+              ) : (
+                <Redirect to="/new-game" />
+              );
+            }}
+          />
+          <Route
+            path="/party-list"
+            render={() => {
+              return checkNickname() ? (
+                <PartyList />
+              ) : (
+                <Redirect to="/new-game" />
+              );
+            }}
+          />
           <Route component={NotFound} />
         </Switch>
       </App>

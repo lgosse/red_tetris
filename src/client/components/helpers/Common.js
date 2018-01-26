@@ -16,6 +16,13 @@ export const Button = styled.button`
   outline: none;
   cursor: pointer;
 
+  ${props =>
+    props.disabled &&
+    `
+      opacity: 0.5;
+      cursor: default;
+      pointer-events: none;
+    `};
   ${props => props.width !== undefined && `width: ${props.width}`};
   ${props => props.margin !== undefined && `margin: ${props.margin}`};
   ${props => props.marginTop !== undefined && `margin-top: ${props.marginTop}`};

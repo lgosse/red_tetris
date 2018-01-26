@@ -13,50 +13,69 @@ import {
   FullSizeContainer
 } from "../../components/helpers/Common";
 
-export const PartyButton = ({ roomName, onClick }) => {
+export const PartyButton = ({ party, onClick }) => {
   return (
-    <div>
+    <Link
+      to={`/#${party.name}`}
+      style={{
+        textDecoration: "none"
+      }}
+    >
       <Button
-        width="200px"
+        width="400px"
         primary
         margin="10px"
         onClick={() => {
-          onClick(roomName);
+          onClick(party.name);
+        }}
+        disabled={!party.open}
+        style={{
+          display: "flex",
+          flexDirection: "row"
         }}
       >
-        Join {roomName}
+        <div style={{ flex: 1, textAlign: "left" }}>{party.name}</div>
+        <div>
+          Players: {party.players.length} / {party.size}
+        </div>
       </Button>
-    </div>
+    </Link>
   );
 };
 
-export const renderList = (partyList, goToParty) => {
-  if (partyList) {
-    return partyList.map(party => (
-      <PartyButton roomName={party.name} key={party.id} onClick={goToParty} />
-    ));
-  } else {
-    return (
-      <FullSizeContainer>
-        <Paragraph gameFont center color="accent" size="20px">
-          <div>No room are actually available</div>
-          <Link to="create-party" id="new-game-link">
-            <Button primary margin="20px">
-              Create one here
-            </Button>
-          </Link>
-        </Paragraph>
-      </FullSizeContainer>
-    );
-  }
-};
+const PartyListMap = ({ partyList, goToParty }) => (
+  <div>
+    {partyList.map(party => (
+      <PartyButton party={party} key={party.id} onClick={goToParty} />
+    ))}
+  </div>
+);
+
+const NoParties = () => (
+  <FullSizeContainer>
+    <Paragraph gameFont center color="accent" size="20px">
+      <div>No room are actually available</div>
+      <Link to="create-party" id="new-game-link">
+        <Button primary margin="20px">
+          Create one here
+        </Button>
+      </Link>
+    </Paragraph>
+  </FullSizeContainer>
+);
 
 export const PartyList = ({ partyList, goToParty }) => {
   return (
     <FullSizeContainer padding="40px">
       <FlexContainer>
         <FlexSpacer />
-        <div>{renderList(partyList, goToParty)}</div>
+        <div>
+          {partyList.length ? (
+            <PartyListMap partyList={partyList} goToParty={goToParty} />
+          ) : (
+            <NoParties />
+          )}
+        </div>
         <FlexSpacer />
       </FlexContainer>
     </FullSizeContainer>
