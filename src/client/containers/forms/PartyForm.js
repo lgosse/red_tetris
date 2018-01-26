@@ -9,7 +9,7 @@ import {
   FlexSpacer,
   Button
 } from "../../components/helpers/Common";
-import { addParty, updateParty } from "../../actions/party";
+import { addParty, updateParty, saveParty } from "../../actions/party";
 
 export const PartyForm = ({ party, player, createParty, changeParty }) => {
   return (
@@ -67,12 +67,12 @@ export const mapStateToPartyFormProps = state => {
 export const mapDispatchToPartyFormProps = dispatch => {
   const createParty = (event, party, player) => {
     event.preventDefault();
-    dispatch(
-      addParty({
-        ...party,
-        players: [player]
-      })
-    );
+    const newParty = {
+      ...party,
+      players: [player]
+    };
+    dispatch(saveParty(newParty));
+    dispatch(addParty(newParty));
   };
   const changeParty = (event, party, field) => {
     dispatch(
