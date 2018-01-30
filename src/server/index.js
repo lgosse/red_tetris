@@ -1,9 +1,9 @@
 import fs from "fs";
 import debug from "debug";
 import ioReducer from "./serverReducer";
-import Store from "./store";
-
-export const store = new Store();
+import mongoose from "mongoose";
+mongoose.Promise = Promise;
+mongoose.connect("mongodb://192.168.99.100:27017/dev");
 
 const logerror = debug("tetris:error"),
   loginfo = debug("tetris:info");
@@ -36,7 +36,7 @@ const initEngine = io => {
   io.on("connection", function(socket) {
     loginfo("Socket connected: " + socket.id);
     socket.on("action", action => {
-      ioReducer(io, socket, action, store);
+      ioReducer(io, socket, action);
     });
   });
 };

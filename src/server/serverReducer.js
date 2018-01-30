@@ -1,32 +1,11 @@
 import reducers from "./reducers";
 import debug from "debug";
-const logerror = debug("tetris:error"),
-  loginfo = debug("tetris:info");
+const loginfo = debug("tetris:ioReducer");
 
-export const merge = (store, reducerKey, state, newState) => {
-  if (state[reducerKey] != newState) {
-    const reducerState =
-      newState && newState.length !== undefined
-        ? state ? [...newState] : [...state[reducerKey], ...newState]
-        : state ? { ...newState } : { ...state[reducerKey], ...newState };
-
-    store.setState({
-      ...state,
-      [reducerKey]: reducerState
-    });
-  }
-};
-
-const ioReducer = (io, socket, action, store) => {
+const ioReducer = (io, socket, action) => {
+  loginfo(`Action type: ${action.type}`);
   Object.keys(reducers).map(reducerKey => {
-    const state = store.getState();
-    const newState = reducers[reducerKey](
-      state[reducerKey],
-      action,
-      io,
-      socket
-    );
-    merge(store, reducerKey, state, newState);
+    reducers[reducerKey](action, io, socket);
   });
 };
 

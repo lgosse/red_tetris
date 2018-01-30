@@ -4,9 +4,9 @@ const room = (state = {}, action, io, socket) => {
   switch (action.type) {
     case ROOM_JOIN:
       socket.join(action.room);
-      return state;
+      break;
     default:
-      return state;
+      break;
   }
 };
 

@@ -4,7 +4,7 @@ export const NEW_GAME_JOIN = "JOIN_GAME";
 
 // PartyList actions
 export const PARTY_LIST = "server/party-list";
-export const RESPONSE_PARTY_LIST = "server/response/party-list";
+export const RESPONSE_PARTY_LIST = "RESPONSE_PARTY_LIST";
 
 // Party actions
 export const PARTY_GET = "PARTY_GET";
