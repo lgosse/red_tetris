@@ -1,13 +1,10 @@
-<<<<<<< HEAD
-import { PARTY_LIST, RESPONSE_PARTY_LIST, PARTY_ADD, PARTY_JOIN } from "../../actionsTypes";
-=======
 import {
   PARTY_LIST,
   RESPONSE_PARTY_LIST,
   PARTY_ADD,
+  PARTY_JOIN,
   ALERT_POP
 } from "../../actionsTypes";
->>>>>>> d47476423a8576e0b3afa6d6e96aa5f137e96500
 import mongoose from "mongoose";
 
 const Party = mongoose.model("Party", {
@@ -64,16 +61,20 @@ const partyList = async (action, io, socket) => {
       io.emit("action", await getParties());
       break;
     }
-    
+
     case PARTY_JOIN: {
       console.log(action.player);
       const partyList = await Party.find({ name: action.party.name }).exec();
       console.log(partyList);
       let partyEdit;
       if (partyList.length === 0)
-        partyEdit = await new Party({...action.party, size: 10, players: [], open: false}).save();
-      else
-        partyEdit = partyList[0];
+        partyEdit = await new Party({
+          ...action.party,
+          size: 10,
+          players: [],
+          open: false
+        }).save();
+      else partyEdit = partyList[0];
       console.log("partyEdit", partyEdit);
       if (partyEdit.players.length < partyEdit.size) {
         partyEdit.players.push(action.player);
