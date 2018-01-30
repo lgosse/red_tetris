@@ -25,15 +25,6 @@ const party = (state = { size: 10 }, action) => {
       return action.party;
     case PARTY_UPDATE:
       return action.party;
-    case PARTY_JOIN: {
-      return {
-        ...state,
-        players: [
-          ...state.players,
-          action.player
-        ]
-      }
-    }
     default:
       return state;
   }

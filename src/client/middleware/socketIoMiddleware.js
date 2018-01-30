@@ -2,7 +2,7 @@ import { LOCATION_CHANGE, ALERT_POP, ALERT_RESET } from "../../actionsTypes";
 import { ROOM_PARTY_LIST } from "../../roomsName";
 import { joinRoom } from "../actions/room";
 import { addParty, getParty, joinParty } from "../actions/party";
-import { getParties } from "../actions/partyList";
+import { getParties} from "../actions/partyList";
 import { savePlayer, getPlayer } from "../actions/player";
 
 const roomHandler = (socket, action, dispatch, getState) => {
@@ -16,34 +16,14 @@ const roomHandler = (socket, action, dispatch, getState) => {
       if (action.payload.hash[0] === "#" && action.payload.hash.length > 1) {
         dispatch(getPlayer());
         dispatch(getParty());
-        const state = getState().state;
-        console.log(state);
-        var player = state.player.nickname
-          ? state.player
-          : { nickname: "Unknown" };
-        console.log(player);
-        var party = state.party;
-        if (!state.party.open) {
-          const name = action.payload.hash.substring(1);
-          party = state.partyList.find(e => e.name === name);
-          if (party === undefined) {
-            party = {
-              name: name,
-              players: [player],
-              size: 10
-            };
-            console.log(party);
-            dispatch(savePlayer(player));
-            dispatch(addParty(party));
-            break;
-            //createRoom
-          }
-        } else {
-          dispatch(joinParty(party, player));
-        }
-        //io.emit(getParties);
+
+        const state = getState();
+        const player = (state.player && state.player.nickname) ? state.player : { nickname: "Unknown" };
+        let party = state.party;
+        if (!party.name || !party.name == action.payload.hash.substring(1))
+          party.name = action.payload.hash.substring(1);
+        dispatch(joinParty(party, player));
       }
-      break;
     }
 
     default:
