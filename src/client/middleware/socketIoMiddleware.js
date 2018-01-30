@@ -1,4 +1,9 @@
-import { LOCATION_CHANGE } from "../../actionsTypes";
+import {
+  LOCATION_CHANGE,
+  PARTY_ADD_ERROR,
+  ALERT_POP,
+  ALERT_RESET
+} from "../../actionsTypes";
 import { ROOM_PARTY_LIST } from "../../roomsName";
 import { joinRoom } from "../actions/room";
 import { addParty, getParty, joinParty } from "../actions/party";
@@ -55,6 +60,11 @@ const socketIoMiddleWare = socket => ({ dispatch, getState }) => {
   if (socket)
     socket.on("action", action => {
       dispatch(action);
+      if (action.type === ALERT_POP) {
+        setTimeout(() => {
+          dispatch({ type: ALERT_RESET });
+        }, 3000);
+      }
     });
   return next => action => {
     roomHandler(socket, action, dispatch, getState);

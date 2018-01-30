@@ -5,6 +5,7 @@ import Home from "../containers/views/Home";
 import Navbar from "../containers/layout/Navbar";
 import Body from "../containers/layout/Body";
 import Footer from "../containers/layout/Footer";
+import Alert from "../containers/layout/Alert";
 import Ranking from "../containers/views/Ranking";
 
 const App = ({ alert, props }) => {
@@ -13,6 +14,7 @@ const App = ({ alert, props }) => {
       <Navbar />
       <Body>{props.children}</Body>
       <Footer />
+      <Alert />
     </div>
   );
 };
