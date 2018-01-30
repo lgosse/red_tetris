@@ -3,7 +3,8 @@ import {
   PARTY_SAVE,
   PARTY_ADD,
   PARTY_UPDATE,
-  PARTY_JOIN
+  PARTY_JOIN,
+  PARTY_LEAVE
 } from "../../actionsTypes";
 
 export const getParty = () => {
@@ -31,6 +32,12 @@ export const joinParty = (party, player) => {
     type: PARTY_JOIN,
     party,
     player
+  };
+};
+
+export const leaveParty = () => {
+  return {
+    type: PARTY_LEAVE
   };
 };
 

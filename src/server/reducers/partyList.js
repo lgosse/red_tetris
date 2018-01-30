@@ -4,7 +4,8 @@ import {
   PARTY_ADD,
   PARTY_JOIN,
   ALERT_POP,
-  PARTY_UPDATE
+  PARTY_UPDATE,
+  PARTY_LEAVE
 } from "../../actionsTypes";
 import { push } from "react-router-redux";
 import mongoose from "mongoose";
@@ -39,8 +40,13 @@ export const userLeaves = async socketId => {
       await party.save();
     }
 
-    io.emit("action", getParties());
+    io.to(party._id).emit("action", {
+      type: PARTY_UPDATE,
+      party
+    });
   });
+
+  io.emit("action", getParties());
 };
 
 export const getParties = async () => {
@@ -103,7 +109,7 @@ const partyList = async (action, io, socket) => {
 
       if (
         partyEdit.players.length < partyEdit.size &&
-        party.players.filter(player => player.id === socket.id).length === 0
+        partyEdit.players.filter(player => player.id === socket.id).length === 0
       ) {
         partyEdit.players.push({
           ...action.player,
@@ -120,6 +126,11 @@ const partyList = async (action, io, socket) => {
         party: partyEdit
       });
 
+      break;
+    }
+
+    case PARTY_LEAVE: {
+      userLeaves(socket.id);
       break;
     }
   }

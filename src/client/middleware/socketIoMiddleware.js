@@ -6,7 +6,13 @@ import {
 } from "../../actionsTypes";
 import { ROOM_PARTY_LIST } from "../../roomsName";
 import { joinRoom } from "../actions/room";
-import { addParty, getParty, joinParty, updateParty } from "../actions/party";
+import {
+  addParty,
+  getParty,
+  joinParty,
+  updateParty,
+  leaveParty
+} from "../actions/party";
 import { getParties } from "../actions/partyList";
 import { savePlayer, getPlayer } from "../actions/player";
 
@@ -40,6 +46,16 @@ const roomHandler = (socket, action, dispatch, getState) => {
 
     default:
       break;
+  }
+
+  const routingState = getState().routing;
+  if (!routingState || !routingState.location) return;
+
+  if (
+    routingState.location.pathname === "/" &&
+    action.payload.hash !== routingState.location.hash
+  ) {
+    dispatch(leaveParty());
   }
 };
 
