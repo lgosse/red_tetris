@@ -30,15 +30,25 @@ const partyList = async (action, io, socket) => {
 
     // Change logic here to create party with model
     case PARTY_ADD: {
-      const party = await new Party({...action.party, open: true}).save();
+      const party = await new Party({...action.party, open: false}).save();
 
       io.emit("action", await getParties());
       break;
     }
     case PARTY_JOIN: {
-      const partyEdit = await Party.find({ name: action.party.name }).exec();
+      console.log(action.player);
+      const partyList = await Party.find({ name: action.party.name }).exec();
+      console.log(partyList);
+      let partyEdit;
+      if (partyList.length === 0)
+        partyEdit = await new Party({...action.party, size: 10, players: [], open: false}).save();
+      else
+        partyEdit = partyList[0];
+      console.log("partyEdit", partyEdit);
       if (partyEdit.players.length < partyEdit.size) {
-        partyEdit.players.push(action.player).save();
+        partyEdit.players.push(action.player);
+        partyEdit.open = true;
+        partyEdit.save();
         io.emit("action", await getParties());
       }
       break;

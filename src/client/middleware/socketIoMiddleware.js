@@ -16,28 +16,13 @@ const roomHandler = (socket, action, dispatch, getState) => {
       if (action.payload.hash[0] === "#" && action.payload.hash.length > 1) {
         dispatch(getPlayer());
         dispatch(getParty());
-        dispatch(getParties());
 
-        const state = getState().state;
-        var player = state.player.nickname ? state.player : { nickname: "Unknown" };
-        var party = state.party;
-        if (!state.party.open) {
-          const name = action.payload.hash.substring(1);
-          party = state.partyList.find(e => e.name === name);
-          if (party === undefined) {
-            party = {
-              name: name,
-              players: [player],
-              size: 10
-            };
-          }
-          dispatch(savePlayer(player));
-          dispatch(addParty(party));
-        }
-        else {
-          dispatch(joinParty(party, player))
-        }
-        console.log(state.partyList);
+        const state = getState();
+        const player = (state.player && state.player.nickname) ? state.player : { nickname: "Unknown" };
+        let party = state.party;
+        if (!party.name || !party.name == action.payload.hash.substring(1))
+          party.name = action.payload.hash.substring(1);
+        dispatch(joinParty(party, player));
       }
     }
 
