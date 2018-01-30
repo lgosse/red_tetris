@@ -47,7 +47,7 @@ export const PlayerForm = ({ player, changeNickname, saveNickname }) => {
 
 export const mapStateToPlayerFormProps = state => {
   return {
-    player: state.state.player
+    player: state.player
   };
 };
 

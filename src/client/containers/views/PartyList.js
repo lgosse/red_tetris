@@ -46,7 +46,7 @@ export const PartyButton = ({ party, onClick }) => {
 const PartyListMap = ({ partyList, goToParty }) => (
   <div>
     {partyList.map(party => (
-      <PartyButton party={party} key={party.id} onClick={goToParty} />
+      <PartyButton party={party} key={party._id} onClick={goToParty} />
     ))}
   </div>
 );
@@ -84,7 +84,7 @@ export const PartyList = ({ partyList, goToParty }) => {
 
 export const mapStateToPartyListProps = state => {
   return {
-    partyList: state.state.partyList
+    partyList: state.partyList
   };
 };
 

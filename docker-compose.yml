@@ -1,0 +1,12 @@
+version: "2"
+services:
+  database:
+    container_name: red_tetris_mongo
+    image: mongo
+    restart: always
+    volumes:
+      - redtetrisdata:/data/db
+    ports:
+      - "27017:27017"
+volumes:
+  redtetrisdata:

@@ -1,38 +1,41 @@
 import { PARTY_LIST, RESPONSE_PARTY_LIST, PARTY_ADD } from "../../actionsTypes";
-import Party from "../models/Party";
+import mongoose from "mongoose";
 
-const getParties = state => {
+const Party = mongoose.model("Party", {
+  name: String,
+  size: Number,
+  open: Boolean,
+  players: [
+    {
+      nickname: String
+    }
+  ]
+});
+
+const getParties = async () => {
+  const partyList = await Party.find({}).exec();
+
   return {
     type: RESPONSE_PARTY_LIST,
-    partyList: state
+    partyList
   };
 };
 
-const partyList = (state = [], action, io, socket) => {
+const partyList = async (action, io, socket) => {
   switch (action.type) {
     case PARTY_LIST: {
-      const response = getParties(state);
-      socket.emit("action", response);
-      return response.partyList;
+      socket.emit("action", await getParties());
+
+      break;
     }
 
+    // Change logic here to create party with model
     case PARTY_ADD: {
-      const party = {
-        id: state.length || 0,
-        ...action.party
-      };
-      const newState = [...state, new Party(party)];
+      const party = await new Party({ ...action.party, open: true }).save();
 
-      io.emit("action", {
-        type: RESPONSE_PARTY_LIST,
-        partyList: newState
-      });
+      io.emit("action", await getParties());
 
-      return newState;
-    }
-
-    default: {
-      return state;
+      break;
     }
   }
 };

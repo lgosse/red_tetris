@@ -1,4 +1,4 @@
-import {LOCATION_CHANGE} from "../../actionsTypes";
+import { LOCATION_CHANGE } from "../../actionsTypes";
 import { ROOM_PARTY_LIST } from "../../roomsName";
 import { joinRoom } from "../actions/room";
 import { addParty, getParty, joinParty } from "../actions/party";
@@ -13,22 +13,24 @@ const roomHandler = (socket, action, dispatch, getState) => {
       break;
 
     case "/": {
-      if (action.payload.hash[0] === '#' && action.payload.hash.length > 1) {
+      if (action.payload.hash[0] === "#" && action.payload.hash.length > 1) {
         dispatch(getPlayer());
         dispatch(getParty());
         const state = getState().state;
         console.log(state);
-        var player = state.player.nickname ? state.player : { nickname: 'Unknown' };
+        var player = state.player.nickname
+          ? state.player
+          : { nickname: "Unknown" };
         console.log(player);
         var party = state.party;
         if (!state.party.open) {
           const name = action.payload.hash.substring(1);
-          party = state.partyList.find(e => (e.name === name));
+          party = state.partyList.find(e => e.name === name);
           if (party === undefined) {
             party = {
               name: name,
               players: [player],
-              size: 10,
+              size: 10
             };
             console.log(party);
             dispatch(savePlayer(player));
@@ -36,9 +38,8 @@ const roomHandler = (socket, action, dispatch, getState) => {
             break;
             //createRoom
           }
-        }
-        else {
-          dispatch(joinParty(party, player))
+        } else {
+          dispatch(joinParty(party, player));
         }
         //io.emit(getParties);
       }
@@ -51,7 +52,10 @@ const roomHandler = (socket, action, dispatch, getState) => {
 };
 
 const socketIoMiddleWare = socket => ({ dispatch, getState }) => {
-  if (socket) socket.on("action", dispatch);
+  if (socket)
+    socket.on("action", action => {
+      dispatch(action);
+    });
   return next => action => {
     roomHandler(socket, action, dispatch, getState);
     if (socket && action.type && action.type.indexOf("server/") === 0)
