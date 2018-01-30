@@ -2,21 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import styled, { keyframes } from "styled-components";
 
-const AlertPopAnimation = keyframes`
-  from {
-  }
-
-  to {
-    bottom: 20px;
-  }
-`;
-
 const AlertDisplay = styled.div`
   position: absolute;
   right: 20px;
+  bottom: 20px;
   max-width: 300px;
   width: 100%;
-  bottom: -100px;
+  opacity: 0;
   padding: 20px;
   background-color: #333333;
   color: white;
@@ -24,7 +16,7 @@ const AlertDisplay = styled.div`
   transition: all 0.3s;
 
   &.show {
-    bottom: 20px;
+    opacity: 1;
   }
 `;
 

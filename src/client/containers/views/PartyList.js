@@ -18,7 +18,8 @@ export const PartyButton = ({ party, onClick }) => {
     <Link
       to={`/#${party.name}`}
       style={{
-        textDecoration: "none"
+        textDecoration: "none",
+        pointerEvents: party.open ? "default" : "none"
       }}
     >
       <Button

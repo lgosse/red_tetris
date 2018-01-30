@@ -1,9 +1,13 @@
-import { PARTY_GET, PARTY_SAVE, PARTY_ADD, PARTY_UPDATE, PARTY_JOIN } from "../../actionsTypes";
+import {
+  PARTY_GET,
+  PARTY_SAVE,
+  PARTY_ADD,
+  PARTY_UPDATE,
+  PARTY_JOIN
+} from "../../actionsTypes";
 
 const getParty = () => {
   const partyItem = localStorage.getItem("party");
-  console.log(partyItem);
-  console.log(localStorage);
   if (partyItem !== null) {
     return JSON.parse(partyItem);
   }
