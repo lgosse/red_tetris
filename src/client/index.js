@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
-import rootReducer from "./reducers";
+import reducers from "./reducers";
 import injectGlobalCssRules from "./styles/injectGlobalCssRules";
 injectGlobalCssRules();
 
@@ -52,7 +52,7 @@ const routingMiddleware = routerMiddleware(history);
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
-  combineReducers({ state: rootReducer, routing: routerReducer }),
+  combineReducers({ ...reducers, routing: routerReducer }),
   initialState,
   composeEnhancers(
     applyMiddleware(thunk, routingMiddleware, socketIoMiddleware(socket))
@@ -60,20 +60,26 @@ const store = createStore(
 );
 
 const checkNickname = () => {
-  const player = store.getState().state.player;
+  const player = store.getState().player;
   return Boolean(player.nickname);
 };
 
 const checkHash = () => {
-  return (window.location.hash.length > 1);
-}
+  return window.location.hash.length > 1;
+};
 
 ReactDom.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <App>
         <Switch>
-          <Route exact path="/" render={() => { return checkHash() ? <Party /> : <Home /> }} />
+          <Route
+            exact
+            path="/"
+            render={() => {
+              return checkHash() ? <Party /> : <Home />;
+            }}
+          />
           <Route path="/ranking" component={Ranking} />
           <Route path="/new-game" component={NewGame} />
           <Route

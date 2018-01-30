@@ -6,11 +6,11 @@ import player from "./player";
 import partyList from "./partyList";
 import party from "./party";
 
-export default combineReducers({
+export default {
   alert,
   server,
   newGame,
   player,
   partyList,
   party
-});
+};

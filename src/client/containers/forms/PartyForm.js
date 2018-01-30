@@ -26,7 +26,7 @@ export const PartyForm = ({ party, player, createParty, changeParty }) => {
               placeholder="Party name..."
               name="partyName"
               value={party.name}
-              onChange={e => changeParty(e, party, 'name')}
+              onChange={e => changeParty(e, party, "name")}
             />
           </FlexContainer>
           <FlexContainer>
@@ -37,7 +37,7 @@ export const PartyForm = ({ party, player, createParty, changeParty }) => {
               name="partySize"
               value={party.size}
               min="1"
-              onChange={e => changeParty(e, party, 'size')}
+              onChange={e => changeParty(e, party, "size")}
             />
           </FlexContainer>
           <FlexContainer>
@@ -54,13 +54,13 @@ export const PartyForm = ({ party, player, createParty, changeParty }) => {
         <FlexSpacer />
       </FlexContainer>
     </FullSizeContainer>
-  )
+  );
 };
 
 export const mapStateToPartyFormProps = state => {
   return {
-    party: state.state.party,
-    player: state.state.player
+    party: state.party,
+    player: state.player
   };
 };
 
