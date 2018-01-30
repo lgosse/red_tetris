@@ -10,7 +10,6 @@ export const RESPONSE_PARTY_LIST = "RESPONSE_PARTY_LIST";
 export const PARTY_GET = "PARTY_GET";
 export const PARTY_SAVE = "PARTY_SAVE";
 export const PARTY_ADD = "server/party-add";
-export const PARTY_ADD_ERROR = "PARTY_ADD_ERROR";
 export const PARTY_UPDATE = "PARTY_UPDATE";
 export const PARTY_JOIN = "server/party-join";
 

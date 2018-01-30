@@ -8,23 +8,19 @@ import Footer from "../containers/layout/Footer";
 import Alert from "../containers/layout/Alert";
 import Ranking from "../containers/views/Ranking";
 
-const App = ({ alert, props }) => {
-  return (
-    <div>
-      <Navbar />
-      <Body>{props.children}</Body>
-      <Footer />
-      <Alert />
-    </div>
-  );
-};
+const App = ({ alert, props }) => (
+  <div>
+    <Navbar />
+    <Body>{props.children}</Body>
+    <Footer />
+    <Alert />
+  </div>
+);
 
-const mapStateToAppProps = (state, props) => {
-  return {
-    alert: state.alert,
-    props
-  };
-};
+const mapStateToAppProps = (state, props) => ({
+  alert: state.alert,
+  props
+});
 
 // Testing purposes exports
 export { App, mapStateToAppProps };
