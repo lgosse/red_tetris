@@ -24,9 +24,6 @@ export const SERVER_PING = "server/ping";
 // Router actions
 export const LOCATION_CHANGE = "@@router/LOCATION_CHANGE";
 
-// Room actions
-export const ROOM_JOIN = "server/room/join";
-
 // Alert actions
 export const ALERT_POP = "ALERT_POP";
 export const ALERT_RESET = "ALERT_RESET";

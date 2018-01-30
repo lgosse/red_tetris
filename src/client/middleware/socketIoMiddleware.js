@@ -6,7 +6,7 @@ import {
 } from "../../actionsTypes";
 import { ROOM_PARTY_LIST } from "../../roomsName";
 import { joinRoom } from "../actions/room";
-import { addParty, getParty, joinParty } from "../actions/party";
+import { addParty, getParty, joinParty, updateParty } from "../actions/party";
 import { getParties } from "../actions/partyList";
 import { savePlayer, getPlayer } from "../actions/player";
 
@@ -15,6 +15,10 @@ const roomHandler = (socket, action, dispatch, getState) => {
   switch (action.payload.pathname) {
     case "/party-list":
       socket.emit("action", getParties());
+      break;
+
+    case "/create-party":
+      dispatch(updateParty({ size: 10 }));
       break;
 
     case "/": {

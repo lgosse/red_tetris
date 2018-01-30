@@ -3,12 +3,13 @@ import {
   RESPONSE_PARTY_LIST,
   PARTY_ADD,
   PARTY_JOIN,
-  ALERT_POP
+  ALERT_POP,
+  PARTY_UPDATE
 } from "../../actionsTypes";
 import { push } from "react-router-redux";
 import mongoose from "mongoose";
 
-const Party = mongoose.model("Party", {
+export const Party = mongoose.model("Party", {
   name: {
     type: String,
     unique: true
@@ -18,12 +19,31 @@ const Party = mongoose.model("Party", {
   players: [
     {
       nickname: String,
-      id: String
+      socketId: String
     }
   ]
 });
 
-const getParties = async () => {
+export const userLeaves = async socketId => {
+  const partyList = await Party.find({
+    "players.socketId": socketId
+  });
+  partyList.forEach(async party => {
+    party.players = party.players.filter(player => {
+      return player.socketId !== socketId;
+    });
+
+    if (party.players.length === 0) {
+      await party.remove();
+    } else {
+      await party.save();
+    }
+
+    io.emit("action", getParties());
+  });
+};
+
+export const getParties = async () => {
   const partyList = await Party.find({}).exec();
 
   return {
@@ -39,7 +59,6 @@ const partyList = async (action, io, socket) => {
       break;
     }
 
-    // Change logic here to create party with model
     case PARTY_ADD: {
       let party;
       try {
@@ -68,9 +87,7 @@ const partyList = async (action, io, socket) => {
     }
 
     case PARTY_JOIN: {
-      console.log(action.player);
       const party = await Party.findOne({ name: action.party.name }).exec();
-      console.log(partyList);
 
       let partyEdit;
       if (!party) {
@@ -83,18 +100,26 @@ const partyList = async (action, io, socket) => {
       } else {
         partyEdit = party;
       }
-      console.log("partyEdit", partyEdit);
 
       if (
         partyEdit.players.length < partyEdit.size &&
         party.players.filter(player => player.id === socket.id).length === 0
       ) {
-        partyEdit.players.push({ ...action.player, id: socket.id, open: true });
+        partyEdit.players.push({
+          ...action.player,
+          socketId: socket.id,
+          open: true
+        });
         partyEdit.save();
         io.emit("action", await getParties());
       }
 
-      // @TODO handle player presence in room
+      socket.join(partyEdit._id);
+      io.to(partyEdit._id).emit("action", {
+        type: PARTY_UPDATE,
+        party: partyEdit
+      });
+
       break;
     }
   }
