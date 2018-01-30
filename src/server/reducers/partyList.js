@@ -94,6 +94,7 @@ const partyList = async (action, io, socket) => {
         io.emit("action", await getParties());
       }
 
+      // @TODO handle player presence in room
       break;
     }
   }
