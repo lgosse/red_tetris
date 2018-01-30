@@ -20,7 +20,6 @@ export const PLAYER_GET = "PLAYER_GET";
 
 // Server actions
 export const SERVER_PING = "server/ping";
-export const SERVER_REDIRECT = "SERVER_REDIRECT";
 
 // Router actions
 export const LOCATION_CHANGE = "@@router/LOCATION_CHANGE";

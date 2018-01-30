@@ -3,8 +3,7 @@ import {
   RESPONSE_PARTY_LIST,
   PARTY_ADD,
   PARTY_JOIN,
-  ALERT_POP,
-  SERVER_REDIRECT
+  ALERT_POP
 } from "../../actionsTypes";
 import { push } from "react-router-redux";
 import mongoose from "mongoose";
