@@ -1,8 +1,13 @@
-import { LOCATION_CHANGE, ALERT_POP, ALERT_RESET } from "../../actionsTypes";
+import {
+  LOCATION_CHANGE,
+  ALERT_POP,
+  ALERT_RESET,
+  SERVER_REDIRECT
+} from "../../actionsTypes";
 import { ROOM_PARTY_LIST } from "../../roomsName";
 import { joinRoom } from "../actions/room";
 import { addParty, getParty, joinParty } from "../actions/party";
-import { getParties} from "../actions/partyList";
+import { getParties } from "../actions/partyList";
 import { savePlayer, getPlayer } from "../actions/player";
 
 const roomHandler = (socket, action, dispatch, getState) => {
@@ -18,7 +23,10 @@ const roomHandler = (socket, action, dispatch, getState) => {
         dispatch(getParty());
 
         const state = getState();
-        const player = (state.player && state.player.nickname) ? state.player : { nickname: "Unknown" };
+        const player =
+          state.player && state.player.nickname
+            ? state.player
+            : { nickname: "Unknown" };
         let party = state.party;
         if (!party.name || !party.name == action.payload.hash.substring(1))
           party.name = action.payload.hash.substring(1);
@@ -31,16 +39,29 @@ const roomHandler = (socket, action, dispatch, getState) => {
   }
 };
 
+const socketIoActionHandler = (dispatch, socket, action) => {
+  switch (action.type) {
+    case ALERT_POP: {
+      setTimeout(() => {
+        dispatch({ type: ALERT_RESET });
+      }, 3000);
+
+      break;
+    }
+
+    default: {
+      break;
+    }
+  }
+};
+
 const socketIoMiddleWare = socket => ({ dispatch, getState }) => {
   if (socket)
     socket.on("action", action => {
       dispatch(action);
-      if (action.type === ALERT_POP) {
-        setTimeout(() => {
-          dispatch({ type: ALERT_RESET });
-        }, 3000);
-      }
+      socketIoActionHandler(dispatch, socket, action);
     });
+
   return next => action => {
     roomHandler(socket, action, dispatch, getState);
     if (socket && action.type && action.type.indexOf("server/") === 0)
