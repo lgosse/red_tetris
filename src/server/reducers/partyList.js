@@ -1,8 +1,20 @@
+<<<<<<< HEAD
 import { PARTY_LIST, RESPONSE_PARTY_LIST, PARTY_ADD, PARTY_JOIN } from "../../actionsTypes";
+=======
+import {
+  PARTY_LIST,
+  RESPONSE_PARTY_LIST,
+  PARTY_ADD,
+  ALERT_POP
+} from "../../actionsTypes";
+>>>>>>> d47476423a8576e0b3afa6d6e96aa5f137e96500
 import mongoose from "mongoose";
 
 const Party = mongoose.model("Party", {
-  name: String,
+  name: {
+    type: String,
+    unique: true
+  },
   size: Number,
   open: Boolean,
   players: [
@@ -30,11 +42,29 @@ const partyList = async (action, io, socket) => {
 
     // Change logic here to create party with model
     case PARTY_ADD: {
-      const party = await new Party({...action.party, open: false}).save();
-
+      try {
+        const party = await new Party({ ...action.party, open: false }).save();
+      } catch (error) {
+        let message;
+        switch (error.code) {
+          case 11000:
+            message = "This party name is not available! Choose another one.";
+            break;
+          default:
+            message = "Cannot save the party";
+            break;
+        }
+        console.log(error.code);
+        socket.emit("action", {
+          type: ALERT_POP,
+          message
+        });
+        break;
+      }
       io.emit("action", await getParties());
       break;
     }
+    
     case PARTY_JOIN: {
       console.log(action.player);
       const partyList = await Party.find({ name: action.party.name }).exec();

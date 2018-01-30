@@ -26,6 +26,7 @@ export const PartyForm = ({ party, player, createParty, changeParty }) => {
               placeholder="Party name..."
               name="partyName"
               value={party.name}
+              required
               onChange={e => changeParty(e, party, "name")}
             />
           </FlexContainer>
