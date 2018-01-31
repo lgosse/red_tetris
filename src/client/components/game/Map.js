@@ -21,6 +21,7 @@ const Map = (props) => {
     });
 
     return (
+        //TABLE INTERDIT ?????????
         <table style={ {padding: '2px', borderSpacing: '1px', backgroundColor: 'rgba(0, 0, 0, 0.2)'} }>
             <tbody>
                 {lines}

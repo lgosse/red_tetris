@@ -7,16 +7,16 @@ import {
 } from "../helpers/Common";
 
 const Side = (props) => {
-    const playerStates = props.players.map( (player, i) => {
+    const playerStates = props.players.map((player, i) => {
         return (
             <PlayerState player={player} key={i} />
         );
     });
 
     return (
-        <FullSizeContainer style={{ width: '300px'}}>
+        <div style={{border: 'solid 1px black', width: '50%'}}>
             {playerStates}
-        </FullSizeContainer>
+        </div>
     );
 };
 
