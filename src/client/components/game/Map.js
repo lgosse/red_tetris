@@ -15,7 +15,7 @@ const Map = (props) => {
                 style= { col == 0 ? null : mapItem }
                 key= {j}>
             </td>
-            );  
+            );
         });
         return <tr key={i} >{cols}</tr>;
     });
@@ -26,7 +26,7 @@ const Map = (props) => {
                 {lines}
             </tbody>
         </table>
-  );
+    );
 };
 
 export default Map;
