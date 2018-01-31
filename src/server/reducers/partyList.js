@@ -1,13 +1,9 @@
-<<<<<<< HEAD
-import { PARTY_LIST, RESPONSE_PARTY_LIST, PARTY_ADD, PARTY_JOIN } from "../../actionsTypes";
-=======
 import {
   PARTY_LIST,
   RESPONSE_PARTY_LIST,
   PARTY_ADD,
   ALERT_POP
 } from "../../actionsTypes";
->>>>>>> d47476423a8576e0b3afa6d6e96aa5f137e96500
 import mongoose from "mongoose";
 
 const Party = mongoose.model("Party", {
