@@ -68,6 +68,45 @@ const checkHash = () => {
   return window.location.hash.length > 1;
 };
 
+
+import Side from "./components/game/Side";
+
+const maptest = [
+  [0,0,1,1,1,1,1,1,1],
+  [0,0,1,1,1,1,1,1,1],
+  [1,0,0,1,0,1,1,1,1],
+  [0,0,0,1,1,1,1,1,1],
+  [0,0,1,1,1,1,1,1,1],
+  [0,0,0,1,1,1,1,1,1],
+  [0,0,1,1,1,1,1,1,1],
+  [0,0,1,1,1,1,1,1,1],
+  [1,0,0,1,0,1,1,1,1],
+  [0,0,0,1,1,1,1,1,1],
+  [0,0,1,1,1,1,1,1,1],
+  [0,0,1,1,1,1,1,1,1],
+  [1,0,0,1,0,1,1,1,1],
+  [1,1,0,1,0,0,1,1,1]
+];
+
+const players = [
+  {
+    nickname: 'Lucas',
+    map: maptest
+  },
+  {
+    nickname: 'Thomas',
+    map: maptest
+  },
+  {
+    nickname: 'Aymée',
+    map: maptest
+  },
+  {
+    nickname: 'Otmane',
+    map: maptest
+  }
+];
+
 ReactDom.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
@@ -80,6 +119,9 @@ ReactDom.render(
               return checkHash() ? <Party /> : <Home />;
             }}
           />
+          <Route path="/test" render={() => {
+              return <Side players={players} />
+            }} />
           <Route path="/ranking" component={Ranking} />
           <Route path="/new-game" component={NewGame} />
           <Route
