@@ -12,6 +12,7 @@ export const PARTY_SAVE = "PARTY_SAVE";
 export const PARTY_ADD = "server/party-add";
 export const PARTY_UPDATE = "PARTY_UPDATE";
 export const PARTY_JOIN = "server/party-join";
+export const PARTY_LEAVE = "server/party-leave";
 
 // Player actions
 export const PLAYER_UPDATE = "PLAYER_UPDATE";
@@ -23,9 +24,6 @@ export const SERVER_PING = "server/ping";
 
 // Router actions
 export const LOCATION_CHANGE = "@@router/LOCATION_CHANGE";
-
-// Room actions
-export const ROOM_JOIN = "server/room/join";
 
 // Alert actions
 export const ALERT_POP = "ALERT_POP";

@@ -1,4 +1,11 @@
-import {PARTY_GET, PARTY_SAVE, PARTY_ADD, PARTY_UPDATE, PARTY_JOIN} from "../../actionsTypes";
+import {
+  PARTY_GET,
+  PARTY_SAVE,
+  PARTY_ADD,
+  PARTY_UPDATE,
+  PARTY_JOIN,
+  PARTY_LEAVE
+} from "../../actionsTypes";
 
 export const getParty = () => {
   return {
@@ -21,18 +28,17 @@ export const addParty = party => {
 };
 
 export const joinParty = (party, player) => {
-  if (party.players.length < party.size) {
-    return {
-      type: PARTY_JOIN,
-      party,
-      player
-    };
-  }
-  else {
-    return {
+  return {
+    type: PARTY_JOIN,
+    party,
+    player
+  };
+};
 
-    }
-  }
+export const leaveParty = () => {
+  return {
+    type: PARTY_LEAVE
+  };
 };
 
 export const updateParty = party => {
