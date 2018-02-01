@@ -43,7 +43,7 @@ const roomHandler = (socket, action, dispatch, getState) => {
         dispatch(joinParty(party, player));
       }
     }
-
+  
     default:
       break;
   }
