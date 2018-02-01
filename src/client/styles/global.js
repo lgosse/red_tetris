@@ -1,4 +1,4 @@
-let global = {
+const global = {
   padding: {
     sm: "8px",
     md: "16px",

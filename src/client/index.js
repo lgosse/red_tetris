@@ -68,6 +68,8 @@ const checkHash = () => {
   return window.location.hash.length > 1;
 };
 
+import Game from "./containers/game/Game";
+
 ReactDom.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
@@ -80,6 +82,7 @@ ReactDom.render(
               return checkHash() ? <Party /> : <Home />;
             }}
           />
+          <Route path="/test" component={Game} />
           <Route path="/ranking" component={Ranking} />
           <Route path="/new-game" component={NewGame} />
           <Route
