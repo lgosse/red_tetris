@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import global from "../../styles/global";
 
 import Lobby from "./Lobby";
+import Game from "../game/Game";
 
-const Party = ({ party }) => (party.playing ? <div /> : <Lobby />);
+const Party = ({ party }) => (party.playing ? <Game /> : <Lobby />);
 
 const mapStateToProps = ({ party }) => ({ party });
 
