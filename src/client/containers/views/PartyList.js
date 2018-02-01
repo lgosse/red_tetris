@@ -13,14 +13,20 @@ import {
   FullSizeContainer
 } from "../../components/helpers/Common";
 
-export const PartyButton = ({ party, onClick }) => {
+export const PartyButton = ({ party, player, onClick }) => {
   return (
     <Link
-      to={`/#${party.name}`}
-      style={{
-        textDecoration: "none",
-        pointerEvents: party.open ? "default" : "none"
-      }}
+      to={`/#${party.name}[${player.nickname || "Unknown"}]`}
+      style={
+        !party.open
+          ? {
+              textDecoration: "none",
+              pointerEvents: "none"
+            }
+          : {
+              textDecoration: "none"
+            }
+      }
     >
       <Button
         width="400px"
@@ -44,10 +50,15 @@ export const PartyButton = ({ party, onClick }) => {
   );
 };
 
-const PartyListMap = ({ partyList, goToParty }) => (
+const PartyListMap = ({ partyList, player, goToParty }) => (
   <div>
     {partyList.map(party => (
-      <PartyButton party={party} key={party._id} onClick={goToParty} />
+      <PartyButton
+        party={party}
+        key={party._id}
+        player={player}
+        onClick={goToParty}
+      />
     ))}
   </div>
 );
@@ -65,14 +76,18 @@ const NoParties = () => (
   </FullSizeContainer>
 );
 
-export const PartyList = ({ partyList, goToParty }) => {
+export const PartyList = ({ partyList, player, goToParty }) => {
   return (
     <FullSizeContainer padding="40px">
       <FlexContainer>
         <FlexSpacer />
         <div>
           {partyList.length ? (
-            <PartyListMap partyList={partyList} goToParty={goToParty} />
+            <PartyListMap
+              partyList={partyList}
+              goToParty={goToParty}
+              player={player}
+            />
           ) : (
             <NoParties />
           )}
@@ -83,11 +98,10 @@ export const PartyList = ({ partyList, goToParty }) => {
   );
 };
 
-export const mapStateToPartyListProps = state => {
-  return {
-    partyList: state.partyList
-  };
-};
+export const mapStateToPartyListProps = ({ partyList, player }) => ({
+  partyList,
+  player
+});
 
 export const mapDispatchToPartyListProps = dispatch => {
   const goToParty = () => {

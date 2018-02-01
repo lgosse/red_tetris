@@ -5,7 +5,10 @@ import {
   PARTY_JOIN,
   ALERT_POP,
   PARTY_UPDATE,
-  PARTY_LEAVE
+  PARTY_LEAVE,
+  PARTY_KICK_PLAYER,
+  PARTY_OPEN,
+  PARTY_TOGGLE_PLAYING
 } from "../../actionsTypes";
 import { push } from "react-router-redux";
 import mongoose from "mongoose";
@@ -17,6 +20,7 @@ export const Party = mongoose.model("Party", {
   },
   size: Number,
   open: Boolean,
+  playing: Boolean,
   players: [
     {
       nickname: String,
@@ -25,7 +29,7 @@ export const Party = mongoose.model("Party", {
   ]
 });
 
-export const userLeaves = async socketId => {
+export const userLeaves = async (io, socketId) => {
   const partyList = await Party.find({
     "players.socketId": socketId
   });
@@ -46,7 +50,7 @@ export const userLeaves = async socketId => {
     });
   });
 
-  io.emit("action", getParties());
+  io.emit("action", await getParties());
 };
 
 export const getParties = async () => {
@@ -68,7 +72,11 @@ const partyList = async (action, io, socket) => {
     case PARTY_ADD: {
       let party;
       try {
-        party = await new Party({ ...action.party, open: false }).save();
+        party = await new Party({
+          ...action.party,
+          open: false,
+          playing: false
+        }).save();
       } catch (error) {
         let message;
         switch (error.code) {
@@ -88,7 +96,7 @@ const partyList = async (action, io, socket) => {
       }
 
       io.emit("action", await getParties());
-      socket.emit("action", push(`/#${party.name}`));
+      socket.emit("action", push(`/#${party.name}[${action.player.nickname}]`));
       break;
     }
 
@@ -101,7 +109,8 @@ const partyList = async (action, io, socket) => {
           ...action.party,
           size: 10,
           players: [],
-          open: false
+          open: false,
+          playing: false
         }).save();
       } else {
         partyEdit = party;
@@ -113,8 +122,7 @@ const partyList = async (action, io, socket) => {
       ) {
         partyEdit.players.push({
           ...action.player,
-          socketId: socket.id,
-          open: true
+          socketId: socket.id
         });
         partyEdit.save();
         io.emit("action", await getParties());
@@ -130,8 +138,44 @@ const partyList = async (action, io, socket) => {
     }
 
     case PARTY_LEAVE: {
-      userLeaves(socket.id);
+      userLeaves(io, socket.id);
       break;
+    }
+
+    case PARTY_KICK_PLAYER: {
+      if (io.sockets.connected[action.playerId])
+        io.sockets.connected[action.playerId].emit("action", push("/"));
+
+      break;
+    }
+
+    case PARTY_OPEN: {
+      const party = await Party.findById(action.partyId).exec();
+
+      party.open = !party.open;
+      party.save().then(async res => {
+        io.emit("action", await getParties());
+        io.to(party._id).emit("action", {
+          type: PARTY_UPDATE,
+          party
+        });
+      });
+
+      break;
+    }
+
+    case PARTY_TOGGLE_PLAYING: {
+      const party = await Party.findById(action.partyId).exec();
+
+      party.open = false;
+      party.playing = true;
+      party.save().then(async res => {
+        io.emit("action", await getParties());
+        io.to(party._id).emit("action", {
+          type: PARTY_UPDATE,
+          party
+        });
+      });
     }
   }
 };

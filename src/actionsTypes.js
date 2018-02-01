@@ -11,8 +11,11 @@ export const PARTY_GET = "PARTY_GET";
 export const PARTY_SAVE = "PARTY_SAVE";
 export const PARTY_ADD = "server/party-add";
 export const PARTY_UPDATE = "PARTY_UPDATE";
+export const PARTY_OPEN = "server/toggle-open-party";
 export const PARTY_JOIN = "server/party-join";
 export const PARTY_LEAVE = "server/party-leave";
+export const PARTY_KICK_PLAYER = "server/party-kick-player";
+export const PARTY_TOGGLE_PLAYING = "server/party-toggle-playing";
 
 // Player actions
 export const PLAYER_UPDATE = "PLAYER_UPDATE";

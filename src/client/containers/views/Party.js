@@ -1,18 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
+import global from "../../styles/global";
 
-import {
-  FullSizeContainer,
-  FlexContainer,
-} from '../../components/helpers/Common';
+import Lobby from "./Lobby";
 
-const Party = () => {
-  return (
-    <FullSizeContainer>
-      <FlexContainer>
-        PARTY
-      </FlexContainer>
-    </FullSizeContainer>
-  );
-};
+const Party = ({ party }) => (party.playing ? <div /> : <Lobby />);
 
-export default Party;
+const mapStateToProps = ({ party }) => ({ party });
+
+export default connect(mapStateToProps)(Party);

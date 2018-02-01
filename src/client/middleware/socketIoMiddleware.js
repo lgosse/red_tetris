@@ -1,3 +1,4 @@
+import { push } from "react-router-redux";
 import {
   LOCATION_CHANGE,
   ALERT_POP,
@@ -29,17 +30,27 @@ const roomHandler = (socket, action, dispatch, getState) => {
 
     case "/": {
       if (action.payload.hash[0] === "#" && action.payload.hash.length > 1) {
+        let [roomName, playerNickname] = action.payload.hash.split("[");
+        if (!playerNickname || playerNickname.length === 0) {
+          dispatch(push("/"));
+
+          break;
+        }
+
+        playerNickname = playerNickname.substring(0, playerNickname.length - 1);
+        console.log(playerNickname);
         dispatch(getPlayer());
         dispatch(getParty());
 
         const state = getState();
         const player =
           state.player && state.player.nickname
-            ? state.player
-            : { nickname: "Unknown" };
+            ? { ...state.player, nickname: playerNickname }
+            : { nickname: playerNickname };
         let party = state.party;
         if (!party.name || !party.name == action.payload.hash.substring(1))
           party.name = action.payload.hash.substring(1);
+
         dispatch(joinParty(party, player));
       }
     }

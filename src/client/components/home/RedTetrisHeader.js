@@ -32,12 +32,16 @@ const bounceAnimation = `
   animation-fill-mode: both;
 `;
 
-const Block = styled.div`
+export const Block = styled.div`
   -webkit-transition: all 1s ease-in-out;
   -moz-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
-  background-color: ${global.color.accent};
-  color: ${global.color.primary};
+  background-color: ${props =>
+    props.backgroundColor
+      ? global.color[props.backgroundColor]
+      : global.color.accent};
+  color: ${props =>
+    props.color ? global.color[props.color] : global.color.primary};
   font-size: 5em;
   text-align: center;
   font-family: ${global.font.family.game};
@@ -48,25 +52,21 @@ const Block = styled.div`
   ${bounceAnimation};
 `;
 
-const EmptyBlock = styled.div`
+export const EmptyBlock = styled.div`
   width: ${blockLength}px;
   height: ${blockLength}px;
   background-color: unset;
   ${bounceAnimation};
 `;
 
-const Line = styled.div`
+export const Line = styled.div`
   width: 100%;
   display: flex;
 `;
 
-const Container = styled.div`
-  width: ${blockLength * 3}px;
-
-  &:hover {
-    .boucingBlock {
-    }
-  }
+export const Container = styled.div`
+  width: ${props => (props.width ? props.width : `${blockLength * 3}px`)};
+  ${props => props.height && `height: ${props.height}`};
 `;
 
 const Description = styled.div`
@@ -88,14 +88,14 @@ const RedTetrisHeader = () => {
           <FlexSpacer />
           <Container>
             <Line>
-              <Block className="boucingBlock">R</Block>
-              <Block className="boucingBlock">E</Block>
-              <Block className="boucingBlock">D</Block>
+              <Block>R</Block>
+              <Block>E</Block>
+              <Block>D</Block>
             </Line>
             <Line>
-              <EmptyBlock className="boucingBlock" />
-              <Block className="boucingBlock" />
-              <EmptyBlock className="boucingBlock" />
+              <EmptyBlock />
+              <Block />
+              <EmptyBlock />
             </Line>
           </Container>
           <FlexSpacer />
