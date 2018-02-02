@@ -5,7 +5,11 @@ const getColors = [
     ['red'],
     ['grey'],
     ['blue'],
-    ['green']
+    ['green'],
+    ['red'],
+    ['grey'],
+    ['blue'],
+    ['black']
 ];
 
 const animations = {
@@ -41,17 +45,15 @@ const gameStyle = {
         width: '40vh',
         minWidth: '40vh'
     },
-    piece: (player) => {
+    piece: (position) => {
         return {
             position: 'absolute',
-            marginTop: player.piece.y * 4 + 'vh',
-            marginLeft: player.piece.x * 4 + 'vh',
+            marginTop: position.y * 4 + 'vh',
+            marginLeft: position.x * 4 + 'vh',
             height: '4vh',
             minHeight: '4vh',
             width: '4vh',
             minWidth: '4vh',
-            transition: 'all 1s',
-            transitionTimingFunction: 'linear'
         }
     },
     lineDestroying: {
@@ -63,7 +65,50 @@ const gameStyle = {
         animation: animations.pulse + ' 0.2s infinite',
         animationDirection: 'alternate'
     },
-
+    pieces: {
+        't1': {
+            width: '4vh',
+            height: '16vh',
+            transition: 'all 1s',
+            transitionTimingFunction: 'linear'
+        },
+        't2': {
+            width: '8vh',
+            height: '12vh',
+            transition: 'all 1s',
+            transitionTimingFunction: 'linear'
+        },
+        't3': {
+            width: '8vh',
+            height: '12vh',
+            transition: 'all 1s',
+            transitionTimingFunction: 'linear'
+        },
+        't4': {
+            width: '8vh',
+            height: '8vh',
+            transition: 'all 1s',
+            transitionTimingFunction: 'linear'
+        },
+        't5': {
+            width: '12vh',
+            height: '8vh',
+            transition: 'all 1s',
+            transitionTimingFunction: 'linear'
+        },
+        't6': {
+            width: '12vh',
+            height: '8vh',
+            transition: 'all 1s',
+            transitionTimingFunction: 'linear'
+        },
+        't7': {
+            width: '12vh',
+            height: '8vh',
+            transition: 'all 1s',
+            transitionTimingFunction: 'linear'
+        }
+    },
     square: (color) => {
         return {
             zIndex: color == 0 ? '0' : '2',

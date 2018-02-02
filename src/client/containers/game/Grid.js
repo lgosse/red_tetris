@@ -2,10 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import styled, { keyframes } from 'styled-components';
 import Square from "../../components/game/Square";
+import Pieces from "../../components/game/Pieces";
 import gameStyle from "../../styles/gameStyle";
 
 export const Grid = ({party, player}) => {
-    player.pgitiece = {
+    player.piece = {
+        type: 't7',
         x: 5,
         y: 5
     }
@@ -49,8 +51,9 @@ export const Grid = ({party, player}) => {
     });
 
     const Calque = () => {
-        const piece = <div style={gameStyle.piece(player)}><Square color={3}/></div>;
-        return <div style={gameStyle.calque}>{piece}</div>;
+        //const piece = <div style={gameStyle.piece(player.piece)}><Square color={3}/></div>;
+        const tetriminos = Pieces[player.piece.type]();
+        return <div style={gameStyle.calque}>{tetriminos}</div>;
     }
     
     return (
@@ -60,7 +63,6 @@ export const Grid = ({party, player}) => {
         </div>
     );
 };
-
 
 export const mapStateToGridProps = state => {
     return {
