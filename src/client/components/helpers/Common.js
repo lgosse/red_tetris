@@ -122,8 +122,9 @@ export const Paragraph = styled.div`
     }
   }};
   ${props => props.color && `color: ${global.color[props.color]}`};
+  ${props => props.bold && `font-weight: 700`};
   font-size: ${props => (props.size ? props.size : `14px`)};
-  ${props => props.padding && `padding: ${props.size}`};
+  ${props => props.padding && `padding: ${props.padding}`};
   ${props => props.gameFont && `font-family: ${global.font.family.game}`};
 `;
 
@@ -174,4 +175,5 @@ export const Icon = styled(FaIcon)`
   ${props => props.primary && `color: ${global.color.primary}`};
   ${props => props.accent && `color: ${global.color.accent}`};
   ${props => props.size && `font-size: ${props.size}`};
+  ${props => props.clickable && `cursor: pointer`};
 `;

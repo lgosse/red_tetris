@@ -73,7 +73,7 @@ export const mapDispatchToPartyFormProps = dispatch => {
       players: []
     };
     dispatch(saveParty(newParty));
-    dispatch(addParty(newParty));
+    dispatch(addParty(newParty, player));
   };
   const changeParty = (event, party, field) => {
     dispatch(

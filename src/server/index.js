@@ -3,6 +3,7 @@ import debug from "debug";
 import ioReducer from "./serverReducer";
 import mongoose from "mongoose";
 import { userLeaves } from "./reducers/partyList";
+import { updatePlayer } from "../client/actions/player";
 mongoose.Promise = Promise;
 mongoose.connect("mongodb://192.168.99.100:27017/dev");
 
@@ -35,6 +36,8 @@ const initApp = (app, params, cb) => {
 
 const initEngine = io => {
   io.on("connection", socket => {
+    socket.emit("action", updatePlayer({ socketId: socket.id }));
+
     loginfo("Socket connected: " + socket.id);
     socket.on("action", action => {
       ioReducer(io, socket, action);
@@ -42,7 +45,7 @@ const initEngine = io => {
 
     socket.on("disconnect", () => {
       loginfo("Socket disconnected: " + socket.id);
-      userLeaves(socket.id);
+      userLeaves(io, socket.id);
     });
   });
 };
