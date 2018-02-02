@@ -82,7 +82,6 @@ ReactDom.render(
               return checkHash() ? <Party /> : <Home />;
             }}
           />
-          <Route path="/test" component={Game} />
           <Route path="/ranking" component={Ranking} />
           <Route path="/new-game" component={NewGame} />
           <Route
