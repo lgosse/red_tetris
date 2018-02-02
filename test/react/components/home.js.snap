@@ -295,32 +295,20 @@ ShallowWrapper {
             <styled.div />
             <styled.div>
               <styled.div>
-                <styled.div
-                  className="boucingBlock"
-                >
+                <styled.div>
                   R
                 </styled.div>
-                <styled.div
-                  className="boucingBlock"
-                >
+                <styled.div>
                   E
                 </styled.div>
-                <styled.div
-                  className="boucingBlock"
-                >
+                <styled.div>
                   D
                 </styled.div>
               </styled.div>
               <styled.div>
-                <styled.div
-                  className="boucingBlock"
-                />
-                <styled.div
-                  className="boucingBlock"
-                />
-                <styled.div
-                  className="boucingBlock"
-                />
+                <styled.div />
+                <styled.div />
+                <styled.div />
               </styled.div>
             </styled.div>
             <styled.div />
@@ -345,32 +333,20 @@ ShallowWrapper {
             <styled.div />
             <styled.div>
               <styled.div>
-                <styled.div
-                  className="boucingBlock"
-                >
+                <styled.div>
                   R
                 </styled.div>
-                <styled.div
-                  className="boucingBlock"
-                >
+                <styled.div>
                   E
                 </styled.div>
-                <styled.div
-                  className="boucingBlock"
-                >
+                <styled.div>
                   D
                 </styled.div>
               </styled.div>
               <styled.div>
-                <styled.div
-                  className="boucingBlock"
-                />
-                <styled.div
-                  className="boucingBlock"
-                />
-                <styled.div
-                  className="boucingBlock"
-                />
+                <styled.div />
+                <styled.div />
+                <styled.div />
               </styled.div>
             </styled.div>
             <styled.div />
@@ -386,32 +362,20 @@ ShallowWrapper {
               <styled.div />,
               <styled.div>
                 <styled.div>
-                  <styled.div
-                    className="boucingBlock"
-                  >
+                  <styled.div>
                     R
                   </styled.div>
-                  <styled.div
-                    className="boucingBlock"
-                  >
+                  <styled.div>
                     E
                   </styled.div>
-                  <styled.div
-                    className="boucingBlock"
-                  >
+                  <styled.div>
                     D
                   </styled.div>
                 </styled.div>
                 <styled.div>
-                  <styled.div
-                    className="boucingBlock"
-                  />
-                  <styled.div
-                    className="boucingBlock"
-                  />
-                  <styled.div
-                    className="boucingBlock"
-                  />
+                  <styled.div />
+                  <styled.div />
+                  <styled.div />
                 </styled.div>
               </styled.div>,
               <styled.div />,
@@ -435,32 +399,20 @@ ShallowWrapper {
               "props": Object {
                 "children": Array [
                   <styled.div>
-                    <styled.div
-                      className="boucingBlock"
-                    >
+                    <styled.div>
                       R
                     </styled.div>
-                    <styled.div
-                      className="boucingBlock"
-                    >
+                    <styled.div>
                       E
                     </styled.div>
-                    <styled.div
-                      className="boucingBlock"
-                    >
+                    <styled.div>
                       D
                     </styled.div>
                   </styled.div>,
                   <styled.div>
-                    <styled.div
-                      className="boucingBlock"
-                    />
-                    <styled.div
-                      className="boucingBlock"
-                    />
-                    <styled.div
-                      className="boucingBlock"
-                    />
+                    <styled.div />
+                    <styled.div />
+                    <styled.div />
                   </styled.div>,
                 ],
               },
@@ -472,19 +424,13 @@ ShallowWrapper {
                   "nodeType": "class",
                   "props": Object {
                     "children": Array [
-                      <styled.div
-                        className="boucingBlock"
-                      >
+                      <styled.div>
                         R
                       </styled.div>,
-                      <styled.div
-                        className="boucingBlock"
-                      >
+                      <styled.div>
                         E
                       </styled.div>,
-                      <styled.div
-                        className="boucingBlock"
-                      >
+                      <styled.div>
                         D
                       </styled.div>,
                     ],
@@ -497,7 +443,6 @@ ShallowWrapper {
                       "nodeType": "class",
                       "props": Object {
                         "children": "R",
-                        "className": "boucingBlock",
                       },
                       "ref": null,
                       "rendered": "R",
@@ -509,7 +454,6 @@ ShallowWrapper {
                       "nodeType": "class",
                       "props": Object {
                         "children": "E",
-                        "className": "boucingBlock",
                       },
                       "ref": null,
                       "rendered": "E",
@@ -521,7 +465,6 @@ ShallowWrapper {
                       "nodeType": "class",
                       "props": Object {
                         "children": "D",
-                        "className": "boucingBlock",
                       },
                       "ref": null,
                       "rendered": "D",
@@ -536,15 +479,9 @@ ShallowWrapper {
                   "nodeType": "class",
                   "props": Object {
                     "children": Array [
-                      <styled.div
-                        className="boucingBlock"
-                      />,
-                      <styled.div
-                        className="boucingBlock"
-                      />,
-                      <styled.div
-                        className="boucingBlock"
-                      />,
+                      <styled.div />,
+                      <styled.div />,
+                      <styled.div />,
                     ],
                   },
                   "ref": null,
@@ -553,9 +490,7 @@ ShallowWrapper {
                       "instance": null,
                       "key": undefined,
                       "nodeType": "class",
-                      "props": Object {
-                        "className": "boucingBlock",
-                      },
+                      "props": Object {},
                       "ref": null,
                       "rendered": null,
                       "type": [Function],
@@ -564,9 +499,7 @@ ShallowWrapper {
                       "instance": null,
                       "key": undefined,
                       "nodeType": "class",
-                      "props": Object {
-                        "className": "boucingBlock",
-                      },
+                      "props": Object {},
                       "ref": null,
                       "rendered": null,
                       "type": [Function],
@@ -575,9 +508,7 @@ ShallowWrapper {
                       "instance": null,
                       "key": undefined,
                       "nodeType": "class",
-                      "props": Object {
-                        "className": "boucingBlock",
-                      },
+                      "props": Object {},
                       "ref": null,
                       "rendered": null,
                       "type": [Function],
@@ -640,32 +571,20 @@ ShallowWrapper {
               <styled.div />
               <styled.div>
                 <styled.div>
-                  <styled.div
-                    className="boucingBlock"
-                  >
+                  <styled.div>
                     R
                   </styled.div>
-                  <styled.div
-                    className="boucingBlock"
-                  >
+                  <styled.div>
                     E
                   </styled.div>
-                  <styled.div
-                    className="boucingBlock"
-                  >
+                  <styled.div>
                     D
                   </styled.div>
                 </styled.div>
                 <styled.div>
-                  <styled.div
-                    className="boucingBlock"
-                  />
-                  <styled.div
-                    className="boucingBlock"
-                  />
-                  <styled.div
-                    className="boucingBlock"
-                  />
+                  <styled.div />
+                  <styled.div />
+                  <styled.div />
                 </styled.div>
               </styled.div>
               <styled.div />
@@ -690,32 +609,20 @@ ShallowWrapper {
               <styled.div />
               <styled.div>
                 <styled.div>
-                  <styled.div
-                    className="boucingBlock"
-                  >
+                  <styled.div>
                     R
                   </styled.div>
-                  <styled.div
-                    className="boucingBlock"
-                  >
+                  <styled.div>
                     E
                   </styled.div>
-                  <styled.div
-                    className="boucingBlock"
-                  >
+                  <styled.div>
                     D
                   </styled.div>
                 </styled.div>
                 <styled.div>
-                  <styled.div
-                    className="boucingBlock"
-                  />
-                  <styled.div
-                    className="boucingBlock"
-                  />
-                  <styled.div
-                    className="boucingBlock"
-                  />
+                  <styled.div />
+                  <styled.div />
+                  <styled.div />
                 </styled.div>
               </styled.div>
               <styled.div />
@@ -731,32 +638,20 @@ ShallowWrapper {
                 <styled.div />,
                 <styled.div>
                   <styled.div>
-                    <styled.div
-                      className="boucingBlock"
-                    >
+                    <styled.div>
                       R
                     </styled.div>
-                    <styled.div
-                      className="boucingBlock"
-                    >
+                    <styled.div>
                       E
                     </styled.div>
-                    <styled.div
-                      className="boucingBlock"
-                    >
+                    <styled.div>
                       D
                     </styled.div>
                   </styled.div>
                   <styled.div>
-                    <styled.div
-                      className="boucingBlock"
-                    />
-                    <styled.div
-                      className="boucingBlock"
-                    />
-                    <styled.div
-                      className="boucingBlock"
-                    />
+                    <styled.div />
+                    <styled.div />
+                    <styled.div />
                   </styled.div>
                 </styled.div>,
                 <styled.div />,
@@ -780,32 +675,20 @@ ShallowWrapper {
                 "props": Object {
                   "children": Array [
                     <styled.div>
-                      <styled.div
-                        className="boucingBlock"
-                      >
+                      <styled.div>
                         R
                       </styled.div>
-                      <styled.div
-                        className="boucingBlock"
-                      >
+                      <styled.div>
                         E
                       </styled.div>
-                      <styled.div
-                        className="boucingBlock"
-                      >
+                      <styled.div>
                         D
                       </styled.div>
                     </styled.div>,
                     <styled.div>
-                      <styled.div
-                        className="boucingBlock"
-                      />
-                      <styled.div
-                        className="boucingBlock"
-                      />
-                      <styled.div
-                        className="boucingBlock"
-                      />
+                      <styled.div />
+                      <styled.div />
+                      <styled.div />
                     </styled.div>,
                   ],
                 },
@@ -817,19 +700,13 @@ ShallowWrapper {
                     "nodeType": "class",
                     "props": Object {
                       "children": Array [
-                        <styled.div
-                          className="boucingBlock"
-                        >
+                        <styled.div>
                           R
                         </styled.div>,
-                        <styled.div
-                          className="boucingBlock"
-                        >
+                        <styled.div>
                           E
                         </styled.div>,
-                        <styled.div
-                          className="boucingBlock"
-                        >
+                        <styled.div>
                           D
                         </styled.div>,
                       ],
@@ -842,7 +719,6 @@ ShallowWrapper {
                         "nodeType": "class",
                         "props": Object {
                           "children": "R",
-                          "className": "boucingBlock",
                         },
                         "ref": null,
                         "rendered": "R",
@@ -854,7 +730,6 @@ ShallowWrapper {
                         "nodeType": "class",
                         "props": Object {
                           "children": "E",
-                          "className": "boucingBlock",
                         },
                         "ref": null,
                         "rendered": "E",
@@ -866,7 +741,6 @@ ShallowWrapper {
                         "nodeType": "class",
                         "props": Object {
                           "children": "D",
-                          "className": "boucingBlock",
                         },
                         "ref": null,
                         "rendered": "D",
@@ -881,15 +755,9 @@ ShallowWrapper {
                     "nodeType": "class",
                     "props": Object {
                       "children": Array [
-                        <styled.div
-                          className="boucingBlock"
-                        />,
-                        <styled.div
-                          className="boucingBlock"
-                        />,
-                        <styled.div
-                          className="boucingBlock"
-                        />,
+                        <styled.div />,
+                        <styled.div />,
+                        <styled.div />,
                       ],
                     },
                     "ref": null,
@@ -898,9 +766,7 @@ ShallowWrapper {
                         "instance": null,
                         "key": undefined,
                         "nodeType": "class",
-                        "props": Object {
-                          "className": "boucingBlock",
-                        },
+                        "props": Object {},
                         "ref": null,
                         "rendered": null,
                         "type": [Function],
@@ -909,9 +775,7 @@ ShallowWrapper {
                         "instance": null,
                         "key": undefined,
                         "nodeType": "class",
-                        "props": Object {
-                          "className": "boucingBlock",
-                        },
+                        "props": Object {},
                         "ref": null,
                         "rendered": null,
                         "type": [Function],
@@ -920,9 +784,7 @@ ShallowWrapper {
                         "instance": null,
                         "key": undefined,
                         "nodeType": "class",
-                        "props": Object {
-                          "className": "boucingBlock",
-                        },
+                        "props": Object {},
                         "ref": null,
                         "rendered": null,
                         "type": [Function],

@@ -2,11 +2,11 @@ import { PLAYER_UPDATE, PLAYER_SAVE, PLAYER_GET } from "../../actionsTypes";
 
 const getPlayer = () => {
   const playerItem = localStorage.getItem("player");
-  if (playerItem !== null) {
+  if (playerItem) {
     return playerItem;
   }
 
-  return {};
+  return "";
 };
 
 const savePlayer = action => {

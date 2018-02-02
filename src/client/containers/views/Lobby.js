@@ -24,7 +24,7 @@ import {
   Container
 } from "../../components/home/RedTetrisHeader";
 
-const PlayersList = ({ players = [], kickPlayer, actualPlayer }) => (
+export const PlayersList = ({ players = [], kickPlayer, actualPlayer }) => (
   <FullSizeContainer>
     {players.map(player => (
       <FlexContainer key={player.socketId}>
@@ -54,7 +54,7 @@ const PlayersList = ({ players = [], kickPlayer, actualPlayer }) => (
   </FullSizeContainer>
 );
 
-const RoomView = ({ party, kickPlayer, player }) => (
+export const RoomView = ({ party, kickPlayer, player }) => (
   <FlexContainer>
     <Container width="200px">
       <Line>
@@ -100,7 +100,7 @@ const RoomView = ({ party, kickPlayer, player }) => (
   </FlexContainer>
 );
 
-const TogglePartyOpenButton = ({ player, party, toggleOpenParty }) => {
+export const TogglePartyOpenButton = ({ player, party, toggleOpenParty }) => {
   if (
     party.players &&
     party.players[0] &&
@@ -128,7 +128,7 @@ const TogglePartyOpenButton = ({ player, party, toggleOpenParty }) => {
   }
 };
 
-const BeginPartyButton = ({ party, player, beginParty }) =>
+export const BeginPartyButton = ({ party, player, beginParty }) =>
   party.players &&
   party.players[0] &&
   player.socketId === party.players[0].socketId ? (
@@ -143,7 +143,13 @@ const BeginPartyButton = ({ party, player, beginParty }) =>
     <div />
   );
 
-const Lobby = ({ party, kickPlayer, player, toggleOpenParty, beginParty }) => {
+export const Lobby = ({
+  party,
+  kickPlayer,
+  player,
+  toggleOpenParty,
+  beginParty
+}) => {
   return (
     <FullSizeContainer>
       <LightContainer padding="20px">
@@ -167,9 +173,9 @@ const Lobby = ({ party, kickPlayer, player, toggleOpenParty, beginParty }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  party: state.party,
-  player: state.player
+const mapStateToProps = ({ party, player }) => ({
+  party,
+  player
 });
 
 const mapDispatchToProps = dispatch => ({

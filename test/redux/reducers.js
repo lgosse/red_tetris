@@ -1,7 +1,7 @@
 import { configureStore, startServer } from "../helpers/server";
 import io from "socket.io-client";
 import params from "../../params";
-import rootReducer from "../../src/client/reducers";
+import reducers from "../../src/client/reducers";
 import chai from "chai";
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
@@ -25,6 +25,7 @@ import {
   updatePlayer,
   savePlayer
 } from "../../src/client/actions/player";
+import { combineReducers } from "redux";
 
 chai.should();
 
@@ -46,13 +47,18 @@ describe("Reducers", () => {
       it("should store alert in state", done => {
         const MESSAGE = "This message should be found in the final state.";
         const initialState = {};
-        const store = configureStore(rootReducer, null, initialState, {
-          ALERT_POP: ({ dispatch, getState }) => {
-            const state = getState();
-            state.alert.message.should.deep.equal(MESSAGE);
-            done();
+        const store = configureStore(
+          combineReducers(reducers),
+          null,
+          initialState,
+          {
+            ALERT_POP: ({ dispatch, getState }) => {
+              const state = getState();
+              state.alert.message.should.deep.equal(MESSAGE);
+              done();
+            }
           }
-        });
+        );
         store.dispatch(alert(MESSAGE));
       });
     });
@@ -65,12 +71,17 @@ describe("Reducers", () => {
           player: { pseudo: "TestPseudo", avatar: "TestAvatar" }
         };
         const initialState = {};
-        const store = configureStore(rootReducer, null, initialState, {
-          NEW_GAME: ({ dispatch, getState }) => {
-            const state = getState();
-            state.newGame.infos.should.deep.equal(INFOS);
+        const store = configureStore(
+          combineReducers(reducers),
+          null,
+          initialState,
+          {
+            NEW_GAME: ({ dispatch, getState }) => {
+              const state = getState();
+              state.newGame.infos.should.deep.equal(INFOS);
+            }
           }
-        });
+        );
 
         store.dispatch(newGame(INFOS));
         done();
@@ -84,12 +95,17 @@ describe("Reducers", () => {
           gameId: "TestGameId"
         };
         const initialState = {};
-        const store = configureStore(rootReducer, null, initialState, {
-          NEW_GAME_JOIN: ({ dispatch, getState }) => {
-            const state = getState();
-            state.newGame.infos.should.deep.equal(INFOS);
+        const store = configureStore(
+          combineReducers(reducers),
+          null,
+          initialState,
+          {
+            NEW_GAME_JOIN: ({ dispatch, getState }) => {
+              const state = getState();
+              state.newGame.infos.should.deep.equal(INFOS);
+            }
           }
-        });
+        );
 
         store.dispatch(joinGame(INFOS));
         done();
@@ -105,12 +121,17 @@ describe("Reducers", () => {
           nickname: "test"
         };
         const initialState = {};
-        const store = configureStore(rootReducer, null, initialState, {
-          PLAYER_UPDATE: ({ dispatch, getState }) => {
-            const state = getState();
-            state.player.should.deep.equal(PLAYER);
+        const store = configureStore(
+          combineReducers(reducers),
+          null,
+          initialState,
+          {
+            PLAYER_UPDATE: ({ dispatch, getState }) => {
+              const state = getState();
+              state.player.should.deep.equal(PLAYER);
+            }
           }
-        });
+        );
 
         store.dispatch(updatePlayer(PLAYER));
         done();
@@ -121,25 +142,24 @@ describe("Reducers", () => {
         let firstTry = true;
         global.localStorage = {
           getItem: key => {
-            if (firstTry === true) {
-              firstTry = false;
-              return null;
-            } else {
-              done();
-              return `{ "name": "${key}" }`;
-            }
+            done();
+            return key;
           }
         };
 
         const initialState = {};
-        const store = configureStore(rootReducer, null, initialState, {
-          [PLAYER_GET]: ({ dispatch, getState }) => {
-            const state = getState();
-            state.player.should.deep.equal({});
+        const store = configureStore(
+          combineReducers(reducers),
+          null,
+          initialState,
+          {
+            [PLAYER_GET]: ({ dispatch, getState }) => {
+              const state = getState();
+              state.player.should.deep.equal({ nickname: "player" });
+            }
           }
-        });
+        );
 
-        store.dispatch(getPlayer());
         store.dispatch(getPlayer());
       });
     });
@@ -152,12 +172,17 @@ describe("Reducers", () => {
         };
 
         const initialState = {};
-        const store = configureStore(rootReducer, null, initialState, {
-          [PLAYER_SAVE]: ({ dispatch, getState }) => {
-            const state = getState();
-            state.player.should.deep.equal({});
+        const store = configureStore(
+          combineReducers(reducers),
+          null,
+          initialState,
+          {
+            [PLAYER_SAVE]: ({ dispatch, getState }) => {
+              const state = getState();
+              state.player.should.deep.equal({});
+            }
           }
-        });
+        );
 
         store.dispatch(savePlayer({ name: "toto" }));
       });

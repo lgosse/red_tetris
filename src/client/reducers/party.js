@@ -9,6 +9,7 @@ import {
 const getParty = () => {
   const partyItem = localStorage.getItem("party");
   if (partyItem !== null) {
+    console.log(partyItem);
     return JSON.parse(partyItem);
   }
   return {};

@@ -3,10 +3,10 @@ import {
   LOCATION_CHANGE,
   ALERT_POP,
   ALERT_RESET,
-  SERVER_REDIRECT
+  SERVER_REDIRECT,
+  PARTY_UPDATE
 } from "../../actionsTypes";
 import { ROOM_PARTY_LIST } from "../../roomsName";
-import { joinRoom } from "../actions/room";
 import {
   addParty,
   getParty,
@@ -38,7 +38,6 @@ const roomHandler = (socket, action, dispatch, getState) => {
         }
 
         playerNickname = playerNickname.substring(0, playerNickname.length - 1);
-        console.log(playerNickname);
         dispatch(getPlayer());
         dispatch(getParty());
 
@@ -48,13 +47,12 @@ const roomHandler = (socket, action, dispatch, getState) => {
             ? { ...state.player, nickname: playerNickname }
             : { nickname: playerNickname };
         let party = state.party;
-        if (!party.name || !party.name == action.payload.hash.substring(1))
-          party.name = action.payload.hash.substring(1);
+        party.name = action.payload.hash.substring(1);
 
         dispatch(joinParty(party, player));
       }
     }
-  
+
     default:
       break;
   }
@@ -95,6 +93,7 @@ const socketIoMiddleWare = socket => ({ dispatch, getState }) => {
 
   return next => action => {
     roomHandler(socket, action, dispatch, getState);
+
     if (socket && action.type && action.type.indexOf("server/") === 0)
       socket.emit("action", action);
     return next(action);
