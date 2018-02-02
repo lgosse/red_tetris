@@ -5,7 +5,7 @@ import Square from "../../components/game/Square";
 import gameStyle from "../../styles/gameStyle";
 
 export const Grid = ({party, player}) => {
-    player.piece = {
+    player.pgitiece = {
         x: 5,
         y: 5
     }
