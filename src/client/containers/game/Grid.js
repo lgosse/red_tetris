@@ -7,10 +7,22 @@ import gameStyle from "../../styles/gameStyle";
 
 export const Grid = ({party, player}) => {
     player.piece = {
-        type: 't7',
+        grid: [
+            [0,0,0],
+            [1,1,1],
+            [0,1,0]
+        ],
+        grid2: [
+            [0,1,0,0],
+            [0,1,0,0],
+            [0,1,0,0],
+            [0,1,0,0],
+        ],
         x: 5,
         y: 5
-    }
+    };
+    player.piece.grid = Pieces.rotate(player.piece.grid, -1);
+    
     player.grid = [
         [0,0,0,0,0, 0,0,0,0,0],
         [0,0,0,0,0, 0,0,0,0,0],
@@ -52,7 +64,7 @@ export const Grid = ({party, player}) => {
 
     const Calque = () => {
         //const piece = <div style={gameStyle.piece(player.piece)}><Square color={3}/></div>;
-        const tetriminos = Pieces[player.piece.type]();
+        const tetriminos = Pieces.draw(player.piece.grid);
         return <div style={gameStyle.calque}>{tetriminos}</div>;
     }
     
