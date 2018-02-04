@@ -66,47 +66,42 @@ const gameStyle = {
         animationDirection: 'alternate'
     },
     pieces: {
+        all: (position) => {
+            return {
+                position: 'relative',
+                marginTop: position.y * 4 + 'vh',
+                marginLeft: position.x * 4 + 'vh',
+                transition: 'all 1s',
+                transitionTimingFunction: 'linear'
+            }
+        },
         't1': {
             width: '4vh',
-            height: '16vh',
-            transition: 'all 1s',
-            transitionTimingFunction: 'linear'
+            height: '16vh'
         },
         't2': {
             width: '8vh',
-            height: '12vh',
-            transition: 'all 1s',
-            transitionTimingFunction: 'linear'
+            height: '12vh'
         },
         't3': {
             width: '8vh',
-            height: '12vh',
-            transition: 'all 1s',
-            transitionTimingFunction: 'linear'
+            height: '12vh'
         },
         't4': {
             width: '8vh',
-            height: '8vh',
-            transition: 'all 1s',
-            transitionTimingFunction: 'linear'
+            height: '8vh'
         },
         't5': {
             width: '12vh',
-            height: '8vh',
-            transition: 'all 1s',
-            transitionTimingFunction: 'linear'
+            height: '8vh'
         },
         't6': {
             width: '12vh',
-            height: '8vh',
-            transition: 'all 1s',
-            transitionTimingFunction: 'linear'
+            height: '8vh'
         },
         't7': {
             width: '12vh',
-            height: '8vh',
-            transition: 'all 1s',
-            transitionTimingFunction: 'linear'
+            height: '8vh'
         }
     },
     square: (color) => {

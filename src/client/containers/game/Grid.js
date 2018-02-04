@@ -4,49 +4,10 @@ import styled, { keyframes } from 'styled-components';
 import Square from "../../components/game/Square";
 import Pieces from "../../components/game/Pieces";
 import gameStyle from "../../styles/gameStyle";
+import {rotatePiece, movePiece} from "../../actions/player";
 
-export const Grid = ({party, player}) => {
-    player.piece = {
-        grid: [
-            [0,0,0],
-            [1,1,1],
-            [0,1,0]
-        ],
-        grid2: [
-            [0,1,0,0],
-            [0,1,0,0],
-            [0,1,0,0],
-            [0,1,0,0],
-        ],
-        x: 5,
-        y: 5
-    };
-    player.piece.grid = Pieces.rotate(player.piece.grid, -1);
-    
-    player.grid = [
-        [0,0,0,0,0, 0,0,0,0,0],
-        [0,0,0,0,0, 0,0,0,0,0],
-        [0,0,0,0,0, 0,0,0,0,0],
-        [0,0,0,0,0, 0,0,0,0,0],
-        [0,0,0,0,0, 0,0,0,0,0],
-        [0,0,0,0,0, 0,0,0,0,0],
-        [0,0,0,0,0, 0,0,0,0,0],
-        [0,0,0,0,0, 0,0,0,0,0],
-        [0,0,0,0,0, 0,0,0,0,0],
-        [0,0,0,0,0, 0,0,0,0,0],
-
-        [0,0,0,0,0, 0,0,0,0,0],
-        [0,0,0,0,0, 0,0,0,0,0],
-        [0,0,0,0,0, 0,0,0,0,0],
-        [0,0,0,0,0, 0,0,0,0,0],
-        [0,0,0,0,0, 0,0,0,0,0],
-        [0,0,0,0,0, 0,0,0,0,4],
-        [0,0,0,0,0, 0,1,0,0,4],
-        [0,0,0,0,0, 0,1,0,0,4],
-        [0,1,0,0,1, 1,1,2,2,4],
-        [1,1,1,0,1, 1,1,0,2,2],        
-    ];
-
+export const Grid = ({ party, player, rotateit}) => {
+    console.log(player);
     const grid = player.grid.map((line, i) => {
         const cols = line.map((col, j) => {
             return (
@@ -64,12 +25,11 @@ export const Grid = ({party, player}) => {
 
     const Calque = () => {
         //const piece = <div style={gameStyle.piece(player.piece)}><Square color={3}/></div>;
-        const tetriminos = Pieces.draw(player.piece.grid);
-        return <div style={gameStyle.calque}>{tetriminos}</div>;
+        return <div style={gameStyle.calque}><Pieces position={player.piece} grid={player.piece.grid} /></div>;
     }
-    
+
     return (
-        <div style={gameStyle.grid}>
+        <div tabIndex={'0'} onKeyDown={e => rotateit(e, player)} style={gameStyle.grid}>
             <Calque />
             {grid}
         </div>
@@ -84,7 +44,33 @@ export const mapStateToGridProps = state => {
   };
   
 export const mapDispatchToGridProps = dispatch => {
-    return {};
+    const rotateit = (event, player) => {
+        event.stopPropagation();
+        event.preventDefault();
+        switch(event.keyCode) {
+            case 39: // RIGHT
+                dispatch(movePiece(1));
+                break;
+            case 37: // LEFT
+                dispatch(movePiece(-1));
+                break;
+            case 40: // DOWN
+                dispatch(movePiece(0));
+                break;
+            case 32: // SPACE
+                break;
+            case 38:
+            case 68: // UP or D
+                dispatch(rotatePiece(player, 1));
+                break;
+            case 65: // A
+                dispatch(rotatePiece(player, -1));
+                break;
+            default:
+                break;
+        }
+    };
+    return {rotateit};
 };
   
 export default connect(mapStateToGridProps, mapDispatchToGridProps)(
