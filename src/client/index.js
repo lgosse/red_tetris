@@ -28,6 +28,7 @@ import {
 
 // Project stuff
 import socketIoMiddleware from "./middleware/socketIoMiddleware";
+import effectsMiddleware from "./middleware/effectsMiddleware";
 import io from "socket.io-client";
 import params from "../../params";
 
@@ -55,7 +56,12 @@ const store = createStore(
   combineReducers({ ...reducers, routing: routerReducer }),
   initialState,
   composeEnhancers(
-    applyMiddleware(thunk, routingMiddleware, socketIoMiddleware(socket))
+    applyMiddleware(
+      thunk,
+      routingMiddleware,
+      effectsMiddleware,
+      socketIoMiddleware(socket)
+    )
   )
 );
 

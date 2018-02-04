@@ -7,12 +7,8 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
 // alert
-import { ALERT_POP } from "../../src/actionsTypes";
+import { ALERT_POP, PARTY_SAVE } from "../../src/actionsTypes";
 import { alert } from "../../src/client/actions/alert";
-
-// newGame
-import { NEW_GAME_CREATE, NEW_GAME_JOIN } from "../../src/actionsTypes";
-import { newGame, joinGame } from "../../src/client/actions/newGame";
 
 // server
 import { PLAYER_UPDATE, PLAYER_SAVE, PLAYER_GET } from "../../src/actionsTypes";
@@ -26,6 +22,9 @@ import {
   savePlayer
 } from "../../src/client/actions/player";
 import { combineReducers } from "redux";
+import { saveParty, addParty } from "../../src/client/actions/party";
+
+// party
 
 chai.should();
 
@@ -63,59 +62,30 @@ describe("Reducers", () => {
       });
     });
   });
-
-  describe("newGame", () => {
-    describe("Type: NEW_GAME_CREATE", () => {
-      it("should store the new game infos in state", done => {
-        const INFOS = {
-          player: { pseudo: "TestPseudo", avatar: "TestAvatar" }
+  describe("party", () => {
+    describe("Type: PARTY_SAVE", done => {
+      it("should call localStorage with item", () => {
+        global.localStorage = {
+          setItem(key, item) {
+            item.should.deep.equal(JSON.stringify({ test: "test" }));
+            key.should.equal("party");
+          }
         };
+
         const initialState = {};
         const store = configureStore(
           combineReducers(reducers),
           null,
           initialState,
-          {
-            NEW_GAME: ({ dispatch, getState }) => {
-              const state = getState();
-              state.newGame.infos.should.deep.equal(INFOS);
-            }
-          }
+          {}
         );
-
-        store.dispatch(newGame(INFOS));
-        done();
-      });
-    });
-
-    describe("Type: NEW_GAME_JOIN", () => {
-      it("should store the join game infos in state", done => {
-        const INFOS = {
-          player: { pseudo: "TestPseudo", avatar: "TestAvatar" },
-          gameId: "TestGameId"
-        };
-        const initialState = {};
-        const store = configureStore(
-          combineReducers(reducers),
-          null,
-          initialState,
-          {
-            NEW_GAME_JOIN: ({ dispatch, getState }) => {
-              const state = getState();
-              state.newGame.infos.should.deep.equal(INFOS);
-            }
-          }
-        );
-
-        store.dispatch(joinGame(INFOS));
-        done();
+        store.dispatch(saveParty({ test: "test" }));
       });
     });
   });
-
   describe("player", () => {
     beforeEach(() => {});
-    describe("PLAYER_UPDATE", () => {
+    describe("Type: PLAYER_UPDATE", () => {
       it("should update player infos", done => {
         const PLAYER = {
           nickname: "test"
@@ -137,12 +107,18 @@ describe("Reducers", () => {
         done();
       });
     });
-    describe("PLAYER_GET", () => {
-      it("should call localStorage getItem method", done => {
+    describe("Type: PLAYER_GET", () => {
+      it("should call localStorage getItem method", () => {
         let firstTry = true;
+        let assertionFirstTry = true;
         global.localStorage = {
           getItem: key => {
-            done();
+            if (firstTry) {
+              firstTry = false;
+
+              return undefined;
+            }
+
             return key;
           }
         };
@@ -155,15 +131,21 @@ describe("Reducers", () => {
           {
             [PLAYER_GET]: ({ dispatch, getState }) => {
               const state = getState();
-              state.player.should.deep.equal({ nickname: "player" });
+              if (assertionFirstTry) {
+                assertionFirstTry = false;
+                state.player.should.deep.equal({ nickname: "" });
+              } else {
+                state.player.should.deep.equal({ nickname: "player" });
+              }
             }
           }
         );
 
         store.dispatch(getPlayer());
+        store.dispatch(getPlayer());
       });
     });
-    describe("PLAYER_SAVE", () => {
+    describe("Type: PLAYER_SAVE", () => {
       it("should call localStorage setItem method", done => {
         global.localStorage = {
           setItem: (key, value) => {

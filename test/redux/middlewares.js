@@ -7,10 +7,11 @@ const { JSDOM } = jsdom;
 
 import { storeStateMiddleWare } from "../../src/client/middleware/storeStateMiddleWare";
 import {
-  ALERT_POP,
   PARTY_UPDATE,
   PLAYER_GET,
-  PARTY_GET
+  PARTY_GET,
+  PARTY_LEAVE,
+  ALERT_POP
 } from "../../src/actionsTypes";
 import { alert } from "../../src/client/actions/alert";
 import reducers from "../../src/client/reducers";
@@ -213,8 +214,111 @@ describe("Middlewares", () => {
           });
         });
         it("should handle inexistent player", () => {});
-        it("should leave party when url is party and changes", () => {});
+        it("should leave party when url is party and changes", done => {
+          global.localStorage = {
+            getItem: key =>
+              key === "player" ? "toto" : JSON.stringify({ name: "wsh" })
+          };
+
+          const initialState = {};
+          const socket = io(params.server.url);
+          const store = configureStore(
+            combineReducers({
+              ...reducers,
+              routing: () => ({
+                location: {
+                  pathname: "/",
+                  hash: "#mysuperparty[superplayer]"
+                }
+              })
+            }),
+            socket,
+            initialState,
+            {
+              [PARTY_LEAVE]: () => {
+                done();
+              }
+            }
+          );
+
+          store.dispatch({
+            type: LOCATION_CHANGE,
+            payload: { pathname: "/", hash: "#Konoha[Naruto]" }
+          });
+        });
+        it("should do nothing in case of changing location to exactly /", () => {
+          const initialState = {};
+          let firstTry = true;
+          const store = configureStore(
+            combineReducers({
+              ...reducers
+            }),
+            null,
+            initialState,
+            {},
+            ({ dispatch, getState }) => next => action => {
+              if (firstTry) {
+                firstTry = false;
+
+                return;
+              }
+
+              throw new Error(
+                `Expected no action for this, got: ${JSON.stringify(action)}`
+              );
+            }
+          );
+
+          store.dispatch({
+            type: LOCATION_CHANGE,
+            payload: { pathname: "/", hash: "" }
+          });
+        });
+        it("should do nothing when default", () => {
+          const initialState = {};
+          let firstTry = true;
+          const store = configureStore(
+            combineReducers({
+              ...reducers
+            }),
+            null,
+            initialState,
+            {},
+            ({ dispatch, getState }) => next => action => {
+              if (firstTry) {
+                firstTry = false;
+
+                return;
+              }
+
+              throw new Error(
+                `Expected no action for this, got: ${JSON.stringify(action)}`
+              );
+            }
+          );
+
+          store.dispatch({
+            type: LOCATION_CHANGE,
+            payload: { pathname: "/toto", hash: "" }
+          });
+        });
       });
+    });
+  });
+  describe("effectsMiddleware", () => {
+    it("should call setTimeout on ALERT_POP", () => {
+      const initialState = {};
+      let firstTry = true;
+      const store = configureStore(
+        combineReducers({
+          ...reducers
+        }),
+        null,
+        initialState,
+        {}
+      );
+
+      store.dispatch(alert("TEST"));
     });
   });
 });

@@ -8,7 +8,8 @@ import {
   PARTY_LEAVE,
   PARTY_KICK_PLAYER,
   PARTY_OPEN,
-  PARTY_TOGGLE_PLAYING
+  PARTY_TOGGLE_PLAYING,
+  PARTY_LEFT
 } from "../../actionsTypes";
 import { push } from "react-router-redux";
 import mongoose from "mongoose";
@@ -29,13 +30,30 @@ export const Party = mongoose.model("Party", {
   ]
 });
 
-export const userLeaves = async (io, socketId) => {
-  const partyList = await Party.find({
-    "players.socketId": socketId
-  });
+export const userLeaves = async (io, socket) => {
+  let partyList;
+  try {
+    partyList = await Party.find({
+      "players.socketId": socket.id
+    }).exec();
+  } catch (error) {
+    console.log(error);
+  }
+
+  if (partyList.length === 0 || partyList.forEach === undefined) return;
+
   partyList.forEach(async party => {
     party.players = party.players.filter(player => {
-      return player.socketId !== socketId;
+      if (player.socketId === socket.id) {
+        socket.leave(party._id, err => {
+          if (err) console.log(err);
+          socket.emit("action", { type: PARTY_LEFT });
+        });
+
+        return false;
+      }
+
+      return true;
     });
 
     if (party.players.length === 0) {
@@ -101,7 +119,12 @@ const partyList = async (action, io, socket) => {
     }
 
     case PARTY_JOIN: {
-      const party = await Party.findOne({ name: action.party.name }).exec();
+      let party;
+      try {
+        party = await Party.findOne({ name: action.party.name }).exec();
+      } catch (error) {
+        console.log(error);
+      }
 
       let partyEdit;
       if (!party) {
@@ -118,7 +141,8 @@ const partyList = async (action, io, socket) => {
 
       if (
         partyEdit.players.length < partyEdit.size &&
-        partyEdit.players.filter(player => player.id === socket.id).length === 0
+        partyEdit.players.filter(player => player.socketId === socket.id)
+          .length === 0
       ) {
         partyEdit.players.push({
           ...action.player,
@@ -126,19 +150,32 @@ const partyList = async (action, io, socket) => {
         });
         partyEdit.save();
         io.emit("action", await getParties());
+      } else if (
+        partyEdit.players.filter(player => player.socketId === socket.id)
+          .length !== 0
+      ) {
+        partyEdit.players = partyEdit.players.map(
+          player =>
+            player.socketId === socket.id
+              ? { ...player, ...action.player }
+              : player
+        );
+        partyEdit.save();
+        io.emit("action", await getParties());
       }
 
-      socket.join(partyEdit._id);
-      io.to(partyEdit._id).emit("action", {
-        type: PARTY_UPDATE,
-        party: partyEdit
+      socket.join(partyEdit._id, () => {
+        io.to(partyEdit._id).emit("action", {
+          type: PARTY_UPDATE,
+          party: partyEdit
+        });
       });
 
       break;
     }
 
     case PARTY_LEAVE: {
-      userLeaves(io, socket.id);
+      userLeaves(io, socket);
       break;
     }
 
@@ -150,7 +187,13 @@ const partyList = async (action, io, socket) => {
     }
 
     case PARTY_OPEN: {
-      const party = await Party.findById(action.partyId).exec();
+      let party;
+      try {
+        party = await Party.findById(action.partyId).exec();
+      } catch (error) {
+        console.log(error);
+      }
+      if (!party) return;
 
       party.open = !party.open;
       party.save().then(async res => {
@@ -165,17 +208,36 @@ const partyList = async (action, io, socket) => {
     }
 
     case PARTY_TOGGLE_PLAYING: {
-      const party = await Party.findById(action.partyId).exec();
+      let party;
+      try {
+        party = await Party.findById(action.partyId).exec();
+      } catch (error) {
+        console.log(error);
+      }
+      if (!party) return;
 
       party.open = false;
       party.playing = true;
-      party.save().then(async res => {
+      try {
+        await party.save();
         io.emit("action", await getParties());
         io.to(party._id).emit("action", {
           type: PARTY_UPDATE,
           party
         });
-      });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    case "PARTY_DELETE_ALL": {
+      try {
+        await Party.remove({}).exec();
+      } catch (error) {
+        console.error(error);
+      }
+
+      break;
     }
   }
 };

@@ -1,15 +1,8 @@
-import {
-  PARTY_GET,
-  PARTY_SAVE,
-  PARTY_ADD,
-  PARTY_UPDATE,
-  PARTY_JOIN
-} from "../../actionsTypes";
+import { PARTY_GET, PARTY_SAVE, PARTY_UPDATE } from "../../actionsTypes";
 
 const getParty = () => {
   const partyItem = localStorage.getItem("party");
-  if (partyItem !== null) {
-    console.log(partyItem);
+  if (partyItem) {
     return JSON.parse(partyItem);
   }
   return {};
@@ -25,9 +18,7 @@ const party = (state = { size: 10 }, action) => {
       return getParty();
     case PARTY_SAVE:
       saveParty(action);
-      return action.party;
-    case PARTY_ADD:
-      return action.party;
+      return state;
     case PARTY_UPDATE:
       return action.party;
     default:
