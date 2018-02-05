@@ -58,11 +58,7 @@ describe("PlayerForm", () => {
   });
   describe("mapStateToPlayerProps", () => {
     it("should map player to PlayerForm props", () => {
-      const state = {
-        state: {
-          player: PLAYER
-        }
-      };
+      const state = { player: PLAYER };
       const playerFormProps = mapStateToPlayerFormProps(state);
 
       playerFormProps.should.be.deep.equal({

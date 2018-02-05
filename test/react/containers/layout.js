@@ -1,8 +1,8 @@
 import chai from "chai";
 import React from "react";
-import equalJSX from "chai-equal-jsx";
-import { createRenderer } from "react-dom/test-utils";
 import { Link } from "react-router-dom";
+import { shallow } from "enzyme";
+import equalJSX from "chai-equal-jsx";
 
 // Elements to render
 import {
@@ -18,6 +18,7 @@ import Footer from "../../../src/client/containers/layout/Footer";
 import { App, mapStateToAppProps } from "../../../src/client/containers/App";
 
 import { Connect, StyledComponent } from "../../helpers/mockComponents";
+import { Alert } from "../../../src/client/containers/layout/Alert";
 
 chai.should();
 chai.use(equalJSX);
@@ -34,9 +35,7 @@ describe("Navbar", () => {
 
   describe("Component rendering", () => {
     it("should render as expected", () => {
-      const renderer = createRenderer();
-      renderer.render(React.createElement(Navbar));
-      const output = renderer.getRenderOutput();
+      const output = shallow(<Navbar />);
       output.should.matchSnapshot();
     });
   });
@@ -81,9 +80,24 @@ describe("App", () => {
 describe("Footer", () => {
   describe("Component rendering", () => {
     it("should render as expected", () => {
-      const renderer = createRenderer();
-      renderer.render(React.createElement(Footer));
-      const output = renderer.getRenderOutput();
+      const output = shallow(<Footer />);
+      output.should.matchSnapshot();
+    });
+  });
+});
+
+describe("Alert", () => {
+  describe("Component rendering", () => {
+    it("should render as expected with message", () => {
+      const alert = {
+        message: "SASUUUKEEEE"
+      };
+      const output = shallow(<Alert alert={alert} />);
+      output.should.matchSnapshot();
+    });
+    it("should render as expected without message", () => {
+      const alert = {};
+      const output = shallow(<Alert alert={alert} />);
       output.should.matchSnapshot();
     });
   });

@@ -5,7 +5,7 @@ import global from "../../styles/global";
 import Lobby from "./Lobby";
 import Game from "../game/Game";
 
-const Party = ({ party }) => (party.playing ? <Game /> : <Lobby />);
+export const Party = ({ party }) => (party.playing ? <Game /> : <Lobby />);
 
 const mapStateToProps = ({ party }) => ({ party });
 

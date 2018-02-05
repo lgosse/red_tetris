@@ -1,77 +1,6185 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home should render as expected 1`] = `
-<styled.div>
-  <RedTetrisHeader />
-  <HexaSeparator />
-  <RedTetrisPreview />
-  <BeginAdventure />
-</styled.div>
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Home />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <RedTetrisHeader />,
+        <HexaSeparator />,
+        <RedTetrisPreview />,
+        <BeginAdventure />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <RedTetrisHeader />,
+          <HexaSeparator />,
+          <RedTetrisPreview />,
+          <BeginAdventure />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Lobby render PlayersList render should render as expected with leadership 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PlayersList
+    actualPlayer={
+      Object {
+        "_id": "5a73305e4dbfed22aa7d0df6",
+        "nickname": "Sakura",
+        "socketId": "wcnjn-T8ENU4iD1XAAAC",
+      }
+    }
+    kickPlayer={[Function]}
+    players={
+      Array [
+        Object {
+          "_id": "5a73305e4dbfed22aa7d0df6",
+          "nickname": "Sakura",
+          "socketId": "wcnjn-T8ENU4iD1XAAAC",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.div>
+          <styled.div />
+          <div
+            style={
+              Object {
+                "border": "1px solid #cd4436",
+                "color": "#cd4436",
+                "display": "flex",
+                "flexDirection": "row",
+                "margin": "8px",
+                "padding": "16px",
+                "width": "200px",
+              }
+            }
+          >
+            <styled.div
+              gameFont={true}
+            >
+              Sakura
+            </styled.div>
+            <styled.div />
+            <div
+              onClick={[Function]}
+            >
+              <Styled(FaIcon)
+                className="times"
+                clickable={true}
+              />
+            </div>
+          </div>
+          <styled.div />
+        </styled.div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "wcnjn-T8ENU4iD1XAAAC",
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled.div />,
+            <div
+              style={
+                Object {
+                  "border": "1px solid #cd4436",
+                  "color": "#cd4436",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "margin": "8px",
+                  "padding": "16px",
+                  "width": "200px",
+                }
+              }
+            >
+              <styled.div
+                gameFont={true}
+              >
+                Sakura
+              </styled.div>
+              <styled.div />
+              <div
+                onClick={[Function]}
+              >
+                <Styled(FaIcon)
+                  className="times"
+                  clickable={true}
+                />
+              </div>
+            </div>,
+            <styled.div />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <styled.div
+                  gameFont={true}
+                >
+                  Sakura
+                </styled.div>,
+                <styled.div />,
+                <div
+                  onClick={[Function]}
+                >
+                  <Styled(FaIcon)
+                    className="times"
+                    clickable={true}
+                  />
+                </div>,
+              ],
+              "style": Object {
+                "border": "1px solid #cd4436",
+                "color": "#cd4436",
+                "display": "flex",
+                "flexDirection": "row",
+                "margin": "8px",
+                "padding": "16px",
+                "width": "200px",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Sakura",
+                  "gameFont": true,
+                },
+                "ref": null,
+                "rendered": "Sakura",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Styled(FaIcon)
+                    className="times"
+                    clickable={true}
+                  />,
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "className": "times",
+                    "clickable": true,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div>
+            <styled.div />
+            <div
+              style={
+                Object {
+                  "border": "1px solid #cd4436",
+                  "color": "#cd4436",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "margin": "8px",
+                  "padding": "16px",
+                  "width": "200px",
+                }
+              }
+            >
+              <styled.div
+                gameFont={true}
+              >
+                Sakura
+              </styled.div>
+              <styled.div />
+              <div
+                onClick={[Function]}
+              >
+                <Styled(FaIcon)
+                  className="times"
+                  clickable={true}
+                />
+              </div>
+            </div>
+            <styled.div />
+          </styled.div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "wcnjn-T8ENU4iD1XAAAC",
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled.div />,
+              <div
+                style={
+                  Object {
+                    "border": "1px solid #cd4436",
+                    "color": "#cd4436",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "margin": "8px",
+                    "padding": "16px",
+                    "width": "200px",
+                  }
+                }
+              >
+                <styled.div
+                  gameFont={true}
+                >
+                  Sakura
+                </styled.div>
+                <styled.div />
+                <div
+                  onClick={[Function]}
+                >
+                  <Styled(FaIcon)
+                    className="times"
+                    clickable={true}
+                  />
+                </div>
+              </div>,
+              <styled.div />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <styled.div
+                    gameFont={true}
+                  >
+                    Sakura
+                  </styled.div>,
+                  <styled.div />,
+                  <div
+                    onClick={[Function]}
+                  >
+                    <Styled(FaIcon)
+                      className="times"
+                      clickable={true}
+                    />
+                  </div>,
+                ],
+                "style": Object {
+                  "border": "1px solid #cd4436",
+                  "color": "#cd4436",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "margin": "8px",
+                  "padding": "16px",
+                  "width": "200px",
+                },
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Sakura",
+                    "gameFont": true,
+                  },
+                  "ref": null,
+                  "rendered": "Sakura",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <Styled(FaIcon)
+                      className="times"
+                      clickable={true}
+                    />,
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "className": "times",
+                      "clickable": true,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Lobby render PlayersList render should render as expected without leadership 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PlayersList
+    actualPlayer={
+      Object {
+        "_id": "5a73305e4dbfed22aa7d0df6",
+        "nickname": "Naruto",
+        "socketId": "different id",
+      }
+    }
+    kickPlayer={[Function]}
+    players={
+      Array [
+        Object {
+          "_id": "5a73305e4dbfed22aa7d0df6",
+          "nickname": "Sakura",
+          "socketId": "wcnjn-T8ENU4iD1XAAAC",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.div>
+          <styled.div />
+          <div
+            style={
+              Object {
+                "border": "1px solid #cd4436",
+                "color": "#cd4436",
+                "display": "flex",
+                "flexDirection": "row",
+                "margin": "8px",
+                "padding": "16px",
+                "width": "200px",
+              }
+            }
+          >
+            <styled.div
+              gameFont={true}
+            >
+              Sakura
+            </styled.div>
+            <styled.div />
+          </div>
+          <styled.div />
+        </styled.div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "wcnjn-T8ENU4iD1XAAAC",
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled.div />,
+            <div
+              style={
+                Object {
+                  "border": "1px solid #cd4436",
+                  "color": "#cd4436",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "margin": "8px",
+                  "padding": "16px",
+                  "width": "200px",
+                }
+              }
+            >
+              <styled.div
+                gameFont={true}
+              >
+                Sakura
+              </styled.div>
+              <styled.div />
+            </div>,
+            <styled.div />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <styled.div
+                  gameFont={true}
+                >
+                  Sakura
+                </styled.div>,
+                <styled.div />,
+                false,
+              ],
+              "style": Object {
+                "border": "1px solid #cd4436",
+                "color": "#cd4436",
+                "display": "flex",
+                "flexDirection": "row",
+                "margin": "8px",
+                "padding": "16px",
+                "width": "200px",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Sakura",
+                  "gameFont": true,
+                },
+                "ref": null,
+                "rendered": "Sakura",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              false,
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div>
+            <styled.div />
+            <div
+              style={
+                Object {
+                  "border": "1px solid #cd4436",
+                  "color": "#cd4436",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "margin": "8px",
+                  "padding": "16px",
+                  "width": "200px",
+                }
+              }
+            >
+              <styled.div
+                gameFont={true}
+              >
+                Sakura
+              </styled.div>
+              <styled.div />
+            </div>
+            <styled.div />
+          </styled.div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "wcnjn-T8ENU4iD1XAAAC",
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled.div />,
+              <div
+                style={
+                  Object {
+                    "border": "1px solid #cd4436",
+                    "color": "#cd4436",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "margin": "8px",
+                    "padding": "16px",
+                    "width": "200px",
+                  }
+                }
+              >
+                <styled.div
+                  gameFont={true}
+                >
+                  Sakura
+                </styled.div>
+                <styled.div />
+              </div>,
+              <styled.div />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <styled.div
+                    gameFont={true}
+                  >
+                    Sakura
+                  </styled.div>,
+                  <styled.div />,
+                  false,
+                ],
+                "style": Object {
+                  "border": "1px solid #cd4436",
+                  "color": "#cd4436",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "margin": "8px",
+                  "padding": "16px",
+                  "width": "200px",
+                },
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Sakura",
+                    "gameFont": true,
+                  },
+                  "ref": null,
+                  "rendered": "Sakura",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                false,
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Lobby render RoomView render should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <RoomView
+    kickPlayer={[Function]}
+    party={
+      Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": false,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": false,
+        "size": 10,
+      }
+    }
+    player={
+      Object {
+        "_id": "5a73305e4dbfed22aa7d0df6",
+        "nickname": "Naruto",
+        "socketId": "different id",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.div
+          width="200px"
+        >
+          <styled.div>
+            <styled.div
+              backgroundColor="primary"
+            />
+            <styled.div
+              backgroundColor="primary"
+            />
+          </styled.div>
+          <styled.div>
+            <styled.div
+              backgroundColor="primary"
+            />
+            <styled.div />
+          </styled.div>
+          <styled.div>
+            <styled.div
+              backgroundColor="primary"
+            />
+            <styled.div />
+          </styled.div>
+        </styled.div>,
+        <styled.div />,
+        <styled.div>
+          <styled.div
+            bold={true}
+            center={true}
+            color="primary"
+            gameFont={true}
+            size="26px"
+          >
+            Sasuke
+          </styled.div>
+          <PlayersList
+            actualPlayer={
+              Object {
+                "_id": "5a73305e4dbfed22aa7d0df6",
+                "nickname": "Naruto",
+                "socketId": "different id",
+              }
+            }
+            kickPlayer={[Function]}
+            players={
+              Array [
+                Object {
+                  "_id": "5a73305e4dbfed22aa7d0df6",
+                  "nickname": "Sakura",
+                  "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                },
+              ]
+            }
+            style={
+              Object {
+                "padding": "20px",
+              }
+            }
+          />
+        </styled.div>,
+        <styled.div />,
+        <styled.div
+          width="200px"
+        >
+          <styled.div>
+            <styled.div
+              backgroundColor="primary"
+            />
+            <styled.div
+              backgroundColor="primary"
+            />
+          </styled.div>
+          <styled.div>
+            <styled.div />
+            <styled.div
+              backgroundColor="primary"
+            />
+          </styled.div>
+          <styled.div>
+            <styled.div />
+            <styled.div
+              backgroundColor="primary"
+            />
+          </styled.div>
+        </styled.div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled.div>
+              <styled.div
+                backgroundColor="primary"
+              />
+              <styled.div
+                backgroundColor="primary"
+              />
+            </styled.div>,
+            <styled.div>
+              <styled.div
+                backgroundColor="primary"
+              />
+              <styled.div />
+            </styled.div>,
+            <styled.div>
+              <styled.div
+                backgroundColor="primary"
+              />
+              <styled.div />
+            </styled.div>,
+          ],
+          "width": "200px",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <styled.div
+                  backgroundColor="primary"
+                />,
+                <styled.div
+                  backgroundColor="primary"
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "backgroundColor": "primary",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "backgroundColor": "primary",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <styled.div
+                  backgroundColor="primary"
+                />,
+                <styled.div />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "backgroundColor": "primary",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <styled.div
+                  backgroundColor="primary"
+                />,
+                <styled.div />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "backgroundColor": "primary",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled.div
+              bold={true}
+              center={true}
+              color="primary"
+              gameFont={true}
+              size="26px"
+            >
+              Sasuke
+            </styled.div>,
+            <PlayersList
+              actualPlayer={
+                Object {
+                  "_id": "5a73305e4dbfed22aa7d0df6",
+                  "nickname": "Naruto",
+                  "socketId": "different id",
+                }
+              }
+              kickPlayer={[Function]}
+              players={
+                Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ]
+              }
+              style={
+                Object {
+                  "padding": "20px",
+                }
+              }
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "bold": true,
+              "center": true,
+              "children": "Sasuke",
+              "color": "primary",
+              "gameFont": true,
+              "size": "26px",
+            },
+            "ref": null,
+            "rendered": "Sasuke",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "actualPlayer": Object {
+                "_id": "5a73305e4dbfed22aa7d0df6",
+                "nickname": "Naruto",
+                "socketId": "different id",
+              },
+              "kickPlayer": [Function],
+              "players": Array [
+                Object {
+                  "_id": "5a73305e4dbfed22aa7d0df6",
+                  "nickname": "Sakura",
+                  "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                },
+              ],
+              "style": Object {
+                "padding": "20px",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled.div>
+              <styled.div
+                backgroundColor="primary"
+              />
+              <styled.div
+                backgroundColor="primary"
+              />
+            </styled.div>,
+            <styled.div>
+              <styled.div />
+              <styled.div
+                backgroundColor="primary"
+              />
+            </styled.div>,
+            <styled.div>
+              <styled.div />
+              <styled.div
+                backgroundColor="primary"
+              />
+            </styled.div>,
+          ],
+          "width": "200px",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <styled.div
+                  backgroundColor="primary"
+                />,
+                <styled.div
+                  backgroundColor="primary"
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "backgroundColor": "primary",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "backgroundColor": "primary",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <styled.div />,
+                <styled.div
+                  backgroundColor="primary"
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "backgroundColor": "primary",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <styled.div />,
+                <styled.div
+                  backgroundColor="primary"
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "backgroundColor": "primary",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div
+            width="200px"
+          >
+            <styled.div>
+              <styled.div
+                backgroundColor="primary"
+              />
+              <styled.div
+                backgroundColor="primary"
+              />
+            </styled.div>
+            <styled.div>
+              <styled.div
+                backgroundColor="primary"
+              />
+              <styled.div />
+            </styled.div>
+            <styled.div>
+              <styled.div
+                backgroundColor="primary"
+              />
+              <styled.div />
+            </styled.div>
+          </styled.div>,
+          <styled.div />,
+          <styled.div>
+            <styled.div
+              bold={true}
+              center={true}
+              color="primary"
+              gameFont={true}
+              size="26px"
+            >
+              Sasuke
+            </styled.div>
+            <PlayersList
+              actualPlayer={
+                Object {
+                  "_id": "5a73305e4dbfed22aa7d0df6",
+                  "nickname": "Naruto",
+                  "socketId": "different id",
+                }
+              }
+              kickPlayer={[Function]}
+              players={
+                Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ]
+              }
+              style={
+                Object {
+                  "padding": "20px",
+                }
+              }
+            />
+          </styled.div>,
+          <styled.div />,
+          <styled.div
+            width="200px"
+          >
+            <styled.div>
+              <styled.div
+                backgroundColor="primary"
+              />
+              <styled.div
+                backgroundColor="primary"
+              />
+            </styled.div>
+            <styled.div>
+              <styled.div />
+              <styled.div
+                backgroundColor="primary"
+              />
+            </styled.div>
+            <styled.div>
+              <styled.div />
+              <styled.div
+                backgroundColor="primary"
+              />
+            </styled.div>
+          </styled.div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled.div>
+                <styled.div
+                  backgroundColor="primary"
+                />
+                <styled.div
+                  backgroundColor="primary"
+                />
+              </styled.div>,
+              <styled.div>
+                <styled.div
+                  backgroundColor="primary"
+                />
+                <styled.div />
+              </styled.div>,
+              <styled.div>
+                <styled.div
+                  backgroundColor="primary"
+                />
+                <styled.div />
+              </styled.div>,
+            ],
+            "width": "200px",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <styled.div
+                    backgroundColor="primary"
+                  />,
+                  <styled.div
+                    backgroundColor="primary"
+                  />,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "backgroundColor": "primary",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "backgroundColor": "primary",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <styled.div
+                    backgroundColor="primary"
+                  />,
+                  <styled.div />,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "backgroundColor": "primary",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <styled.div
+                    backgroundColor="primary"
+                  />,
+                  <styled.div />,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "backgroundColor": "primary",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled.div
+                bold={true}
+                center={true}
+                color="primary"
+                gameFont={true}
+                size="26px"
+              >
+                Sasuke
+              </styled.div>,
+              <PlayersList
+                actualPlayer={
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Naruto",
+                    "socketId": "different id",
+                  }
+                }
+                kickPlayer={[Function]}
+                players={
+                  Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ]
+                }
+                style={
+                  Object {
+                    "padding": "20px",
+                  }
+                }
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "bold": true,
+                "center": true,
+                "children": "Sasuke",
+                "color": "primary",
+                "gameFont": true,
+                "size": "26px",
+              },
+              "ref": null,
+              "rendered": "Sasuke",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "actualPlayer": Object {
+                  "_id": "5a73305e4dbfed22aa7d0df6",
+                  "nickname": "Naruto",
+                  "socketId": "different id",
+                },
+                "kickPlayer": [Function],
+                "players": Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ],
+                "style": Object {
+                  "padding": "20px",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled.div>
+                <styled.div
+                  backgroundColor="primary"
+                />
+                <styled.div
+                  backgroundColor="primary"
+                />
+              </styled.div>,
+              <styled.div>
+                <styled.div />
+                <styled.div
+                  backgroundColor="primary"
+                />
+              </styled.div>,
+              <styled.div>
+                <styled.div />
+                <styled.div
+                  backgroundColor="primary"
+                />
+              </styled.div>,
+            ],
+            "width": "200px",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <styled.div
+                    backgroundColor="primary"
+                  />,
+                  <styled.div
+                    backgroundColor="primary"
+                  />,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "backgroundColor": "primary",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "backgroundColor": "primary",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <styled.div />,
+                  <styled.div
+                    backgroundColor="primary"
+                  />,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "backgroundColor": "primary",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <styled.div />,
+                  <styled.div
+                    backgroundColor="primary"
+                  />,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "backgroundColor": "primary",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Lobby render ToggleOpenPartyButton render should render as expected with leadership and party closed 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <TogglePartyOpenButton
+    party={
+      Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": false,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": true,
+        "size": 10,
+      }
+    }
+    player={
+      Object {
+        "_id": "5a73305e4dbfed22aa7d0df6",
+        "nickname": "Sakura",
+        "socketId": "wcnjn-T8ENU4iD1XAAAC",
+      }
+    }
+    toggleOpenParty={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": "OPEN PARTY",
+      "onClick": [Function],
+      "primary": true,
+      "style": Object {
+        "margin": "16px",
+      },
+    },
+    "ref": null,
+    "rendered": "OPEN PARTY",
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": "OPEN PARTY",
+        "onClick": [Function],
+        "primary": true,
+        "style": Object {
+          "margin": "16px",
+        },
+      },
+      "ref": null,
+      "rendered": "OPEN PARTY",
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Lobby render ToggleOpenPartyButton render should render as expected with leadership and party opened 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <TogglePartyOpenButton
+    party={
+      Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": true,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": false,
+        "size": 10,
+      }
+    }
+    player={
+      Object {
+        "_id": "5a73305e4dbfed22aa7d0df6",
+        "nickname": "Sakura",
+        "socketId": "wcnjn-T8ENU4iD1XAAAC",
+      }
+    }
+    toggleOpenParty={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": "CLOSE PARTY",
+      "onClick": [Function],
+      "primary": true,
+      "style": Object {
+        "margin": "16px",
+      },
+    },
+    "ref": null,
+    "rendered": "CLOSE PARTY",
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": "CLOSE PARTY",
+        "onClick": [Function],
+        "primary": true,
+        "style": Object {
+          "margin": "16px",
+        },
+      },
+      "ref": null,
+      "rendered": "CLOSE PARTY",
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Lobby render ToggleOpenPartyButton render should render as expected without leadership 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <TogglePartyOpenButton
+    party={
+      Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": false,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": false,
+        "size": 10,
+      }
+    }
+    player={
+      Object {
+        "_id": "5a73305e4dbfed22aa7d0df6",
+        "nickname": "Naruto",
+        "socketId": "different id",
+      }
+    }
+    toggleOpenParty={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {},
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {},
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Lobby render should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Lobby
+    beginParty={[Function]}
+    kickPlayer={[Function]}
+    party={
+      Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": false,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": true,
+        "size": 10,
+      }
+    }
+    player={
+      Object {
+        "_id": "myid",
+        "nickname": "Naruto",
+        "socketId": "socket different",
+      }
+    }
+    toggleOpenParty={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.div
+          padding="20px"
+        >
+          <RoomView
+            kickPlayer={[Function]}
+            party={
+              Object {
+                "__v": 3,
+                "_id": "5a73305e4dbfed22aa7d0df5",
+                "name": "Sasuke",
+                "open": false,
+                "players": Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ],
+                "playing": true,
+                "size": 10,
+              }
+            }
+            player={
+              Object {
+                "_id": "myid",
+                "nickname": "Naruto",
+                "socketId": "socket different",
+              }
+            }
+          />
+        </styled.div>,
+        <styled.div>
+          <styled.div />
+          <TogglePartyOpenButton
+            party={
+              Object {
+                "__v": 3,
+                "_id": "5a73305e4dbfed22aa7d0df5",
+                "name": "Sasuke",
+                "open": false,
+                "players": Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ],
+                "playing": true,
+                "size": 10,
+              }
+            }
+            player={
+              Object {
+                "_id": "myid",
+                "nickname": "Naruto",
+                "socketId": "socket different",
+              }
+            }
+            toggleOpenParty={[Function]}
+          />
+          <BeginPartyButton
+            beginParty={[Function]}
+            party={
+              Object {
+                "__v": 3,
+                "_id": "5a73305e4dbfed22aa7d0df5",
+                "name": "Sasuke",
+                "open": false,
+                "players": Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ],
+                "playing": true,
+                "size": 10,
+              }
+            }
+            player={
+              Object {
+                "_id": "myid",
+                "nickname": "Naruto",
+                "socketId": "socket different",
+              }
+            }
+          />
+          <styled.div />
+        </styled.div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <RoomView
+            kickPlayer={[Function]}
+            party={
+              Object {
+                "__v": 3,
+                "_id": "5a73305e4dbfed22aa7d0df5",
+                "name": "Sasuke",
+                "open": false,
+                "players": Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ],
+                "playing": true,
+                "size": 10,
+              }
+            }
+            player={
+              Object {
+                "_id": "myid",
+                "nickname": "Naruto",
+                "socketId": "socket different",
+              }
+            }
+          />,
+          "padding": "20px",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "kickPlayer": [Function],
+            "party": Object {
+              "__v": 3,
+              "_id": "5a73305e4dbfed22aa7d0df5",
+              "name": "Sasuke",
+              "open": false,
+              "players": Array [
+                Object {
+                  "_id": "5a73305e4dbfed22aa7d0df6",
+                  "nickname": "Sakura",
+                  "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                },
+              ],
+              "playing": true,
+              "size": 10,
+            },
+            "player": Object {
+              "_id": "myid",
+              "nickname": "Naruto",
+              "socketId": "socket different",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled.div />,
+            <TogglePartyOpenButton
+              party={
+                Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": true,
+                  "size": 10,
+                }
+              }
+              player={
+                Object {
+                  "_id": "myid",
+                  "nickname": "Naruto",
+                  "socketId": "socket different",
+                }
+              }
+              toggleOpenParty={[Function]}
+            />,
+            <BeginPartyButton
+              beginParty={[Function]}
+              party={
+                Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": true,
+                  "size": 10,
+                }
+              }
+              player={
+                Object {
+                  "_id": "myid",
+                  "nickname": "Naruto",
+                  "socketId": "socket different",
+                }
+              }
+            />,
+            <styled.div />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "party": Object {
+                "__v": 3,
+                "_id": "5a73305e4dbfed22aa7d0df5",
+                "name": "Sasuke",
+                "open": false,
+                "players": Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ],
+                "playing": true,
+                "size": 10,
+              },
+              "player": Object {
+                "_id": "myid",
+                "nickname": "Naruto",
+                "socketId": "socket different",
+              },
+              "toggleOpenParty": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "beginParty": [Function],
+              "party": Object {
+                "__v": 3,
+                "_id": "5a73305e4dbfed22aa7d0df5",
+                "name": "Sasuke",
+                "open": false,
+                "players": Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ],
+                "playing": true,
+                "size": 10,
+              },
+              "player": Object {
+                "_id": "myid",
+                "nickname": "Naruto",
+                "socketId": "socket different",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div
+            padding="20px"
+          >
+            <RoomView
+              kickPlayer={[Function]}
+              party={
+                Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": true,
+                  "size": 10,
+                }
+              }
+              player={
+                Object {
+                  "_id": "myid",
+                  "nickname": "Naruto",
+                  "socketId": "socket different",
+                }
+              }
+            />
+          </styled.div>,
+          <styled.div>
+            <styled.div />
+            <TogglePartyOpenButton
+              party={
+                Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": true,
+                  "size": 10,
+                }
+              }
+              player={
+                Object {
+                  "_id": "myid",
+                  "nickname": "Naruto",
+                  "socketId": "socket different",
+                }
+              }
+              toggleOpenParty={[Function]}
+            />
+            <BeginPartyButton
+              beginParty={[Function]}
+              party={
+                Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": true,
+                  "size": 10,
+                }
+              }
+              player={
+                Object {
+                  "_id": "myid",
+                  "nickname": "Naruto",
+                  "socketId": "socket different",
+                }
+              }
+            />
+            <styled.div />
+          </styled.div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <RoomView
+              kickPlayer={[Function]}
+              party={
+                Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": true,
+                  "size": 10,
+                }
+              }
+              player={
+                Object {
+                  "_id": "myid",
+                  "nickname": "Naruto",
+                  "socketId": "socket different",
+                }
+              }
+            />,
+            "padding": "20px",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "kickPlayer": [Function],
+              "party": Object {
+                "__v": 3,
+                "_id": "5a73305e4dbfed22aa7d0df5",
+                "name": "Sasuke",
+                "open": false,
+                "players": Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ],
+                "playing": true,
+                "size": 10,
+              },
+              "player": Object {
+                "_id": "myid",
+                "nickname": "Naruto",
+                "socketId": "socket different",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled.div />,
+              <TogglePartyOpenButton
+                party={
+                  Object {
+                    "__v": 3,
+                    "_id": "5a73305e4dbfed22aa7d0df5",
+                    "name": "Sasuke",
+                    "open": false,
+                    "players": Array [
+                      Object {
+                        "_id": "5a73305e4dbfed22aa7d0df6",
+                        "nickname": "Sakura",
+                        "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                      },
+                    ],
+                    "playing": true,
+                    "size": 10,
+                  }
+                }
+                player={
+                  Object {
+                    "_id": "myid",
+                    "nickname": "Naruto",
+                    "socketId": "socket different",
+                  }
+                }
+                toggleOpenParty={[Function]}
+              />,
+              <BeginPartyButton
+                beginParty={[Function]}
+                party={
+                  Object {
+                    "__v": 3,
+                    "_id": "5a73305e4dbfed22aa7d0df5",
+                    "name": "Sasuke",
+                    "open": false,
+                    "players": Array [
+                      Object {
+                        "_id": "5a73305e4dbfed22aa7d0df6",
+                        "nickname": "Sakura",
+                        "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                      },
+                    ],
+                    "playing": true,
+                    "size": 10,
+                  }
+                }
+                player={
+                  Object {
+                    "_id": "myid",
+                    "nickname": "Naruto",
+                    "socketId": "socket different",
+                  }
+                }
+              />,
+              <styled.div />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "party": Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": true,
+                  "size": 10,
+                },
+                "player": Object {
+                  "_id": "myid",
+                  "nickname": "Naruto",
+                  "socketId": "socket different",
+                },
+                "toggleOpenParty": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "beginParty": [Function],
+                "party": Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": true,
+                  "size": 10,
+                },
+                "player": Object {
+                  "_id": "myid",
+                  "nickname": "Naruto",
+                  "socketId": "socket different",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Lobby render should render as expected without leadership 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Lobby
+    beginParty={[Function]}
+    kickPlayer={[Function]}
+    party={
+      Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": false,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": true,
+        "size": 10,
+      }
+    }
+    player={
+      Object {
+        "_id": "myid",
+        "nickname": "Naruto",
+        "socketId": "socket different",
+      }
+    }
+    toggleOpenParty={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.div
+          padding="20px"
+        >
+          <RoomView
+            kickPlayer={[Function]}
+            party={
+              Object {
+                "__v": 3,
+                "_id": "5a73305e4dbfed22aa7d0df5",
+                "name": "Sasuke",
+                "open": false,
+                "players": Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ],
+                "playing": true,
+                "size": 10,
+              }
+            }
+            player={
+              Object {
+                "_id": "myid",
+                "nickname": "Naruto",
+                "socketId": "socket different",
+              }
+            }
+          />
+        </styled.div>,
+        <styled.div>
+          <styled.div />
+          <TogglePartyOpenButton
+            party={
+              Object {
+                "__v": 3,
+                "_id": "5a73305e4dbfed22aa7d0df5",
+                "name": "Sasuke",
+                "open": false,
+                "players": Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ],
+                "playing": true,
+                "size": 10,
+              }
+            }
+            player={
+              Object {
+                "_id": "myid",
+                "nickname": "Naruto",
+                "socketId": "socket different",
+              }
+            }
+            toggleOpenParty={[Function]}
+          />
+          <BeginPartyButton
+            beginParty={[Function]}
+            party={
+              Object {
+                "__v": 3,
+                "_id": "5a73305e4dbfed22aa7d0df5",
+                "name": "Sasuke",
+                "open": false,
+                "players": Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ],
+                "playing": true,
+                "size": 10,
+              }
+            }
+            player={
+              Object {
+                "_id": "myid",
+                "nickname": "Naruto",
+                "socketId": "socket different",
+              }
+            }
+          />
+          <styled.div />
+        </styled.div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <RoomView
+            kickPlayer={[Function]}
+            party={
+              Object {
+                "__v": 3,
+                "_id": "5a73305e4dbfed22aa7d0df5",
+                "name": "Sasuke",
+                "open": false,
+                "players": Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ],
+                "playing": true,
+                "size": 10,
+              }
+            }
+            player={
+              Object {
+                "_id": "myid",
+                "nickname": "Naruto",
+                "socketId": "socket different",
+              }
+            }
+          />,
+          "padding": "20px",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "kickPlayer": [Function],
+            "party": Object {
+              "__v": 3,
+              "_id": "5a73305e4dbfed22aa7d0df5",
+              "name": "Sasuke",
+              "open": false,
+              "players": Array [
+                Object {
+                  "_id": "5a73305e4dbfed22aa7d0df6",
+                  "nickname": "Sakura",
+                  "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                },
+              ],
+              "playing": true,
+              "size": 10,
+            },
+            "player": Object {
+              "_id": "myid",
+              "nickname": "Naruto",
+              "socketId": "socket different",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled.div />,
+            <TogglePartyOpenButton
+              party={
+                Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": true,
+                  "size": 10,
+                }
+              }
+              player={
+                Object {
+                  "_id": "myid",
+                  "nickname": "Naruto",
+                  "socketId": "socket different",
+                }
+              }
+              toggleOpenParty={[Function]}
+            />,
+            <BeginPartyButton
+              beginParty={[Function]}
+              party={
+                Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": true,
+                  "size": 10,
+                }
+              }
+              player={
+                Object {
+                  "_id": "myid",
+                  "nickname": "Naruto",
+                  "socketId": "socket different",
+                }
+              }
+            />,
+            <styled.div />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "party": Object {
+                "__v": 3,
+                "_id": "5a73305e4dbfed22aa7d0df5",
+                "name": "Sasuke",
+                "open": false,
+                "players": Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ],
+                "playing": true,
+                "size": 10,
+              },
+              "player": Object {
+                "_id": "myid",
+                "nickname": "Naruto",
+                "socketId": "socket different",
+              },
+              "toggleOpenParty": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "beginParty": [Function],
+              "party": Object {
+                "__v": 3,
+                "_id": "5a73305e4dbfed22aa7d0df5",
+                "name": "Sasuke",
+                "open": false,
+                "players": Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ],
+                "playing": true,
+                "size": 10,
+              },
+              "player": Object {
+                "_id": "myid",
+                "nickname": "Naruto",
+                "socketId": "socket different",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div
+            padding="20px"
+          >
+            <RoomView
+              kickPlayer={[Function]}
+              party={
+                Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": true,
+                  "size": 10,
+                }
+              }
+              player={
+                Object {
+                  "_id": "myid",
+                  "nickname": "Naruto",
+                  "socketId": "socket different",
+                }
+              }
+            />
+          </styled.div>,
+          <styled.div>
+            <styled.div />
+            <TogglePartyOpenButton
+              party={
+                Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": true,
+                  "size": 10,
+                }
+              }
+              player={
+                Object {
+                  "_id": "myid",
+                  "nickname": "Naruto",
+                  "socketId": "socket different",
+                }
+              }
+              toggleOpenParty={[Function]}
+            />
+            <BeginPartyButton
+              beginParty={[Function]}
+              party={
+                Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": true,
+                  "size": 10,
+                }
+              }
+              player={
+                Object {
+                  "_id": "myid",
+                  "nickname": "Naruto",
+                  "socketId": "socket different",
+                }
+              }
+            />
+            <styled.div />
+          </styled.div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <RoomView
+              kickPlayer={[Function]}
+              party={
+                Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": true,
+                  "size": 10,
+                }
+              }
+              player={
+                Object {
+                  "_id": "myid",
+                  "nickname": "Naruto",
+                  "socketId": "socket different",
+                }
+              }
+            />,
+            "padding": "20px",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "kickPlayer": [Function],
+              "party": Object {
+                "__v": 3,
+                "_id": "5a73305e4dbfed22aa7d0df5",
+                "name": "Sasuke",
+                "open": false,
+                "players": Array [
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Sakura",
+                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                  },
+                ],
+                "playing": true,
+                "size": 10,
+              },
+              "player": Object {
+                "_id": "myid",
+                "nickname": "Naruto",
+                "socketId": "socket different",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled.div />,
+              <TogglePartyOpenButton
+                party={
+                  Object {
+                    "__v": 3,
+                    "_id": "5a73305e4dbfed22aa7d0df5",
+                    "name": "Sasuke",
+                    "open": false,
+                    "players": Array [
+                      Object {
+                        "_id": "5a73305e4dbfed22aa7d0df6",
+                        "nickname": "Sakura",
+                        "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                      },
+                    ],
+                    "playing": true,
+                    "size": 10,
+                  }
+                }
+                player={
+                  Object {
+                    "_id": "myid",
+                    "nickname": "Naruto",
+                    "socketId": "socket different",
+                  }
+                }
+                toggleOpenParty={[Function]}
+              />,
+              <BeginPartyButton
+                beginParty={[Function]}
+                party={
+                  Object {
+                    "__v": 3,
+                    "_id": "5a73305e4dbfed22aa7d0df5",
+                    "name": "Sasuke",
+                    "open": false,
+                    "players": Array [
+                      Object {
+                        "_id": "5a73305e4dbfed22aa7d0df6",
+                        "nickname": "Sakura",
+                        "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                      },
+                    ],
+                    "playing": true,
+                    "size": 10,
+                  }
+                }
+                player={
+                  Object {
+                    "_id": "myid",
+                    "nickname": "Naruto",
+                    "socketId": "socket different",
+                  }
+                }
+              />,
+              <styled.div />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "party": Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": true,
+                  "size": 10,
+                },
+                "player": Object {
+                  "_id": "myid",
+                  "nickname": "Naruto",
+                  "socketId": "socket different",
+                },
+                "toggleOpenParty": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "beginParty": [Function],
+                "party": Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": true,
+                  "size": 10,
+                },
+                "player": Object {
+                  "_id": "myid",
+                  "nickname": "Naruto",
+                  "socketId": "socket different",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
 `;
 
 exports[`NewGame should render as expected 1`] = `
-<styled.div>
-  <styled.div>
-    <Connect(PlayerForm) />
-  </styled.div>
-  <styled.div>
-    <styled.div />
-    <styled.div>
-      <Link
-        id="create-party-link"
-        replace={false}
-        to="create-party"
-      >
-        <styled.button
-          marginTop="20px"
-          primary={true}
-          width="100%"
-        >
-          CREATE A NEW PARTY
-        </styled.button>
-      </Link>
-      <styled.div
-        center={true}
-        color="accent"
-        gameFont={true}
-        padding="20px"
-        size="20px"
-      >
-        OR
-      </styled.div>
-      <Link
-        id="party-list-link"
-        replace={false}
-        to="party-list"
-      >
-        <styled.button
-          primary={true}
-          width="100%"
-        >
-          JOIN A PARTY
-        </styled.button>
-      </Link>
-    </styled.div>
-    <styled.div />
-  </styled.div>
-</styled.div>
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <NewGame />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.div>
+          <Connect(PlayerForm) />
+        </styled.div>,
+        <styled.div>
+          <styled.div />
+          <styled.div>
+            <Link
+              id="create-party-link"
+              replace={false}
+              to="create-party"
+            >
+              <styled.button
+                marginTop="20px"
+                primary={true}
+                width="100%"
+              >
+                CREATE A NEW PARTY
+              </styled.button>
+            </Link>
+            <styled.div
+              center={true}
+              color="accent"
+              gameFont={true}
+              padding="20px"
+              size="20px"
+            >
+              OR
+            </styled.div>
+            <Link
+              id="party-list-link"
+              replace={false}
+              to="party-list"
+            >
+              <styled.button
+                primary={true}
+                width="100%"
+              >
+                JOIN A PARTY
+              </styled.button>
+            </Link>
+          </styled.div>
+          <styled.div />
+        </styled.div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <Connect(PlayerForm) />,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled.div />,
+            <styled.div>
+              <Link
+                id="create-party-link"
+                replace={false}
+                to="create-party"
+              >
+                <styled.button
+                  marginTop="20px"
+                  primary={true}
+                  width="100%"
+                >
+                  CREATE A NEW PARTY
+                </styled.button>
+              </Link>
+              <styled.div
+                center={true}
+                color="accent"
+                gameFont={true}
+                padding="20px"
+                size="20px"
+              >
+                OR
+              </styled.div>
+              <Link
+                id="party-list-link"
+                replace={false}
+                to="party-list"
+              >
+                <styled.button
+                  primary={true}
+                  width="100%"
+                >
+                  JOIN A PARTY
+                </styled.button>
+              </Link>
+            </styled.div>,
+            <styled.div />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <Link
+                  id="create-party-link"
+                  replace={false}
+                  to="create-party"
+                >
+                  <styled.button
+                    marginTop="20px"
+                    primary={true}
+                    width="100%"
+                  >
+                    CREATE A NEW PARTY
+                  </styled.button>
+                </Link>,
+                <styled.div
+                  center={true}
+                  color="accent"
+                  gameFont={true}
+                  padding="20px"
+                  size="20px"
+                >
+                  OR
+                </styled.div>,
+                <Link
+                  id="party-list-link"
+                  replace={false}
+                  to="party-list"
+                >
+                  <styled.button
+                    primary={true}
+                    width="100%"
+                  >
+                    JOIN A PARTY
+                  </styled.button>
+                </Link>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <styled.button
+                    marginTop="20px"
+                    primary={true}
+                    width="100%"
+                  >
+                    CREATE A NEW PARTY
+                  </styled.button>,
+                  "id": "create-party-link",
+                  "replace": false,
+                  "to": "create-party",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "CREATE A NEW PARTY",
+                    "marginTop": "20px",
+                    "primary": true,
+                    "width": "100%",
+                  },
+                  "ref": null,
+                  "rendered": "CREATE A NEW PARTY",
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "center": true,
+                  "children": "OR",
+                  "color": "accent",
+                  "gameFont": true,
+                  "padding": "20px",
+                  "size": "20px",
+                },
+                "ref": null,
+                "rendered": "OR",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <styled.button
+                    primary={true}
+                    width="100%"
+                  >
+                    JOIN A PARTY
+                  </styled.button>,
+                  "id": "party-list-link",
+                  "replace": false,
+                  "to": "party-list",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "JOIN A PARTY",
+                    "primary": true,
+                    "width": "100%",
+                  },
+                  "ref": null,
+                  "rendered": "JOIN A PARTY",
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div>
+            <Connect(PlayerForm) />
+          </styled.div>,
+          <styled.div>
+            <styled.div />
+            <styled.div>
+              <Link
+                id="create-party-link"
+                replace={false}
+                to="create-party"
+              >
+                <styled.button
+                  marginTop="20px"
+                  primary={true}
+                  width="100%"
+                >
+                  CREATE A NEW PARTY
+                </styled.button>
+              </Link>
+              <styled.div
+                center={true}
+                color="accent"
+                gameFont={true}
+                padding="20px"
+                size="20px"
+              >
+                OR
+              </styled.div>
+              <Link
+                id="party-list-link"
+                replace={false}
+                to="party-list"
+              >
+                <styled.button
+                  primary={true}
+                  width="100%"
+                >
+                  JOIN A PARTY
+                </styled.button>
+              </Link>
+            </styled.div>
+            <styled.div />
+          </styled.div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <Connect(PlayerForm) />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled.div />,
+              <styled.div>
+                <Link
+                  id="create-party-link"
+                  replace={false}
+                  to="create-party"
+                >
+                  <styled.button
+                    marginTop="20px"
+                    primary={true}
+                    width="100%"
+                  >
+                    CREATE A NEW PARTY
+                  </styled.button>
+                </Link>
+                <styled.div
+                  center={true}
+                  color="accent"
+                  gameFont={true}
+                  padding="20px"
+                  size="20px"
+                >
+                  OR
+                </styled.div>
+                <Link
+                  id="party-list-link"
+                  replace={false}
+                  to="party-list"
+                >
+                  <styled.button
+                    primary={true}
+                    width="100%"
+                  >
+                    JOIN A PARTY
+                  </styled.button>
+                </Link>
+              </styled.div>,
+              <styled.div />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <Link
+                    id="create-party-link"
+                    replace={false}
+                    to="create-party"
+                  >
+                    <styled.button
+                      marginTop="20px"
+                      primary={true}
+                      width="100%"
+                    >
+                      CREATE A NEW PARTY
+                    </styled.button>
+                  </Link>,
+                  <styled.div
+                    center={true}
+                    color="accent"
+                    gameFont={true}
+                    padding="20px"
+                    size="20px"
+                  >
+                    OR
+                  </styled.div>,
+                  <Link
+                    id="party-list-link"
+                    replace={false}
+                    to="party-list"
+                  >
+                    <styled.button
+                      primary={true}
+                      width="100%"
+                    >
+                      JOIN A PARTY
+                    </styled.button>
+                  </Link>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <styled.button
+                      marginTop="20px"
+                      primary={true}
+                      width="100%"
+                    >
+                      CREATE A NEW PARTY
+                    </styled.button>,
+                    "id": "create-party-link",
+                    "replace": false,
+                    "to": "create-party",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "CREATE A NEW PARTY",
+                      "marginTop": "20px",
+                      "primary": true,
+                      "width": "100%",
+                    },
+                    "ref": null,
+                    "rendered": "CREATE A NEW PARTY",
+                    "type": [Function],
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "center": true,
+                    "children": "OR",
+                    "color": "accent",
+                    "gameFont": true,
+                    "padding": "20px",
+                    "size": "20px",
+                  },
+                  "ref": null,
+                  "rendered": "OR",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <styled.button
+                      primary={true}
+                      width="100%"
+                    >
+                      JOIN A PARTY
+                    </styled.button>,
+                    "id": "party-list-link",
+                    "replace": false,
+                    "to": "party-list",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "JOIN A PARTY",
+                      "primary": true,
+                      "width": "100%",
+                    },
+                    "ref": null,
+                    "rendered": "JOIN A PARTY",
+                    "type": [Function],
+                  },
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
 `;
 
 exports[`NotFound should render as expected 1`] = `
-<div
-  style={
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <NotFound />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <styled.div>
+          404
+        </styled.div>,
+        <styled.div>
+          We're sorry but your requested page is unknown to us :(
+        </styled.div>,
+      ],
+      "style": Object {
+        "width": "100%",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "404",
+        },
+        "ref": null,
+        "rendered": "404",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "We're sorry but your requested page is unknown to us :(",
+        },
+        "ref": null,
+        "rendered": "We're sorry but your requested page is unknown to us :(",
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
     Object {
-      "width": "100%",
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <styled.div>
+            404
+          </styled.div>,
+          <styled.div>
+            We're sorry but your requested page is unknown to us :(
+          </styled.div>,
+        ],
+        "style": Object {
+          "width": "100%",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "404",
+          },
+          "ref": null,
+          "rendered": "404",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "We're sorry but your requested page is unknown to us :(",
+          },
+          "ref": null,
+          "rendered": "We're sorry but your requested page is unknown to us :(",
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Party render should render as expected with party not playing 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Party
+    party={
+      Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": false,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": false,
+        "size": 10,
+      }
     }
-  }
->
-  <styled.div>
-    404
-  </styled.div>
-  <styled.div>
-    We're sorry but your requested page is unknown to us :(
-  </styled.div>
-</div>
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {},
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {},
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Party render should render as expected with party playing 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Party
+    party={
+      Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": false,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": true,
+        "size": 10,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {},
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {},
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`PartyList render PartyButton should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PartyButton
+    goToParty={[Function]}
+    party={
+      Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": false,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": false,
+        "size": 10,
+      }
+    }
+    player={
+      Object {
+        "nickname": "Naruto",
+        "socketId": "toto",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": <styled.button
+        disabled={true}
+        margin="10px"
+        onClick={[Function]}
+        primary={true}
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "row",
+          }
+        }
+        width="400px"
+      >
+        <div
+          style={
+            Object {
+              "flex": 1,
+              "textAlign": "left",
+            }
+          }
+        >
+          Sasuke
+        </div>
+        <div>
+          Players: 
+          1
+           / 
+          10
+        </div>
+      </styled.button>,
+      "replace": false,
+      "style": Object {
+        "pointerEvents": "none",
+        "textDecoration": "none",
+      },
+      "to": "/#Sasuke[Naruto]",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "flex": 1,
+                "textAlign": "left",
+              }
+            }
+          >
+            Sasuke
+          </div>,
+          <div>
+            Players: 
+            1
+             / 
+            10
+          </div>,
+        ],
+        "disabled": true,
+        "margin": "10px",
+        "onClick": [Function],
+        "primary": true,
+        "style": Object {
+          "display": "flex",
+          "flexDirection": "row",
+        },
+        "width": "400px",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Sasuke",
+            "style": Object {
+              "flex": 1,
+              "textAlign": "left",
+            },
+          },
+          "ref": null,
+          "rendered": "Sasuke",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Players: ",
+              1,
+              " / ",
+              10,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Players: ",
+            1,
+            " / ",
+            10,
+          ],
+          "type": "div",
+        },
+      ],
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <styled.button
+          disabled={true}
+          margin="10px"
+          onClick={[Function]}
+          primary={true}
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+            }
+          }
+          width="400px"
+        >
+          <div
+            style={
+              Object {
+                "flex": 1,
+                "textAlign": "left",
+              }
+            }
+          >
+            Sasuke
+          </div>
+          <div>
+            Players: 
+            1
+             / 
+            10
+          </div>
+        </styled.button>,
+        "replace": false,
+        "style": Object {
+          "pointerEvents": "none",
+          "textDecoration": "none",
+        },
+        "to": "/#Sasuke[Naruto]",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <div
+              style={
+                Object {
+                  "flex": 1,
+                  "textAlign": "left",
+                }
+              }
+            >
+              Sasuke
+            </div>,
+            <div>
+              Players: 
+              1
+               / 
+              10
+            </div>,
+          ],
+          "disabled": true,
+          "margin": "10px",
+          "onClick": [Function],
+          "primary": true,
+          "style": Object {
+            "display": "flex",
+            "flexDirection": "row",
+          },
+          "width": "400px",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Sasuke",
+              "style": Object {
+                "flex": 1,
+                "textAlign": "left",
+              },
+            },
+            "ref": null,
+            "rendered": "Sasuke",
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Players: ",
+                1,
+                " / ",
+                10,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Players: ",
+              1,
+              " / ",
+              10,
+            ],
+            "type": "div",
+          },
+        ],
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`PartyList render PartyButton should render as expected with nickname 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PartyButton
+    goToParty={[Function]}
+    party={
+      Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": false,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": false,
+        "size": 10,
+      }
+    }
+    player={
+      Object {
+        "nickname": "Naruto",
+        "socketId": "toto",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": <styled.button
+        className="join-button"
+        disabled={true}
+        margin="10px"
+        primary={true}
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "row",
+          }
+        }
+        width="400px"
+      >
+        <div
+          style={
+            Object {
+              "flex": 1,
+              "textAlign": "left",
+            }
+          }
+        >
+          Sasuke
+        </div>
+        <div>
+          Players: 
+          1
+           / 
+          10
+        </div>
+      </styled.button>,
+      "replace": false,
+      "style": Object {
+        "pointerEvents": "none",
+        "textDecoration": "none",
+      },
+      "to": "/#Sasuke[Naruto]",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "flex": 1,
+                "textAlign": "left",
+              }
+            }
+          >
+            Sasuke
+          </div>,
+          <div>
+            Players: 
+            1
+             / 
+            10
+          </div>,
+        ],
+        "className": "join-button",
+        "disabled": true,
+        "margin": "10px",
+        "primary": true,
+        "style": Object {
+          "display": "flex",
+          "flexDirection": "row",
+        },
+        "width": "400px",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Sasuke",
+            "style": Object {
+              "flex": 1,
+              "textAlign": "left",
+            },
+          },
+          "ref": null,
+          "rendered": "Sasuke",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Players: ",
+              1,
+              " / ",
+              10,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Players: ",
+            1,
+            " / ",
+            10,
+          ],
+          "type": "div",
+        },
+      ],
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <styled.button
+          className="join-button"
+          disabled={true}
+          margin="10px"
+          primary={true}
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+            }
+          }
+          width="400px"
+        >
+          <div
+            style={
+              Object {
+                "flex": 1,
+                "textAlign": "left",
+              }
+            }
+          >
+            Sasuke
+          </div>
+          <div>
+            Players: 
+            1
+             / 
+            10
+          </div>
+        </styled.button>,
+        "replace": false,
+        "style": Object {
+          "pointerEvents": "none",
+          "textDecoration": "none",
+        },
+        "to": "/#Sasuke[Naruto]",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <div
+              style={
+                Object {
+                  "flex": 1,
+                  "textAlign": "left",
+                }
+              }
+            >
+              Sasuke
+            </div>,
+            <div>
+              Players: 
+              1
+               / 
+              10
+            </div>,
+          ],
+          "className": "join-button",
+          "disabled": true,
+          "margin": "10px",
+          "primary": true,
+          "style": Object {
+            "display": "flex",
+            "flexDirection": "row",
+          },
+          "width": "400px",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Sasuke",
+              "style": Object {
+                "flex": 1,
+                "textAlign": "left",
+              },
+            },
+            "ref": null,
+            "rendered": "Sasuke",
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Players: ",
+                1,
+                " / ",
+                10,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Players: ",
+              1,
+              " / ",
+              10,
+            ],
+            "type": "div",
+          },
+        ],
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`PartyList render PartyButton should render as expected without nickname 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PartyButton
+    goToParty={[Function]}
+    party={
+      Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": false,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": false,
+        "size": 10,
+      }
+    }
+    player={
+      Object {
+        "socketId": "toto",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": <styled.button
+        className="join-button"
+        disabled={true}
+        margin="10px"
+        primary={true}
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "row",
+          }
+        }
+        width="400px"
+      >
+        <div
+          style={
+            Object {
+              "flex": 1,
+              "textAlign": "left",
+            }
+          }
+        >
+          Sasuke
+        </div>
+        <div>
+          Players: 
+          1
+           / 
+          10
+        </div>
+      </styled.button>,
+      "replace": false,
+      "style": Object {
+        "pointerEvents": "none",
+        "textDecoration": "none",
+      },
+      "to": "/#Sasuke[Unknown]",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "flex": 1,
+                "textAlign": "left",
+              }
+            }
+          >
+            Sasuke
+          </div>,
+          <div>
+            Players: 
+            1
+             / 
+            10
+          </div>,
+        ],
+        "className": "join-button",
+        "disabled": true,
+        "margin": "10px",
+        "primary": true,
+        "style": Object {
+          "display": "flex",
+          "flexDirection": "row",
+        },
+        "width": "400px",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Sasuke",
+            "style": Object {
+              "flex": 1,
+              "textAlign": "left",
+            },
+          },
+          "ref": null,
+          "rendered": "Sasuke",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Players: ",
+              1,
+              " / ",
+              10,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Players: ",
+            1,
+            " / ",
+            10,
+          ],
+          "type": "div",
+        },
+      ],
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <styled.button
+          className="join-button"
+          disabled={true}
+          margin="10px"
+          primary={true}
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+            }
+          }
+          width="400px"
+        >
+          <div
+            style={
+              Object {
+                "flex": 1,
+                "textAlign": "left",
+              }
+            }
+          >
+            Sasuke
+          </div>
+          <div>
+            Players: 
+            1
+             / 
+            10
+          </div>
+        </styled.button>,
+        "replace": false,
+        "style": Object {
+          "pointerEvents": "none",
+          "textDecoration": "none",
+        },
+        "to": "/#Sasuke[Unknown]",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <div
+              style={
+                Object {
+                  "flex": 1,
+                  "textAlign": "left",
+                }
+              }
+            >
+              Sasuke
+            </div>,
+            <div>
+              Players: 
+              1
+               / 
+              10
+            </div>,
+          ],
+          "className": "join-button",
+          "disabled": true,
+          "margin": "10px",
+          "primary": true,
+          "style": Object {
+            "display": "flex",
+            "flexDirection": "row",
+          },
+          "width": "400px",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Sasuke",
+              "style": Object {
+                "flex": 1,
+                "textAlign": "left",
+              },
+            },
+            "ref": null,
+            "rendered": "Sasuke",
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Players: ",
+                1,
+                " / ",
+                10,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Players: ",
+              1,
+              " / ",
+              10,
+            ],
+            "type": "div",
+          },
+        ],
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`PartyList render should render as expected with no parties 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PartyList
+    goToParty={[Function]}
+    partyList={Array []}
+    player={
+      Object {
+        "nickname": "Naruto",
+        "socketId": "toto",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": <styled.div>
+        <styled.div />
+        <div>
+          <NoParties />
+        </div>
+        <styled.div />
+      </styled.div>,
+      "padding": "40px",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div />,
+          <div>
+            <NoParties />
+          </div>,
+          <styled.div />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <NoParties />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <styled.div>
+          <styled.div />
+          <div>
+            <NoParties />
+          </div>
+          <styled.div />
+        </styled.div>,
+        "padding": "40px",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled.div />,
+            <div>
+              <NoParties />
+            </div>,
+            <styled.div />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <NoParties />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`PartyList render should render as expected with parties 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PartyList
+    goToParty={[Function]}
+    partyList={
+      Array [
+        Object {
+          "__v": 3,
+          "_id": "5a73305e4dbfed22aa7d0df5",
+          "name": "Sasuke",
+          "open": false,
+          "players": Array [
+            Object {
+              "_id": "5a73305e4dbfed22aa7d0df6",
+              "nickname": "Sakura",
+              "socketId": "wcnjn-T8ENU4iD1XAAAC",
+            },
+          ],
+          "playing": false,
+          "size": 10,
+        },
+      ]
+    }
+    player={
+      Object {
+        "nickname": "Naruto",
+        "socketId": "toto",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": <styled.div>
+        <styled.div />
+        <div>
+          <PartyListMap
+            partyList={
+              Array [
+                Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": false,
+                  "size": 10,
+                },
+              ]
+            }
+            player={
+              Object {
+                "nickname": "Naruto",
+                "socketId": "toto",
+              }
+            }
+          />
+        </div>
+        <styled.div />
+      </styled.div>,
+      "padding": "40px",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div />,
+          <div>
+            <PartyListMap
+              partyList={
+                Array [
+                  Object {
+                    "__v": 3,
+                    "_id": "5a73305e4dbfed22aa7d0df5",
+                    "name": "Sasuke",
+                    "open": false,
+                    "players": Array [
+                      Object {
+                        "_id": "5a73305e4dbfed22aa7d0df6",
+                        "nickname": "Sakura",
+                        "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                      },
+                    ],
+                    "playing": false,
+                    "size": 10,
+                  },
+                ]
+              }
+              player={
+                Object {
+                  "nickname": "Naruto",
+                  "socketId": "toto",
+                }
+              }
+            />
+          </div>,
+          <styled.div />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <PartyListMap
+              partyList={
+                Array [
+                  Object {
+                    "__v": 3,
+                    "_id": "5a73305e4dbfed22aa7d0df5",
+                    "name": "Sasuke",
+                    "open": false,
+                    "players": Array [
+                      Object {
+                        "_id": "5a73305e4dbfed22aa7d0df6",
+                        "nickname": "Sakura",
+                        "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                      },
+                    ],
+                    "playing": false,
+                    "size": 10,
+                  },
+                ]
+              }
+              player={
+                Object {
+                  "nickname": "Naruto",
+                  "socketId": "toto",
+                }
+              }
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "partyList": Array [
+                Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Sasuke",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": false,
+                  "size": 10,
+                },
+              ],
+              "player": Object {
+                "nickname": "Naruto",
+                "socketId": "toto",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <styled.div>
+          <styled.div />
+          <div>
+            <PartyListMap
+              partyList={
+                Array [
+                  Object {
+                    "__v": 3,
+                    "_id": "5a73305e4dbfed22aa7d0df5",
+                    "name": "Sasuke",
+                    "open": false,
+                    "players": Array [
+                      Object {
+                        "_id": "5a73305e4dbfed22aa7d0df6",
+                        "nickname": "Sakura",
+                        "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                      },
+                    ],
+                    "playing": false,
+                    "size": 10,
+                  },
+                ]
+              }
+              player={
+                Object {
+                  "nickname": "Naruto",
+                  "socketId": "toto",
+                }
+              }
+            />
+          </div>
+          <styled.div />
+        </styled.div>,
+        "padding": "40px",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled.div />,
+            <div>
+              <PartyListMap
+                partyList={
+                  Array [
+                    Object {
+                      "__v": 3,
+                      "_id": "5a73305e4dbfed22aa7d0df5",
+                      "name": "Sasuke",
+                      "open": false,
+                      "players": Array [
+                        Object {
+                          "_id": "5a73305e4dbfed22aa7d0df6",
+                          "nickname": "Sakura",
+                          "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                        },
+                      ],
+                      "playing": false,
+                      "size": 10,
+                    },
+                  ]
+                }
+                player={
+                  Object {
+                    "nickname": "Naruto",
+                    "socketId": "toto",
+                  }
+                }
+              />
+            </div>,
+            <styled.div />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <PartyListMap
+                partyList={
+                  Array [
+                    Object {
+                      "__v": 3,
+                      "_id": "5a73305e4dbfed22aa7d0df5",
+                      "name": "Sasuke",
+                      "open": false,
+                      "players": Array [
+                        Object {
+                          "_id": "5a73305e4dbfed22aa7d0df6",
+                          "nickname": "Sakura",
+                          "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                        },
+                      ],
+                      "playing": false,
+                      "size": 10,
+                    },
+                  ]
+                }
+                player={
+                  Object {
+                    "nickname": "Naruto",
+                    "socketId": "toto",
+                  }
+                }
+              />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "partyList": Array [
+                  Object {
+                    "__v": 3,
+                    "_id": "5a73305e4dbfed22aa7d0df5",
+                    "name": "Sasuke",
+                    "open": false,
+                    "players": Array [
+                      Object {
+                        "_id": "5a73305e4dbfed22aa7d0df6",
+                        "nickname": "Sakura",
+                        "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                      },
+                    ],
+                    "playing": false,
+                    "size": 10,
+                  },
+                ],
+                "player": Object {
+                  "nickname": "Naruto",
+                  "socketId": "toto",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`PartyList render should render as expected with parties and leadership 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PartyList
+    goToParty={[Function]}
+    partyList={
+      Array [
+        Object {
+          "__v": 3,
+          "_id": "5a73305e4dbfed22aa7d0df5",
+          "name": "Konoha",
+          "open": false,
+          "players": Array [
+            Object {
+              "_id": "5a73305e4dbfed22aa7d0df6",
+              "nickname": "Sakura",
+              "socketId": "wcnjn-T8ENU4iD1XAAAC",
+            },
+          ],
+          "playing": false,
+          "size": 10,
+        },
+      ]
+    }
+    player={
+      Object {
+        "_id": "5a73305e4dbfed22aa7d0df6",
+        "nickname": "Naruto",
+        "socketId": "toto",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": <styled.div>
+        <styled.div />
+        <div>
+          <PartyListMap
+            goToParty={[Function]}
+            partyList={
+              Array [
+                Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Konoha",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": false,
+                  "size": 10,
+                },
+              ]
+            }
+            player={
+              Object {
+                "_id": "5a73305e4dbfed22aa7d0df6",
+                "nickname": "Naruto",
+                "socketId": "toto",
+              }
+            }
+          />
+        </div>
+        <styled.div />
+      </styled.div>,
+      "padding": "40px",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div />,
+          <div>
+            <PartyListMap
+              goToParty={[Function]}
+              partyList={
+                Array [
+                  Object {
+                    "__v": 3,
+                    "_id": "5a73305e4dbfed22aa7d0df5",
+                    "name": "Konoha",
+                    "open": false,
+                    "players": Array [
+                      Object {
+                        "_id": "5a73305e4dbfed22aa7d0df6",
+                        "nickname": "Sakura",
+                        "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                      },
+                    ],
+                    "playing": false,
+                    "size": 10,
+                  },
+                ]
+              }
+              player={
+                Object {
+                  "_id": "5a73305e4dbfed22aa7d0df6",
+                  "nickname": "Naruto",
+                  "socketId": "toto",
+                }
+              }
+            />
+          </div>,
+          <styled.div />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <PartyListMap
+              goToParty={[Function]}
+              partyList={
+                Array [
+                  Object {
+                    "__v": 3,
+                    "_id": "5a73305e4dbfed22aa7d0df5",
+                    "name": "Konoha",
+                    "open": false,
+                    "players": Array [
+                      Object {
+                        "_id": "5a73305e4dbfed22aa7d0df6",
+                        "nickname": "Sakura",
+                        "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                      },
+                    ],
+                    "playing": false,
+                    "size": 10,
+                  },
+                ]
+              }
+              player={
+                Object {
+                  "_id": "5a73305e4dbfed22aa7d0df6",
+                  "nickname": "Naruto",
+                  "socketId": "toto",
+                }
+              }
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "goToParty": [Function],
+              "partyList": Array [
+                Object {
+                  "__v": 3,
+                  "_id": "5a73305e4dbfed22aa7d0df5",
+                  "name": "Konoha",
+                  "open": false,
+                  "players": Array [
+                    Object {
+                      "_id": "5a73305e4dbfed22aa7d0df6",
+                      "nickname": "Sakura",
+                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                    },
+                  ],
+                  "playing": false,
+                  "size": 10,
+                },
+              ],
+              "player": Object {
+                "_id": "5a73305e4dbfed22aa7d0df6",
+                "nickname": "Naruto",
+                "socketId": "toto",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <styled.div>
+          <styled.div />
+          <div>
+            <PartyListMap
+              goToParty={[Function]}
+              partyList={
+                Array [
+                  Object {
+                    "__v": 3,
+                    "_id": "5a73305e4dbfed22aa7d0df5",
+                    "name": "Konoha",
+                    "open": false,
+                    "players": Array [
+                      Object {
+                        "_id": "5a73305e4dbfed22aa7d0df6",
+                        "nickname": "Sakura",
+                        "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                      },
+                    ],
+                    "playing": false,
+                    "size": 10,
+                  },
+                ]
+              }
+              player={
+                Object {
+                  "_id": "5a73305e4dbfed22aa7d0df6",
+                  "nickname": "Naruto",
+                  "socketId": "toto",
+                }
+              }
+            />
+          </div>
+          <styled.div />
+        </styled.div>,
+        "padding": "40px",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled.div />,
+            <div>
+              <PartyListMap
+                goToParty={[Function]}
+                partyList={
+                  Array [
+                    Object {
+                      "__v": 3,
+                      "_id": "5a73305e4dbfed22aa7d0df5",
+                      "name": "Konoha",
+                      "open": false,
+                      "players": Array [
+                        Object {
+                          "_id": "5a73305e4dbfed22aa7d0df6",
+                          "nickname": "Sakura",
+                          "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                        },
+                      ],
+                      "playing": false,
+                      "size": 10,
+                    },
+                  ]
+                }
+                player={
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Naruto",
+                    "socketId": "toto",
+                  }
+                }
+              />
+            </div>,
+            <styled.div />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <PartyListMap
+                goToParty={[Function]}
+                partyList={
+                  Array [
+                    Object {
+                      "__v": 3,
+                      "_id": "5a73305e4dbfed22aa7d0df5",
+                      "name": "Konoha",
+                      "open": false,
+                      "players": Array [
+                        Object {
+                          "_id": "5a73305e4dbfed22aa7d0df6",
+                          "nickname": "Sakura",
+                          "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                        },
+                      ],
+                      "playing": false,
+                      "size": 10,
+                    },
+                  ]
+                }
+                player={
+                  Object {
+                    "_id": "5a73305e4dbfed22aa7d0df6",
+                    "nickname": "Naruto",
+                    "socketId": "toto",
+                  }
+                }
+              />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "goToParty": [Function],
+                "partyList": Array [
+                  Object {
+                    "__v": 3,
+                    "_id": "5a73305e4dbfed22aa7d0df5",
+                    "name": "Konoha",
+                    "open": false,
+                    "players": Array [
+                      Object {
+                        "_id": "5a73305e4dbfed22aa7d0df6",
+                        "nickname": "Sakura",
+                        "socketId": "wcnjn-T8ENU4iD1XAAAC",
+                      },
+                    ],
+                    "playing": false,
+                    "size": 10,
+                  },
+                ],
+                "player": Object {
+                  "_id": "5a73305e4dbfed22aa7d0df6",
+                  "nickname": "Naruto",
+                  "socketId": "toto",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
 `;
 
 exports[`PartyList should render as expected 1`] = `
@@ -106,13 +6214,19 @@ ShallowWrapper {
       "children": <styled.div>
         <styled.div />
         <div>
-          <PartyButton
-            onClick={[Function]}
-            roomName="toto"
-          />
-          <PartyButton
-            onClick={[Function]}
-            roomName="tata"
+          <PartyListMap
+            goToParty={[Function]}
+            partyList={
+              Array [
+                Object {
+                  "name": "toto",
+                },
+                Object {
+                  "name": "tata",
+                },
+              ]
+            }
+            player={undefined}
           />
         </div>
         <styled.div />
@@ -128,13 +6242,19 @@ ShallowWrapper {
         "children": Array [
           <styled.div />,
           <div>
-            <PartyButton
-              onClick={[Function]}
-              roomName="toto"
-            />
-            <PartyButton
-              onClick={[Function]}
-              roomName="tata"
+            <PartyListMap
+              goToParty={[Function]}
+              partyList={
+                Array [
+                  Object {
+                    "name": "toto",
+                  },
+                  Object {
+                    "name": "tata",
+                  },
+                ]
+              }
+              player={undefined}
             />
           </div>,
           <styled.div />,
@@ -156,44 +6276,42 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [
-              <PartyButton
-                onClick={[Function]}
-                roomName="toto"
-              />,
-              <PartyButton
-                onClick={[Function]}
-                roomName="tata"
-              />,
-            ],
+            "children": <PartyListMap
+              goToParty={[Function]}
+              partyList={
+                Array [
+                  Object {
+                    "name": "toto",
+                  },
+                  Object {
+                    "name": "tata",
+                  },
+                ]
+              }
+              player={undefined}
+            />,
           },
           "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": "toto",
-              "nodeType": "function",
-              "props": Object {
-                "onClick": [Function],
-                "roomName": "toto",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "goToParty": [Function],
+              "partyList": Array [
+                Object {
+                  "name": "toto",
+                },
+                Object {
+                  "name": "tata",
+                },
+              ],
+              "player": undefined,
             },
-            Object {
-              "instance": null,
-              "key": "tata",
-              "nodeType": "function",
-              "props": Object {
-                "onClick": [Function],
-                "roomName": "tata",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-          ],
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           "type": "div",
         },
         Object {
@@ -219,13 +6337,19 @@ ShallowWrapper {
         "children": <styled.div>
           <styled.div />
           <div>
-            <PartyButton
-              onClick={[Function]}
-              roomName="toto"
-            />
-            <PartyButton
-              onClick={[Function]}
-              roomName="tata"
+            <PartyListMap
+              goToParty={[Function]}
+              partyList={
+                Array [
+                  Object {
+                    "name": "toto",
+                  },
+                  Object {
+                    "name": "tata",
+                  },
+                ]
+              }
+              player={undefined}
             />
           </div>
           <styled.div />
@@ -241,13 +6365,19 @@ ShallowWrapper {
           "children": Array [
             <styled.div />,
             <div>
-              <PartyButton
-                onClick={[Function]}
-                roomName="toto"
-              />
-              <PartyButton
-                onClick={[Function]}
-                roomName="tata"
+              <PartyListMap
+                goToParty={[Function]}
+                partyList={
+                  Array [
+                    Object {
+                      "name": "toto",
+                    },
+                    Object {
+                      "name": "tata",
+                    },
+                  ]
+                }
+                player={undefined}
               />
             </div>,
             <styled.div />,
@@ -269,44 +6399,42 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": Array [
-                <PartyButton
-                  onClick={[Function]}
-                  roomName="toto"
-                />,
-                <PartyButton
-                  onClick={[Function]}
-                  roomName="tata"
-                />,
-              ],
+              "children": <PartyListMap
+                goToParty={[Function]}
+                partyList={
+                  Array [
+                    Object {
+                      "name": "toto",
+                    },
+                    Object {
+                      "name": "tata",
+                    },
+                  ]
+                }
+                player={undefined}
+              />,
             },
             "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": "toto",
-                "nodeType": "function",
-                "props": Object {
-                  "onClick": [Function],
-                  "roomName": "toto",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "goToParty": [Function],
+                "partyList": Array [
+                  Object {
+                    "name": "toto",
+                  },
+                  Object {
+                    "name": "tata",
+                  },
+                ],
+                "player": undefined,
               },
-              Object {
-                "instance": null,
-                "key": "tata",
-                "nodeType": "function",
-                "props": Object {
-                  "onClick": [Function],
-                  "roomName": "tata",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-            ],
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
             "type": "div",
           },
           Object {
@@ -335,7 +6463,47 @@ ShallowWrapper {
 `;
 
 exports[`Ranking should render as expected 1`] = `
-<div>
-  this is the ranking page
-</div>
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Ranking />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": "this is the ranking page",
+    },
+    "ref": null,
+    "rendered": "this is the ranking page",
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": "this is the ranking page",
+      },
+      "ref": null,
+      "rendered": "this is the ranking page",
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
 `;

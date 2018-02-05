@@ -20,15 +20,13 @@ const AlertDisplay = styled.div`
   }
 `;
 
-const Alert = ({ alert }) =>
+export const Alert = ({ alert }) =>
   alert.message ? (
     <AlertDisplay className="show">{alert.message}</AlertDisplay>
   ) : (
     <AlertDisplay />
   );
 
-const mapStateToProps = state => ({
-  alert: state.alert
-});
+const mapStateToProps = ({ alert }) => ({ alert });
 
 export default connect(mapStateToProps)(Alert);

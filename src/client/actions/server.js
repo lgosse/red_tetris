@@ -1,7 +1,5 @@
 import { SERVER_PING } from "../../actionsTypes";
 
-export const ping = () => {
-  return {
-    type: SERVER_PING
-  };
-};
+export const ping = () => ({
+  type: SERVER_PING
+});

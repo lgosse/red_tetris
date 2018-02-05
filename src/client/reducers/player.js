@@ -44,10 +44,9 @@ const findPlace = (piece, grid, dir) => {
 
 const getPlayer = () => {
   const playerItem = localStorage.getItem("player");
-  if (playerItem !== null) {
-    return playerItem;
-  } else
-    return {};
+  if (playerItem) return playerItem;
+
+  return "";
 };
 
 const savePlayer = action => {

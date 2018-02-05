@@ -45,32 +45,24 @@ export const PlayerForm = ({ player, changeNickname, saveNickname }) => {
   );
 };
 
-export const mapStateToPlayerFormProps = state => {
-  return {
-    player: state.player
-  };
-};
+export const mapStateToPlayerFormProps = ({ player }) => ({
+  player
+});
 
-export const mapDispatchToPlayerFormProps = dispatch => {
-  const changeNickname = (event, player) => {
+export const mapDispatchToPlayerFormProps = dispatch => ({
+  changeNickname(event, player) {
     dispatch(
       updatePlayer({
         ...player,
         nickname: event.target.value
       })
     );
-  };
-
-  const saveNickname = (event, player) => {
+  },
+  saveNickname(event, player) {
     event.preventDefault();
     dispatch(savePlayer(player));
-  };
-
-  return {
-    changeNickname,
-    saveNickname
-  };
-};
+  }
+});
 
 export default connect(mapStateToPlayerFormProps, mapDispatchToPlayerFormProps)(
   PlayerForm
