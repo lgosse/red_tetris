@@ -1,6 +1,7 @@
 import * as server from "../../src/server/index";
 import { createStore, applyMiddleware } from "redux";
 import socketIoMiddleWare from "../../src/client/middleware/socketIoMiddleware";
+import effectsMiddleWare from "../../src/client/middleware/effectsMiddleware";
 import thunk from "redux-thunk";
 
 export const startServer = (params, cb) => {
@@ -10,11 +11,23 @@ export const startServer = (params, cb) => {
     .catch(err => cb(err));
 };
 
-export const configureStore = (reducer, socket, initialState, types) =>
+export const configureStore = (
+  reducer,
+  socket,
+  initialState,
+  types,
+  ...middlewares
+) =>
   createStore(
     reducer,
     initialState,
-    applyMiddleware(myMiddleware(types), socketIoMiddleWare(socket), thunk)
+    applyMiddleware(
+      myMiddleware(types),
+      socketIoMiddleWare(socket),
+      effectsMiddleWare,
+      thunk,
+      ...middlewares
+    )
   );
 
 const isFunction = arg => {

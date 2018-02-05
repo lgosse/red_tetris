@@ -1,5 +1,5 @@
 // New Game actions
-export const NEW_GAME_CREATE = "NEW_GAME";
+export const NEW_GAME_CREATE = "NEW_GAME_CREATE";
 export const NEW_GAME_JOIN = "JOIN_GAME";
 
 // PartyList actions
@@ -14,6 +14,7 @@ export const PARTY_UPDATE = "PARTY_UPDATE";
 export const PARTY_OPEN = "server/toggle-open-party";
 export const PARTY_JOIN = "server/party-join";
 export const PARTY_LEAVE = "server/party-leave";
+export const PARTY_LEFT = "PARTY_LEFT";
 export const PARTY_KICK_PLAYER = "server/party-kick-player";
 export const PARTY_TOGGLE_PLAYING = "server/party-toggle-playing";
 

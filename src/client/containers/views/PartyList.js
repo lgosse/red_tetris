@@ -32,14 +32,12 @@ export const PartyButton = ({ party, player, onClick }) => {
         width="400px"
         primary
         margin="10px"
-        onClick={() => {
-          onClick(party.name);
-        }}
         disabled={!party.open}
         style={{
           display: "flex",
           flexDirection: "row"
         }}
+        className="join-button"
       >
         <div style={{ flex: 1, textAlign: "left" }}>{party.name}</div>
         <div>
@@ -50,15 +48,10 @@ export const PartyButton = ({ party, player, onClick }) => {
   );
 };
 
-const PartyListMap = ({ partyList, player, goToParty }) => (
+const PartyListMap = ({ partyList, player }) => (
   <div>
     {partyList.map(party => (
-      <PartyButton
-        party={party}
-        key={party._id}
-        player={player}
-        onClick={goToParty}
-      />
+      <PartyButton party={party} key={party._id} player={player} />
     ))}
   </div>
 );
@@ -76,18 +69,14 @@ const NoParties = () => (
   </FullSizeContainer>
 );
 
-export const PartyList = ({ partyList, player, goToParty }) => {
+export const PartyList = ({ partyList, player }) => {
   return (
     <FullSizeContainer padding="40px">
       <FlexContainer>
         <FlexSpacer />
         <div>
           {partyList.length ? (
-            <PartyListMap
-              partyList={partyList}
-              goToParty={goToParty}
-              player={player}
-            />
+            <PartyListMap partyList={partyList} player={player} />
           ) : (
             <NoParties />
           )}
@@ -103,16 +92,4 @@ export const mapStateToPartyListProps = ({ partyList, player }) => ({
   player
 });
 
-export const mapDispatchToPartyListProps = dispatch => {
-  const goToParty = () => {
-    dispatch(ping());
-  };
-
-  return {
-    goToParty
-  };
-};
-
-export default connect(mapStateToPartyListProps, mapDispatchToPartyListProps)(
-  PartyList
-);
+export default connect(mapStateToPartyListProps)(PartyList);

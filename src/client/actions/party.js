@@ -54,3 +54,14 @@ export const togglePlayingParty = partyId => ({
   type: PARTY_TOGGLE_PLAYING,
   partyId
 });
+
+export const validatePartyHash = partyHash => {
+  const [partyName, playerName] = partyHash.split("[");
+
+  if (partyName.length === 0) return false;
+
+  if (!playerName || playerName.length === 1 || playerName.length === 0)
+    return false;
+
+  return true;
+};
