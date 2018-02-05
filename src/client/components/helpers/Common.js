@@ -58,6 +58,12 @@ export const Button = styled.button`
 export const FlexContainer = styled.div`
   display: flex;
   ${props => props.flex && `flex: 1`};
+  ${props => props.padding && `padding: ${props.padding}`};
+  ${props => props.paddingRight && `padding-right: ${props.paddingRight}`};
+  ${props => props.paddingLeft && `padding-left: ${props.paddingLeft}`};
+  ${props => props.paddingTop && `padding-top: ${props.paddingTop}`};
+  ${props => props.paddingBottom && `padding-bottom: ${props.paddingBottom}`};
+  ${props => props.padding && `padding: ${props.padding}`};
 `;
 
 export const FlexSpacer = styled.div`

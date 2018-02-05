@@ -1,18 +1,32 @@
 import React from "react";
-import global from "../../styles/global";
 import Map from "./Map";
+import global from "../../styles/global";
+import styled from "styled-components";
 
-import {
-  FullSizeContainer
-} from "../helpers/Common";
+import { RedContainer } from "../helpers/Common";
 
-const PlayerState = (props) => {
-    return (
-        <div style={ {display: 'inline-block', margin:'0.5%', border: 'solid black 1px'} }>
-            <h5> {props.player.nickname} </h5>
-            <Map map={props.player.map} />
-        </div>
-    );
-};
+export const PlayerStateContainer = RedContainer.extend`
+  box-shadow: ${global.shadow.light};
+  border-radius: ${global.border.radius};
+  color: ${global.color.accent};
+  width: 100px;
+  height: 172px;
+  padding: 2px;
+  overflow: hidden;
+`;
+
+export const PlayerName = styled.div`
+  width: 100%;
+  font-family: ${global.font.family.game};
+  font-size: 12px;
+  text-align: center;
+`;
+
+const PlayerState = ({ player }) => (
+  <PlayerStateContainer>
+    <PlayerName> {player.nickname} </PlayerName>
+    <Map map={player.map} />
+  </PlayerStateContainer>
+);
 
 export default PlayerState;
