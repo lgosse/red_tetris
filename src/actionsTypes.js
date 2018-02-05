@@ -22,6 +22,8 @@ export const PARTY_TOGGLE_PLAYING = "server/party-toggle-playing";
 export const PLAYER_UPDATE = "PLAYER_UPDATE";
 export const PLAYER_SAVE = "PLAYER_SAVE";
 export const PLAYER_GET = "PLAYER_GET";
+export const PLAYER_PIECE_ROTATE = "PLAYER_PIECE_ROTATE";
+export const PLAYER_PIECE_MOVE = "PLAYER_PIECE_MOVE";
 
 // Server actions
 export const SERVER_PING = "server/ping";

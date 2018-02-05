@@ -1,4 +1,4 @@
-import { PLAYER_GET, PLAYER_SAVE, PLAYER_UPDATE } from "../../actionsTypes";
+import { PLAYER_GET, PLAYER_SAVE, PLAYER_UPDATE, PLAYER_PIECE_ROTATE, PLAYER_PIECE_MOVE } from "../../actionsTypes";
 
 export const getPlayer = () => {
   return {
@@ -17,5 +17,20 @@ export const savePlayer = player => {
   return {
     type: PLAYER_SAVE,
     player
+  };
+};
+
+export const rotatePiece = (player, direction) => {
+  return {
+    type: PLAYER_PIECE_ROTATE,
+    player,
+    direction
+  };
+};
+
+export const movePiece = (direction) => {
+  return {
+    type: PLAYER_PIECE_MOVE,
+    direction
   };
 };
