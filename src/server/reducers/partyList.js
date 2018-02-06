@@ -8,11 +8,14 @@ import {
   PARTY_LEAVE,
   PARTY_KICK_PLAYER,
   PARTY_OPEN,
-  PARTY_TOGGLE_PLAYING,
+  PARTY_START,
   PARTY_LEFT
 } from "../../actionsTypes";
 import { push } from "react-router-redux";
 import mongoose from "mongoose";
+import { updateParty } from "../../client/actions/party";
+import { claimPieceSuccess } from "../../client/actions/player";
+import { getTetri } from "../Tetri";
 
 export const Party = mongoose.model("Party", {
   name: {
@@ -207,7 +210,7 @@ const partyList = async (action, io, socket) => {
       break;
     }
 
-    case PARTY_TOGGLE_PLAYING: {
+    case PARTY_START: {
       let party;
       try {
         party = await Party.findById(action.partyId).exec();
@@ -218,13 +221,15 @@ const partyList = async (action, io, socket) => {
 
       party.open = false;
       party.playing = true;
+
       try {
         await party.save();
+
         io.emit("action", await getParties());
-        io.to(party._id).emit("action", {
-          type: PARTY_UPDATE,
-          party
-        });
+        io.to(party._id).emit("action", updateParty(party));
+        io
+          .to(party._id)
+          .emit("action", claimPieceSuccess([getTetri(), getTetri()]));
       } catch (error) {
         console.log(error);
       }

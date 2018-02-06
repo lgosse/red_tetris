@@ -16,7 +16,7 @@ export const PARTY_JOIN = "server/party-join";
 export const PARTY_LEAVE = "server/party-leave";
 export const PARTY_LEFT = "PARTY_LEFT";
 export const PARTY_KICK_PLAYER = "server/party-kick-player";
-export const PARTY_TOGGLE_PLAYING = "server/party-toggle-playing";
+export const PARTY_START = "server/party-toggle-playing";
 
 // Player actions
 export const PLAYER_UPDATE = "PLAYER_UPDATE";
@@ -24,6 +24,8 @@ export const PLAYER_SAVE = "PLAYER_SAVE";
 export const PLAYER_GET = "PLAYER_GET";
 export const PLAYER_PIECE_ROTATE = "PLAYER_PIECE_ROTATE";
 export const PLAYER_PIECE_MOVE = "PLAYER_PIECE_MOVE";
+export const PLAYER_CLAIM_PIECE = "server/claim-piece";
+export const PLAYER_CLAIM_PIECE_SUCCESS = "PLAYER_CLAIM_PIECE_SUCCESS";
 
 // Server actions
 export const SERVER_PING = "server/ping";
