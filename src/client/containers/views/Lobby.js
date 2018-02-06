@@ -2,11 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import global from "../../styles/global";
 
-import {
-  kickPlayer,
-  toggleOpenParty,
-  togglePlayingParty
-} from "../../actions/party";
+import { kickPlayer, toggleOpenParty, startParty } from "../../actions/party";
 
 import {
   FullSizeContainer,
@@ -181,7 +177,7 @@ const mapStateToProps = ({ party, player }) => ({
 const mapDispatchToProps = dispatch => ({
   kickPlayer: playerId => dispatch(kickPlayer(playerId)),
   toggleOpenParty: partyId => dispatch(toggleOpenParty(partyId)),
-  beginParty: partyId => dispatch(togglePlayingParty(partyId))
+  beginParty: partyId => dispatch(startParty(partyId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Lobby);
