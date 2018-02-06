@@ -2,7 +2,7 @@ import React from 'react';
 import global from '../../styles/global';
 import styled from 'styled-components';
 
-import Tetri from './Tetri';
+import { Tetri } from './Tetri';
 
 import { LightContainer, FlexContainer, FullSizeContainer, FlexSpacer } from '../helpers/Common';
 

@@ -4,15 +4,9 @@ import styled, { keyframes } from 'styled-components';
 import Square from '../../components/game/Square';
 
 // import Pieces from '../../components/game/Pieces';
-import Tetri from '../../components/game/Tetri';
+import { Tetri, Bomb } from '../../components/game/Tetri';
 import gameStyle from '../../styles/gameStyle';
-import {
-  rotatePiece,
-  movePiece,
-  updatePlayer,
-  deleteLines,
-  claimPiece
-} from '../../actions/player';
+import { rotatePiece, movePiece, updatePlayer, deleteLines, claimPiece } from '../../actions/player';
 
 export const Grid = ({ party, player, rotateit, endGame, requestPiece }) => {
   const grid = player.grid.map((line, i) => {
@@ -46,7 +40,7 @@ export const Grid = ({ party, player, rotateit, endGame, requestPiece }) => {
             textAlign: 'center',
             marginTop: '35vh',
             fontSize: '5vh',
-            color: 'white'
+            color: 'white',
           }}
         >
           YOU LOOSE
@@ -56,6 +50,7 @@ export const Grid = ({ party, player, rotateit, endGame, requestPiece }) => {
     return (
       <div style={gameStyle.calque}>
         <Tetri position={player.piece} tetri={player.piece.grid} />
+        <Bomb position={{ x: 5, y: 2 }} />
       </div>
     );
   };
@@ -64,15 +59,11 @@ export const Grid = ({ party, player, rotateit, endGame, requestPiece }) => {
     setTimeout(() => {
       if (player.ending && player.lines === null) endGame(player);
       else requestPiece(party);
-    }, 1000);
+    }, 500);
   }
 
   return (
-    <div
-      tabIndex={'0'}
-      onKeyDown={e => rotateit(e, player)}
-      style={gameStyle.grid}
-    >
+    <div tabIndex={'0'} onKeyDown={e => rotateit(e, player)} style={gameStyle.grid}>
       <Calque />
       {grid}
     </div>
@@ -82,7 +73,7 @@ export const Grid = ({ party, player, rotateit, endGame, requestPiece }) => {
 export const mapStateToGridProps = state => {
   return {
     party: state.party,
-    player: state.player
+    player: state.player,
   };
 };
 
@@ -94,29 +85,29 @@ export const mapDispatchToGridProps = dispatch => {
     if (player.end || player.ending || player.piece === null) return;
 
     switch (event.keyCode) {
-      case 39: // RIGHT
-        dispatch(movePiece(1));
-        break;
-      case 37: // LEFT
-        dispatch(movePiece(-1));
-        break;
-      case 40: // DOWN
-        dispatch(movePiece(0));
-        break;
-      case 32: // SPACE
-        break;
-      case 38:
-      case 68: // UP or D
-        dispatch(rotatePiece(player, 1));
-        break;
-      case 65: // A
-        dispatch(rotatePiece(player, -1));
-        break;
-      case 69: // E
-        endAnimation(player);
-        break;
-      default:
-        break;
+    case 39: // RIGHT
+      dispatch(movePiece(1));
+      break;
+    case 37: // LEFT
+      dispatch(movePiece(-1));
+      break;
+    case 40: // DOWN
+      dispatch(movePiece(0));
+      break;
+    case 32: // SPACE
+      break;
+    case 38:
+    case 68: // UP or D
+      dispatch(rotatePiece(player, 1));
+      break;
+    case 65: // A
+      dispatch(rotatePiece(player, -1));
+      break;
+    case 69: // E
+      endAnimation(player);
+      break;
+    default:
+      break;
     }
   };
 
