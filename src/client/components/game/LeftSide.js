@@ -1,15 +1,10 @@
-import React from "react";
-import global from "../../styles/global";
-import styled from "styled-components";
+import React from 'react';
+import global from '../../styles/global';
+import styled from 'styled-components';
 
-import Tetri from "./Tetri";
+import Tetri from './Tetri';
 
-import {
-  LightContainer,
-  FlexContainer,
-  FullSizeContainer,
-  FlexSpacer
-} from "../helpers/Common";
+import { LightContainer, FlexContainer, FullSizeContainer, FlexSpacer } from '../helpers/Common';
 
 const LeftSideTop = styled.div`
   font-family: ${global.font.family.game};
@@ -47,8 +42,8 @@ const GameInfo = ({ title, children, flex }) => (
     style={
       flex && {
         flex: 1,
-        display: "flex",
-        flexDirection: "column"
+        display: 'flex',
+        flexDirection: 'column',
       }
     }
   >
@@ -56,7 +51,7 @@ const GameInfo = ({ title, children, flex }) => (
       style={{
         fontFamily: global.font.family.game,
         fontSize: global.font.size.subtitle,
-        color: global.color.primary
+        color: global.color.primary,
       }}
     >
       {title}
@@ -68,22 +63,21 @@ const GameInfo = ({ title, children, flex }) => (
 const LeftSide = ({ party, player }) => (
   <LeftSideContainer>
     <LeftSideTop>{party.name}</LeftSideTop>
-    <GameInfo title="PLAYER">{player.nickname}</GameInfo>
-    <GameInfo title="SCORE">{player.score}24 000</GameInfo>
-    <GameInfo title="NEXT PIECE" flex>
-      <FlexContainer height="100%">
+    <GameInfo title='PLAYER'>{player.nickname}</GameInfo>
+    <GameInfo title='SCORE'>{player.score}24 000</GameInfo>
+    <GameInfo title='NEXT PIECE' flex>
+      <FlexContainer height='100%'>
         <FlexSpacer />
         <div
           style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "100px",
-            height: "100%"
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
           }}
         >
           <div style={{ flex: 1 }} />
           {/* {
-            
+
               <Tetri padding="12px" key={index} grid={player.nextPieces[0]}/>)
            */}
           {<Tetri tetri={[[1, 1, 0], [0, 1, 1], [0, 0, 0]]} />}

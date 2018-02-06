@@ -6,7 +6,7 @@ import {
   PLAYER_PIECE_MOVE,
   PLAYER_CLAIM_PIECE,
   PLAYER_CLAIM_PIECE_SUCCESS
-} from "../../actionsTypes";
+} from '../../actionsTypes';
 
 export const getPlayer = () => ({
   type: PLAYER_GET
@@ -40,4 +40,8 @@ export const claimPieceSuccess = (pieces = []) => ({
 export const movePiece = direction => ({
   type: PLAYER_PIECE_MOVE,
   direction
+});
+
+export const deleteLines = () => ({
+  type: PLAYER_DELETE_LINES
 });

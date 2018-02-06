@@ -1,9 +1,9 @@
-import React from "react";
-import gameStyle from "../../styles/gameStyle";
-import Square from "./Square";
+import React from 'react';
+import gameStyle from '../../styles/gameStyle';
+import Square from './Square';
 
 const Line = ({ line }) => (
-  <div style={{ display: "flex", width: "100px" }}>
+  <div style={{ display: 'flex' }}>
     {line.map(
       (square, index) =>
         square ? (
@@ -12,8 +12,8 @@ const Line = ({ line }) => (
           <div
             key={index}
             style={{
-              width: "4vh",
-              height: "4vh"
+              width: '4vh',
+              height: '4vh',
             }}
           />
         )
@@ -22,9 +22,7 @@ const Line = ({ line }) => (
 );
 
 const Tetri = ({ tetri, position }) => (
-  <div style={gameStyle.pieces.all(position)}>
-    {tetri.map((line, index) => <Line key={index} line={line} />)}
-  </div>
+  <div style={gameStyle.pieces.all(position)}>{tetri.map((line, index) => <Line key={index} line={line} />)}</div>
 );
 
 export default Tetri;
