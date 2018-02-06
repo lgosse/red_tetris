@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Side from '../../components/game/Side';
+import RightSide from '../../components/game/RightSide';
+import LeftSide from '../../components/game/LeftSide';
 import Grid from './Grid';
 
 export const Game = ({ party, player }) => {
@@ -18,6 +19,7 @@ export const Game = ({ party, player }) => {
     [0, 0, 1, 1, 1, 1, 1, 1, 1],
     [0, 0, 1, 1, 1, 1, 1, 1, 1],
     [1, 0, 0, 1, 0, 1, 1, 1, 1],
+    [1, 1, 0, 1, 0, 0, 1, 1, 1],
     [1, 1, 0, 1, 0, 0, 1, 1, 1],
   ];
 
@@ -39,19 +41,18 @@ export const Game = ({ party, player }) => {
       map: maptest,
     },
   ];
-
-  const Quit = () => {
-    return player.end ? <button>QUIT</button> : null;
-  };
-
   return (
-    <div style={{ width: '100%' }}>
-      <Quit />
-      <div style={{ width: '100%' }}>(Nom){party.name}</div>
-      <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-        <Grid party={party} player={player} />
-        <Side players={party.players} />
-      </div>
+    <div
+      style={{
+        width: '100%',
+        paddingRight: '10%',
+        paddingLeft: '10%',
+        display: 'flex',
+      }}
+    >
+      <LeftSide party={party} player={player} />
+      <Grid party={party} player={player} />
+      <RightSide players={party.players} />
     </div>
   );
 };

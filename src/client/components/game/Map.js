@@ -1,38 +1,39 @@
 import React from "react";
 import global from "../../styles/global";
+import styled from "styled-components";
+import { FlexContainer, FullSizeContainer } from "../helpers/Common";
 
-const Map = (props) => {
-    const mapVoid = {
-        width: '5px',
-        height: '5px',
-        marginLeft: '1px',
-        marginTop: '1px'
-    };
-    const mapItem = {
-        width: '5px',
-        height: '5px',
-        backgroundColor: global.color.accent,
-        marginLeft: '1px',
-        marginTop: '1px'
-    };
+const MapVoid = styled.div`
+  flex: 1;
+  margin-left: 1px;
+  margin-top: 1px;
+`;
 
-    const lines = props.map.map((line, i) => {
-        const cols = line.map((col, j) => {
-            return (
-            <div
-                style= { col == 0 ? mapVoid : mapItem }
-                key= {j}>
-            </div>
-            );
-        });
-        return <div key={i} style={{ display: 'flex' }}>{cols}</div>;
-    });
+const MapItem = styled.div`
+  background-color: ${global.color.accent};
+  flex: 1;
+  margin-left: 1px;
+  margin-top: 1px;
+`;
 
-    return (
-        <div style={ {padding: '2px', backgroundColor: 'rgba(0, 0, 0, 0.2)'} }>
-            {lines}
-        </div>
-    );
-};
+const Line = ({ line }) => (
+  <FlexContainer flex>
+    {line.map(
+      (column, index) =>
+        column === 0 ? <MapVoid key={index} /> : <MapItem key={index} />
+    )}
+  </FlexContainer>
+);
+
+const LinesContainer = FlexContainer.extend`
+  flex-direction: column;
+  height: 155px;
+`;
+
+const Map = ({ map }) => (
+  <LinesContainer>
+    {map.map((line, index) => <Line line={line} key={index} />)}
+  </LinesContainer>
+);
 
 export default Map;
