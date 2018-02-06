@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components';
 import Square from '../../components/game/Square';
 
 // import Pieces from '../../components/game/Pieces';
-import Tetri from '../../components/game/Tetri';
+import { Tetri, Bomb } from '../../components/game/Tetri';
 import gameStyle from '../../styles/gameStyle';
 import { rotatePiece, movePiece, updatePlayer, deleteLines } from '../../actions/player';
 
@@ -43,6 +43,7 @@ export const Grid = ({ party, player, rotateit, endGame, claimPiece }) => {
     return (
       <div style={gameStyle.calque}>
         <Tetri position={player.piece} tetri={player.piece.grid} />
+        <Bomb position={{ x: 5, y: 2 }} />
       </div>
     );
   };
@@ -51,7 +52,7 @@ export const Grid = ({ party, player, rotateit, endGame, claimPiece }) => {
     setTimeout(() => {
       if (player.ending && player.lines === null) endGame(player);
       else claimPiece();
-    }, 1000);
+    }, 500);
   }
 
   return (
@@ -73,6 +74,12 @@ export const mapDispatchToGridProps = dispatch => {
   const rotateit = (event, player) => {
     event.stopPropagation();
     event.preventDefault();
+
+    if (player.stop) return;
+    dispatch(updatePlayer({ stop: true }));
+    setTimeout(() => {
+      dispatch(updatePlayer({ stop: false }));
+    }, 100);
 
     if (player.end || player.ending || player.piece === null) return;
 
