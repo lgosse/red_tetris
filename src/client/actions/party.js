@@ -7,7 +7,7 @@ import {
   PARTY_LEAVE,
   PARTY_KICK_PLAYER,
   PARTY_OPEN,
-  PARTY_TOGGLE_PLAYING
+  PARTY_START
 } from "../../actionsTypes";
 
 export const getParty = () => ({
@@ -50,8 +50,8 @@ export const toggleOpenParty = partyId => ({
   partyId
 });
 
-export const togglePlayingParty = partyId => ({
-  type: PARTY_TOGGLE_PLAYING,
+export const startParty = partyId => ({
+  type: PARTY_START,
   partyId
 });
 

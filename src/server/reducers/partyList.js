@@ -8,13 +8,16 @@ import {
   PARTY_LEAVE,
   PARTY_KICK_PLAYER,
   PARTY_OPEN,
-  PARTY_TOGGLE_PLAYING,
+  PARTY_START,
   PARTY_LEFT
-} from "../../actionsTypes";
-import { push } from "react-router-redux";
-import mongoose from "mongoose";
+} from '../../actionsTypes';
+import { push } from 'react-router-redux';
+import mongoose from 'mongoose';
+import { updateParty } from '../../client/actions/party';
+import { claimPieceSuccess, updatePlayer } from '../../client/actions/player';
+import { getTetri } from '../Tetri';
 
-export const Party = mongoose.model("Party", {
+export const Party = mongoose.model('Party', {
   name: {
     type: String,
     unique: true
@@ -34,7 +37,7 @@ export const userLeaves = async (io, socket) => {
   let partyList;
   try {
     partyList = await Party.find({
-      "players.socketId": socket.id
+      'players.socketId': socket.id
     }).exec();
   } catch (error) {
     console.log(error);
@@ -47,7 +50,7 @@ export const userLeaves = async (io, socket) => {
       if (player.socketId === socket.id) {
         socket.leave(party._id, err => {
           if (err) console.log(err);
-          socket.emit("action", { type: PARTY_LEFT });
+          socket.emit('action', { type: PARTY_LEFT });
         });
 
         return false;
@@ -62,13 +65,13 @@ export const userLeaves = async (io, socket) => {
       await party.save();
     }
 
-    io.to(party._id).emit("action", {
+    io.to(party._id).emit('action', {
       type: PARTY_UPDATE,
       party
     });
   });
 
-  io.emit("action", await getParties());
+  io.emit('action', await getParties());
 };
 
 export const getParties = async () => {
@@ -83,7 +86,7 @@ export const getParties = async () => {
 const partyList = async (action, io, socket) => {
   switch (action.type) {
     case PARTY_LIST: {
-      socket.emit("action", await getParties());
+      socket.emit('action', await getParties());
       break;
     }
 
@@ -99,13 +102,13 @@ const partyList = async (action, io, socket) => {
         let message;
         switch (error.code) {
           case 11000:
-            message = "This party name is not available! Choose another one.";
+            message = 'This party name is not available! Choose another one.';
             break;
           default:
-            message = "Cannot save the party";
+            message = 'Cannot save the party';
             break;
         }
-        socket.emit("action", {
+        socket.emit('action', {
           type: ALERT_POP,
           message
         });
@@ -113,8 +116,8 @@ const partyList = async (action, io, socket) => {
         break;
       }
 
-      io.emit("action", await getParties());
-      socket.emit("action", push(`/#${party.name}[${action.player.nickname}]`));
+      io.emit('action', await getParties());
+      socket.emit('action', push(`/#${party.name}[${action.player.nickname}]`));
       break;
     }
 
@@ -149,7 +152,7 @@ const partyList = async (action, io, socket) => {
           socketId: socket.id
         });
         partyEdit.save();
-        io.emit("action", await getParties());
+        io.emit('action', await getParties());
       } else if (
         partyEdit.players.filter(player => player.socketId === socket.id)
           .length !== 0
@@ -161,11 +164,11 @@ const partyList = async (action, io, socket) => {
               : player
         );
         partyEdit.save();
-        io.emit("action", await getParties());
+        io.emit('action', await getParties());
       }
 
       socket.join(partyEdit._id, () => {
-        io.to(partyEdit._id).emit("action", {
+        io.to(partyEdit._id).emit('action', {
           type: PARTY_UPDATE,
           party: partyEdit
         });
@@ -181,7 +184,7 @@ const partyList = async (action, io, socket) => {
 
     case PARTY_KICK_PLAYER: {
       if (io.sockets.connected[action.playerId])
-        io.sockets.connected[action.playerId].emit("action", push("/"));
+        io.sockets.connected[action.playerId].emit('action', push('/'));
 
       break;
     }
@@ -197,8 +200,8 @@ const partyList = async (action, io, socket) => {
 
       party.open = !party.open;
       party.save().then(async res => {
-        io.emit("action", await getParties());
-        io.to(party._id).emit("action", {
+        io.emit('action', await getParties());
+        io.to(party._id).emit('action', {
           type: PARTY_UPDATE,
           party
         });
@@ -207,7 +210,7 @@ const partyList = async (action, io, socket) => {
       break;
     }
 
-    case PARTY_TOGGLE_PLAYING: {
+    case PARTY_START: {
       let party;
       try {
         party = await Party.findById(action.partyId).exec();
@@ -218,19 +221,22 @@ const partyList = async (action, io, socket) => {
 
       party.open = false;
       party.playing = true;
+
       try {
         await party.save();
-        io.emit("action", await getParties());
-        io.to(party._id).emit("action", {
-          type: PARTY_UPDATE,
-          party
-        });
+
+        io.emit('action', await getParties());
+        io.to(party._id).emit('action', updateParty(party));
+        io.to(party._id).emit('action', updatePlayer({ piece: getTetri() }));
+        io
+          .to(party._id)
+          .emit('action', claimPieceSuccess([getTetri(), getTetri()]));
       } catch (error) {
         console.log(error);
       }
     }
 
-    case "PARTY_DELETE_ALL": {
+    case 'PARTY_DELETE_ALL': {
       try {
         await Party.remove({}).exec();
       } catch (error) {

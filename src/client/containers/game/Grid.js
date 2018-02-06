@@ -6,9 +6,9 @@ import Square from '../../components/game/Square';
 // import Pieces from '../../components/game/Pieces';
 import { Tetri, Bomb } from '../../components/game/Tetri';
 import gameStyle from '../../styles/gameStyle';
-import { rotatePiece, movePiece, updatePlayer, deleteLines } from '../../actions/player';
+import { rotatePiece, movePiece, updatePlayer, deleteLines, claimPiece } from '../../actions/player';
 
-export const Grid = ({ party, player, rotateit, endGame, claimPiece }) => {
+export const Grid = ({ party, player, rotateit, endGame, requestPiece }) => {
   const grid = player.grid.map((line, i) => {
     const cols = line.map((col, j) => {
       return <Square color={col} key={j} />;
@@ -31,15 +31,22 @@ export const Grid = ({ party, player, rotateit, endGame, claimPiece }) => {
   });
 
   const Calque = () => {
-    if (!player.piece) return null;
+    if (!player.piece) return <div />;
     if (player.end === true)
       return (
-        <div style={{ ...gameStyle.calque, textAlign: 'center', marginTop: '35vh', fontSize: '5vh', color: 'white' }}>
+        <div
+          style={{
+            ...gameStyle.calque,
+            textAlign: 'center',
+            marginTop: '35vh',
+            fontSize: '5vh',
+            color: 'white',
+          }}
+        >
           YOU LOOSE
         </div>
       );
 
-    // const piece = <div style={gameStyle.piece(player.piece)}><Square color={3}/></div>;
     return (
       <div style={gameStyle.calque}>
         <Tetri position={player.piece} tetri={player.piece.grid} />
@@ -51,7 +58,7 @@ export const Grid = ({ party, player, rotateit, endGame, claimPiece }) => {
   if (player.piece === null) {
     setTimeout(() => {
       if (player.ending && player.lines === null) endGame(player);
-      else claimPiece();
+      else requestPiece(party);
     }, 500);
   }
 
@@ -74,12 +81,6 @@ export const mapDispatchToGridProps = dispatch => {
   const rotateit = (event, player) => {
     event.stopPropagation();
     event.preventDefault();
-
-    if (player.stop) return;
-    dispatch(updatePlayer({ stop: true }));
-    setTimeout(() => {
-      dispatch(updatePlayer({ stop: false }));
-    }, 100);
 
     if (player.end || player.ending || player.piece === null) return;
 
@@ -120,18 +121,9 @@ export const mapDispatchToGridProps = dispatch => {
     }
   };
 
-  const claimPiece = player => {
+  const requestPiece = party => {
     dispatch(deleteLines());
-    dispatch(
-      updatePlayer({
-        ...player,
-        piece: {
-          grid: [[5, 5, 0], [0, 5, 5], [0, 0, 0]],
-          x: 5,
-          y: 0,
-        },
-      })
-    );
+    dispatch(claimPiece(party._id));
   };
 
   //  watch(player.end, () => endAnimation());
@@ -158,7 +150,7 @@ export const mapDispatchToGridProps = dispatch => {
     }, 250);
   };
 
-  return { rotateit, endAnimation, endGame, claimPiece };
+  return { rotateit, endAnimation, endGame, requestPiece };
 };
 
 export default connect(mapStateToGridProps, mapDispatchToGridProps)(Grid);

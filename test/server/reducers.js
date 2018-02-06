@@ -20,7 +20,7 @@ import {
   leaveParty,
   kickPlayer,
   toggleOpenParty,
-  togglePlayingParty
+  startParty
 } from "../../src/client/actions/party";
 
 import { combineReducers } from "redux";
@@ -324,7 +324,7 @@ describe("Server reducers", () => {
         );
       });
     });
-    describe("Type: PARTY_TOGGLE_PLAYING", () => {
+    describe("Type: PARTY_START", () => {
       it("should toggle playing state", done => {
         const initialState = {};
         let initialisation = true;
@@ -338,7 +338,7 @@ describe("Server reducers", () => {
             if (action.type === PARTY_UPDATE) {
               if (initialisation === true) {
                 initialisation = false;
-                dispatch(togglePlayingParty(action.party._id));
+                dispatch(startParty(action.party._id));
               } else if (
                 action.party.playing === true &&
                 action.party.open === false

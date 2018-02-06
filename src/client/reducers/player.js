@@ -4,20 +4,29 @@ import {
   PLAYER_GET,
   PLAYER_PIECE_ROTATE,
   PLAYER_PIECE_MOVE,
-  PLAYER_DELETE_LINES,
+  PLAYER_CLAIM_PIECE,
+  PLAYER_CLAIM_PIECE_SUCCESS,
+  PLAYER_DELETE_LINES
 } from '../../actionsTypes';
 
 const testCollision = (piece, grid) => {
   let collisionLocation = 0;
   let collision = false;
+
   piece.grid.forEach((line, y) => {
     line.forEach((col, x) => {
       if (col !== 0) {
         let pos = {
           x: x + piece.x,
-          y: y + piece.y,
+          y: y + piece.y
         };
-        if (pos.x < 0 || pos.x >= grid[0].length || pos.y < 0 || pos.y >= grid.length || grid[pos.y][pos.x] !== 0) {
+        if (
+          pos.x < 0 ||
+          pos.x >= grid[0].length ||
+          pos.y < 0 ||
+          pos.y >= grid.length ||
+          grid[pos.y][pos.x] !== 0
+        ) {
           if (x <= parseInt((piece.grid.length - 1) / 2)) collisionLocation--;
           if (x >= parseInt(piece.grid.length / 2)) collisionLocation++;
           collision = true;
@@ -98,7 +107,8 @@ const findPlace = (piece, grid, dir) => {
     let pos;
     if (dir < 0 || (dir === 0 && test.location > 0)) {
       pos = findPlace({ ...piece, x: piece.x - 1 }, grid, dir - 1);
-    } else if (dir > 0 || (dir === 0 && test.location < 0)) pos = findPlace({ ...piece, x: piece.x + 1 }, grid, dir + 1);
+    } else if (dir > 0 || (dir === 0 && test.location < 0))
+      pos = findPlace({ ...piece, x: piece.x + 1 }, grid, dir + 1);
     else {
       let weight;
       if (dir == 0 && (weight = calcWeight(piece.grid)) != 0) {
@@ -111,6 +121,7 @@ const findPlace = (piece, grid, dir) => {
   } else {
     return {
       x: piece.x,
+      dir: dir
     };
   }
 };
@@ -133,7 +144,7 @@ const initPlayer_test = () => {
     grid2: [[0, 1, 0, 0], [0, 1, 0, 0], [0, 1, 0, 0], [0, 1, 0, 0]],
     x: 5,
     y: 5,
-    end: false,
+    end: false
   };
 
   // player.piece.grid = Pieces.rotate(player.piece.grid, -1);
@@ -157,7 +168,7 @@ const initPlayer_test = () => {
     [0, 0, 0, 0, 0, 0, 1, 0, 0, 4],
     [0, 0, 0, 0, 0, 0, 1, 0, 0, 4],
     [0, 1, 0, 0, 1, 1, 1, 2, 2, 4],
-    [1, 1, 1, 0, 1, 1, 1, 0, 2, 2],
+    [1, 1, 1, 0, 1, 1, 1, 0, 2, 2]
   ];
   return playert;
 };
@@ -176,101 +187,130 @@ const gridZero = size => {
 
 const player = (state = initPlayer_test(), action) => {
   switch (action.type) {
-  case PLAYER_UPDATE:
-    return {
-      ...state,
-      ...action.player,
-    };
-  case PLAYER_SAVE: {
-    savePlayer(action);
-    return state;
-  }
-  case PLAYER_GET:
-    return {
-      ...state,
-      nickname: getPlayer(),
-    };
-
-  case PLAYER_PIECE_ROTATE: {
-    let newGrid = gridZero(action.player.piece.grid.length);
-    action.player.piece.grid.forEach((line, y) => {
-      line.forEach((col, x) => {
-        if (col != 0) {
-          newGrid[y + (action.player.piece.grid.length - 1) * ((1 - action.direction) / 2) + action.direction * x - y][
-              x + (action.player.piece.grid.length - 1) * ((action.direction + 1) / 2) - x - y * action.direction
-            ] = col;
-        }
-      });
-    });
-    const pos = findPlace({ ...state.piece, grid: newGrid }, state.grid, 0);
-    if (pos === null) {
+    case PLAYER_UPDATE:
+      return {
+        ...state,
+        ...action.player
+      };
+    case PLAYER_SAVE: {
+      savePlayer(action);
       return state;
-    } else {
+    }
+    case PLAYER_GET:
       return {
         ...state,
-        piece: {
-          ...state.piece,
-          grid: newGrid,
-          ...pos,
-        },
+        nickname: getPlayer()
       };
+
+    case PLAYER_PIECE_ROTATE: {
+      let newGrid = gridZero(action.player.piece.grid.length);
+      action.player.piece.grid.forEach((line, y) => {
+        line.forEach((col, x) => {
+          if (col != 0) {
+            newGrid[
+              y +
+                (action.player.piece.grid.length - 1) *
+                  ((1 - action.direction) / 2) +
+                action.direction * x -
+                y
+            ][
+              x +
+                (action.player.piece.grid.length - 1) *
+                  ((action.direction + 1) / 2) -
+                x -
+                y * action.direction
+            ] = col;
+          }
+        });
+      });
+
+      const pos = findPlace({ ...state.piece, grid: newGrid }, state.grid, 0);
+      if (pos === null) {
+        return state;
+      } else {
+        return {
+          ...state,
+          piece: {
+            ...state.piece,
+            grid: newGrid,
+            ...pos
+          }
+        };
+      }
     }
-  }
 
-  case PLAYER_DELETE_LINES: {
-    console.log('OK');
-    if (state.lines !== null) {
-      const newGrid = deleteLines(state.grid, state.lines);
-      return {
-        ...state,
-        grid: newGrid,
-        lines: null,
-      };
-    }
-    return state;
-  }
-
-  case PLAYER_PIECE_MOVE: {
-    const pos = {
-      x: state.piece.x + action.direction,
-      y: action.direction === 0 ? state.piece.y + 1 : state.piece.y,
-    };
-    const res = testCollision({ ...state.piece, ...pos }, state.grid);
-    if (res.collide) {
-      if (action.direction === 0) {
-        let newGrid = gridFusion(state.piece, state.grid);
-        let lines = checkLines(newGrid);
-
-          /*
-        let newPiece = {
-          grid: [[5, 5, 0], [0, 5, 5], [0, 0, 0]],
-          x: 5,
-          y: 0,
-        }; piece: claimPiece();
-          */
-        if (newGrid === null) return { ...state, piece: null, lines, ending: true };
-
-          // testCollision(newPiece, newGrid).collide
+    case PLAYER_DELETE_LINES: {
+      console.log('OK');
+      if (state.lines !== null) {
+        const newGrid = deleteLines(state.grid, state.lines);
         return {
           ...state,
           grid: newGrid,
-          piece: null,
-          lines,
+          lines: null
         };
-      } else return state;
-    } else {
+      }
+      return state;
+    }
+
+    case PLAYER_PIECE_MOVE: {
+      const pos = {
+        x: state.piece.x + action.direction,
+        y: action.direction === 0 ? state.piece.y + 1 : state.piece.y
+      };
+      const res = testCollision({ ...state.piece, ...pos }, state.grid);
+      if (res.collide) {
+        if (action.direction === 0) {
+          let newGrid = gridFusion(state.piece, state.grid);
+          let lines = checkLines(newGrid);
+
+          /*
+          let newPiece = {
+            grid: [[5, 5, 0], [0, 5, 5], [0, 0, 0]],
+            x: 5,
+            y: 0,
+          }; piece: claimPiece();
+            */
+          if (newGrid === null)
+            return { ...state, piece: null, lines, ending: true };
+
+          // testCollision(newPiece, newGrid).collide
+          return {
+            ...state,
+            grid: newGrid,
+            piece: null,
+            lines
+          };
+        } else return state;
+      } else {
+        return {
+          ...state,
+          piece: {
+            ...state.piece,
+            ...pos
+          }
+        };
+      }
+    }
+
+    case PLAYER_CLAIM_PIECE: {
       return {
         ...state,
-        piece: {
-          ...state.piece,
-          ...pos,
-        },
+        piece: state.nextPieces[0],
+        nextPieces: state.nextPieces.slice(1)
       };
     }
-  }
 
-  default:
-    return state;
+    case PLAYER_CLAIM_PIECE_SUCCESS: {
+      return {
+        ...state,
+        nextPieces: state.nextPieces
+          ? state.nextPieces.concat(action.pieces)
+          : action.pieces
+      };
+    }
+
+    default:
+      return state;
   }
 };
 
