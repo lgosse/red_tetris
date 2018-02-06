@@ -4,6 +4,7 @@ import {
   PLAYER_GET,
   PLAYER_PIECE_ROTATE,
   PLAYER_PIECE_MOVE,
+  PLAYER_CLAIM_PIECE,
   PLAYER_CLAIM_PIECE_SUCCESS,
   PLAYER_DELETE_LINES
 } from '../../actionsTypes';
@@ -11,6 +12,7 @@ import {
 const testCollision = (piece, grid) => {
   let collisionLocation = 0;
   let collision = false;
+
   piece.grid.forEach((line, y) => {
     line.forEach((col, x) => {
       if (col !== 0) {
@@ -287,6 +289,14 @@ const player = (state = initPlayer_test(), action) => {
           }
         };
       }
+    }
+
+    case PLAYER_CLAIM_PIECE: {
+      return {
+        ...state,
+        piece: state.nextPieces[0],
+        nextPieces: state.nextPieces.slice(1)
+      };
     }
 
     case PLAYER_CLAIM_PIECE_SUCCESS: {

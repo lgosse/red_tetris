@@ -4,6 +4,7 @@ import {
   PLAYER_UPDATE,
   PLAYER_PIECE_ROTATE,
   PLAYER_PIECE_MOVE,
+  PLAYER_DELETE_LINES,
   PLAYER_CLAIM_PIECE,
   PLAYER_CLAIM_PIECE_SUCCESS
 } from '../../actionsTypes';
@@ -28,8 +29,9 @@ export const rotatePiece = (player, direction) => ({
   direction
 });
 
-export const claimPiece = () => ({
-  type: PLAYER_CLAIM_PIECE
+export const claimPiece = partyId => ({
+  type: PLAYER_CLAIM_PIECE,
+  partyId
 });
 
 export const claimPieceSuccess = (pieces = []) => ({
