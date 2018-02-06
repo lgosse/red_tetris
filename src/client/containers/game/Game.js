@@ -1,8 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import RightSide from "../../components/game/RightSide";
-import LeftSide from "../../components/game/LeftSide";
-import Grid from "./Grid";
+import React from 'react';
+import { connect } from 'react-redux';
+import RightSide from '../../components/game/RightSide';
+import LeftSide from '../../components/game/LeftSide';
+import Grid from './Grid';
 
 export const Game = ({ party, player }) => {
   const maptest = [
@@ -19,34 +19,35 @@ export const Game = ({ party, player }) => {
     [0, 0, 1, 1, 1, 1, 1, 1, 1],
     [0, 0, 1, 1, 1, 1, 1, 1, 1],
     [1, 0, 0, 1, 0, 1, 1, 1, 1],
-    [1, 1, 0, 1, 0, 0, 1, 1, 1]
+    [1, 1, 0, 1, 0, 0, 1, 1, 1],
+    [1, 1, 0, 1, 0, 0, 1, 1, 1],
   ];
 
   party.players = [
     {
-      nickname: "Lucas",
-      map: maptest
+      nickname: 'Lucas',
+      map: maptest,
     },
     {
-      nickname: "Thomas",
-      map: maptest
+      nickname: 'Thomas',
+      map: maptest,
     },
     {
-      nickname: "Aymée",
-      map: maptest
+      nickname: 'Aymée',
+      map: maptest,
     },
     {
-      nickname: "Otmane",
-      map: maptest
-    }
+      nickname: 'Otmane',
+      map: maptest,
+    },
   ];
   return (
     <div
       style={{
-        width: "100%",
-        paddingRight: "10%",
-        paddingLeft: "10%",
-        display: "flex"
+        width: '100%',
+        paddingRight: '10%',
+        paddingLeft: '10%',
+        display: 'flex',
       }}
     >
       <LeftSide party={party} player={player} />
@@ -59,7 +60,7 @@ export const Game = ({ party, player }) => {
 export const mapStateToGameProps = state => {
   return {
     party: state.party,
-    player: state.player
+    player: state.player,
   };
 };
 
