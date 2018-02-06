@@ -4,21 +4,23 @@ import styled, { keyframes } from 'styled-components';
 import Square from '../../components/game/Square';
 import Pieces from '../../components/game/Pieces';
 import gameStyle from '../../styles/gameStyle';
-import { rotatePiece, movePiece, updatePlayer } from '../../actions/player';
+import { rotatePiece, movePiece, updatePlayer, deleteLines } from '../../actions/player';
 
-export const Grid = ({ party, player, rotateit, endAnimation, test }) => {
+export const Grid = ({ party, player, rotateit, endGame, claimPiece }) => {
   const grid = player.grid.map((line, i) => {
     const cols = line.map((col, j) => {
       return <Square color={col} key={j} />;
     });
-    if (i == 18)
+
+    if (player.lines && player.lines.indexOf(i) !== -1) {
+      console.log('LINE');
       return (
         <div style={gameStyle.line} key={i}>
           <div style={gameStyle.lineDestroying} />
           {cols}
         </div>
       );
-    else
+    } else
       return (
         <div style={gameStyle.line} key={i}>
           {cols}
@@ -27,7 +29,8 @@ export const Grid = ({ party, player, rotateit, endAnimation, test }) => {
   });
 
   const Calque = () => {
-    if (player.piece === null)
+    if (!player.piece) return null;
+    if (player.end === true)
       return (
         <div style={{ ...gameStyle.calque, textAlign: 'center', marginTop: '35vh', fontSize: '5vh', color: 'white' }}>
           YOU LOOSE
@@ -41,7 +44,14 @@ export const Grid = ({ party, player, rotateit, endAnimation, test }) => {
       </div>
     );
   };
-  test(player);
+
+  if (player.piece === null) {
+    setTimeout(() => {
+      if (player.ending && player.lines === null) endGame(player);
+      else claimPiece();
+    }, 1000);
+  }
+
   return (
     <div tabIndex={'0'} onKeyDown={e => rotateit(e, player)} style={gameStyle.grid}>
       <Calque />
@@ -61,7 +71,9 @@ export const mapDispatchToGridProps = dispatch => {
   const rotateit = (event, player) => {
     event.stopPropagation();
     event.preventDefault();
-    if (player.end || player.ending) return;
+
+    if (player.end || player.ending || player.piece === null) return;
+
     switch (event.keyCode) {
     case 39: // RIGHT
       dispatch(movePiece(1));
@@ -89,12 +101,28 @@ export const mapDispatchToGridProps = dispatch => {
     }
   };
 
-  const test = player => {
+  const endGame = player => {
     if (player.ending) {
       // endgame
       console.log('YEP');
+
+      // Claim Force Piece
       endAnimation({ ...player, ending: false, end: true });
     }
+  };
+
+  const claimPiece = player => {
+    dispatch(deleteLines());
+    dispatch(
+      updatePlayer({
+        ...player,
+        piece: {
+          grid: [[5, 5, 0], [0, 5, 5], [0, 0, 0]],
+          x: 5,
+          y: 0,
+        },
+      })
+    );
   };
 
   //  watch(player.end, () => endAnimation());
@@ -121,7 +149,7 @@ export const mapDispatchToGridProps = dispatch => {
     }, 250);
   };
 
-  return { rotateit, endAnimation, test };
+  return { rotateit, endAnimation, endGame, claimPiece };
 };
 
 export default connect(mapStateToGridProps, mapDispatchToGridProps)(Grid);

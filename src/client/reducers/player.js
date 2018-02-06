@@ -1,4 +1,11 @@
-import { PLAYER_UPDATE, PLAYER_SAVE, PLAYER_GET, PLAYER_PIECE_ROTATE, PLAYER_PIECE_MOVE } from '../../actionsTypes';
+import {
+  PLAYER_UPDATE,
+  PLAYER_SAVE,
+  PLAYER_GET,
+  PLAYER_PIECE_ROTATE,
+  PLAYER_PIECE_MOVE,
+  PLAYER_DELETE_LINES,
+} from '../../actionsTypes';
 
 const testCollision = (piece, grid) => {
   let collisionLocation = 0;
@@ -26,7 +33,7 @@ const checkLines = grid => {
   grid.forEach((line, y) => {
     let i = 0;
     line.forEach((col, x) => {
-      if (col === 1) i++;
+      if (col !== 0) i++;
     });
     if (i === grid[0].length) {
       lines.push(y);
@@ -55,6 +62,7 @@ const deleteLines = (grid, lines) => {
     }
     cur--;
   }
+  console.log(newGrid);
   return newGrid;
 };
 
@@ -209,6 +217,19 @@ const player = (state = initPlayer_test(), action) => {
     }
   }
 
+  case PLAYER_DELETE_LINES: {
+    console.log('OK');
+    if (state.lines !== null) {
+      const newGrid = deleteLines(state.grid, state.lines);
+      return {
+        ...state,
+        grid: newGrid,
+        lines: null,
+      };
+    }
+    return state;
+  }
+
   case PLAYER_PIECE_MOVE: {
     const pos = {
       x: state.piece.x + action.direction,
@@ -218,18 +239,23 @@ const player = (state = initPlayer_test(), action) => {
     if (res.collide) {
       if (action.direction === 0) {
         let newGrid = gridFusion(state.piece, state.grid);
+        let lines = checkLines(newGrid);
+
+          /*
         let newPiece = {
           grid: [[5, 5, 0], [0, 5, 5], [0, 0, 0]],
-          grid2: [[0, 1, 0, 0], [0, 1, 0, 0], [0, 1, 0, 0], [0, 1, 0, 0]],
           x: 5,
           y: 0,
-        }; // piece: claimPiece();
-        if (newGrid === null || testCollision(newPiece, newGrid).collide)
-          return { ...state, piece: null, ending: true };
+        }; piece: claimPiece();
+          */
+        if (newGrid === null) return { ...state, piece: null, lines, ending: true };
+
+          // testCollision(newPiece, newGrid).collide
         return {
           ...state,
           grid: newGrid,
-          piece: newPiece,
+          piece: null,
+          lines,
         };
       } else return state;
     } else {
