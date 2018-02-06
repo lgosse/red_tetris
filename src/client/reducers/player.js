@@ -49,7 +49,7 @@ const deleteLines = (grid, lines) => {
   let cur = grid.length - 1;
   for (y = grid.length - 1; y >= 0; y--) {
     let i;
-    if ((i = lines.indexOf(y)) != -1) {
+    if ((i = lines.indexOf(y)) === -1) {
       newGrid[cur] = [...grid[y]];
       lines[i] = -1;
       cur--;
