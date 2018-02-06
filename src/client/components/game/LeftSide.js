@@ -2,6 +2,8 @@ import React from "react";
 import global from "../../styles/global";
 import styled from "styled-components";
 
+import Tetri from "./Tetri";
+
 import {
   LightContainer,
   FlexContainer,
@@ -18,6 +20,8 @@ const LeftSideTop = styled.div`
 
 const LeftSideContainer = LightContainer.extend`
   flex: 1;
+  display: flex;
+  flex-direction: column;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   overflow: scroll;
@@ -34,10 +38,20 @@ const GameInfoContainer = styled.div`
   font-family: ${global.font.family.game};
   font-size: 14px;
   color: ${global.color.primary};
+  flex: 1;
 `;
 
-const GameInfo = ({ title, children }) => (
-  <FullSizeContainer padding={global.padding.md}>
+const GameInfo = ({ title, children, flex }) => (
+  <FullSizeContainer
+    padding={global.padding.md}
+    style={
+      flex && {
+        flex: 1,
+        display: "flex",
+        flexDirection: "column"
+      }
+    }
+  >
     <div
       style={{
         fontFamily: global.font.family.game,
@@ -56,7 +70,28 @@ const LeftSide = ({ party, player }) => (
     <LeftSideTop>{party.name}</LeftSideTop>
     <GameInfo title="PLAYER">{player.nickname}</GameInfo>
     <GameInfo title="SCORE">{player.score}24 000</GameInfo>
-    <GameInfo title="NEXT PIECES" />
+    <GameInfo title="NEXT PIECE" flex>
+      <FlexContainer height="100%">
+        <FlexSpacer />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "100px",
+            height: "100%"
+          }}
+        >
+          <div style={{ flex: 1 }} />
+          {/* {
+            
+              <Tetri padding="12px" key={index} grid={player.nextPieces[0]}/>)
+           */}
+          {<Tetri tetri={[[1, 1, 0], [0, 1, 1], [0, 0, 0]]} />}
+          <div style={{ flex: 1 }} />
+        </div>
+        <FlexSpacer />
+      </FlexContainer>
+    </GameInfo>
   </LeftSideContainer>
 );
 

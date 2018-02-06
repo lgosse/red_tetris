@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import styled, { keyframes } from "styled-components";
 import Square from "../../components/game/Square";
-import Pieces from "../../components/game/Pieces";
+import Tetri from "../../components/game/Tetri";
 import gameStyle from "../../styles/gameStyle";
 import { rotatePiece, movePiece } from "../../actions/player";
 
@@ -30,7 +30,7 @@ export const Grid = ({ party, player, rotateit }) => {
     //const piece = <div style={gameStyle.piece(player.piece)}><Square color={3}/></div>;
     return (
       <div style={gameStyle.calque}>
-        <Pieces position={player.piece} grid={player.piece.grid} />
+        <Tetri position={player.piece} tetri={player.piece.grid} />
       </div>
     );
   };

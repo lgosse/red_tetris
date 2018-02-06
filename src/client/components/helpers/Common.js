@@ -57,6 +57,7 @@ export const Button = styled.button`
 
 export const FlexContainer = styled.div`
   display: flex;
+  ${props => props.height && `height: ${props.height}`};
   ${props => props.flex && `flex: 1`};
   ${props => props.padding && `padding: ${props.padding}`};
   ${props => props.paddingRight && `padding-right: ${props.paddingRight}`};
