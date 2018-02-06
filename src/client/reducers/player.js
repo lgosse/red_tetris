@@ -223,6 +223,7 @@ const player = (state = initPlayer_test(), action) => {
           }
         });
       });
+
       const pos = findPlace({ ...state.piece, grid: newGrid }, state.grid, 0);
       if (pos === null) {
         return state;

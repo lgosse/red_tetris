@@ -34,7 +34,7 @@ export const claimPiece = partyId => ({
   partyId
 });
 
-export const claimPieceSuccess = (pieces = []) => ({
+export const claimPieceSuccess = pieces => ({
   type: PLAYER_CLAIM_PIECE_SUCCESS,
   pieces
 });
