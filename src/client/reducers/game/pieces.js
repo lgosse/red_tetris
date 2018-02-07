@@ -51,16 +51,17 @@ const pieces = (state = {}, action) => {
     }
 
     case GAME_PIECES_PIECE_MOVE: {
+      if (!action.piece) return state;
       const pos = {
-        x: state.piece.x + action.direction,
-        y: action.direction === 0 ? state.piece.y + 1 : state.piece.y
+        x: action.piece.x + action.direction,
+        y: action.direction === 0 ? action.piece.y + 1 : action.piece.y
       };
 
-      if (!testCollision({ ...state.piece, ...pos }, action.grid).collide) {
+      if (!testCollision({ ...action.piece, ...pos }, action.grid).collide) {
         return {
           ...state,
           piece: {
-            ...state.piece,
+            ...action.piece,
             ...pos
           }
         };

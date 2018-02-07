@@ -65,7 +65,6 @@ export const checkLines = grid => {
 };
 
 export const deleteLines = (grid, lines) => {
-  console.log('[deleteLines]');
   let newGrid = [];
   let newLines = [...lines];
   let y;

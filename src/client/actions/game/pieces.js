@@ -11,10 +11,13 @@ export const updatePiecesGame = pieces => ({
   pieces
 });
 
-export const rotatePiece = (grid, piece, direction) => ({
+export const rotatePiece = direction => ({
   type: GAME_PIECES_PIECE_ROTATE,
-  grid,
-  piece,
+  direction
+});
+
+export const movePiece = direction => ({
+  type: GAME_PIECES_PIECE_MOVE,
   direction
 });
 
@@ -26,11 +29,4 @@ export const claimPiece = partyId => ({
 export const claimPieceSuccess = pieces => ({
   type: GAME_PIECES_CLAIM_PIECE_SUCCESS,
   pieces
-});
-
-export const movePiece = (grid, piece, direction) => ({
-  type: GAME_PIECES_PIECE_MOVE,
-  grid,
-  piece,
-  direction
 });

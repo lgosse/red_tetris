@@ -12,7 +12,10 @@ import {
 } from './utils';
 
 const initialState = {
-  grid: gridZero(10, 20)
+  grid: gridZero(10, 20),
+  ending: false,
+  end: false,
+  lines: null
 };
 
 const board = (state = initialState, action) => {
@@ -37,16 +40,17 @@ const board = (state = initialState, action) => {
     }
 
     case GAME_PIECES_PIECE_MOVE: {
+      if (!action.piece) return state;
       const pos = {
         x: action.piece.x + action.direction,
         y: action.direction === 0 ? action.piece.y + 1 : action.piece.y
       };
 
-      const res = testCollision({ ...action.piece, ...pos }, state.grid);
+      const res = testCollision({ ...action.piece, ...pos }, action.grid);
       if (res.collide) {
         if (action.direction !== 0) return state;
 
-        let newGrid = gridFusion(action.piece, state.grid);
+        let newGrid = gridFusion(action.piece, action.grid);
         let lines = newGrid ? checkLines(newGrid) : null;
 
         if (newGrid === null) return { ...state, lines, ending: true };
@@ -56,6 +60,8 @@ const board = (state = initialState, action) => {
           grid: newGrid,
           lines
         };
+      } else {
+        return state;
       }
     }
 

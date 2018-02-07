@@ -4,7 +4,12 @@ import styled from 'styled-components';
 
 import { Tetri } from './Tetri';
 
-import { LightContainer, FlexContainer, FullSizeContainer, FlexSpacer } from '../helpers/Common';
+import {
+  LightContainer,
+  FlexContainer,
+  FullSizeContainer,
+  FlexSpacer
+} from '../helpers/Common';
 
 const LeftSideTop = styled.div`
   font-family: ${global.font.family.game};
@@ -63,10 +68,10 @@ const GameInfo = ({ title, children, flex }) => (
 const LeftSide = ({ party, player, game }) => (
   <LeftSideContainer>
     <LeftSideTop>{party.name}</LeftSideTop>
-    <GameInfo title='PLAYER'>{player.nickname}</GameInfo>
-    <GameInfo title='SCORE'>{player.score}24 000</GameInfo>
-    <GameInfo title='NEXT PIECE' flex>
-      <FlexContainer height='100%'>
+    <GameInfo title="PLAYER">{player.nickname}</GameInfo>
+    <GameInfo title="SCORE">{player.score}24 000</GameInfo>
+    <GameInfo title="NEXT PIECE" flex>
+      <FlexContainer height="100%">
         <FlexSpacer />
         <div
           style={{
@@ -76,7 +81,11 @@ const LeftSide = ({ party, player, game }) => (
           }}
         >
           <div style={{ flex: 1 }} />
-          {game.pieces.next ? <Tetri padding='12px' tetri={game.pieces.next[0].grid} /> : <div />}
+          {game.pieces.next && game.pieces.next[0] ? (
+            <Tetri padding="12px" tetri={game.pieces.next[0].grid} />
+          ) : (
+            <div />
+          )}
           <div style={{ flex: 1 }} />
         </div>
         <FlexSpacer />

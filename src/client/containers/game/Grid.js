@@ -6,6 +6,7 @@ import Square from '../../components/game/Square';
 // import Pieces from '../../components/game/Pieces';
 import { Tetri, Bomb } from '../../components/game/Tetri';
 import gameStyle from '../../styles/gameStyle';
+import globalStyle from '../../styles/global';
 import {
   rotatePiece,
   movePiece,
@@ -16,8 +17,7 @@ import { deleteLines } from '../../actions/game/board';
 import { updateBoard } from '../../actions/game/board';
 
 const Calque = ({ board, piece }) => {
-  if (!piece) return <div />;
-  if (board.end === true)
+  if (board.end === true) {
     return (
       <div
         style={{
@@ -25,19 +25,23 @@ const Calque = ({ board, piece }) => {
           textAlign: 'center',
           marginTop: '35vh',
           fontSize: '5vh',
+          fontFamily: globalStyle.font.family.game,
           color: 'white'
         }}
       >
         YOU LOOSE
       </div>
     );
-
-  return (
-    <div style={gameStyle.calque}>
-      <Tetri position={piece} tetri={piece.grid} />
-      <Bomb position={{ x: 5, y: 2 }} />
-    </div>
-  );
+  } else if (!piece) {
+    return <div />;
+  } else {
+    return (
+      <div style={gameStyle.calque}>
+        <Tetri position={piece} tetri={piece.grid} />
+        <Bomb position={{ x: 5, y: 2 }} />
+      </div>
+    );
+  }
 };
 
 export const Grid = ({
@@ -71,7 +75,7 @@ export const Grid = ({
   if (pieces.piece === null) {
     if (board.ending && board.lines === null) {
       endGame(board);
-    } else {
+    } else if (board.end === false) {
       setTimeout(() => {
         requestPiece(party);
       }, board.lines ? 300 : 0);
@@ -105,22 +109,22 @@ export const mapDispatchToGridProps = dispatch => {
 
     switch (event.keyCode) {
       case 39: // RIGHT
-        dispatch(movePiece(board.grid, piece, 1));
+        dispatch(movePiece(1));
         break;
       case 37: // LEFT
-        dispatch(movePiece(board.grid, piece, -1));
+        dispatch(movePiece(-1));
         break;
       case 40: // DOWN
-        dispatch(movePiece(board.grid, piece, 0));
+        dispatch(movePiece(0));
         break;
       case 32: // SPACE
         break;
       case 38:
       case 68: // UP or D
-        dispatch(rotatePiece(board.grid, piece, 1));
+        dispatch(rotatePiece(1));
         break;
       case 65: // A
-        dispatch(rotatePiece(board.grid, piece, -1));
+        dispatch(rotatePiece(-1));
         break;
       case 69: // E
         endAnimation(board.grid);
@@ -132,9 +136,6 @@ export const mapDispatchToGridProps = dispatch => {
 
   const endGame = board => {
     if (board.ending) {
-      // endgame
-      console.log('YEP');
-
       // Claim Force Piece
       endAnimation({ ...board, ending: false, end: true });
     }
@@ -164,7 +165,7 @@ export const mapDispatchToGridProps = dispatch => {
   const endAnimation = board => {
     let newGrid = [...board.grid];
     let y = newGrid.length - 1;
-    let interval = setInterval(function() {
+    let interval = setInterval(() => {
       endAnimationSub(board, newGrid, y);
       y--;
       if (y < 0) clearInterval(interval);

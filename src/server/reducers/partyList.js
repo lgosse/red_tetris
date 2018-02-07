@@ -14,7 +14,7 @@ import {
 import { push } from 'react-router-redux';
 import mongoose from 'mongoose';
 import { updateParty } from '../../client/actions/party';
-import { claimPieceSuccess } from '../../client/actions/game/pieces';
+import { claimPieceSuccess, movePiece } from '../../client/actions/game/pieces';
 import { getTetri } from '../Tetri';
 import { updatePiecesGame } from '../../client/actions/game/pieces';
 
@@ -234,6 +234,9 @@ const partyList = async (action, io, socket) => {
         io
           .to(party._id)
           .emit('action', claimPieceSuccess([getTetri(), getTetri()]));
+        io.to(party._id).interval = setInterval(() => {
+          io.to(party._id).emit('action', movePiece(0));
+        }, 1000);
       } catch (error) {
         console.log(error);
       }
