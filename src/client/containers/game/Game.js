@@ -4,7 +4,7 @@ import RightSide from '../../components/game/RightSide';
 import LeftSide from '../../components/game/LeftSide';
 import Grid from './Grid';
 
-export const Game = ({ party, player }) => {
+export const Game = ({ party, player, game }) => {
   const maptest = [
     [0, 0, 1, 1, 1, 1, 1, 1, 1],
     [0, 0, 1, 1, 1, 1, 1, 1, 1],
@@ -20,26 +20,26 @@ export const Game = ({ party, player }) => {
     [0, 0, 1, 1, 1, 1, 1, 1, 1],
     [1, 0, 0, 1, 0, 1, 1, 1, 1],
     [1, 1, 0, 1, 0, 0, 1, 1, 1],
-    [1, 1, 0, 1, 0, 0, 1, 1, 1],
+    [1, 1, 0, 1, 0, 0, 1, 1, 1]
   ];
 
   party.players = [
     {
       nickname: 'Lucas',
-      map: maptest,
+      map: maptest
     },
     {
       nickname: 'Thomas',
-      map: maptest,
+      map: maptest
     },
     {
       nickname: 'Aymée',
-      map: maptest,
+      map: maptest
     },
     {
       nickname: 'Otmane',
-      map: maptest,
-    },
+      map: maptest
+    }
   ];
   return (
     <div
@@ -47,25 +47,20 @@ export const Game = ({ party, player }) => {
         width: '100%',
         paddingRight: '10%',
         paddingLeft: '10%',
-        display: 'flex',
+        display: 'flex'
       }}
     >
-      <LeftSide party={party} player={player} />
+      <LeftSide party={party} player={player} game={game} />
       <Grid party={party} player={player} />
       <RightSide players={party.players} />
     </div>
   );
 };
 
-export const mapStateToGameProps = state => {
-  return {
-    party: state.party,
-    player: state.player,
-  };
-};
+export const mapStateToGameProps = ({ party, player, game }) => ({
+  party,
+  player,
+  game
+});
 
-export const mapDispatchToGameProps = dispatch => {
-  return {};
-};
-
-export default connect(mapStateToGameProps, mapDispatchToGameProps)(Game);
+export default connect(mapStateToGameProps)(Game);

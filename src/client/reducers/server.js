@@ -1,4 +1,4 @@
-import { SERVER_PING } from "../../actionsTypes";
+import { SERVER_PING } from '../../actionsTypes';
 
 const server = (state = {}, action) => {
   switch (action.type) {

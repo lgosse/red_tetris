@@ -1,6 +1,16 @@
 import styled, { keyframes } from 'styled-components';
 
-const getColors = [['transparent'], ['red'], ['grey'], ['blue'], ['green'], ['red'], ['grey'], ['blue'], ['black']];
+const getColors = [
+  ['transparent'],
+  ['red'],
+  ['grey'],
+  ['blue'],
+  ['green'],
+  ['red'],
+  ['grey'],
+  ['blue'],
+  ['black']
+];
 
 const animations = {
   pulse: keyframes`
@@ -36,7 +46,7 @@ const animations = {
     to {
       background: radial-gradient(circle at 0.5vh 0.5vh, white, blue);
     }
-  `,
+  `
 };
 
 const gameStyle = {
@@ -47,12 +57,12 @@ const gameStyle = {
     minHeight: '80vh',
     width: '40vh',
     minWidth: '40vh',
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)'
   },
   line: {
     height: '5%',
     display: 'flex',
-    justifyContent: 'stretch',
+    justifyContent: 'stretch'
   },
   calque: {
     zIndex: '9000',
@@ -60,7 +70,7 @@ const gameStyle = {
     height: '80vh',
     minHeight: '80vh',
     width: '40vh',
-    minWidth: '40vh',
+    minWidth: '40vh'
   },
   piece: position => {
     return {
@@ -70,7 +80,7 @@ const gameStyle = {
       height: '4vh',
       minHeight: '4vh',
       width: '4vh',
-      minWidth: '4vh',
+      minWidth: '4vh'
     };
   },
   lineDestroying: {
@@ -80,47 +90,47 @@ const gameStyle = {
     width: '40vh',
     backgroundColor: 'transparent',
     animation: animations.pulse + ' 0.1s infinite',
-    animationDirection: 'alternate',
+    animationDirection: 'alternate'
   },
   pieces: {
     all: position =>
       position
         ? {
-          position: 'relative',
-          marginTop: `${position.y * 4}vh`,
-          marginLeft: `${position.x * 4}vh`,
-          transition: 'all 1s',
-          transitionTimingFunction: 'linear',
-        }
+            position: 'relative',
+            marginTop: `${position.y * 4}vh`,
+            marginLeft: `${position.x * 4}vh`,
+            transition: 'all 0.1s',
+            transitionTimingFunction: 'linear'
+          }
         : undefined,
     t1: {
       width: '4vh',
-      height: '16vh',
+      height: '16vh'
     },
     t2: {
       width: '8vh',
-      height: '12vh',
+      height: '12vh'
     },
     t3: {
       width: '8vh',
-      height: '12vh',
+      height: '12vh'
     },
     t4: {
       width: '8vh',
-      height: '8vh',
+      height: '8vh'
     },
     t5: {
       width: '12vh',
-      height: '8vh',
+      height: '8vh'
     },
     t6: {
       width: '12vh',
-      height: '8vh',
+      height: '8vh'
     },
     t7: {
       width: '12vh',
-      height: '8vh',
-    },
+      height: '8vh'
+    }
   },
   bomb: {
     all: {
@@ -130,7 +140,7 @@ const gameStyle = {
       height: '4vh',
       border: '2px solid black',
       borderRadius: '50%',
-      background: 'radial-gradient(circle at 1vh 1vh, blue, black)',
+      background: 'radial-gradient(circle at 1vh 1vh, blue, black)'
     },
     reflect: {
       position: 'absolute',
@@ -143,7 +153,7 @@ const gameStyle = {
       borderRadius: '50%',
       transform: 'rotate(40deg)',
       animation: animations.reflect + ' 0.1s infinite',
-      animationDirection: 'alternate',
+      animationDirection: 'alternate'
     },
     mech: {
       zIndex: '1.5',
@@ -154,7 +164,7 @@ const gameStyle = {
       borderRadius: '50%',
       transform: 'rotate(35deg)',
       marginTop: '-1.1vh',
-      marginLeft: '1.6vh',
+      marginLeft: '1.6vh'
     },
     fire: {
       zIndex: '2',
@@ -167,7 +177,7 @@ const gameStyle = {
       borderBottomLeftRadius: '50%',
       borderBottomRightRadius: '50%',
       marginTop: '-2.1vh',
-      marginLeft: '2.8vh',
+      marginLeft: '2.8vh'
     },
     fire2: {
       zIndex: '3',
@@ -180,7 +190,7 @@ const gameStyle = {
       borderBottomLeftRadius: '50%',
       borderBottomRightRadius: '50%',
       marginTop: '-1.95vh',
-      marginLeft: '3vh',
+      marginLeft: '3vh'
     },
     fire3: {
       zIndex: '4',
@@ -193,8 +203,8 @@ const gameStyle = {
       borderBottomLeftRadius: '50%',
       borderBottomRightRadius: '50%',
       marginTop: '-1.2vh',
-      marginLeft: '3.15vh',
-    },
+      marginLeft: '3.15vh'
+    }
   },
   square: color => {
     return {
@@ -203,7 +213,7 @@ const gameStyle = {
       width: '4vh',
       height: '4vh',
       backgroundColor: getColors[color],
-      border: color == 0 ? 'none' : '1px solid black',
+      border: color == 0 ? 'none' : '1px solid black'
     };
   },
   squareIn: color => {
@@ -211,11 +221,20 @@ const gameStyle = {
       margin: color == 0 ? '0px' : '4%',
       width: color == 0 ? '100%' : '92%',
       height: color == 0 ? '100%' : '92%',
-      border: color == 0 ? '1px solid rgba(0, 0, 0, 0.2)' : '1vh solid rgba(255, 255, 255, 0.2)',
-      borderRight: color == 0 ? '1px solid rgba(0, 0, 0, 0.2)' : '1vh solid rgba(0, 0, 0, 0.2)',
-      borderBottom: color == 0 ? '1px solid rgba(0, 0, 0, 0.2)' : '1vh solid rgba(0, 0, 0, 0.2)',
+      border:
+        color == 0
+          ? '1px solid rgba(0, 0, 0, 0.2)'
+          : '1vh solid rgba(255, 255, 255, 0.2)',
+      borderRight:
+        color == 0
+          ? '1px solid rgba(0, 0, 0, 0.2)'
+          : '1vh solid rgba(0, 0, 0, 0.2)',
+      borderBottom:
+        color == 0
+          ? '1px solid rgba(0, 0, 0, 0.2)'
+          : '1vh solid rgba(0, 0, 0, 0.2)'
     };
-  },
+  }
 };
 
 export default gameStyle;

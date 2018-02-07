@@ -1,9 +1,9 @@
-import chai from "chai";
-import { startServer, configureStore } from "../helpers/server";
-import reducers from "../../src/client/reducers";
-import { ping } from "../../src/client/actions/server";
-import io from "socket.io-client";
-import params from "../../params";
+import chai from 'chai';
+import { startServer, configureStore } from '../helpers/server';
+import reducers from '../../src/client/reducers';
+import { ping } from '../../src/client/actions/server';
+import io from 'socket.io-client';
+import params from '../../params';
 
 // partyList
 import {
@@ -13,22 +13,22 @@ import {
   ALERT_POP,
   PARTY_UPDATE,
   PARTY_LEFT
-} from "../../src/actionsTypes";
-import { getParties } from "../../src/client/actions/partyList";
+} from '../../src/actionsTypes';
+import { getParties } from '../../src/client/actions/partyList';
 import {
   addParty,
   leaveParty,
   kickPlayer,
   toggleOpenParty,
   startParty
-} from "../../src/client/actions/party";
+} from '../../src/client/actions/party';
 
-import { combineReducers } from "redux";
-import { joinParty } from "../../src/client/actions/party";
+import { combineReducers } from 'redux';
+import { joinParty } from '../../src/client/actions/party';
 
 chai.should();
 
-describe("Server reducers", () => {
+describe('Server reducers', () => {
   let tetrisServer;
   before(cb =>
     startServer(params.server, (err, server) => {
@@ -46,15 +46,15 @@ describe("Server reducers", () => {
       initialState,
       {}
     );
-    socket.emit("action", { type: "PARTY_DELETE_ALL" });
+    socket.emit('action', { type: 'PARTY_DELETE_ALL' });
 
     setTimeout(() => {
       tetrisServer.stop(done);
     }, 200);
   });
 
-  describe("ping", () => {
-    it("should pong", done => {
+  describe('ping', () => {
+    it('should pong', done => {
       const initialState = {};
       const socket = io(params.server.url);
       const store = configureStore(
@@ -73,9 +73,9 @@ describe("Server reducers", () => {
     });
   });
 
-  describe("partyList", () => {
-    describe("Type: PARTY_LIST", () => {
-      it("should receive the server response for partyList list", done => {
+  describe('partyList', () => {
+    describe('Type: PARTY_LIST', () => {
+      it('should receive the server response for partyList list', done => {
         const initialState = {};
         const socket = io(params.server.url);
         const store = configureStore(
@@ -93,7 +93,7 @@ describe("Server reducers", () => {
         store.dispatch(getParties());
       });
     });
-    describe("Type: PARTY_ADD", () => {
+    describe('Type: PARTY_ADD', () => {
       it("should create party if name doesn't already exists", done => {
         const initialState = {};
         const socket = io(params.server.url);
@@ -103,10 +103,9 @@ describe("Server reducers", () => {
           initialState,
           {},
           ({ dispatch, getState }) => next => action => {
-            if (action.type !== "@@router/CALL_HISTORY_METHOD") return;
+            if (action.type !== '@@router/CALL_HISTORY_METHOD') return;
 
-            if (action.payload.args[0] !== "/#MYSUPERPARTY[toto]") {
-              console.log(action);
+            if (action.payload.args[0] !== '/#MYSUPERPARTY[toto]') {
               throw new Error(
                 `Party not well created, expected /#MYSUPERPARTY[toto], received: ${
                   action.payload.args[0]
@@ -117,12 +116,12 @@ describe("Server reducers", () => {
             }
           }
         );
-        socket.emit("action", { type: "PARTY_DELETE_ALL" });
+        socket.emit('action', { type: 'PARTY_DELETE_ALL' });
         store.dispatch(
-          addParty({ name: "MYSUPERPARTY", size: 10 }, { nickname: "toto" })
+          addParty({ name: 'MYSUPERPARTY', size: 10 }, { nickname: 'toto' })
         );
       });
-      it("should ALERT_POP if name does already exists", done => {
+      it('should ALERT_POP if name does already exists', done => {
         const initialState = {};
         const socket = io(params.server.url);
         const store = configureStore(
@@ -137,12 +136,12 @@ describe("Server reducers", () => {
         );
 
         store.dispatch(
-          addParty({ name: "MYSUPERPARTY", size: 10 }, { nickname: "toto" })
+          addParty({ name: 'MYSUPERPARTY', size: 10 }, { nickname: 'toto' })
         );
-        socket.emit("action", { type: "PARTY_DELETE_ALL" });
+        socket.emit('action', { type: 'PARTY_DELETE_ALL' });
       });
     });
-    describe("Type: PARTY_JOIN", () => {
+    describe('Type: PARTY_JOIN', () => {
       it("should create party if it doesn't exist", done => {
         const initialState = {};
         const socket = io(params.server.url);
@@ -153,7 +152,7 @@ describe("Server reducers", () => {
           {
             [PARTY_UPDATE]: ({ dispatch, getState }) => {
               const { party } = getState();
-              if (party.name !== "MYSUPERPARTY")
+              if (party.name !== 'MYSUPERPARTY')
                 throw new Error(
                   `Party not well created, expected /#MYSUPERPARTY[toto], received: ${
                     party.name
@@ -165,11 +164,11 @@ describe("Server reducers", () => {
         );
 
         store.dispatch(
-          joinParty({ name: "MYSUPERPARTY" }, { nickname: "toto" })
+          joinParty({ name: 'MYSUPERPARTY' }, { nickname: 'toto' })
         );
-        socket.emit("action", { type: "PARTY_DELETE_ALL" });
+        socket.emit('action', { type: 'PARTY_DELETE_ALL' });
       });
-      it("should push player into party", done => {
+      it('should push player into party', done => {
         const initialState = {};
         const socket = io(params.server.url);
         const store = configureStore(
@@ -180,7 +179,7 @@ describe("Server reducers", () => {
             [PARTY_UPDATE]: ({ dispatch, getState }) => {
               const { party } = getState();
               const player = party.players.find(
-                player => player.nickname === "PlayerToFind"
+                player => player.nickname === 'PlayerToFind'
               );
 
               if (!player) throw new Error(`Player not added to party`);
@@ -191,10 +190,10 @@ describe("Server reducers", () => {
         );
 
         store.dispatch(
-          joinParty({ name: "MYSUPERPARTY" }, { nickname: "PlayerToFind" })
+          joinParty({ name: 'MYSUPERPARTY' }, { nickname: 'PlayerToFind' })
         );
       });
-      it("should modify player if already in party.players", done => {
+      it('should modify player if already in party.players', done => {
         const initialState = {};
         let initialisation = true;
         const socket = io(params.server.url);
@@ -208,20 +207,20 @@ describe("Server reducers", () => {
             if (action.type === PARTY_UPDATE) {
               const { party } = getState();
               const player = party.players.find(
-                player => player.nickname === "PlayerToModify"
+                player => player.nickname === 'PlayerToModify'
               );
 
               if (initialisation) {
                 initialisation = false;
                 store.dispatch(
                   joinParty(
-                    { name: "MYSUPERPARTY", _id: party._id },
-                    { nickname: "POTO", _id: player._id }
+                    { name: 'MYSUPERPARTY', _id: party._id },
+                    { nickname: 'POTO', _id: player._id }
                   )
                 );
               } else {
                 const player = party.players.find(
-                  player => player.nickname === "POTO"
+                  player => player.nickname === 'POTO'
                 );
 
                 if (!player.nickname)
@@ -234,13 +233,13 @@ describe("Server reducers", () => {
         );
 
         store.dispatch(
-          joinParty({ name: "MYSUPERPARTY" }, { nickname: "PlayerToModify" })
+          joinParty({ name: 'MYSUPERPARTY' }, { nickname: 'PlayerToModify' })
         );
-        socket.emit("action", { type: "PARTY_DELETE_ALL" });
+        socket.emit('action', { type: 'PARTY_DELETE_ALL' });
       });
     });
-    describe("Type: PARTY_LEAVE", () => {
-      it("should leave selected party", done => {
+    describe('Type: PARTY_LEAVE', () => {
+      it('should leave selected party', done => {
         const initialState = {};
         const socket = io(params.server.url);
         const store = configureStore(
@@ -255,18 +254,18 @@ describe("Server reducers", () => {
 
             if (action.type === PARTY_LEFT) {
               done();
-              socket.emit("action", { type: "PARTY_DELETE_ALL" });
+              socket.emit('action', { type: 'PARTY_DELETE_ALL' });
             }
           }
         );
 
         store.dispatch(
-          joinParty({ name: "MyAwfulParty" }, { nickname: "Bastard" })
+          joinParty({ name: 'MyAwfulParty' }, { nickname: 'Bastard' })
         );
       });
     });
-    describe("Type: PARTY_KICK_PLAYER", () => {
-      it("should change location of selected player", done => {
+    describe('Type: PARTY_KICK_PLAYER', () => {
+      it('should change location of selected player', done => {
         const initialState = {};
         const socket = io(params.server.url);
         const store = configureStore(
@@ -278,26 +277,26 @@ describe("Server reducers", () => {
               const { player } = getState();
               dispatch(kickPlayer(player.socketId));
             },
-            "@@router/CALL_HISTORY_METHOD": ({
+            '@@router/CALL_HISTORY_METHOD': ({
               dispatch,
               getState,
               action
             }) => {
-              if (action.payload.args[0] === "/") {
+              if (action.payload.args[0] === '/') {
                 done();
-                socket.emit("action", { type: "PARTY_DELETE_ALL" });
+                socket.emit('action', { type: 'PARTY_DELETE_ALL' });
               }
             }
           }
         );
 
         store.dispatch(
-          joinParty({ name: "MyAwesomeParty" }, { nickname: "Bastard" })
+          joinParty({ name: 'MyAwesomeParty' }, { nickname: 'Bastard' })
         );
       });
     });
-    describe("Type: PARTY_OPEN", () => {
-      it("should toggle open state", done => {
+    describe('Type: PARTY_OPEN', () => {
+      it('should toggle open state', done => {
         const initialState = {};
         let initialisation = true;
         const socket = io(params.server.url);
@@ -313,19 +312,19 @@ describe("Server reducers", () => {
                 dispatch(toggleOpenParty(action.party._id));
               } else if (action.party.open === true) {
                 done();
-                socket.emit("action", { type: "PARTY_DELETE_ALL" });
+                socket.emit('action', { type: 'PARTY_DELETE_ALL' });
               }
             }
           }
         );
 
         store.dispatch(
-          joinParty({ name: "MyAwesomeParty" }, { nickname: "Bastard" })
+          joinParty({ name: 'MyAwesomeParty' }, { nickname: 'Bastard' })
         );
       });
     });
-    describe("Type: PARTY_START", () => {
-      it("should toggle playing state", done => {
+    describe('Type: PARTY_START', () => {
+      it('should toggle playing state', done => {
         const initialState = {};
         let initialisation = true;
         const socket = io(params.server.url);
@@ -344,7 +343,7 @@ describe("Server reducers", () => {
                 action.party.open === false
               ) {
                 done();
-                socket.emit("action", { type: "PARTY_DELETE_ALL" });
+                socket.emit('action', { type: 'PARTY_DELETE_ALL' });
               } else {
                 throw new Error(
                   "Toggling of playing state didn't worked accurately, got: ",
@@ -356,7 +355,7 @@ describe("Server reducers", () => {
         );
 
         store.dispatch(
-          joinParty({ name: "MyEverything", size: 10 }, { nickname: "Bastard" })
+          joinParty({ name: 'MyEverything', size: 10 }, { nickname: 'Bastard' })
         );
       });
     });

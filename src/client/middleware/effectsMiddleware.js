@@ -1,4 +1,9 @@
-import { ALERT_POP, ALERT_RESET } from "../../actionsTypes";
+import {
+  ALERT_POP,
+  ALERT_RESET,
+  GAME_PIECES_PIECE_MOVE,
+  GAME_PIECES_PIECE_ROTATE
+} from '../../actionsTypes';
 
 const effectsMiddleware = ({ dispatch, getState }) => next => action => {
   switch (action.type) {
@@ -8,6 +13,26 @@ const effectsMiddleware = ({ dispatch, getState }) => next => action => {
       }, 3000);
 
       break;
+    }
+
+    case GAME_PIECES_PIECE_MOVE: {
+      const { game: { board: { grid }, pieces: { piece } } } = getState();
+
+      action = {
+        ...action,
+        grid,
+        piece
+      };
+    }
+
+    case GAME_PIECES_PIECE_ROTATE: {
+      const { game: { board: { grid }, pieces: { piece } } } = getState();
+
+      action = {
+        ...action,
+        grid,
+        piece
+      };
     }
 
     default:

@@ -22,11 +22,15 @@ export const PARTY_START = 'server/party-toggle-playing';
 export const PLAYER_UPDATE = 'PLAYER_UPDATE';
 export const PLAYER_SAVE = 'PLAYER_SAVE';
 export const PLAYER_GET = 'PLAYER_GET';
-export const PLAYER_PIECE_ROTATE = 'PLAYER_PIECE_ROTATE';
-export const PLAYER_PIECE_MOVE = 'PLAYER_PIECE_MOVE';
-export const PLAYER_DELETE_LINES = 'PLAYER_DELETE_LINES';
-export const PLAYER_CLAIM_PIECE = 'server/claim-piece';
-export const PLAYER_CLAIM_PIECE_SUCCESS = 'PLAYER_CLAIM_PIECE_SUCCESS';
+// Game actions
+export const GAME_PIECES_PIECE_ROTATE = 'GAME_PIECES_PIECE_ROTATE';
+export const GAME_PIECES_PIECE_MOVE = 'GAME_PIECES_PIECE_MOVE';
+export const GAME_PIECES_CLAIM_PIECE = 'server/claim-piece';
+export const GAME_PIECES_CLAIM_PIECE_SUCCESS = 'PLAYER_CLAIM_PIECE_SUCCESS';
+export const GAME_PIECES_UPDATE = 'GAME_PIECES_UPDATE';
+
+export const GAME_BOARD_DELETE_LINES = 'GAME_PIECES_DELETE_LINES';
+export const GAME_BOARD_UPDATE = 'GAME_BOARD_UPDATE';
 
 // Server actions
 export const SERVER_PING = 'server/ping';
