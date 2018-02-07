@@ -14,8 +14,9 @@ import {
 import { push } from 'react-router-redux';
 import mongoose from 'mongoose';
 import { updateParty } from '../../client/actions/party';
-import { claimPieceSuccess, updatePlayer } from '../../client/actions/player';
+import { claimPieceSuccess } from '../../client/actions/game/pieces';
 import { getTetri } from '../Tetri';
+import { updatePiecesGame } from '../../client/actions/game/pieces';
 
 export const Party = mongoose.model('Party', {
   name: {
@@ -227,7 +228,9 @@ const partyList = async (action, io, socket) => {
 
         io.emit('action', await getParties());
         io.to(party._id).emit('action', updateParty(party));
-        io.to(party._id).emit('action', updatePlayer({ piece: getTetri() }));
+        io
+          .to(party._id)
+          .emit('action', updatePiecesGame({ piece: getTetri() }));
         io
           .to(party._id)
           .emit('action', claimPieceSuccess([getTetri(), getTetri()]));

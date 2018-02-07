@@ -13,7 +13,7 @@ const Line = ({ line }) => (
             key={index}
             style={{
               width: '4vh',
-              height: '4vh',
+              height: '4vh'
             }}
           />
         )
@@ -27,7 +27,7 @@ export const Bomb = ({ tetri, position }) => (
       style={{
         display: 'flex',
         animation: gameStyle.animations.bomb + ' 0.2s infinite',
-        animationDirection: 'alternate',
+        animationDirection: 'alternate'
       }}
     >
       <div style={gameStyle.bomb.all} />
@@ -38,7 +38,7 @@ export const Bomb = ({ tetri, position }) => (
           position: 'absolute',
           transform: 'rotate(-10deg)',
           animation: gameStyle.animations.fire + ' 0.1s infinite',
-          animationDirection: 'alternate',
+          animationDirection: 'alternate'
         }}
       >
         <div style={gameStyle.bomb.fire} />
@@ -50,5 +50,7 @@ export const Bomb = ({ tetri, position }) => (
 );
 
 export const Tetri = ({ tetri, position }) => (
-  <div style={gameStyle.pieces.all(position)}>{tetri.map((line, index) => <Line key={index} line={line} />)}</div>
+  <div style={gameStyle.pieces.all(position)}>
+    {tetri.map((line, index) => <Line key={index} line={line} />)}
+  </div>
 );

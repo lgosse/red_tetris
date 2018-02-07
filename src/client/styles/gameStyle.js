@@ -89,7 +89,7 @@ const gameStyle = {
           position: 'relative',
           marginTop: `${position.y * 4}vh`,
           marginLeft: `${position.x * 4}vh`,
-          transition: 'all 1s',
+          transition: 'all 0.1s',
           transitionTimingFunction: 'linear',
         }
         : undefined,

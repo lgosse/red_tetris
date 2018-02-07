@@ -43,7 +43,7 @@ const GameInfo = ({ title, children, flex }) => (
       flex && {
         flex: 1,
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column'
       }
     }
   >
@@ -51,7 +51,7 @@ const GameInfo = ({ title, children, flex }) => (
       style={{
         fontFamily: global.font.family.game,
         fontSize: global.font.size.subtitle,
-        color: global.color.primary,
+        color: global.color.primary
       }}
     >
       {title}
@@ -60,7 +60,7 @@ const GameInfo = ({ title, children, flex }) => (
   </FullSizeContainer>
 );
 
-const LeftSide = ({ party, player }) => (
+const LeftSide = ({ party, player, game }) => (
   <LeftSideContainer>
     <LeftSideTop>{party.name}</LeftSideTop>
     <GameInfo title='PLAYER'>{player.nickname}</GameInfo>
@@ -72,15 +72,11 @@ const LeftSide = ({ party, player }) => (
           style={{
             display: 'flex',
             flexDirection: 'column',
-            height: '100%',
+            height: '100%'
           }}
         >
           <div style={{ flex: 1 }} />
-          {/* {
-
-              <Tetri padding="12px" key={index} grid={player.nextPieces[0]}/>)
-           */}
-          {<Tetri tetri={[[1, 1, 0], [0, 1, 1], [0, 0, 0]]} />}
+          {game.pieces.next ? <Tetri padding='12px' tetri={game.pieces.next[0].grid} /> : <div />}
           <div style={{ flex: 1 }} />
         </div>
         <FlexSpacer />
