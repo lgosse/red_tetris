@@ -7,12 +7,7 @@ import Square from '../../components/game/Square';
 import { Tetri, Bomb } from '../../components/game/Tetri';
 import gameStyle from '../../styles/gameStyle';
 import globalStyle from '../../styles/global';
-import {
-  rotatePiece,
-  movePiece,
-  updatePlayer,
-  claimPiece
-} from '../../actions/game/pieces';
+import { rotatePiece, movePiece, updatePlayer, claimPiece } from '../../actions/game/pieces';
 import { deleteLines } from '../../actions/game/board';
 import { updateBoard } from '../../actions/game/board';
 
@@ -44,14 +39,7 @@ const Calque = ({ board, piece }) => {
   }
 };
 
-export const Grid = ({
-  party,
-  board,
-  pieces,
-  rotateit,
-  endGame,
-  requestPiece
-}) => {
+export const Grid = ({ party, board, pieces, rotateit, endGame, requestPiece }) => {
   const grid = board.grid.map((line, i) => {
     const cols = line.map((col, j) => {
       return <Square color={col} key={j} />;
@@ -83,11 +71,7 @@ export const Grid = ({
   }
 
   return (
-    <div
-      tabIndex={'0'}
-      onKeyDown={e => rotateit(e, pieces.piece, board)}
-      style={gameStyle.grid}
-    >
+    <div tabIndex={'0'} onKeyDown={e => rotateit(e, pieces.piece, board)} style={gameStyle.grid}>
       <Calque board={board} piece={pieces.piece} />
       {grid}
     </div>
@@ -108,29 +92,29 @@ export const mapDispatchToGridProps = dispatch => {
     if (board.end || board.ending || piece === null) return;
 
     switch (event.keyCode) {
-      case 39: // RIGHT
-        dispatch(movePiece(1));
-        break;
-      case 37: // LEFT
-        dispatch(movePiece(-1));
-        break;
-      case 40: // DOWN
-        dispatch(movePiece(0));
-        break;
-      case 32: // SPACE
-        break;
-      case 38:
-      case 68: // UP or D
-        dispatch(rotatePiece(1));
-        break;
-      case 65: // A
-        dispatch(rotatePiece(-1));
-        break;
-      case 69: // E
-        endAnimation(board.grid);
-        break;
-      default:
-        break;
+    case 39: // RIGHT
+      dispatch(movePiece(1));
+      break;
+    case 37: // LEFT
+      dispatch(movePiece(-1));
+      break;
+    case 40: // DOWN
+      dispatch(movePiece(0));
+      break;
+    case 32: // SPACE
+      break;
+    case 38:
+    case 68: // UP or D
+      dispatch(rotatePiece(1));
+      break;
+    case 65: // A
+      dispatch(rotatePiece(-1));
+      break;
+    case 69: // E
+      endAnimation(board.grid);
+      break;
+    default:
+      break;
     }
   };
 
@@ -148,28 +132,27 @@ export const mapDispatchToGridProps = dispatch => {
 
   //  watch(player.end, () => endAnimation());
 
-  const endAnimationSub = (board, grid, y) => {
-    let x = 0;
-    let interval = setInterval(function() {
-      grid[y][x++] = 8;
-
-      // TODO updateGrid method
-      dispatch(updateBoard({ ...board, grid }));
-      if (x == grid[0].length) clearInterval(interval);
-      if (x == grid[0].length && y < 0) {
-        // Message de DEFAITE
-      }
-    }, 50);
+  const endAnimationSub = (board, grid, ox) => {
+    let y;
+    let x = ox % grid[0].length;
+    for (y = grid.length - 1 - parseInt(ox / grid[0].length); x >= 0; y--) {
+      grid[grid.length - 1 - y][grid[0].length - 1 - x] = 8;
+      grid[y][x] = 8;
+      x--;
+    }
+    return grid;
   };
 
   const endAnimation = board => {
     let newGrid = [...board.grid];
-    let y = newGrid.length - 1;
+    let newBoard = { ...board, grid: newGrid };
+    let x = 0;
     let interval = setInterval(() => {
-      endAnimationSub(board, newGrid, y);
-      y--;
-      if (y < 0) clearInterval(interval);
-    }, 250);
+      newBoard = { ...newBoard, grid: endAnimationSub(board, newGrid, x) };
+      dispatch(updateBoard(newBoard));
+      x++;
+      if (x > newGrid[0].length * (newGrid.length / 2)) clearInterval(interval);
+    }, 100);
   };
 
   return { rotateit, endAnimation, endGame, requestPiece };
