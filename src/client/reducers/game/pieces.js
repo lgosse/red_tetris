@@ -6,7 +6,7 @@ import {
   GAME_PIECES_PIECE_ROTATE_SUCCESS,
   GAME_LOSE,
   PARTY_LEFT,
-  GAME_RESET
+  PARTY_START
 } from '../../../actionsTypes';
 import { gridFusion, findPlace, testCollision, gridZero } from './utils';
 
@@ -52,8 +52,11 @@ const pieces = (state = initialState, action) => {
     case PARTY_LEFT:
       return initialState;
 
-    case GAME_RESET:
-      return initialState;
+    case PARTY_START:
+      return {
+        piece: null,
+        next: []
+      };
 
     default:
       return state;

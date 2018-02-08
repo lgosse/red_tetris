@@ -14,7 +14,10 @@ import {
 import { push } from 'react-router-redux';
 import mongoose from 'mongoose';
 import { updateParty } from '../../client/actions/party';
-import { claimPieceSuccess, movePiece } from '../../client/actions/game/pieces';
+import {
+  claimPieceSuccess,
+  movePieceServer
+} from '../../client/actions/game/pieces';
 import { getTetri } from '../Tetri';
 import { updatePiecesGame } from '../../client/actions/game/pieces';
 import { gridZero } from '../../client/reducers/game/utils';
@@ -246,7 +249,7 @@ const partyList = async (action, io, socket) => {
           .emit('action', claimPieceSuccess([getTetri(), getTetri()]));
 
         io.to(party._id).partyInterval = setInterval(() => {
-          io.to(party._id).emit('action', movePiece(0));
+          io.to(party._id).emit('action', movePieceServer(0));
         }, 1000);
       } catch (error) {
         console.log(error);

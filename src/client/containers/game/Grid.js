@@ -13,7 +13,7 @@ import {
   updatePlayer,
   claimPiece
 } from '../../actions/game/pieces';
-import { deleteLines } from '../../actions/game/board';
+import { deleteLines, endParty } from '../../actions/game/board';
 import { updateBoard } from '../../actions/game/board';
 import { setMod } from '../../actions/game/mods';
 
@@ -81,10 +81,8 @@ export const Grid = ({ party, board, pieces, mods, rotateit, endGame }) => {
       );
   });
 
-  if (pieces.piece === null) {
-    if (board.ending && board.lines === null) {
-      endGame(board);
-    }
+  if (pieces.piece === null && board.ending && board.lines === null) {
+    endGame(board);
   }
 
   return (
@@ -154,39 +152,37 @@ export const mapDispatchToGridProps = dispatch => {
   };
 
   const endGame = board => {
-    if (board.ending) {
-      endAnimation({ ...board, ending: false, end: true });
-    }
+    dispatch(endParty({ ...board, ending: false }));
   };
 
-  const endAnimationSub = (board, grid, x, y) => {
-    while (x >= 0) {
-      grid[grid.length - 1 - y][grid[0].length - 1 - x] = 8;
-      grid[y][x] = 8;
-      x--;
-      y--;
-    }
-    return grid;
-  };
+  // const endAnimationSub = (board, grid, x, y) => {
+  //   while (x >= 0) {
+  //     grid[grid.length - 1 - y][grid[0].length - 1 - x] = 8;
+  //     grid[y][x] = 8;
+  //     x--;
+  //     y--;
+  //   }
+  //   return grid;
+  // };
 
-  const endAnimation = board => {
-    let newGrid = [...board.grid];
-    let newBoard = { ...board, grid: newGrid };
-    let x = 0;
-    let y = board.grid.length - 1;
-    let interval = setInterval(() => {
-      newBoard = { ...newBoard, grid: endAnimationSub(board, newGrid, x, y) };
-      dispatch(updateBoard(newBoard));
-      x++;
-      if (x === board.grid[0].length) {
-        y--;
-        x--;
-      }
-      if (y < board.grid.length / 2) clearInterval(interval);
-    }, 100);
-  };
+  // const endAnimation = board => {
+  //   let newGrid = [...board.grid];
+  //   let newBoard = { ...board, grid: newGrid };
+  //   let x = 0;
+  //   let y = board.grid.length - 1;
+  //   let interval = setInterval(() => {
+  //     newBoard = { ...newBoard, grid: endAnimationSub(board, newGrid, x, y) };
+  //     dispatch(updateBoard(newBoard));
+  //     x++;
+  //     if (x === board.grid[0].length) {
+  //       y--;
+  //       x--;
+  //     }
+  //     if (y < board.grid.length / 2) clearInterval(interval);
+  //   }, 100);
+  // };
 
-  return { rotateit, endAnimation, endGame };
+  return { rotateit, endGame };
 };
 
 export default connect(mapStateToGridProps, mapDispatchToGridProps)(Grid);

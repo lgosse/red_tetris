@@ -4,7 +4,7 @@ import {
   GAME_BOARD_UPDATE,
   GAME_LOSE,
   PARTY_LEFT,
-  GAME_RESET
+  PARTY_START
 } from '../../../actionsTypes';
 import {
   gridFusion,
@@ -23,7 +23,7 @@ const initialState = {
   lines: null
 };
 
-const board = (state = initialState, action) => {
+const board = (state = { ...initialState }, action) => {
   switch (action.type) {
     case GAME_BOARD_UPDATE:
       return {
@@ -55,8 +55,14 @@ const board = (state = initialState, action) => {
     case PARTY_LEFT:
       return initialState;
 
-    case GAME_RESET:
-      return initialState;
+    case PARTY_START:
+      return {
+        ...state,
+        grid: gridZero(10, 20),
+        ending: false,
+        end: false,
+        lines: null
+      };
 
     default:
       return state;

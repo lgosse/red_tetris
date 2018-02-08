@@ -52,7 +52,6 @@ const game = async (action, io, socket) => {
       try {
         await party.save();
         io.to(socket.partyId).emit('action', updateParty(party));
-        // clearInterval(io.to(socket.partyId).partyInterval);
       } catch (error) {
         console.error(error);
       }
@@ -101,7 +100,6 @@ const game = async (action, io, socket) => {
           try {
             await party.save();
             io.to(party._id).emit('action', updateParty(party));
-            io.to(party._id).emit('action', resetGame());
           } catch (error) {
             console.error(error);
           }
@@ -110,8 +108,8 @@ const game = async (action, io, socket) => {
         party.playing = false;
         try {
           await party.save();
+          clearInterval(io.to(party._id).partyInterval);
           io.to(party._id).emit('action', updateParty(party));
-          io.to(party._id).emit('action', resetGame());
         } catch (error) {
           console.error(error);
         }
