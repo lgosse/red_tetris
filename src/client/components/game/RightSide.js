@@ -8,13 +8,25 @@ import {
   FullSizeContainer,
   FlexContainer,
   FlexSpacer,
-  LightContainer
+  LightContainer,
+  Paragraph
 } from '../helpers/Common';
 
 const PlayerStatesContainer = FullSizeContainer.extend`
   display: flex;
   flex-wrap: wrap;
 `;
+
+const NoPlayers = () => (
+  <FullSizeContainer style={{ color: global.color.primary }}>
+    <Paragraph padding={global.padding.md} gameFont center>
+      THERE ARE NO OTHER PLAYERS
+    </Paragraph>
+    <Paragraph padding={global.padding.md} gameFont center>
+      PLAY WITH YOUR FRIENDS!
+    </Paragraph>
+  </FullSizeContainer>
+);
 
 const PlayerStates = ({ players }) => (
   <PlayerStatesContainer>
@@ -48,7 +60,7 @@ const RightSide = ({ players }) => {
   return (
     <RightSideContainer>
       <RightSideTop>PLAYERS</RightSideTop>
-      <PlayerStates players={players} />
+      {players.length ? <PlayerStates players={players} /> : <NoPlayers />}
     </RightSideContainer>
   );
 };

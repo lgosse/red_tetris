@@ -1,7 +1,9 @@
 import {
+  GAME_LOSE,
   GAME_BOARD_UPDATE,
   GAME_BOARD_DELETE_LINES,
-  GAME_BOARD_NOTIFY_GRID_UPDATE
+  GAME_BOARD_NOTIFY_GRID_UPDATE,
+  GAME_RESET
 } from '../../../actionsTypes';
 
 export const updateBoard = board => ({
@@ -19,4 +21,12 @@ export const notifyGridUpdate = (grid, nbLinesDestroyed) => ({
 
 export const deleteLines = () => ({
   type: GAME_BOARD_DELETE_LINES
+});
+
+export const gameLose = () => ({
+  type: GAME_LOSE
+});
+
+export const resetGame = () => ({
+  type: GAME_RESET
 });

@@ -1,7 +1,10 @@
 import {
   GAME_BOARD_DELETE_LINES,
   GAME_PIECES_PIECE_MOVE,
-  GAME_BOARD_UPDATE
+  GAME_BOARD_UPDATE,
+  GAME_LOSE,
+  PARTY_LEFT,
+  GAME_RESET
 } from '../../../actionsTypes';
 import {
   gridFusion,
@@ -41,36 +44,19 @@ const board = (state = initialState, action) => {
       return state;
     }
 
-    // case GAME_PIECES_PIECE_MOVE_SUCCESS: {
-    //   // if (!action.piece) return state;
-    //   // const pos = {
-    //   //   x: action.piece.x + action.direction,
-    //   //   y: action.direction === 0 ? action.piece.y + 1 : action.piece.y
-    //   // };
+    case GAME_LOSE: {
+      return {
+        ...state,
+        ending: true,
+        lines: null
+      };
+    }
 
-    //   // const res = testCollision({ ...action.piece, ...pos }, action.grid);
-    //   // if (res.collide) {
-    //   //   if (action.direction !== 0) return state;
+    case PARTY_LEFT:
+      return initialState;
 
-    //   //   let newGrid = gridFusion(action.piece, action.grid);
-    //   //   let lines = newGrid ? checkLines(newGrid) : null;
-
-    //   //   if (newGrid === null) return { ...state, lines, ending: true };
-
-    //   //   socket.emit(
-    //   //     'action',
-    //   //     notifyGridUpdate(newGrid, lines ? lines.length : 0)
-    //   //   );
-
-    //   //   return {
-    //   //     ...state,
-    //   //     grid: newGrid,
-    //   //     lines
-    //   //   };
-    //   // } else {
-    //   //   return state;
-    //   // }
-    // }
+    case GAME_RESET:
+      return initialState;
 
     default:
       return state;

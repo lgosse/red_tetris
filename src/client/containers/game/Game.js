@@ -15,7 +15,11 @@ export const Game = ({ party, player, game }) => (
   >
     <LeftSide party={party} player={player} game={game} />
     <Grid party={party} player={player} />
-    <RightSide players={party.players} />
+    <RightSide
+      players={party.players.filter(
+        currentPlayer => player.socketId !== currentPlayer.socketId
+      )}
+    />
   </div>
 );
 

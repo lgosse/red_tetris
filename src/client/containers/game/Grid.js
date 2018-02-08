@@ -91,32 +91,41 @@ export const mapStateToGridProps = ({ party, game: { board, pieces } }) => ({
 
 export const mapDispatchToGridProps = dispatch => {
   const rotateit = (event, piece, board) => {
-    event.stopPropagation();
-    event.preventDefault();
-
     if (board.end || board.ending || piece === null) return;
 
     switch (event.keyCode) {
       case 39: // RIGHT
         dispatch(movePiece(1));
+        event.stopPropagation();
+        event.preventDefault();
         break;
       case 37: // LEFT
         dispatch(movePiece(-1));
+        event.stopPropagation();
+        event.preventDefault();
         break;
       case 40: // DOWN
         dispatch(movePiece(0));
+        event.stopPropagation();
+        event.preventDefault();
         break;
       case 32: // SPACE
         break;
       case 38:
       case 68: // UP or D
         dispatch(rotatePiece(1));
+        event.stopPropagation();
+        event.preventDefault();
         break;
       case 65: // A
         dispatch(rotatePiece(-1));
+        event.stopPropagation();
+        event.preventDefault();
         break;
       case 69: // E
         endAnimation(board.grid);
+        event.stopPropagation();
+        event.preventDefault();
         break;
       default:
         break;

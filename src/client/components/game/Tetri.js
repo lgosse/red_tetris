@@ -49,10 +49,26 @@ export const Bomb = ({ tetri, position }) => (
   </div>
 );
 
-const reduceTetri = tetri =>
+const reduceColumnsEndTetri = tetri =>
+  !tetri.reduce(
+    (lineAccumulator, line) =>
+      line.reduce(
+        (blockAccumulator, block, index) =>
+          index === line.length - 1 ? !!block : true
+      ) || lineAccumulator,
+    false
+  )
+    ? tetri.map(line =>
+        line.filter((block, index) => index !== line.length - 1)
+      )
+    : tetri;
+
+const reduceLinesTetri = tetri =>
   tetri.filter(line =>
     line.reduce((accumulator, block) => accumulator || block, false)
   );
+
+const reduceTetri = tetri => reduceColumnsEndTetri(reduceLinesTetri(tetri));
 
 export const Tetri = ({ tetri, position }) => (
   <div style={gameStyle.pieces.all(position)}>

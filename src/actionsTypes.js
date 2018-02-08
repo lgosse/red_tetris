@@ -36,6 +36,9 @@ export const GAME_BOARD_DELETE_LINES = 'GAME_PIECES_DELETE_LINES';
 export const GAME_BOARD_NOTIFY_GRID_UPDATE = 'server/notify-grid-update';
 export const GAME_BOARD_UPDATE = 'GAME_BOARD_UPDATE';
 
+export const GAME_LOSE = 'server/game-lose';
+export const GAME_RESET = 'GAME_RESET';
+
 export const GAME_SCORE_UPDATE = 'GAME_SCORE_UPDATE';
 
 // Server actions

@@ -154,8 +154,9 @@ const partyList = async (action, io, socket) => {
       ) {
         partyEdit.players.push({
           ...action.player,
-          map: gridZero(10, 20)
-          // socketId: socket.id
+          map: gridZero(10, 20),
+          socketId: socket.id,
+          lose: false
         });
         partyEdit.save();
         io.emit('action', await getParties());

@@ -18,7 +18,8 @@ import {
 import {
   updateBoard,
   deleteLines,
-  notifyGridUpdate
+  notifyGridUpdate,
+  gameLose
 } from '../actions/game/board';
 
 const gameMiddleware = ({ dispatch, getState }) => next => action => {
@@ -69,18 +70,7 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
             );
           }, 600);
         } else if (board.end !== true) {
-          dispatch(
-            updateBoard({
-              ending: true,
-              lines: null
-            })
-          );
-          dispatch(
-            updatePiecesGame({
-              ...pieces,
-              piece: null
-            })
-          );
+          dispatch(gameLose());
         }
       }
 
