@@ -1,7 +1,7 @@
-import { PARTY_GET, PARTY_SAVE, PARTY_UPDATE } from "../../actionsTypes";
+import { PARTY_GET, PARTY_SAVE, PARTY_UPDATE } from '../../actionsTypes';
 
 const getParty = () => {
-  const partyItem = localStorage.getItem("party");
+  const partyItem = localStorage.getItem('party');
   if (partyItem) {
     return JSON.parse(partyItem);
   }
@@ -9,10 +9,10 @@ const getParty = () => {
 };
 
 const saveParty = action => {
-  localStorage.setItem("party", JSON.stringify(action.party));
+  localStorage.setItem('party', JSON.stringify(action.party));
 };
 
-const party = (state = { size: 10 }, action) => {
+const party = (state = { size: 10, players: [] }, action) => {
   switch (action.type) {
     case PARTY_GET:
       return getParty();

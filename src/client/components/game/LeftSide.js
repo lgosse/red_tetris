@@ -69,7 +69,7 @@ const LeftSide = ({ party, player, game }) => (
   <LeftSideContainer>
     <LeftSideTop>{party.name}</LeftSideTop>
     <GameInfo title="PLAYER">{player.nickname}</GameInfo>
-    <GameInfo title="SCORE">{player.score}24 000</GameInfo>
+    <GameInfo title="SCORE">{game.score}</GameInfo>
     <GameInfo title="NEXT PIECE" flex>
       <FlexContainer height="100%">
         <FlexSpacer />

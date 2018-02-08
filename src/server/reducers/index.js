@@ -1,11 +1,11 @@
 import partyList from './partyList';
 import ping from './ping';
-import player from './player';
+import game from './game';
 
 const reducers = {
   partyList,
   ping,
-  player
+  game
 };
 
 export default reducers;

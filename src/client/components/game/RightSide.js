@@ -1,15 +1,15 @@
-import React from "react";
-import global from "../../styles/global";
-import PlayerState from "./PlayerState";
-import GameInfos from "./GameInfos";
-import styled from "styled-components";
+import React from 'react';
+import global from '../../styles/global';
+import PlayerState from './PlayerState';
+import GameInfos from './GameInfos';
+import styled from 'styled-components';
 
 import {
   FullSizeContainer,
   FlexContainer,
   FlexSpacer,
   LightContainer
-} from "../helpers/Common";
+} from '../helpers/Common';
 
 const PlayerStatesContainer = FullSizeContainer.extend`
   display: flex;

@@ -44,14 +44,7 @@ const Calque = ({ board, piece }) => {
   }
 };
 
-export const Grid = ({
-  party,
-  board,
-  pieces,
-  rotateit,
-  endGame,
-  requestPiece
-}) => {
+export const Grid = ({ party, board, pieces, rotateit, endGame }) => {
   const grid = board.grid.map((line, i) => {
     const cols = line.map((col, j) => {
       return <Square color={col} key={j} />;
@@ -75,10 +68,6 @@ export const Grid = ({
   if (pieces.piece === null) {
     if (board.ending && board.lines === null) {
       endGame(board);
-    } else if (board.end === false) {
-      setTimeout(() => {
-        requestPiece(party);
-      }, board.lines ? 300 : 0);
     }
   }
 
@@ -136,24 +125,15 @@ export const mapDispatchToGridProps = dispatch => {
 
   const endGame = board => {
     if (board.ending) {
-      // Claim Force Piece
       endAnimation({ ...board, ending: false, end: true });
     }
   };
-
-  const requestPiece = party => {
-    dispatch(deleteLines());
-    dispatch(claimPiece(party._id));
-  };
-
-  //  watch(player.end, () => endAnimation());
 
   const endAnimationSub = (board, grid, y) => {
     let x = 0;
     let interval = setInterval(function() {
       grid[y][x++] = 8;
 
-      // TODO updateGrid method
       dispatch(updateBoard({ ...board, grid }));
       if (x == grid[0].length) clearInterval(interval);
       if (x == grid[0].length && y < 0) {
@@ -172,7 +152,7 @@ export const mapDispatchToGridProps = dispatch => {
     }, 250);
   };
 
-  return { rotateit, endAnimation, endGame, requestPiece };
+  return { rotateit, endAnimation, endGame };
 };
 
 export default connect(mapStateToGridProps, mapDispatchToGridProps)(Grid);
