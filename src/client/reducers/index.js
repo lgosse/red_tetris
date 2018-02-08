@@ -4,6 +4,7 @@ import server from './server';
 import player from './player';
 import partyList from './partyList';
 import party from './party';
+import ranking from './ranking';
 
 export default {
   alert,
@@ -11,5 +12,6 @@ export default {
   server,
   player,
   partyList,
-  party
+  party,
+  ranking
 };

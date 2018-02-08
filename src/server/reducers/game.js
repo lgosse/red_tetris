@@ -1,16 +1,24 @@
+// Models
+import GameModel from '../models/Game';
+import Player from '../models/Player';
+
+// Action Types
 import {
   GAME_PIECES_CLAIM_PIECE,
   GAME_BOARD_NOTIFY_GRID_UPDATE,
   GAME_LOSE
 } from '../../actionsTypes';
+
+// Actions
 import { claimPieceSuccess } from '../../client/actions/game/pieces';
 import { getTetri } from '../Tetri';
 import { updateScore } from '../../client/actions/game/score';
-import { Party } from './partyList';
 import { updateParty } from '../../client/actions/party';
 import { alert } from '../../client/actions/alert';
 import { gridZero } from '../../client/reducers/game/utils';
 import { resetGame, blockLinesServer } from '../../client/actions/game/board';
+
+import mongoose from 'mongoose';
 
 const game = async (action, io, socket) => {
   switch (action.type) {
@@ -43,7 +51,7 @@ const game = async (action, io, socket) => {
 
       let party;
       try {
-        party = await Party.findById(socket.partyId).exec();
+        party = await GameModel.findById(socket.partyId).exec();
       } catch (error) {
         console.error(error);
       }
@@ -71,7 +79,7 @@ const game = async (action, io, socket) => {
     case GAME_LOSE: {
       let party;
       try {
-        party = await Party.findById(socket.partyId).exec();
+        party = await GameModel.findById(socket.partyId).exec();
       } catch (error) {
         console.error(error);
       }
@@ -82,25 +90,15 @@ const game = async (action, io, socket) => {
           alert('An error occured, refresh and try again.')
         );
 
-      party.players = party.players.map(
-        player =>
-          player.socketId === socket.id
-            ? {
-                nickname: player.nickname,
-                socketId: player.socketId,
-                map: gridZero(10, 20),
-                lose: true
-              }
-            : player
-      );
+      party.updatePlayer({
+        socketId: socket.id,
+        map: gridZero(10, 20),
+        lose: true
+      });
 
       if (
-        party.players.reduce(
-          (accumulator, player) => (accumulator + player.lose ? 1 : 0),
-          0
-        ) >=
-          party.players.length - 1 &&
-        party.players.length !== 1
+        party.findAlivePlayers().length >= party.players.length - 1 &&
+        party.solo === false
       ) {
         io.to(party._id).emit('action', alert('PLAYER HAS WON'));
         clearInterval(io.to(party._id).partyInterval);
@@ -113,8 +111,8 @@ const game = async (action, io, socket) => {
             console.error(error);
           }
         }, 5000);
-      } else if (party.players.length === 1) {
-        party.playing = false;
+      } else if (party.solo === true) {
+        party.stopGame();
         try {
           await party.save();
           clearInterval(io.to(party._id).partyInterval);
