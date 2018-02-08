@@ -1,8 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import global from "../../styles/global";
+import React from 'react';
+import { connect } from 'react-redux';
+import global from '../../styles/global';
 
-import { kickPlayer, toggleOpenParty, startParty } from "../../actions/party";
+import { kickPlayer, toggleOpenParty, startParty } from '../../actions/party';
 
 import {
   FullSizeContainer,
@@ -12,18 +12,18 @@ import {
   Paragraph,
   Icon,
   Button
-} from "../../components/helpers/Common";
+} from '../../components/helpers/Common';
 import {
   Block,
   EmptyBlock,
   Line,
   Container
-} from "../../components/home/RedTetrisHeader";
+} from '../../components/home/RedTetrisHeader';
 
 export const PlayersList = ({ players = [], kickPlayer, actualPlayer }) => (
   <FullSizeContainer>
-    {players.map(player => (
-      <FlexContainer key={player.socketId}>
+    {players.map((player, index) => (
+      <FlexContainer key={index}>
         <FlexSpacer />
         <div
           style={{
@@ -31,9 +31,9 @@ export const PlayersList = ({ players = [], kickPlayer, actualPlayer }) => (
             border: `1px solid ${global.color.primary}`,
             padding: global.padding.md,
             margin: global.padding.sm,
-            display: "flex",
-            flexDirection: "row",
-            width: "200px"
+            display: 'flex',
+            flexDirection: 'row',
+            width: '200px'
           }}
         >
           <Paragraph gameFont>{player.nickname}</Paragraph>
@@ -72,7 +72,7 @@ export const RoomView = ({ party, kickPlayer, player }) => (
         {party.name}
       </Paragraph>
       <PlayersList
-        style={{ padding: "20px" }}
+        style={{ padding: '20px' }}
         kickPlayer={kickPlayer}
         players={party.players}
         actualPlayer={player}

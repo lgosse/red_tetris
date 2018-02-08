@@ -17,6 +17,7 @@ import { updateParty } from '../../client/actions/party';
 import { claimPieceSuccess, movePiece } from '../../client/actions/game/pieces';
 import { getTetri } from '../Tetri';
 import { updatePiecesGame } from '../../client/actions/game/pieces';
+import { gridZero } from '../../client/reducers/game/utils';
 
 export const Party = mongoose.model('Party', {
   name: {
@@ -29,47 +30,49 @@ export const Party = mongoose.model('Party', {
   players: [
     {
       nickname: String,
-      socketId: String
+      socketId: String,
+      map: [[Number]],
+      lose: Boolean
     }
   ]
 });
 
 export const userLeaves = async (io, socket) => {
-  let partyList;
+  let party;
   try {
-    partyList = await Party.find({
-      'players.socketId': socket.id
-    }).exec();
+    party = await Party.findById(socket.partyId).exec();
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 
-  if (partyList.length === 0 || partyList.forEach === undefined) return;
+  if (!party) {
+    console.error(`Party ${socket.partyId} not found!`);
+    return;
+  }
 
-  partyList.forEach(async party => {
-    party.players = party.players.filter(player => {
-      if (player.socketId === socket.id) {
-        socket.leave(party._id, err => {
-          if (err) console.log(err);
-          socket.emit('action', { type: PARTY_LEFT });
-        });
+  party.players = party.players.filter(player => {
+    if (player.socketId === socket.id) {
+      delete socket.partyId;
+      socket.leave(party._id, err => {
+        if (err) console.log(err);
+        socket.emit('action', { type: PARTY_LEFT });
+      });
 
-        return false;
-      }
-
-      return true;
-    });
-
-    if (party.players.length === 0) {
-      await party.remove();
-    } else {
-      await party.save();
+      return false;
     }
 
-    io.to(party._id).emit('action', {
-      type: PARTY_UPDATE,
-      party
-    });
+    return true;
+  });
+
+  if (party.players.length === 0) {
+    await party.remove();
+  } else {
+    await party.save();
+  }
+
+  io.to(party._id).emit('action', {
+    type: PARTY_UPDATE,
+    party
   });
 
   io.emit('action', await getParties());
@@ -101,6 +104,7 @@ const partyList = async (action, io, socket) => {
         }).save();
       } catch (error) {
         let message;
+        console.error(error);
         switch (error.code) {
           case 11000:
             message = 'This party name is not available! Choose another one.';
@@ -150,7 +154,8 @@ const partyList = async (action, io, socket) => {
       ) {
         partyEdit.players.push({
           ...action.player,
-          socketId: socket.id
+          map: gridZero(10, 20)
+          // socketId: socket.id
         });
         partyEdit.save();
         io.emit('action', await getParties());
@@ -161,13 +166,14 @@ const partyList = async (action, io, socket) => {
         partyEdit.players = partyEdit.players.map(
           player =>
             player.socketId === socket.id
-              ? { ...player, ...action.player }
+              ? { ...player, ...action.player, map: gridZero(10, 20) }
               : player
         );
         partyEdit.save();
         io.emit('action', await getParties());
       }
 
+      socket.partyId = partyEdit._id;
       socket.join(partyEdit._id, () => {
         io.to(partyEdit._id).emit('action', {
           type: PARTY_UPDATE,
@@ -227,19 +233,25 @@ const partyList = async (action, io, socket) => {
         await party.save();
 
         io.emit('action', await getParties());
+
         io.to(party._id).emit('action', updateParty(party));
+
         io
           .to(party._id)
           .emit('action', updatePiecesGame({ piece: getTetri() }));
+
         io
           .to(party._id)
           .emit('action', claimPieceSuccess([getTetri(), getTetri()]));
-        io.to(party._id).interval = setInterval(() => {
+
+        io.to(party._id).partyInterval = setInterval(() => {
           io.to(party._id).emit('action', movePiece(0));
         }, 1000);
       } catch (error) {
         console.log(error);
       }
+
+      break;
     }
 
     case 'PARTY_DELETE_ALL': {

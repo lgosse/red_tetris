@@ -1,9 +1,9 @@
-import React from "react";
-import { connect } from "react-redux";
-import global from "../../styles/global";
+import React from 'react';
+import { connect } from 'react-redux';
+import global from '../../styles/global';
 
-import Lobby from "./Lobby";
-import Game from "../game/Game";
+import Lobby from './Lobby';
+import Game from '../game/Game';
 
 export const Party = ({ party }) => (party.playing ? <Game /> : <Lobby />);
 

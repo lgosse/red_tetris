@@ -29,10 +29,11 @@ import {
 // Project stuff
 import socketIoMiddleware from './middleware/socketIoMiddleware';
 import effectsMiddleware from './middleware/effectsMiddleware';
+import gameMiddleware from './middleware/gameMiddleware';
 import io from 'socket.io-client';
 import params from '../../params';
 
-const socket = io(params.server.url);
+export const socket = io(params.server.url);
 
 import { getPlayer } from './actions/player';
 import { getParties } from './actions/partyList';
@@ -60,6 +61,7 @@ export const store = createStore(
       thunk,
       routingMiddleware,
       effectsMiddleware,
+      gameMiddleware,
       socketIoMiddleware(socket)
     )
   )

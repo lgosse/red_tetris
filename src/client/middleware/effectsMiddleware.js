@@ -14,29 +14,6 @@ const effectsMiddleware = ({ dispatch, getState }) => next => action => {
 
       break;
     }
-
-    case GAME_PIECES_PIECE_MOVE: {
-      const { game: { board: { grid }, pieces: { piece } } } = getState();
-
-      action = {
-        ...action,
-        grid,
-        piece
-      };
-    }
-
-    case GAME_PIECES_PIECE_ROTATE: {
-      const { game: { board: { grid }, pieces: { piece } } } = getState();
-
-      action = {
-        ...action,
-        grid,
-        piece
-      };
-    }
-
-    default:
-      break;
   }
 
   return next(action);
