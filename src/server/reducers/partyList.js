@@ -26,7 +26,7 @@ import {
   claimPieceSuccess,
   movePieceServer
 } from '../../client/actions/game/pieces';
-import { getTetri } from '../Tetri';
+import Piece from '../models/Piece';
 import { updatePiecesGame } from '../../client/actions/game/pieces';
 import { gridZero } from '../../client/reducers/game/utils';
 
@@ -240,10 +240,10 @@ const partyList = async (action, io, socket) => {
         io.to(party._id).emit('action', updateParty(party));
         io
           .to(party._id)
-          .emit('action', updatePiecesGame({ piece: getTetri() }));
+          .emit('action', updatePiecesGame({ piece: new Piece() }));
         io
           .to(party._id)
-          .emit('action', claimPieceSuccess([getTetri(), getTetri()]));
+          .emit('action', claimPieceSuccess([new Piece(), new Piece()]));
         io.to(party._id).partyInterval = setInterval(() => {
           io.to(party._id).emit('action', movePieceServer(0));
         }, 1000);

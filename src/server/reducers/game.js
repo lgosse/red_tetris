@@ -11,7 +11,7 @@ import {
 
 // Actions
 import { claimPieceSuccess } from '../../client/actions/game/pieces';
-import { getTetri } from '../Tetri';
+import Piece from '../models/Piece';
 import { updateScore } from '../../client/actions/game/score';
 import { updateParty } from '../../client/actions/party';
 import { alert } from '../../client/actions/alert';
@@ -23,7 +23,7 @@ import mongoose from 'mongoose';
 const game = async (action, io, socket) => {
   switch (action.type) {
     case GAME_PIECES_CLAIM_PIECE: {
-      io.to(socket.partyId).emit('action', claimPieceSuccess(getTetri()));
+      io.to(socket.partyId).emit('action', claimPieceSuccess(new Piece()));
 
       break;
     }
