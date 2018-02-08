@@ -3,7 +3,6 @@ import {
   GAME_PIECES_PIECE_ROTATE,
   GAME_MODS_SET
 } from '../../actionsTypes';
-import { deleteLinesF } from '../reducers/game/utils';
 import {
   movePieceSuccess,
   rotatePieceSuccess,
@@ -16,7 +15,8 @@ import {
   testCollision,
   gridZero,
   checkLines,
-  isMod
+  isMod,
+  deleteLinesF
 } from '../reducers/game/utils';
 import {
   updateBoard,
