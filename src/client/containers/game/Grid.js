@@ -111,7 +111,7 @@ export const mapDispatchToGridProps = dispatch => {
       dispatch(rotatePiece(-1));
       break;
     case 69: // E
-      endAnimation(board.grid);
+      endAnimation(board);
       break;
     default:
       break;
@@ -132,13 +132,12 @@ export const mapDispatchToGridProps = dispatch => {
 
   //  watch(player.end, () => endAnimation());
 
-  const endAnimationSub = (board, grid, ox) => {
-    let y;
-    let x = ox % grid[0].length;
-    for (y = grid.length - 1 - parseInt(ox / grid[0].length); x >= 0; y--) {
+  const endAnimationSub = (board, grid, x, y) => {
+    while (x >= 0) {
       grid[grid.length - 1 - y][grid[0].length - 1 - x] = 8;
       grid[y][x] = 8;
       x--;
+      y--;
     }
     return grid;
   };
@@ -147,11 +146,16 @@ export const mapDispatchToGridProps = dispatch => {
     let newGrid = [...board.grid];
     let newBoard = { ...board, grid: newGrid };
     let x = 0;
+    let y = board.grid.length - 1;
     let interval = setInterval(() => {
-      newBoard = { ...newBoard, grid: endAnimationSub(board, newGrid, x) };
+      newBoard = { ...newBoard, grid: endAnimationSub(board, newGrid, x, y) };
       dispatch(updateBoard(newBoard));
       x++;
-      if (x > newGrid[0].length * (newGrid.length / 2)) clearInterval(interval);
+      if (x === board.grid[0].length) {
+        y--;
+        x--;
+      }
+      if (y < board.grid.length / 2) clearInterval(interval);
     }, 100);
   };
 
