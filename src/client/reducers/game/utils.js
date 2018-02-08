@@ -61,7 +61,7 @@ export const checkLines = grid => {
   grid.forEach((line, y) => {
     let i = 0;
     line.forEach((col, x) => {
-      if (col !== 0) i++;
+      if (col > 0 && col < 10) i++;
     });
     if (i === grid[0].length) {
       lines.push(y);
@@ -73,7 +73,7 @@ export const checkLines = grid => {
   return lines;
 };
 
-export const deleteLines = (grid, lines) => {
+export const deleteLinesF = (grid, lines) => {
   let newGrid = [];
   let newLines = [...lines];
   let y;
@@ -95,6 +95,25 @@ export const deleteLines = (grid, lines) => {
   }
 
   return newGrid;
+};
+
+export const isMod = piece => {
+  const modTypes = {
+    "10": "bomb"
+  };
+  let type = -1;
+  piece.grid.findIndex(elem => {
+    return (
+      -1 !=
+      elem.findIndex(value => {
+        if (value >= 10) type = value;
+        return value >= 10;
+      })
+    );
+  });
+  if (type != -1)
+    return { type: modTypes[type], do: false, x: piece.x, y: piece.y };
+  else return null;
 };
 
 export const findPlace = (piece, grid, dir) => {
