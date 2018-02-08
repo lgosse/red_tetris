@@ -10,7 +10,7 @@ import { Party } from './partyList';
 import { updateParty } from '../../client/actions/party';
 import { alert } from '../../client/actions/alert';
 import { gridZero } from '../../client/reducers/game/utils';
-import { resetGame } from '../../client/actions/game/board';
+import { resetGame, blockLinesServer } from '../../client/actions/game/board';
 
 const game = async (action, io, socket) => {
   switch (action.type) {
@@ -31,6 +31,15 @@ const game = async (action, io, socket) => {
             : 100
         )
       );
+
+      if (action.payload.nbLinesDestroyed - 1 > 0) {
+        io
+          .to(socket.partyId)
+          .emit(
+            'action',
+            blockLinesServer(action.payload.nbLinesDestroyed - 1, socket.id)
+          );
+      }
 
       let party;
       try {

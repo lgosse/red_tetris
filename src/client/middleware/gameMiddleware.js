@@ -1,7 +1,8 @@
 import {
   GAME_PIECES_PIECE_MOVE_SERVER,
   GAME_PIECES_PIECE_ROTATE_SERVER,
-  GAME_MODS_SET
+  GAME_MODS_SET,
+  GAME_BOARD_BLOCK_LINES_SERVER
 } from '../../actionsTypes';
 import {
   updatePiecesGame,
@@ -21,7 +22,8 @@ import {
 import {
   updateBoard,
   deleteLines,
-  notifyGridUpdate
+  notifyGridUpdate,
+  blockLines
 } from '../actions/game/board';
 import { gameLose } from '../actions/game/game';
 
@@ -35,6 +37,12 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
 
     case GAME_PIECES_PIECE_ROTATE_SERVER: {
       dispatch(rotatePiece(action.direction));
+
+      break;
+    }
+
+    case GAME_BOARD_BLOCK_LINES_SERVER: {
+      dispatch(blockLines(action.payload));
 
       break;
     }

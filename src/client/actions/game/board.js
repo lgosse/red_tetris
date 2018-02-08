@@ -1,7 +1,8 @@
 import {
   GAME_BOARD_UPDATE,
   GAME_BOARD_DELETE_LINES,
-  GAME_BOARD_NOTIFY_GRID_UPDATE
+  GAME_BOARD_NOTIFY_GRID_UPDATE,
+  GAME_BOARD_BLOCK_LINES_SERVER
 } from '../../../actionsTypes';
 
 export const updateBoard = board => ({
@@ -53,4 +54,44 @@ export const endParty = board => (dispatch, getState) => {
       if (y < board.grid.length / 2) clearInterval(interval);
     }, 100);
   }
+};
+
+export const blockLinesServer = (nbLines, except) => ({
+  type: GAME_BOARD_BLOCK_LINES_SERVER,
+  payload: {
+    nbLines,
+    except
+  }
+});
+
+export const blockLines = ({ nbLines, except }) => (dispatch, getState) => {
+  console.group('BLOCKLINES');
+  const state = getState();
+  const socketId = state.player.socketId;
+  const grid = state.game.board.grid;
+  console.log('[EXCEPT]', except);
+  console.log('[NBLINES]', nbLines);
+  console.log('[SOCKETID]', socketId);
+  console.log('[OLDGRID]', grid);
+  console.log(
+    '[NEWGRID]',
+    grid
+      .slice(nbLines)
+      .concat(
+        [...Array(nbLines)].map(_ => [...Array(grid[0].length)].map(_ => -1))
+      )
+  );
+  if (except === socketId) return;
+
+  dispatch(
+    updateBoard({
+      grid: grid
+        .slice(nbLines)
+        .concat(
+          [...Array(nbLines)].map(_ => [...Array(grid[0].length)].map(_ => -1))
+        )
+    })
+  );
+  dispatch(notifyGridUpdate(getState().game.board.grid, 0));
+  console.groupEnd('BLOCKLINES');
 };
