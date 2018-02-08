@@ -155,33 +155,6 @@ export const mapDispatchToGridProps = dispatch => {
     dispatch(endParty({ ...board, ending: false }));
   };
 
-  // const endAnimationSub = (board, grid, x, y) => {
-  //   while (x >= 0) {
-  //     grid[grid.length - 1 - y][grid[0].length - 1 - x] = 8;
-  //     grid[y][x] = 8;
-  //     x--;
-  //     y--;
-  //   }
-  //   return grid;
-  // };
-
-  // const endAnimation = board => {
-  //   let newGrid = [...board.grid];
-  //   let newBoard = { ...board, grid: newGrid };
-  //   let x = 0;
-  //   let y = board.grid.length - 1;
-  //   let interval = setInterval(() => {
-  //     newBoard = { ...newBoard, grid: endAnimationSub(board, newGrid, x, y) };
-  //     dispatch(updateBoard(newBoard));
-  //     x++;
-  //     if (x === board.grid[0].length) {
-  //       y--;
-  //       x--;
-  //     }
-  //     if (y < board.grid.length / 2) clearInterval(interval);
-  //   }, 100);
-  // };
-
   return { rotateit, endGame };
 };
 
