@@ -1,7 +1,7 @@
-import React from "react";
-import global from "../../styles/global";
-import styled from "styled-components";
-import { FlexContainer, FullSizeContainer } from "../helpers/Common";
+import React from 'react';
+import global from '../../styles/global';
+import styled from 'styled-components';
+import { FlexContainer, FullSizeContainer } from '../helpers/Common';
 
 const MapVoid = styled.div`
   flex: 1;

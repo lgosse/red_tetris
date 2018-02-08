@@ -1,6 +1,18 @@
 export const gridZero = (sizeX, sizeY) =>
   [...Array(sizeY ? sizeY : sizeX)].map(() => [...Array(sizeX)].map(() => 0));
 
+const calcWeight = grid => {
+  let weight = 0;
+  grid.forEach((line, y) => {
+    line.forEach((col, x) => {
+      if (col !== 0) weight += x - parseInt(grid.length / 2);
+    });
+  });
+  if (weight > 0) weight = -1;
+  else if (weight < 0) weight = 1;
+  return weight;
+};
+
 export const testCollision = (piece, grid) => {
   let collisionLocation = 0;
   let collision = false;
@@ -36,9 +48,6 @@ export const gridFusion = (piece, grid) => {
   piece.grid.forEach((line, y) => {
     line.forEach((col, x) => {
       if (col != 0) {
-        // if (newGrid[y + piece.y][x + piece.x] > 0) {
-        //   return null;
-        // }
         newGrid[y + piece.y][x + piece.x] = col;
       }
     });
