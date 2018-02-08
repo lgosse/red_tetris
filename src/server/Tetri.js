@@ -6,10 +6,13 @@ const tetriminos = {
   5: [[0, 5, 5], [5, 5, 0], [0, 0, 0]],
   6: [[0, 6, 0], [6, 6, 6], [0, 0, 0]],
   7: [[7, 7, 0], [0, 7, 7], [0, 0, 0]]
+  //8: [[10]]
 };
 
+const nbTetriminos = 7;
+
 export const getTetri = () => ({
-  grid: tetriminos[Math.trunc(Math.random() * 7 + 1)],
+  grid: tetriminos[Math.trunc(Math.random() * nbTetriminos + 1)],
   x: 4,
   y: 0
 });

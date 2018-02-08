@@ -1,9 +1,11 @@
-import React from 'react';
-import gameStyle from '../../styles/gameStyle';
-import Square from './Square';
+import React from "react";
+import gameStyle from "../../styles/gameStyle";
+import Square from "./Square";
+
+import { isMod } from "../../reducers/game/utils";
 
 const Line = ({ line }) => (
-  <div style={{ display: 'flex' }}>
+  <div style={{ display: "flex" }}>
     {line.map(
       (square, index) =>
         square ? (
@@ -12,8 +14,8 @@ const Line = ({ line }) => (
           <div
             key={index}
             style={{
-              width: '4vh',
-              height: '4vh'
+              width: "4vh",
+              height: "4vh"
             }}
           />
         )
@@ -21,13 +23,13 @@ const Line = ({ line }) => (
   </div>
 );
 
-export const Bomb = ({ tetri, position }) => (
+const Bomb = ({ tetri, position }) => (
   <div style={gameStyle.pieces.all(position)}>
     <div
       style={{
-        display: 'flex',
-        animation: gameStyle.animations.bomb + ' 0.2s infinite',
-        animationDirection: 'alternate'
+        display: "flex",
+        animation: gameStyle.animations.bomb + " 0.2s infinite",
+        animationDirection: "alternate"
       }}
     >
       <div style={gameStyle.bomb.all} />
@@ -35,10 +37,10 @@ export const Bomb = ({ tetri, position }) => (
       <div style={gameStyle.bomb.reflect} />
       <div
         style={{
-          position: 'absolute',
-          transform: 'rotate(-10deg)',
-          animation: gameStyle.animations.fire + ' 0.1s infinite',
-          animationDirection: 'alternate'
+          position: "absolute",
+          transform: "rotate(-10deg)",
+          animation: gameStyle.animations.fire + " 0.1s infinite",
+          animationDirection: "alternate"
         }}
       >
         <div style={gameStyle.bomb.fire} />
@@ -75,3 +77,17 @@ export const Tetri = ({ tetri, position }) => (
     {reduceTetri(tetri).map((line, index) => <Line key={index} line={line} />)}
   </div>
 );
+
+export const Tetri = ({ tetri, position }) => {
+  if (!position) position = { x: 0, y: 0 };
+  const mod = isMod({ grid: tetri, x: position.x, y: position.y });
+  if (mod && mod.type === "bomb")
+    return <Bomb tetri={tetri} position={position} />;
+  return (
+    <div style={gameStyle.pieces.all(position)}>
+      {reduceTetri(tetri).map((line, index) => (
+        <Line key={index} line={line} />
+      ))}
+    </div>
+  );
+};

@@ -22,6 +22,7 @@ export const PARTY_START = 'server/party-toggle-playing';
 export const PLAYER_UPDATE = 'PLAYER_UPDATE';
 export const PLAYER_SAVE = 'PLAYER_SAVE';
 export const PLAYER_GET = 'PLAYER_GET';
+
 // Game actions
 export const GAME_PIECES_PIECE_ROTATE = 'GAME_PIECES_PIECE_ROTATE';
 export const GAME_PIECES_PIECE_ROTATE_SUCCESS =
@@ -38,6 +39,7 @@ export const GAME_BOARD_UPDATE = 'GAME_BOARD_UPDATE';
 
 export const GAME_LOSE = 'server/game-lose';
 export const GAME_RESET = 'GAME_RESET';
+export const GAME_MODS_SET = 'GAME_MODS_SET';
 
 export const GAME_SCORE_UPDATE = 'GAME_SCORE_UPDATE';
 

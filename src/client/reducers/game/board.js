@@ -1,20 +1,25 @@
 import {
   GAME_BOARD_DELETE_LINES,
   GAME_PIECES_PIECE_MOVE,
+<<<<<<< HEAD
   GAME_BOARD_UPDATE,
   GAME_LOSE,
   PARTY_LEFT,
   GAME_RESET
 } from '../../../actionsTypes';
+=======
+  GAME_BOARD_UPDATE
+} from "../../../actionsTypes";
+>>>>>>> 5862a3f7cce93a2df257c296e7d93a08e69d08b0
 import {
   gridFusion,
   checkLines,
   testCollision,
   gridZero,
-  deleteLines
-} from './utils';
-import { notifyGridUpdate } from '../../actions/game/board';
-import { socket } from '../../index';
+  deleteLinesF
+} from "./utils";
+import { notifyGridUpdate } from "../../actions/game/board";
+import { socket } from "../../index";
 
 const initialState = {
   grid: gridZero(10, 20),
@@ -33,7 +38,7 @@ const board = (state = initialState, action) => {
 
     case GAME_BOARD_DELETE_LINES: {
       if (state.lines !== null) {
-        const newGrid = deleteLines(state.grid, state.lines);
+        const newGrid = deleteLinesF(state.grid, state.lines);
         return {
           ...state,
           grid: newGrid,

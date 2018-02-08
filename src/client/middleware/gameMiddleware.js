@@ -1,7 +1,9 @@
 import {
   GAME_PIECES_PIECE_MOVE,
-  GAME_PIECES_PIECE_ROTATE
+  GAME_PIECES_PIECE_ROTATE,
+  GAME_MODS_SET
 } from '../../actionsTypes';
+import { deleteLinesF } from '../reducers/game/utils';
 import {
   movePieceSuccess,
   rotatePieceSuccess,
@@ -13,7 +15,8 @@ import {
   findPlace,
   testCollision,
   gridZero,
-  checkLines
+  checkLines,
+  isMod
 } from '../reducers/game/utils';
 import {
   updateBoard,
@@ -46,6 +49,8 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
         let lines = newGrid ? checkLines(newGrid) : null;
 
         if (newGrid) {
+          let mod;
+          if ((mod = isMod(pieces.piece)) !== null) dispatch(setMod(mod));
           dispatch(
             updateBoard({
               grid: newGrid,
@@ -109,6 +114,25 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
         );
       }
 
+      break;
+    }
+
+    case GAME_MODS_SET: {
+      const { game: { board: { grid } } } = getState();
+      if (!action.mod || !action.mod.do) break;
+
+      switch (action.mod.type) {
+        case 'bomb': {
+          let newGrid = deleteLinesF(grid, [action.mod.y]);
+          newGrid = newGrid.map(line => {
+            line[action.mod.x] = 0;
+          });
+          dispatch(updateBoard({ grid: newGrid }));
+          break;
+        }
+        default:
+          break;
+      }
       break;
     }
 
