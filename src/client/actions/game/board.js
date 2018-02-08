@@ -65,22 +65,9 @@ export const blockLinesServer = (nbLines, except) => ({
 });
 
 export const blockLines = ({ nbLines, except }) => (dispatch, getState) => {
-  console.group('BLOCKLINES');
   const state = getState();
   const socketId = state.player.socketId;
   const grid = state.game.board.grid;
-  console.log('[EXCEPT]', except);
-  console.log('[NBLINES]', nbLines);
-  console.log('[SOCKETID]', socketId);
-  console.log('[OLDGRID]', grid);
-  console.log(
-    '[NEWGRID]',
-    grid
-      .slice(nbLines)
-      .concat(
-        [...Array(nbLines)].map(_ => [...Array(grid[0].length)].map(_ => -1))
-      )
-  );
   if (except === socketId) return;
 
   dispatch(
@@ -93,5 +80,4 @@ export const blockLines = ({ nbLines, except }) => (dispatch, getState) => {
     })
   );
   dispatch(notifyGridUpdate(getState().game.board.grid, 0));
-  console.groupEnd('BLOCKLINES');
 };
