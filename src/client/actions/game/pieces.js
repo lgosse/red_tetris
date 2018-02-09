@@ -5,18 +5,19 @@ import {
   GAME_PIECES_PIECE_MOVE_SUCCESS,
   GAME_PIECES_PIECE_ROTATE_SUCCESS,
   GAME_PIECES_PIECE_MOVE_SERVER
-} from '../../../actionsTypes';
+} from "../../../actionsTypes";
 import {
   gridFusion,
   checkLines,
   isMod,
   testCollision,
   gridZero,
-  findPlace
-} from '../../reducers/game/utils';
-import { setMod } from './mods';
-import { updateBoard, deleteLines, notifyGridUpdate, endParty } from './board';
-import { gameLose } from './game';
+  findPlace,
+  deleteBomb
+} from "../../reducers/game/utils";
+import { setMod, useMod } from "./mods";
+import { updateBoard, deleteLines, notifyGridUpdate, endParty } from "./board";
+import { gameLose } from "./game";
 
 export const updatePiecesGame = pieces => ({
   type: GAME_PIECES_UPDATE,
@@ -78,6 +79,7 @@ export const movePiece = direction => (dispatch, getState) => {
     if (newGrid) {
       let mod;
       if ((mod = isMod(pieces.piece)) !== null) dispatch(setMod(mod));
+      console.log("dispatch", mod);
       dispatch(
         updateBoard({
           grid: newGrid,
@@ -94,6 +96,15 @@ export const movePiece = direction => (dispatch, getState) => {
       dispatch(claimPiece());
       setTimeout(() => {
         dispatch(deleteLines());
+        if (mod) {
+          dispatch(
+            updateBoard({
+              grid: deleteBomb(mod, newGrid),
+              lines
+            })
+          );
+          dispatch(setMod(null));
+        }
         dispatch(
           notifyGridUpdate(getState().game.board.grid, lines ? lines.length : 0)
         );

@@ -1,21 +1,21 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import styled, { keyframes } from 'styled-components';
-import Square from '../../components/game/Square';
+import React from "react";
+import { connect } from "react-redux";
+import styled, { keyframes } from "styled-components";
+import Square from "../../components/game/Square";
 
 // import Pieces from '../../components/game/Pieces';
-import { Tetri, Bomb } from '../../components/game/Tetri';
-import gameStyle from '../../styles/gameStyle';
-import globalStyle from '../../styles/global';
+import { Tetri, Bomb } from "../../components/game/Tetri";
+import gameStyle from "../../styles/gameStyle";
+import globalStyle from "../../styles/global";
 import {
   rotatePiece,
   movePiece,
   updatePlayer,
   claimPiece
-} from '../../actions/game/pieces';
-import { deleteLines, endParty } from '../../actions/game/board';
-import { updateBoard } from '../../actions/game/board';
-import { setMod } from '../../actions/game/mods';
+} from "../../actions/game/pieces";
+import { deleteLines, endParty } from "../../actions/game/board";
+import { updateBoard } from "../../actions/game/board";
+import { setMod } from "../../actions/game/mods";
 
 const Calque = ({ board, piece }) => {
   if (board.end === true) {
@@ -23,11 +23,11 @@ const Calque = ({ board, piece }) => {
       <div
         style={{
           ...gameStyle.calque,
-          textAlign: 'center',
-          marginTop: '35vh',
-          fontSize: '5vh',
+          textAlign: "center",
+          marginTop: "35vh",
+          fontSize: "5vh",
           fontFamily: globalStyle.font.family.game,
-          color: 'white'
+          color: "white"
         }}
       >
         YOU LOOSE
@@ -52,10 +52,21 @@ export const Grid = ({ party, board, pieces, mods, rotateit, endGame }) => {
 
     if (mods) {
       switch (mods.type) {
-        case 'bomb': {
+        case "bomb": {
           return (
-            <div style={gameStyle.line} key={i}>
-              <div style={gameStyle.bomb(mods.x, mods.y)} />
+            <div style={{ ...gameStyle.line, position: "relative" }} key={i}>
+              {i === mods.y ? (
+                <div style={gameStyle.bomb.explode(mods.x, mods.y, 0)} />
+              ) : (
+                <div />
+              )}
+              <div
+                style={gameStyle.bomb.explode(
+                  mods.x,
+                  mods.y,
+                  i === mods.y ? 2 : 1
+                )}
+              />
               {cols}
             </div>
           );
@@ -87,7 +98,7 @@ export const Grid = ({ party, board, pieces, mods, rotateit, endGame }) => {
 
   return (
     <div
-      tabIndex={'0'}
+      tabIndex={"0"}
       onKeyDown={e => rotateit(e, pieces.piece, board)}
       style={gameStyle.grid}
     >
@@ -99,8 +110,7 @@ export const Grid = ({ party, board, pieces, mods, rotateit, endGame }) => {
 
 export const mapStateToGridProps = ({
   party,
-  game: { board, pieces },
-  mods
+  game: { board, pieces, mods }
 }) => ({
   party,
   board,

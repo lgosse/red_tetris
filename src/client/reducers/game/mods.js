@@ -1,9 +1,11 @@
 import { GAME_MODS_SET } from "../../../actionsTypes";
 
-const mods = (state = null) => {
+const mods = (state = {}, action) => {
   switch (action.type) {
     case GAME_MODS_SET: {
-      return action.mod;
+      return {
+        ...action.mod
+      };
     }
 
     default:

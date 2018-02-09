@@ -116,6 +116,15 @@ export const isMod = piece => {
   else return null;
 };
 
+export const deleteBomb = (mod, grid) => {
+  if (!mod) return grid;
+  let newGrid = deleteLinesF(grid, [mod.y]);
+  newGrid.forEach((line, i) => {
+    newGrid[i][mod.x] = 0;
+  });
+  return newGrid;
+};
+
 export const findPlace = (piece, grid, dir) => {
   if (dir > piece.grid.length / 2 || dir < -piece.grid.length / 2) return null;
   let test;
