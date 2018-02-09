@@ -2,7 +2,7 @@ import RankingModel from '../models/Ranking';
 import { RANKINGS_LIST } from '../../actionsTypes';
 import { getRankingsSuccess } from '../../client/actions/rankings';
 
-export const rankingList = async (action, io, socket) => {
+const rankingList = async (action, io, socket) => {
   switch (action.type) {
     case RANKINGS_LIST: {
       let rankingList;
@@ -24,3 +24,5 @@ export const rankingList = async (action, io, socket) => {
       return;
   }
 };
+
+export default rankingList;

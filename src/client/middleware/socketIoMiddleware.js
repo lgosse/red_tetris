@@ -30,6 +30,7 @@ const roomHandler = (socket, action, dispatch, getState) => {
   switch (action.payload.pathname) {
     case '/ranking':
       socket.emit('action', getRankings());
+      break;
     case '/party-list':
       socket.emit('action', getParties());
       break;

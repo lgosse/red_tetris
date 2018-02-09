@@ -119,22 +119,22 @@ const game = async (action, io, socket) => {
         }
 
         clearInterval(io.to(party._id).partyInterval);
-        setTimeout(async () => {
-          party.stopGame();
+        party.stopGame();
+        setTimeout(() => {
           try {
-            await party.save();
-            io.to(party._id).emit('action', updateParty(party));
+            party.save();
           } catch (error) {
             console.error(error);
           }
+          io.to(party._id).emit('action', updateParty(party));
         }, 5000);
       } else {
         try {
           await party.save();
-          io.to(party._id).emit('action', updateParty(party));
         } catch (error) {
           console.error(error);
         }
+        io.to(party._id).emit('action', updateParty(party));
       }
 
       break;
