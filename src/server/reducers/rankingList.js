@@ -1,13 +1,14 @@
 import RankingModel from '../models/Ranking';
 import { RANKINGS_LIST } from '../../actionsTypes';
-import { getRankingsSuccess } from '../../client/actions/rankings';
+import { getRankingListSuccess } from '../../client/actions/rankings';
+import { alert } from '../../client/actions/alert';
 
 const rankingList = async (action, io, socket) => {
   switch (action.type) {
     case RANKINGS_LIST: {
       let rankingList;
       try {
-        await RankingModel.findHighestRankings().exec();
+        rankingList = await RankingModel.findHighestRankings().exec();
       } catch (error) {
         console.error(error);
       }
@@ -17,7 +18,7 @@ const rankingList = async (action, io, socket) => {
         return;
       }
 
-      socket.emit('action', getRankingsSuccess(rankingList));
+      socket.emit('action', getRankingListSuccess(rankingList));
     }
 
     default:

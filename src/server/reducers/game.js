@@ -21,6 +21,7 @@ import { resetGame, blockLinesServer } from '../../client/actions/game/board';
 
 import mongoose from 'mongoose';
 import { notifyGameOver } from '../../client/actions/game/game';
+import { getRankingListSuccess } from '../../client/actions/rankings';
 
 const game = async (action, io, socket) => {
   switch (action.type) {
@@ -114,7 +115,7 @@ const game = async (action, io, socket) => {
             .to(party._id)
             .emit(
               'action',
-              notifyGameOver(party.findAlivePlayers()[0].nickname)
+              alert(`${party.findAlivePlayers()[0].nickname} has won the game`)
             );
         }
 
@@ -127,7 +128,7 @@ const game = async (action, io, socket) => {
             console.error(error);
           }
           io.to(party._id).emit('action', updateParty(party));
-        }, 5000);
+        }, 3000);
       } else {
         try {
           await party.save();

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled, { keyframes } from 'styled-components';
 import Square from '../../components/game/Square';
+import { Paragraph } from '../../components/helpers/Common';
 
 // import Pieces from '../../components/game/Pieces';
 import { Tetri, Bomb } from '../../components/game/Tetri';
@@ -13,7 +14,12 @@ import {
   updatePlayer,
   claimPiece
 } from '../../actions/game/pieces';
-import { deleteLines, endParty } from '../../actions/game/board';
+import {
+  deleteLines,
+  endParty,
+  gridHasFocus,
+  gridLoseFocus
+} from '../../actions/game/board';
 import { updateBoard } from '../../actions/game/board';
 import { setMod } from '../../actions/game/mods';
 
@@ -44,7 +50,16 @@ const Calque = ({ board, piece }) => {
   }
 };
 
-export const Grid = ({ party, board, pieces, mods, rotateit, endGame }) => {
+export const Grid = ({
+  party,
+  board,
+  pieces,
+  mods,
+  rotateit,
+  endGame,
+  onFocus,
+  onBlur
+}) => {
   const grid = board.grid.map((line, i) => {
     const cols = line.map((col, j) => {
       return <Square color={col} key={j} />;
@@ -85,12 +100,43 @@ export const Grid = ({ party, board, pieces, mods, rotateit, endGame }) => {
     endGame(board);
   }
 
+  const refCallback = ref =>
+    board.hasFocusedOnce === false && ref && ref.focus();
+
   return (
     <div
       tabIndex={'0'}
       onKeyDown={e => rotateit(e, pieces.piece, board)}
-      style={gameStyle.grid}
+      id="game"
+      ref={refCallback}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      style={{
+        ...gameStyle.grid,
+        outline: 'none'
+      }}
     >
+      {!board.focus ? (
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            position: 'relative',
+            marginBottom: '-200%',
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <Paragraph gameFont size="12px" bold color="accent">
+            CLICK TO PLAY
+          </Paragraph>
+        </div>
+      ) : (
+        <div />
+      )}
+
       <Calque board={board} piece={pieces.piece} />
       {grid}
     </div>
@@ -115,36 +161,36 @@ export const mapDispatchToGridProps = dispatch => {
     switch (event.keyCode) {
       case 39: // RIGHT
         dispatch(movePiece(1));
-        event.stopPropagation();
         event.preventDefault();
+        event.stopPropagation();
         break;
       case 37: // LEFT
         dispatch(movePiece(-1));
-        event.stopPropagation();
         event.preventDefault();
+        event.stopPropagation();
         break;
       case 40: // DOWN
         dispatch(movePiece(0));
-        event.stopPropagation();
         event.preventDefault();
+        event.stopPropagation();
         break;
       case 32: // SPACE
         break;
       case 38:
       case 68: // UP or D
         dispatch(rotatePiece(1));
-        event.stopPropagation();
         event.preventDefault();
+        event.stopPropagation();
         break;
       case 65: // A
         dispatch(rotatePiece(-1));
-        event.stopPropagation();
         event.preventDefault();
+        event.stopPropagation();
         break;
       case 69: // E
         endGame(board);
-        event.stopPropagation();
         event.preventDefault();
+        event.stopPropagation();
         break;
       default:
         break;
@@ -155,7 +201,10 @@ export const mapDispatchToGridProps = dispatch => {
     dispatch(endParty({ ...board, ending: false }));
   };
 
-  return { rotateit, endGame };
+  const onFocus = () => dispatch(gridHasFocus());
+  const onBlur = () => dispatch(gridLoseFocus());
+
+  return { rotateit, endGame, onFocus, onBlur };
 };
 
 export default connect(mapStateToGridProps, mapDispatchToGridProps)(Grid);
