@@ -1,6 +1,7 @@
 // Models
 import GameModel from '../models/Game';
 import Player from '../models/Player';
+import RankingModel, { Ranking } from '../models/Ranking';
 
 // Action Types
 import {
@@ -19,6 +20,7 @@ import { gridZero } from '../../client/reducers/game/utils';
 import { resetGame, blockLinesServer } from '../../client/actions/game/board';
 
 import mongoose from 'mongoose';
+import { notifyGameOver } from '../../client/actions/game/game';
 
 const game = async (action, io, socket) => {
   switch (action.type) {
@@ -55,15 +57,11 @@ const game = async (action, io, socket) => {
       } catch (error) {
         console.error(error);
       }
-
       if (!party) return;
 
-      party.players = party.players.map(player => {
-        if (player.socketId === socket.id) {
-          player.map = action.payload.grid;
-        }
-
-        return player;
+      party.updatePlayer({
+        socketId: socket.id,
+        map: action.payload.grid
       });
 
       try {
@@ -84,11 +82,14 @@ const game = async (action, io, socket) => {
         console.error(error);
       }
 
-      if (!party)
+      if (!party) {
         socket.emit(
           'action',
           alert('An error occured, refresh and try again.')
         );
+
+        return;
+      }
 
       party.updatePlayer({
         socketId: socket.id,
@@ -96,14 +97,30 @@ const game = async (action, io, socket) => {
         lose: true
       });
 
-      if (
-        party.findAlivePlayers().length >= party.players.length - 1 &&
-        party.solo === false
-      ) {
-        io.to(party._id).emit('action', alert('PLAYER HAS WON'));
+      if (party.isOver()) {
+        if (party.solo === true) {
+          try {
+            await new RankingModel(
+              new Ranking({
+                score: action.score + 100,
+                playerName: party.getPlayerBySocketId(socket.id).nickname
+              })
+            ).save();
+          } catch (error) {
+            console.error(error);
+          }
+        } else {
+          io
+            .to(party._id)
+            .emit(
+              'action',
+              notifyGameOver(party.findAlivePlayers()[0].nickname)
+            );
+        }
+
         clearInterval(io.to(party._id).partyInterval);
         setTimeout(async () => {
-          party.playing = false;
+          party.stopGame();
           try {
             await party.save();
             io.to(party._id).emit('action', updateParty(party));
@@ -111,24 +128,13 @@ const game = async (action, io, socket) => {
             console.error(error);
           }
         }, 5000);
-      } else if (party.solo === true) {
-        party.stopGame();
+      } else {
         try {
           await party.save();
-          clearInterval(io.to(party._id).partyInterval);
           io.to(party._id).emit('action', updateParty(party));
         } catch (error) {
           console.error(error);
         }
-
-        // @TODO save score
-      }
-
-      try {
-        await party.save();
-        io.to(party._id).emit('action', updateParty(party));
-      } catch (error) {
-        console.error(error);
       }
 
       break;

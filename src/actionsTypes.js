@@ -23,6 +23,9 @@ export const PLAYER_UPDATE = 'PLAYER_UPDATE';
 export const PLAYER_SAVE = 'PLAYER_SAVE';
 export const PLAYER_GET = 'PLAYER_GET';
 
+export const RANKINGS_LIST = 'server/ranking-list';
+export const RESPONSE_RANKINGS_LIST = 'RESPONSE_RANKINGS_LIST';
+
 // Game actions
 export const GAME_PIECES_PIECE_ROTATE_SERVER =
   'GAME_PIECES_PIECE_ROTATE_SERVER';
@@ -41,6 +44,8 @@ export const GAME_BOARD_NOTIFY_GRID_UPDATE = 'server/notify-grid-update';
 export const GAME_BOARD_UPDATE = 'GAME_BOARD_UPDATE';
 
 export const GAME_LOSE = 'server/game-lose';
+export const GAME_NOTIFY_GAME_OVER = 'GAME_NOTIFY_GAME_OVER';
+export const GAME_NOTIFY_GAME_OVER_RESET = 'GAME_NOTIFY_GAME_OVER_RESET';
 export const GAME_MODS_SET = 'GAME_MODS_SET';
 
 export const GAME_SCORE_UPDATE = 'GAME_SCORE_UPDATE';

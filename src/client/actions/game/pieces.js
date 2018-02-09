@@ -15,7 +15,7 @@ import {
   findPlace
 } from '../../reducers/game/utils';
 import { setMod } from './mods';
-import { updateBoard, deleteLines, notifyGridUpdate } from './board';
+import { updateBoard, deleteLines, notifyGridUpdate, endParty } from './board';
 import { gameLose } from './game';
 
 export const updatePiecesGame = pieces => ({
@@ -107,6 +107,7 @@ export const movePiece = direction => (dispatch, getState) => {
 export const rotatePiece = direction => (dispatch, getState) => {
   const { game: { board: { grid }, pieces: { piece } } } = getState();
 
+  if (!piece) return;
   let newGrid = gridZero(piece.grid.length);
 
   piece.grid.forEach((line, y) => {

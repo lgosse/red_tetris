@@ -7,10 +7,10 @@ const rankingSchema = new mongoose.Schema({
 });
 
 class Ranking {
-  constructor(ranking) {
+  constructor({ score, playerName }) {
     this.date = new Date();
-    this.score = ranking.score;
-    playerName = ranking.playerName;
+    this.score = score;
+    this.playerName = playerName;
   }
 
   static findHighestRankings() {

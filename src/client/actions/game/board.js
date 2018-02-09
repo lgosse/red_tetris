@@ -33,7 +33,7 @@ const endAnimationSub = (board, grid, x, y) => {
 };
 
 export const endParty = board => (dispatch, getState) => {
-  if (board.ending && getState().party.playing === true) {
+  if (getState().party.playing === true) {
     let newGrid = [...board.grid];
     let newBoard = { ...board, grid: newGrid };
     let x = 0;

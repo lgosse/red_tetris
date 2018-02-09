@@ -9,11 +9,17 @@ const playerSchema = new mongoose.Schema({
 });
 
 class Player {
-  constructor(player) {
-    this.nickname = player.nickname;
-    this.socketId = player.socketId;
+  constructor({ nickname, socketId }) {
+    this.nickname = nickname;
+    this.socketId = socketId;
     this.map = gridZero(10, 20);
     this.lose = false;
+  }
+
+  update(newPlayer) {
+    Object.keys(newPlayer).forEach(key => {
+      this[key] = newPlayer[key];
+    });
   }
 }
 

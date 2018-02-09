@@ -17,6 +17,7 @@ import {
 } from '../actions/party';
 import { getParties } from '../actions/partyList';
 import { savePlayer, getPlayer } from '../actions/player';
+import { getRankings } from '../actions/rankings';
 
 const roomHandler = (socket, action, dispatch, getState) => {
   if (action.type !== LOCATION_CHANGE) return;
@@ -27,6 +28,8 @@ const roomHandler = (socket, action, dispatch, getState) => {
   }
 
   switch (action.payload.pathname) {
+    case '/ranking':
+      socket.emit('action', getRankings());
     case '/party-list':
       socket.emit('action', getParties());
       break;

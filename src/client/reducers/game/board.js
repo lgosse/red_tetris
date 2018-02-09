@@ -4,7 +4,9 @@ import {
   GAME_BOARD_UPDATE,
   GAME_LOSE,
   PARTY_LEFT,
-  PARTY_START
+  PARTY_START,
+  GAME_NOTIFY_GAME_OVER,
+  GAME_NOTIFY_GAME_OVER_RESET
 } from '../../../actionsTypes';
 import {
   gridFusion,
@@ -20,7 +22,8 @@ const initialState = {
   grid: gridZero(10, 20),
   ending: false,
   end: false,
-  lines: null
+  lines: null,
+  winner: null
 };
 
 const board = (state = { ...initialState }, action) => {
@@ -54,6 +57,18 @@ const board = (state = { ...initialState }, action) => {
 
     case PARTY_LEFT:
       return initialState;
+
+    case GAME_NOTIFY_GAME_OVER:
+      return {
+        ...state,
+        winner: action.playerName
+      };
+
+    case GAME_NOTIFY_GAME_OVER_RESET:
+      return {
+        ...state,
+        winner: null
+      };
 
     case PARTY_START:
       return {

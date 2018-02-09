@@ -1,5 +1,3 @@
-import mongoose from 'mongoose';
-
 // Models
 import GameModel, { Game } from '../models/Game';
 import { Player } from '../models/Player';

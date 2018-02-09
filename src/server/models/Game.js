@@ -13,9 +13,9 @@ const gameSchema = mongoose.Schema({
 });
 
 class Game {
-  constructor(game) {
-    this.name = game.name;
-    this.size = game.size;
+  constructor({ name, size }) {
+    this.name = name;
+    this.size = size;
     this.open = false;
     this.playing = false;
     this.players = [];
@@ -49,11 +49,7 @@ class Game {
   updatePlayer(newPlayer) {
     this.players = this.players.map(player => {
       if (player.socketId === newPlayer.socketId) {
-        Object.keys(newPlayer).forEach(key => {
-          player[key] = newPlayer[key];
-        });
-
-        return player;
+        player.update(newPlayer);
       }
 
       return player;
@@ -66,6 +62,13 @@ class Game {
 
   getPlayerBySocketId(socketId) {
     return this.players.find(player => player.socketId === socketId);
+  }
+
+  isOver() {
+    return (
+      this.solo === true ||
+      this.findAlivePlayers().length >= this.players.length - 1
+    );
   }
 }
 

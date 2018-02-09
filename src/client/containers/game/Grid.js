@@ -142,7 +142,7 @@ export const mapDispatchToGridProps = dispatch => {
         event.preventDefault();
         break;
       case 69: // E
-        endAnimation(board);
+        endGame(board);
         event.stopPropagation();
         event.preventDefault();
         break;
