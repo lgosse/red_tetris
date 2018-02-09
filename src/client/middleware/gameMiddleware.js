@@ -1,128 +1,48 @@
 import {
-  GAME_PIECES_PIECE_MOVE,
-  GAME_PIECES_PIECE_ROTATE,
-  GAME_MODS_SET
-} from "../../actionsTypes";
-import { deleteLinesF } from "../reducers/game/utils";
+  GAME_PIECES_PIECE_MOVE_SERVER,
+  GAME_PIECES_PIECE_ROTATE_SERVER,
+  GAME_MODS_SET,
+  GAME_BOARD_BLOCK_LINES_SERVER
+} from '../../actionsTypes';
 import {
-  movePieceSuccess,
-  rotatePieceSuccess,
   updatePiecesGame,
-  claimPiece
-} from "../actions/game/pieces";
+  claimPiece,
+  movePiece,
+  rotatePiece
+} from '../actions/game/pieces';
 import {
   gridFusion,
   findPlace,
   testCollision,
   gridZero,
   checkLines,
-  isMod
-} from "../reducers/game/utils";
+  isMod,
+  deleteLinesF
+} from '../reducers/game/utils';
 import {
   updateBoard,
   deleteLines,
-  notifyGridUpdate
-} from "../actions/game/board";
+  notifyGridUpdate,
+  blockLines
+} from '../actions/game/board';
+import { gameLose } from '../actions/game/game';
 
 const gameMiddleware = ({ dispatch, getState }) => next => action => {
   switch (action.type) {
-    case GAME_PIECES_PIECE_MOVE: {
-      const { game: { board, pieces }, party } = getState();
-
-      if (!pieces.piece) break;
-
-      const pos = {
-        x: pieces.piece.x + action.direction,
-        y: action.direction === 0 ? pieces.piece.y + 1 : pieces.piece.y
-      };
-
-      if (!testCollision({ ...pieces.piece, ...pos }, board.grid).collide) {
-        dispatch(
-          movePieceSuccess({
-            ...pieces.piece,
-            ...pos
-          })
-        );
-      } else if (action.direction === 0) {
-        let newGrid = gridFusion(pieces.piece, board.grid);
-        let lines = newGrid ? checkLines(newGrid) : null;
-
-        if (newGrid) {
-          let mod;
-          if ((mod = isMod(pieces.piece)) !== null) dispatch(setMod(mod));
-          dispatch(
-            updateBoard({
-              grid: newGrid,
-              lines
-            })
-          );
-          dispatch(
-            updatePiecesGame({
-              ...pieces,
-              piece: pieces.next[0],
-              next: pieces.next.slice(1)
-            })
-          );
-          dispatch(claimPiece());
-          setTimeout(() => {
-            dispatch(deleteLines());
-            dispatch(
-              notifyGridUpdate(
-                getState().game.board.grid,
-                lines ? lines.length : 0
-              )
-            );
-          }, 600);
-        } else if (board.end !== true) {
-          dispatch(
-            updateBoard({
-              ending: true,
-              lines: null
-            })
-          );
-          dispatch(
-            updatePiecesGame({
-              ...pieces,
-              piece: null
-            })
-          );
-        }
-      }
+    case GAME_PIECES_PIECE_MOVE_SERVER: {
+      dispatch(movePiece(action.direction));
 
       break;
     }
 
-    case GAME_PIECES_PIECE_ROTATE: {
-      const { game: { board: { grid }, pieces: { piece } } } = getState();
+    case GAME_PIECES_PIECE_ROTATE_SERVER: {
+      dispatch(rotatePiece(action.direction));
 
-      let newGrid = gridZero(piece.grid.length);
+      break;
+    }
 
-      piece.grid.forEach((line, y) => {
-        line.forEach((col, x) => {
-          newGrid[
-            y +
-              (piece.grid.length - 1) * ((1 - action.direction) / 2) +
-              action.direction * x -
-              y
-          ][
-            x +
-              (piece.grid.length - 1) * ((action.direction + 1) / 2) -
-              x -
-              y * action.direction
-          ] = col;
-        });
-      });
-
-      const pos = findPlace({ ...piece, grid: newGrid }, grid, 0);
-      if (pos !== null) {
-        dispatch(
-          rotatePieceSuccess({
-            ...piece,
-            grid: newGrid,
-            ...pos
-          })
-        );
-      }
+    case GAME_BOARD_BLOCK_LINES_SERVER: {
+      dispatch(blockLines(action.payload));
 
       break;
     }
@@ -132,7 +52,7 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
       if (!action.mod || !action.mod.do) break;
 
       switch (action.mod.type) {
-        case "bomb": {
+        case 'bomb': {
           let newGrid = deleteLinesF(grid, [action.mod.y]);
           newGrid = newGrid.map(line => {
             line[action.mod.x] = 0;
@@ -143,6 +63,7 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
         default:
           break;
       }
+
       break;
     }
 

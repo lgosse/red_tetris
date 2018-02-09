@@ -1,26 +1,32 @@
 import {
   GAME_BOARD_DELETE_LINES,
   GAME_PIECES_PIECE_MOVE,
-  GAME_BOARD_UPDATE
-} from "../../../actionsTypes";
+  GAME_BOARD_UPDATE,
+  GAME_LOSE,
+  PARTY_LEFT,
+  PARTY_START,
+  GAME_NOTIFY_GAME_OVER,
+  GAME_NOTIFY_GAME_OVER_RESET
+} from '../../../actionsTypes';
 import {
   gridFusion,
   checkLines,
   testCollision,
   gridZero,
   deleteLinesF
-} from "./utils";
-import { notifyGridUpdate } from "../../actions/game/board";
-import { socket } from "../../index";
+} from './utils';
+import { notifyGridUpdate } from '../../actions/game/board';
+import { socket } from '../../index';
 
 const initialState = {
   grid: gridZero(10, 20),
   ending: false,
   end: false,
-  lines: null
+  lines: null,
+  winner: null
 };
 
-const board = (state = initialState, action) => {
+const board = (state = { ...initialState }, action) => {
   switch (action.type) {
     case GAME_BOARD_UPDATE:
       return {
@@ -41,36 +47,37 @@ const board = (state = initialState, action) => {
       return state;
     }
 
-    // case GAME_PIECES_PIECE_MOVE_SUCCESS: {
-    //   // if (!action.piece) return state;
-    //   // const pos = {
-    //   //   x: action.piece.x + action.direction,
-    //   //   y: action.direction === 0 ? action.piece.y + 1 : action.piece.y
-    //   // };
+    case GAME_LOSE: {
+      return {
+        ...state,
+        ending: true,
+        lines: null
+      };
+    }
 
-    //   // const res = testCollision({ ...action.piece, ...pos }, action.grid);
-    //   // if (res.collide) {
-    //   //   if (action.direction !== 0) return state;
+    case PARTY_LEFT:
+      return initialState;
 
-    //   //   let newGrid = gridFusion(action.piece, action.grid);
-    //   //   let lines = newGrid ? checkLines(newGrid) : null;
+    case GAME_NOTIFY_GAME_OVER:
+      return {
+        ...state,
+        winner: action.playerName
+      };
 
-    //   //   if (newGrid === null) return { ...state, lines, ending: true };
+    case GAME_NOTIFY_GAME_OVER_RESET:
+      return {
+        ...state,
+        winner: null
+      };
 
-    //   //   socket.emit(
-    //   //     'action',
-    //   //     notifyGridUpdate(newGrid, lines ? lines.length : 0)
-    //   //   );
-
-    //   //   return {
-    //   //     ...state,
-    //   //     grid: newGrid,
-    //   //     lines
-    //   //   };
-    //   // } else {
-    //   //   return state;
-    //   // }
-    // }
+    case PARTY_START:
+      return {
+        ...state,
+        grid: gridZero(10, 20),
+        ending: false,
+        end: false,
+        lines: null
+      };
 
     default:
       return state;

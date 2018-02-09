@@ -1,3 +1,8 @@
+// Models
+import GameModel, { Game } from '../models/Game';
+import { Player } from '../models/Player';
+
+// Action Types
 import {
   PARTY_LIST,
   RESPONSE_PARTY_LIST,
@@ -11,36 +16,24 @@ import {
   PARTY_START,
   PARTY_LEFT
 } from '../../actionsTypes';
+
+// Actions
 import { push } from 'react-router-redux';
-import mongoose from 'mongoose';
 import { updateParty } from '../../client/actions/party';
-import { claimPieceSuccess, movePiece } from '../../client/actions/game/pieces';
-import { getTetri } from '../Tetri';
+import {
+  claimPieceSuccess,
+  movePieceServer
+} from '../../client/actions/game/pieces';
+import Piece from '../models/Piece';
 import { updatePiecesGame } from '../../client/actions/game/pieces';
 import { gridZero } from '../../client/reducers/game/utils';
 
-export const Party = mongoose.model('Party', {
-  name: {
-    type: String,
-    unique: true
-  },
-  size: Number,
-  open: Boolean,
-  playing: Boolean,
-  players: [
-    {
-      nickname: String,
-      socketId: String,
-      map: [[Number]],
-      lose: Boolean
-    }
-  ]
-});
-
 export const userLeaves = async (io, socket) => {
+  if (!socket.partyId) return;
+
   let party;
   try {
-    party = await Party.findById(socket.partyId).exec();
+    party = await GameModel.findById(socket.partyId).exec();
   } catch (error) {
     console.error(error);
   }
@@ -50,19 +43,14 @@ export const userLeaves = async (io, socket) => {
     return;
   }
 
-  party.players = party.players.filter(player => {
-    if (player.socketId === socket.id) {
-      delete socket.partyId;
-      socket.leave(party._id, err => {
-        if (err) console.log(err);
-        socket.emit('action', { type: PARTY_LEFT });
-      });
-
-      return false;
-    }
-
-    return true;
-  });
+  if (party.getPlayerBySocketId(socket.id)) {
+    party.removePlayer(socket.id);
+    delete socket.partyId;
+    socket.leave(party._id, err => {
+      if (err) console.error(err);
+      socket.emit('action', { type: PARTY_LEFT });
+    });
+  }
 
   if (party.players.length === 0) {
     await party.remove();
@@ -79,7 +67,7 @@ export const userLeaves = async (io, socket) => {
 };
 
 export const getParties = async () => {
-  const partyList = await Party.find({}).exec();
+  const partyList = await GameModel.find({}).exec();
 
   return {
     type: RESPONSE_PARTY_LIST,
@@ -96,26 +84,29 @@ const partyList = async (action, io, socket) => {
 
     case PARTY_ADD: {
       let party;
+
       try {
-        party = await new Party({
-          ...action.party,
-          open: false,
-          playing: false
-        }).save();
+        party = await GameModel.findOne({ name: action.party.name }).exec();
       } catch (error) {
-        let message;
         console.error(error);
-        switch (error.code) {
-          case 11000:
-            message = 'This party name is not available! Choose another one.';
-            break;
-          default:
-            message = 'Cannot save the party';
-            break;
-        }
+      }
+
+      if (party) {
         socket.emit('action', {
           type: ALERT_POP,
-          message
+          message: 'This party name is not available! Choose another one.'
+        });
+
+        return;
+      }
+
+      try {
+        party = await new GameModel(new Game(action.party)).save();
+      } catch (error) {
+        console.error(error);
+        socket.emit('action', {
+          type: ALERT_POP,
+          message: 'An error occured. Cannot save the party'
         });
 
         break;
@@ -129,49 +120,61 @@ const partyList = async (action, io, socket) => {
     case PARTY_JOIN: {
       let party;
       try {
-        party = await Party.findOne({ name: action.party.name }).exec();
+        party = await GameModel.findOne({ name: action.party.name }).exec();
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
 
       let partyEdit;
       if (!party) {
-        partyEdit = await new Party({
-          ...action.party,
-          size: 10,
-          players: [],
-          open: false,
-          playing: false
-        }).save();
+        try {
+          partyEdit = await new GameModel(new Game(action.party));
+        } catch (error) {
+          console.error(error);
+        }
+
+        if (!partyEdit)
+          socket.emit('action', {
+            type: ALERT_POP,
+            message: 'A problem occured while trying to join your party.'
+          });
       } else {
         partyEdit = party;
       }
 
       if (
-        partyEdit.players.length < partyEdit.size &&
-        partyEdit.players.filter(player => player.socketId === socket.id)
-          .length === 0
+        partyEdit.players.length < partyEdit.size
+        // && partyEdit.players.filter(player => player.socketId === socket.id)
+        //   .length === 0
       ) {
-        partyEdit.players.push({
-          ...action.player,
-          map: gridZero(10, 20)
-          // socketId: socket.id
-        });
-        partyEdit.save();
-        io.emit('action', await getParties());
-      } else if (
-        partyEdit.players.filter(player => player.socketId === socket.id)
-          .length !== 0
-      ) {
-        partyEdit.players = partyEdit.players.map(
-          player =>
-            player.socketId === socket.id
-              ? { ...player, ...action.player, map: gridZero(10, 20) }
-              : player
+        partyEdit.addPlayer(
+          new Player({
+            ...action.player,
+            socketId: socket.id
+          })
         );
-        partyEdit.save();
+
+        try {
+          await partyEdit.save();
+        } catch (error) {
+          console.error(error);
+        }
+
         io.emit('action', await getParties());
       }
+      //  else if (
+      //   partyEdit.players.filter(player => player.socketId === socket.id)
+      //     .length !== 0
+      // ) {
+      //   partyEdit.players = partyEdit.players.map(
+      //     player =>
+      //       player.socketId === socket.id
+      //         ? { ...player, ...action.player, map: gridZero(10, 20) }
+      //         : player
+      //   );
+      //   partyEdit.save();
+      //   io.emit('action', await getParties());
+      // }
 
       socket.partyId = partyEdit._id;
       socket.join(partyEdit._id, () => {
@@ -199,13 +202,13 @@ const partyList = async (action, io, socket) => {
     case PARTY_OPEN: {
       let party;
       try {
-        party = await Party.findById(action.partyId).exec();
+        party = await GameModel.findById(action.partyId).exec();
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
       if (!party) return;
 
-      party.open = !party.open;
+      party.toggleOpen();
       party.save().then(async res => {
         io.emit('action', await getParties());
         io.to(party._id).emit('action', {
@@ -220,35 +223,30 @@ const partyList = async (action, io, socket) => {
     case PARTY_START: {
       let party;
       try {
-        party = await Party.findById(action.partyId).exec();
+        party = await GameModel.findById(action.partyId).exec();
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
       if (!party) return;
 
-      party.open = false;
-      party.playing = true;
+      party.startGame();
 
       try {
         await party.save();
 
         io.emit('action', await getParties());
-
         io.to(party._id).emit('action', updateParty(party));
-
         io
           .to(party._id)
-          .emit('action', updatePiecesGame({ piece: getTetri() }));
-
+          .emit('action', updatePiecesGame({ piece: new Piece() }));
         io
           .to(party._id)
-          .emit('action', claimPieceSuccess([getTetri(), getTetri()]));
-
+          .emit('action', claimPieceSuccess([new Piece(), new Piece()]));
         io.to(party._id).partyInterval = setInterval(() => {
-          io.to(party._id).emit('action', movePiece(0));
+          io.to(party._id).emit('action', movePieceServer(0));
         }, 1000);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
 
       break;
@@ -256,7 +254,7 @@ const partyList = async (action, io, socket) => {
 
     case 'PARTY_DELETE_ALL': {
       try {
-        await Party.remove({}).exec();
+        await GameModel.remove({}).exec();
       } catch (error) {
         console.error(error);
       }
