@@ -156,6 +156,49 @@ const gameStyle = {
     }
   },
   tnt: {
+    explode: x => {
+      return {
+        zIndex: "3",
+        position: "absolute",
+        height: "4vh",
+        width: "4vh",
+        textAlign: "center",
+        backgroundColor: "rgba(255, 0, 0, 0.2)",
+        marginLeft: x * 4 + "vh"
+      };
+    },
+    anim: {
+      animation: animations.bomb + " 0.1s infinite",
+      animationDirection: "alternate"
+    },
+    base1: {
+      position: "absolute",
+      height: "3vh",
+      width: "3vh",
+      marginLeft: "0.5vh",
+      marginTop: "0.5vh",
+      borderRadius: "15%",
+      backgroundColor: "red"
+    },
+    base2: {
+      position: "absolute",
+      height: "3vh",
+      width: "3vh",
+      marginLeft: "0.5vh",
+      marginTop: "0.5vh",
+      borderRadius: "15%",
+      backgroundColor: "red",
+      transform: "rotate(45deg)"
+    },
+    circle: {
+      position: "absolute",
+      height: "2vh",
+      width: "2vh",
+      marginLeft: "1vh",
+      marginTop: "1vh",
+      borderRadius: "50%",
+      backgroundColor: "yellow"
+    },
     base: {
       position: "absolute",
       margin: "10%",

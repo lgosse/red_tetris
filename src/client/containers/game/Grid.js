@@ -7,6 +7,7 @@ import Square from "../../components/game/Square";
 import { Tetri, Bomb } from "../../components/game/Tetri";
 import gameStyle from "../../styles/gameStyle";
 import globalStyle from "../../styles/global";
+import { deleteTnt } from "../../reducers/game/utils";
 import {
   rotatePiece,
   movePiece,
@@ -44,7 +45,15 @@ const Calque = ({ board, piece }) => {
   }
 };
 
-export const Grid = ({ party, board, pieces, mods, rotateit, endGame }) => {
+export const Grid = ({
+  party,
+  board,
+  pieces,
+  mods,
+  rotateit,
+  endGame,
+  tntExplode
+}) => {
   const grid = board.grid.map((line, i) => {
     const cols = line.map((col, j) => {
       return <Square color={col} key={j} />;
@@ -72,6 +81,31 @@ export const Grid = ({ party, board, pieces, mods, rotateit, endGame }) => {
           );
           break;
         }
+
+        case "tnt": {
+          let tnt = [];
+          if (Math.abs(mods.y - i) <= 3) {
+            line.map((col, j) => {
+              if (Math.abs(mods.y - i) + Math.abs(mods.x - j) <= 3)
+                tnt.push(
+                  <div key={i + "" + j} style={gameStyle.tnt.explode(j)}>
+                    <div style={gameStyle.tnt.anim}>
+                      <div style={gameStyle.tnt.base1} />
+                      <div style={gameStyle.tnt.base2} />
+                      <div style={gameStyle.tnt.circle} />
+                    </div>
+                  </div>
+                );
+            });
+          }
+          return (
+            <div style={{ ...gameStyle.line, position: "relative" }} key={i}>
+              {tnt}
+              {cols}
+            </div>
+          );
+        }
+
         default:
           break;
       }
@@ -96,6 +130,8 @@ export const Grid = ({ party, board, pieces, mods, rotateit, endGame }) => {
     endGame(board);
   }
 
+  if (mods.type === "tnt") tntExplode(board.grid, mods);
+
   return (
     <div
       tabIndex={"0"}
@@ -119,6 +155,17 @@ export const mapStateToGridProps = ({
 });
 
 export const mapDispatchToGridProps = dispatch => {
+  const tntExplode = (grid, mod) => {
+    setTimeout(() => {
+      dispatch(
+        updateBoard({
+          grid: deleteTnt(mod, grid)
+        })
+      );
+      dispatch(setMod(null));
+    }, 600);
+  };
+
   const rotateit = (event, piece, board) => {
     if (board.end || board.ending || piece === null) return;
 
@@ -165,7 +212,7 @@ export const mapDispatchToGridProps = dispatch => {
     dispatch(endParty({ ...board, ending: false }));
   };
 
-  return { rotateit, endGame };
+  return { rotateit, endGame, tntExplode };
 };
 
 export default connect(mapStateToGridProps, mapDispatchToGridProps)(Grid);

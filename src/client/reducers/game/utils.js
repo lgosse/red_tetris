@@ -97,9 +97,20 @@ export const deleteLinesF = (grid, lines) => {
   return newGrid;
 };
 
+export const deleteTnt = (mod, grid) => {
+  const newGrid = grid.map((line, y) => {
+    return line.map((col, x) => {
+      if (Math.abs(mod.x - x) + Math.abs(mod.y - y) <= 3) return 0;
+      else return col;
+    });
+  });
+  return newGrid;
+};
+
 export const isMod = piece => {
   const modTypes = {
-    "10": "bomb"
+    "10": "bomb",
+    "11": "tnt"
   };
   let type = -1;
   piece.grid.findIndex(elem => {

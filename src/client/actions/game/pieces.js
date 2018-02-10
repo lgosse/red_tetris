@@ -18,6 +18,7 @@ import {
 import { setMod, useMod } from "./mods";
 import { updateBoard, deleteLines, notifyGridUpdate, endParty } from "./board";
 import { gameLose } from "./game";
+import { setTimeout } from "timers";
 
 export const updatePiecesGame = pieces => ({
   type: GAME_PIECES_UPDATE,
@@ -78,7 +79,13 @@ export const movePiece = direction => (dispatch, getState) => {
 
     if (newGrid) {
       let mod;
-      if ((mod = isMod(pieces.piece)) !== null) dispatch(setMod(mod));
+      if ((mod = isMod(pieces.piece)) !== null) {
+        if (mod.type === "tnt") {
+          setTimeout(() => {
+            dispatch(setMod(mod));
+          }, 5000);
+        } else dispatch(setMod(mod));
+      }
       console.log("dispatch", mod);
       dispatch(
         updateBoard({
@@ -96,7 +103,7 @@ export const movePiece = direction => (dispatch, getState) => {
       dispatch(claimPiece());
       setTimeout(() => {
         dispatch(deleteLines());
-        if (mod) {
+        if (mod && mod.type === "bomb") {
           dispatch(
             updateBoard({
               grid: deleteBomb(mod, newGrid),
