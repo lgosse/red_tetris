@@ -5,18 +5,20 @@ import {
   GAME_PIECES_PIECE_MOVE_SUCCESS,
   GAME_PIECES_PIECE_ROTATE_SUCCESS,
   GAME_PIECES_PIECE_MOVE_SERVER
-} from '../../../actionsTypes';
+} from "../../../actionsTypes";
 import {
   gridFusion,
   checkLines,
   isMod,
   testCollision,
   gridZero,
-  findPlace
-} from '../../reducers/game/utils';
-import { setMod } from './mods';
-import { updateBoard, deleteLines, notifyGridUpdate, endParty } from './board';
-import { gameLose } from './game';
+  findPlace,
+  deleteBomb
+} from "../../reducers/game/utils";
+import { setMod, useMod } from "./mods";
+import { updateBoard, deleteLines, notifyGridUpdate, endParty } from "./board";
+import { gameLose } from "./game";
+import { setTimeout } from "timers";
 
 export const updatePiecesGame = pieces => ({
   type: GAME_PIECES_UPDATE,
@@ -59,6 +61,13 @@ export const movePiece = direction => (dispatch, getState) => {
 
   if (!pieces.piece) return;
 
+  if (direction === 20) {
+    let down = pieces.piece.y;
+    while (!testCollision({ ...pieces.piece, y: down + 1 }, board.grid).collide)
+      down++;
+    direction = 0;
+    pieces.piece = { ...pieces.piece, y: down };
+  }
   const pos = {
     x: pieces.piece.x + direction,
     y: direction === 0 ? pieces.piece.y + 1 : pieces.piece.y
@@ -77,7 +86,14 @@ export const movePiece = direction => (dispatch, getState) => {
 
     if (newGrid) {
       let mod;
-      if ((mod = isMod(pieces.piece)) !== null) dispatch(setMod(mod));
+      if ((mod = isMod(pieces.piece)) !== null) {
+        if (mod.type === "tnt") {
+          setTimeout(() => {
+            dispatch(setMod(mod));
+          }, 5000);
+        } else dispatch(setMod(mod));
+      }
+      console.log("dispatch", mod);
       dispatch(
         updateBoard({
           grid: newGrid,
@@ -94,6 +110,15 @@ export const movePiece = direction => (dispatch, getState) => {
       dispatch(claimPiece());
       setTimeout(() => {
         dispatch(deleteLines());
+        if (mod && mod.type === "bomb") {
+          dispatch(
+            updateBoard({
+              grid: deleteBomb(mod, newGrid),
+              lines
+            })
+          );
+          dispatch(setMod(null));
+        }
         dispatch(
           notifyGridUpdate(getState().game.board.grid, lines ? lines.length : 0)
         );

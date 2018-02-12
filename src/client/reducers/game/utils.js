@@ -67,39 +67,47 @@ export const checkLines = grid => {
       lines.push(y);
     }
   });
-
   if (lines.length === 0) return null;
-
   return lines;
 };
 
 export const deleteLinesF = (grid, lines) => {
-  let newGrid = [];
+  let newGrid = [...grid];
   let newLines = [...lines];
-  let y;
-  let cur = grid.length - 1;
-  for (y = grid.length - 1; y >= 0; y--) {
-    let i;
-    if ((i = newLines.indexOf(y)) === -1) {
-      newGrid[cur] = [...grid[y]];
-      newLines[i] = -1;
-      cur--;
-    }
-  }
-  while (cur >= 0) {
-    newGrid[cur] = [];
-    for (y = 0; y < grid[0].length; y++) {
-      newGrid[cur].push(0);
-    }
-    cur--;
-  }
 
+  newLines.forEach(index => {
+    newGrid[index].forEach((val, x) => {
+      if (val >= 0 && val <= 9) {
+        newGrid[index][x] = 0;
+        let i;
+        for (i = index; i > 0; i--) {
+          newGrid[i][x] = newGrid[i - 1][x];
+        }
+        newGrid[i][x] = 0;
+      }
+    });
+  });
+  return newGrid;
+};
+
+export const deleteTnt = (mod, grid) => {
+  const newGrid = grid.map((line, y) => {
+    return line.map((col, x) => {
+      if (
+        Math.abs(mod.x - x) + Math.abs(mod.y - y) <= 3 &&
+        ((mod.x === x && mod.y === y) || col !== 11)
+      )
+        return 0;
+      else return col;
+    });
+  });
   return newGrid;
 };
 
 export const isMod = piece => {
   const modTypes = {
-    "10": "bomb"
+    "10": "bomb",
+    "11": "tnt"
   };
   let type = -1;
   piece.grid.findIndex(elem => {
@@ -114,6 +122,15 @@ export const isMod = piece => {
   if (type != -1)
     return { type: modTypes[type], do: false, x: piece.x, y: piece.y };
   else return null;
+};
+
+export const deleteBomb = (mod, grid) => {
+  if (!mod) return grid;
+  let newGrid = deleteLinesF(grid, [mod.y]);
+  newGrid.forEach((line, i) => {
+    if (line[mod.x] !== 11) newGrid[i][mod.x] = 0;
+  });
+  return newGrid;
 };
 
 export const findPlace = (piece, grid, dir) => {
