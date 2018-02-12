@@ -2,8 +2,18 @@ import {
   GAME_BOARD_UPDATE,
   GAME_BOARD_DELETE_LINES,
   GAME_BOARD_NOTIFY_GRID_UPDATE,
-  GAME_BOARD_BLOCK_LINES_SERVER
+  GAME_BOARD_BLOCK_LINES_SERVER,
+  GAME_HAS_FOCUS,
+  GAME_LOSE_FOCUS
 } from '../../../actionsTypes';
+
+export const gridHasFocus = () => ({
+  type: GAME_HAS_FOCUS
+});
+
+export const gridLoseFocus = () => ({
+  type: GAME_LOSE_FOCUS
+});
 
 export const updateBoard = board => ({
   type: GAME_BOARD_UPDATE,

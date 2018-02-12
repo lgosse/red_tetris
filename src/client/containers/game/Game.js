@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import RightSide from '../../components/game/RightSide';
 import LeftSide from '../../components/game/LeftSide';
 import Grid from './Grid';
+import { Paragraph, FlexContainer } from '../../components/helpers/Common';
+import global from '../../styles/global';
 
-export const Game = ({ party, player, game }) => (
+export const Game = ({ party, player, game, winner }) => (
   <div
     style={{
       width: '100%',

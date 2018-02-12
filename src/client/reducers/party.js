@@ -2,7 +2,8 @@ import {
   PARTY_GET,
   PARTY_SAVE,
   PARTY_UPDATE,
-  PARTY_LEFT
+  PARTY_LEFT,
+  PARTY_RECEIVE_MESSAGE
 } from '../../actionsTypes';
 
 const getParty = () => {
@@ -17,7 +18,9 @@ const saveParty = action => {
   localStorage.setItem('party', JSON.stringify(action.party));
 };
 
-const party = (state = { size: 10, players: [] }, action) => {
+const initialState = { size: 10, players: [], messages: [] };
+
+const party = (state = initialState, action) => {
   switch (action.type) {
     case PARTY_GET:
       return getParty();
@@ -27,7 +30,15 @@ const party = (state = { size: 10, players: [] }, action) => {
     case PARTY_UPDATE:
       return action.party;
     case PARTY_LEFT:
-      return { size: 10, players: [] };
+      return initialState;
+    case PARTY_RECEIVE_MESSAGE:
+      return {
+        ...state,
+        messages:
+          state.messages && state.messages.length
+            ? [...state.messages, action.message]
+            : [action.message]
+      };
     default:
       return state;
   }
