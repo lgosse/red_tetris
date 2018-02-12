@@ -17,6 +17,8 @@ export const PARTY_LEAVE = 'server/party-leave';
 export const PARTY_LEFT = 'PARTY_LEFT';
 export const PARTY_KICK_PLAYER = 'server/party-kick-player';
 export const PARTY_START = 'server/party-toggle-playing';
+export const PARTY_SEND_MESSAGE = 'server/send-message';
+export const PARTY_RECEIVE_MESSAGE = 'PARTY_RECEIVE_MESSAGE';
 
 // Player actions
 export const PLAYER_UPDATE = 'PLAYER_UPDATE';

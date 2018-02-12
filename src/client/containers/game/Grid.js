@@ -126,7 +126,8 @@ export const Grid = ({
             backgroundColor: 'rgba(0, 0, 0, 0.6)',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            zIndex: 9999
           }}
         >
           <Paragraph gameFont size="12px" bold color="accent">

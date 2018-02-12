@@ -7,8 +7,10 @@ import {
   PARTY_LEAVE,
   PARTY_KICK_PLAYER,
   PARTY_OPEN,
-  PARTY_START
-} from "../../actionsTypes";
+  PARTY_START,
+  PARTY_SEND_MESSAGE,
+  PARTY_RECEIVE_MESSAGE
+} from '../../actionsTypes';
 
 export const getParty = () => ({
   type: PARTY_GET
@@ -55,8 +57,27 @@ export const startParty = partyId => ({
   partyId
 });
 
+export const sendMessage = message => (dispatch, getState) => {
+  dispatch({
+    type: PARTY_SEND_MESSAGE,
+    message: {
+      text: message,
+      player: getState().player.nickname
+    }
+  });
+};
+
+export const receiveMessage = (text, senderName, senderId) => ({
+  type: PARTY_RECEIVE_MESSAGE,
+  message: {
+    text,
+    senderId,
+    senderName
+  }
+});
+
 export const validatePartyHash = partyHash => {
-  const [partyName, playerName] = partyHash.split("[");
+  const [partyName, playerName] = partyHash.split('[');
 
   if (partyName.length === 0) return false;
 

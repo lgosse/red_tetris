@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import styled from "styled-components";
-import global from "../../styles/global";
+import styled from 'styled-components';
+import global from '../../styles/global';
 
 export const Spacer = styled.div`
   flex: 1;
@@ -57,6 +57,7 @@ export const Button = styled.button`
 
 export const FlexContainer = styled.div`
   display: flex;
+  ${props => props.direction && `flex-direction: ${props.direction}`};
   ${props => props.height && `height: ${props.height}`};
   ${props => props.flex && `flex: 1`};
   ${props => props.padding && `padding: ${props.padding}`};
@@ -73,6 +74,7 @@ export const FlexSpacer = styled.div`
 
 export const FullSizeContainer = styled.div`
   width: 100%;
+  ${props => props.height && `height: ${props.height}`};
   ${props => props.padding && `padding: ${props.padding}`};
   ${props => props.flexContainer && `display: flex`};
   ${props => props.flex && `flex: 1`};
@@ -93,7 +95,7 @@ const Hexagone = styled.span`
 
   &:before,
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     width: 0;
     border-left: 10px solid transparent;
