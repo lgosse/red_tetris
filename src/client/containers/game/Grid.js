@@ -59,71 +59,68 @@ export const Grid = ({
       return <Square color={col} key={j} />;
     });
 
-    if (mods) {
-      switch (mods.type) {
-        case "bomb": {
-          return (
-            <div style={{ ...gameStyle.line, position: "relative" }} key={i}>
-              {i === mods.y ? (
-                <div style={gameStyle.bomb.explode(mods.x, mods.y, 0)} />
-              ) : (
-                <div />
-              )}
-              <div
-                style={gameStyle.bomb.explode(
-                  mods.x,
-                  mods.y,
-                  i === mods.y ? 2 : 1
+    const linesDestroying =
+      board.lines && board.lines.indexOf(i) !== -1 ? (
+        <div style={gameStyle.lineDestroying} />
+      ) : null;
+
+    const mod = () => {
+      if (mods) {
+        switch (mods.type) {
+          case "bomb": {
+            return (
+              <div>
+                {i === mods.y ? (
+                  <div style={gameStyle.bomb.explode(mods.x, mods.y, 0)} />
+                ) : (
+                  <div />
                 )}
-              />
-              {cols}
-            </div>
-          );
-          break;
-        }
-
-        case "tnt": {
-          let tnt = [];
-          if (Math.abs(mods.y - i) <= 3) {
-            line.map((col, j) => {
-              if (Math.abs(mods.y - i) + Math.abs(mods.x - j) <= 3)
-                tnt.push(
-                  <div key={i + "" + j} style={gameStyle.tnt.explode(j)}>
-                    <div style={gameStyle.tnt.anim}>
-                      <div style={gameStyle.tnt.base1} />
-                      <div style={gameStyle.tnt.base2} />
-                      <div style={gameStyle.tnt.circle} />
-                    </div>
-                  </div>
-                );
-            });
+                <div
+                  style={gameStyle.bomb.explode(
+                    mods.x,
+                    mods.y,
+                    i === mods.y ? 2 : 1
+                  )}
+                />
+              </div>
+            );
+            break;
           }
-          return (
-            <div style={{ ...gameStyle.line, position: "relative" }} key={i}>
-              {tnt}
-              {cols}
-            </div>
-          );
+
+          case "tnt": {
+            let tnt = [];
+            if (Math.abs(mods.y - i) <= 3) {
+              line.map((col, j) => {
+                if (Math.abs(mods.y - i) + Math.abs(mods.x - j) <= 3)
+                  tnt.push(
+                    <div key={i + "" + j} style={gameStyle.tnt.explode(j)}>
+                      <div style={gameStyle.tnt.anim}>
+                        <div style={gameStyle.tnt.base1} />
+                        <div style={gameStyle.tnt.base2} />
+                        <div style={gameStyle.tnt.circle} />
+                      </div>
+                    </div>
+                  );
+              });
+            }
+            return tnt;
+            break;
+          }
+
+          default:
+            return null;
+            break;
         }
+      } else return null;
+    };
 
-        default:
-          break;
-      }
-    }
-
-    if (board.lines && board.lines.indexOf(i) !== -1) {
-      return (
-        <div style={gameStyle.line} key={i}>
-          <div style={gameStyle.lineDestroying} />
-          {cols}
-        </div>
-      );
-    } else
-      return (
-        <div style={gameStyle.line} key={i}>
-          {cols}
-        </div>
-      );
+    return (
+      <div style={{ ...gameStyle.line, position: "relative" }} key={i}>
+        {linesDestroying}
+        {mod()}
+        {cols}
+      </div>
+    );
   });
 
   if (pieces.piece === null && board.ending && board.lines === null) {
@@ -186,6 +183,9 @@ export const mapDispatchToGridProps = dispatch => {
         event.preventDefault();
         break;
       case 32: // SPACE
+        dispatch(movePiece(20));
+        event.stopPropagation();
+        event.preventDefault();
         break;
       case 38:
       case 68: // UP or D
@@ -209,6 +209,7 @@ export const mapDispatchToGridProps = dispatch => {
   };
 
   const endGame = board => {
+    console.log("board", board);
     dispatch(endParty({ ...board, ending: false }));
   };
 

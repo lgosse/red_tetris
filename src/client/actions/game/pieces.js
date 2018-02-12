@@ -61,6 +61,13 @@ export const movePiece = direction => (dispatch, getState) => {
 
   if (!pieces.piece) return;
 
+  if (direction === 20) {
+    let down = pieces.piece.y;
+    while (!testCollision({ ...pieces.piece, y: down + 1 }, board.grid).collide)
+      down++;
+    direction = 0;
+    pieces.piece = { ...pieces.piece, y: down };
+  }
   const pos = {
     x: pieces.piece.x + direction,
     y: direction === 0 ? pieces.piece.y + 1 : pieces.piece.y
