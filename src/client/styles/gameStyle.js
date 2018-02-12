@@ -1,16 +1,17 @@
 import styled, { keyframes } from "styled-components";
 
-const getColors = [
-  ["transparent"],
-  ["red"],
-  ["grey"],
-  ["blue"],
-  ["green"],
-  ["red"],
-  ["grey"],
-  ["blue"],
-  ["black"]
-];
+const getColors = {
+  "-1": "radial-gradient(white, grey, black)",
+  "0": "transparent",
+  "1": "red",
+  "2": "grey",
+  "3": "blue",
+  "4": "green",
+  "5": "red",
+  "6": "grey",
+  "7": "blue",
+  "8": "black"
+};
 
 const animations = {
   pulse: keyframes`
@@ -340,7 +341,7 @@ const gameStyle = {
       display: "inline-flex",
       width: "4vh",
       height: "4vh",
-      backgroundColor: getColors[color],
+      background: getColors[color],
       border: color == 0 ? "none" : "1px solid black"
     };
   },
