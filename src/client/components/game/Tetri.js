@@ -65,12 +65,7 @@ const reduceColumnsEndTetri = tetri =>
       )
     : tetri;
 
-const reduceLinesTetri = tetri =>
-  tetri.filter(line =>
-    line.reduce((accumulator, block) => accumulator || block, false)
-  );
-
-const reduceTetri = tetri => reduceColumnsEndTetri(reduceLinesTetri(tetri));
+const reduceTetri = tetri => reduceColumnsEndTetri(tetri);
 
 export const Tetri = ({ tetri, position }) => {
   if (!position) position = { x: 0, y: 0 };

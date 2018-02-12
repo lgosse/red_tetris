@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import globalStyle from '../../styles/global';
 
-import { FullSizeContainer, Paragraph } from '../../components/helpers/Common';
+import {
+  FullSizeContainer,
+  Paragraph,
+  LightContainer
+} from '../../components/helpers/Common';
 
 const NoRanks = () => (
   <Paragraph
@@ -16,7 +20,59 @@ const NoRanks = () => (
   </Paragraph>
 );
 
-const Ranks = ({ rankings }) => <div />;
+const Rank = ({ score }) => (
+  <LightContainer
+    style={{
+      display: 'flex',
+      borderRadius: '5px',
+      marginBottom: '20px',
+      padding: globalStyle.padding.md
+    }}
+  >
+    <Paragraph
+      gameFont
+      size="20px"
+      center
+      style={{
+        color: globalStyle.color.primary,
+        textAlign: 'right',
+        paddingLeft: globalStyle.padding.md,
+        width: '100px'
+      }}
+    >
+      {score.score}
+    </Paragraph>
+    <Paragraph
+      gameFont
+      size="20px"
+      center
+      style={{
+        color: globalStyle.color.primary,
+        textAlign: 'left',
+        paddingLeft: globalStyle.padding.md
+      }}
+    >
+      {score.playerName}
+    </Paragraph>
+    <Paragraph
+      gameFont
+      size="20px"
+      center
+      style={{
+        flex: 1,
+        color: globalStyle.color.primary,
+        textAlign: 'right',
+        paddingLeft: globalStyle.padding.md
+      }}
+    >
+      {new Date(score.date).toLocaleString()}
+    </Paragraph>
+  </LightContainer>
+);
+
+const Ranks = ({ ranking }) => (
+  <div>{ranking.map((score, index) => <Rank key={index} score={score} />)}</div>
+);
 
 const Ranking = ({ ranking }) => (
   <FullSizeContainer padding="20px">
@@ -24,6 +80,8 @@ const Ranking = ({ ranking }) => (
   </FullSizeContainer>
 );
 
-const mapStateToProps = ({ ranking }) => ({ ranking });
+const mapStateToProps = ({ ranking }) => {
+  return { ranking };
+};
 
 export default connect(mapStateToProps)(Ranking);

@@ -4,6 +4,8 @@ import global from '../../styles/global';
 
 import { kickPlayer, toggleOpenParty, startParty } from '../../actions/party';
 
+import Chat from '../forms/Chat';
+
 import {
   FullSizeContainer,
   FlexContainer,
@@ -165,6 +167,14 @@ export const Lobby = ({
         />
         <FlexSpacer />
       </FlexContainer>
+      {party.players &&
+        party.players.length > 1 && (
+          <FlexContainer style={{ maxHeight: '300px' }} flex>
+            <FlexSpacer />
+            <Chat />
+            <FlexSpacer />
+          </FlexContainer>
+        )}
     </FullSizeContainer>
   );
 };

@@ -5,8 +5,8 @@ import {
   GAME_LOSE,
   PARTY_LEFT,
   PARTY_START,
-  GAME_NOTIFY_GAME_OVER,
-  GAME_NOTIFY_GAME_OVER_RESET
+  GAME_HAS_FOCUS,
+  GAME_LOSE_FOCUS
 } from '../../../actionsTypes';
 import {
   gridFusion,
@@ -23,7 +23,9 @@ const initialState = {
   ending: false,
   end: false,
   lines: null,
-  winner: null
+  winner: null,
+  focus: false,
+  hasFocusedOnce: false
 };
 
 const board = (state = { ...initialState }, action) => {
@@ -58,25 +60,28 @@ const board = (state = { ...initialState }, action) => {
     case PARTY_LEFT:
       return initialState;
 
-    case GAME_NOTIFY_GAME_OVER:
-      return {
-        ...state,
-        winner: action.playerName
-      };
-
-    case GAME_NOTIFY_GAME_OVER_RESET:
-      return {
-        ...state,
-        winner: null
-      };
-
     case PARTY_START:
       return {
         ...state,
         grid: gridZero(10, 20),
         ending: false,
         end: false,
-        lines: null
+        lines: null,
+        focus: false,
+        hasFocusedOnce: false
+      };
+
+    case GAME_HAS_FOCUS:
+      return {
+        ...state,
+        hasFocusedOnce: true,
+        focus: true
+      };
+
+    case GAME_LOSE_FOCUS:
+      return {
+        ...state,
+        focus: false
       };
 
     default:

@@ -17,6 +17,8 @@ export const PARTY_LEAVE = 'server/party-leave';
 export const PARTY_LEFT = 'PARTY_LEFT';
 export const PARTY_KICK_PLAYER = 'server/party-kick-player';
 export const PARTY_START = 'server/party-toggle-playing';
+export const PARTY_SEND_MESSAGE = 'server/send-message';
+export const PARTY_RECEIVE_MESSAGE = 'PARTY_RECEIVE_MESSAGE';
 
 // Player actions
 export const PLAYER_UPDATE = 'PLAYER_UPDATE';
@@ -37,6 +39,8 @@ export const GAME_PIECES_CLAIM_PIECE = 'server/claim-piece';
 export const GAME_PIECES_CLAIM_PIECE_SUCCESS = 'PLAYER_CLAIM_PIECE_SUCCESS';
 export const GAME_PIECES_UPDATE = 'GAME_PIECES_UPDATE';
 
+export const GAME_HAS_FOCUS = 'GAME_HAS_FOCUS';
+export const GAME_LOSE_FOCUS = 'GAME_LOSE_FOCUS';
 export const GAME_BOARD_DELETE_LINES = 'GAME_PIECES_DELETE_LINES';
 export const GAME_BOARD_BLOCK_LINES_SERVER = 'GAME_BOARD_BLOCK_LINES_SERVER';
 export const GAME_BOARD_BLOCK_LINES_SUCCESS = 'GAME_BOARD_BLOCK_LINES_SUCCESS';
@@ -44,8 +48,6 @@ export const GAME_BOARD_NOTIFY_GRID_UPDATE = 'server/notify-grid-update';
 export const GAME_BOARD_UPDATE = 'GAME_BOARD_UPDATE';
 
 export const GAME_LOSE = 'server/game-lose';
-export const GAME_NOTIFY_GAME_OVER = 'GAME_NOTIFY_GAME_OVER';
-export const GAME_NOTIFY_GAME_OVER_RESET = 'GAME_NOTIFY_GAME_OVER_RESET';
 export const GAME_MODS_SET = 'GAME_MODS_SET';
 
 export const GAME_SCORE_UPDATE = 'GAME_SCORE_UPDATE';

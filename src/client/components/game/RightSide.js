@@ -11,6 +11,7 @@ import {
   LightContainer,
   Paragraph
 } from '../helpers/Common';
+import Chat from '../../containers/forms/Chat';
 
 const PlayerStatesContainer = FullSizeContainer.extend`
   display: flex;
@@ -42,7 +43,7 @@ const PlayerStates = ({ players }) => (
 
 const RightSideTop = styled.div`
   font-family: ${global.font.family.game};
-  font-size: ${global.font.size.title};
+  font-size: ${global.font.size.subtitle};
   color: ${global.color.primary};
   text-align: center;
 `;
@@ -51,7 +52,6 @@ const RightSideContainer = LightContainer.extend`
   flex: 1;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  overflow: scroll;
   height: 80vh;
   min-height: 80vh;
 `;
@@ -59,8 +59,30 @@ const RightSideContainer = LightContainer.extend`
 const RightSide = ({ players }) => {
   return (
     <RightSideContainer>
-      <RightSideTop>PLAYERS</RightSideTop>
-      {players.length ? <PlayerStates players={players} /> : <NoPlayers />}
+      {players.length ? (
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%'
+          }}
+        >
+          <div
+            style={{
+              flex: 1,
+              overflow: 'scroll',
+              minHeight: '210px',
+              maxHeight: '210px'
+            }}
+          >
+            <RightSideTop>PLAYERS</RightSideTop>
+            <PlayerStates players={players} />
+          </div>
+          <Chat />
+        </div>
+      ) : (
+        <NoPlayers />
+      )}
     </RightSideContainer>
   );
 };

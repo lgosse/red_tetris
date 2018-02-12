@@ -5,8 +5,3 @@ export const gameLose = () => (dispatch, getState) =>
     type: GAME_LOSE,
     score: getState().game.score
   });
-
-export const notifyGameOver = playerName => ({
-  type: GAME_NOTIFY_GAME_OVER,
-  playerName
-});

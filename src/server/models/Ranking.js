@@ -15,8 +15,8 @@ class Ranking {
 
   static findHighestRankings() {
     return this.find({})
-      .sort('score')
-      .limit(100);
+      .sort('-score')
+      .limit(20);
   }
 }
 
