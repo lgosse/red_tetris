@@ -11,8 +11,14 @@ import {
 } from '../../actionsTypes';
 
 // Actions
-import { claimPieceSuccess } from '../../client/actions/game/pieces';
-import Piece from '../models/Piece';
+import {
+  claimPieceSuccess,
+  gameAddBonus,
+  gameAddMalus,
+  updatePiecesGame,
+  updateCurrentPiece
+} from '../../client/actions/game/pieces';
+import { Piece, PieceBonus, PieceMalus } from '../models/Piece';
 import { updateScore } from '../../client/actions/game/score';
 import { updateParty } from '../../client/actions/party';
 import { alert } from '../../client/actions/alert';
@@ -34,6 +40,15 @@ const game = async (action, io, socket) => {
     case GAME_BOARD_NOTIFY_GRID_UPDATE: {
       if (!socket.partyId) return;
 
+      let party;
+      try {
+        party = await GameModel.findById(socket.partyId).exec();
+      } catch (error) {
+        console.error(error);
+      }
+
+      if (!party || !party.playing) return;
+
       socket.emit(
         'action',
         updateScore(
@@ -46,19 +61,24 @@ const game = async (action, io, socket) => {
       if (action.payload.nbLinesDestroyed - 1 > 0) {
         io
           .to(socket.partyId)
+          .emit('action', updateCurrentPiece({ x: 4, y: 0 }));
+        io
+          .to(socket.partyId)
           .emit(
             'action',
             blockLinesServer(action.payload.nbLinesDestroyed - 1, socket.id)
           );
       }
 
-      let party;
-      try {
-        party = await GameModel.findById(socket.partyId).exec();
-      } catch (error) {
-        console.error(error);
+      if (action.payload.nbLinesDestroyed > 2 && party.withBonus) {
+        if (Math.trunc(Math.random() * 2) === 0 || party.solo) {
+          socket.emit('action', gameAddBonus(new PieceBonus()));
+        } else {
+          io
+            .to(party._id)
+            .emit('action', gameAddMalus(socket.id, new PieceMalus()));
+        }
       }
-      if (!party) return;
 
       party.updatePlayer({
         socketId: socket.id,

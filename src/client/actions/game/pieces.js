@@ -4,8 +4,12 @@ import {
   GAME_PIECES_CLAIM_PIECE_SUCCESS,
   GAME_PIECES_PIECE_MOVE_SUCCESS,
   GAME_PIECES_PIECE_ROTATE_SUCCESS,
-  GAME_PIECES_PIECE_MOVE_SERVER
-} from "../../../actionsTypes";
+  GAME_PIECES_PIECE_MOVE_SERVER,
+  GAME_BONUS_ADD,
+  GAME_MALUS_ADD,
+  GAME_MALUS_ADD_SUCCESS,
+  GAME_PIECE_UPDATE
+} from '../../../actionsTypes';
 import {
   gridFusion,
   checkLines,
@@ -14,15 +18,20 @@ import {
   gridZero,
   findPlace,
   deleteBomb
-} from "../../reducers/game/utils";
-import { setMod, useMod } from "./mods";
-import { updateBoard, deleteLines, notifyGridUpdate, endParty } from "./board";
-import { gameLose } from "./game";
-import { setTimeout } from "timers";
+} from '../../reducers/game/utils';
+import { setMod, useMod } from './mods';
+import { updateBoard, deleteLines, notifyGridUpdate, endParty } from './board';
+import { gameLose } from './game';
+import { setTimeout } from 'timers';
 
 export const updatePiecesGame = pieces => ({
   type: GAME_PIECES_UPDATE,
   pieces
+});
+
+export const updateCurrentPiece = piece => ({
+  type: GAME_PIECE_UPDATE,
+  piece
 });
 
 export const rotatePieceServer = piece => ({
@@ -52,6 +61,24 @@ export const claimPiece = () => ({
 export const claimPieceSuccess = pieces => ({
   type: GAME_PIECES_CLAIM_PIECE_SUCCESS,
   pieces
+});
+
+export const gameAddBonus = bonus => ({
+  type: GAME_BONUS_ADD,
+  bonus
+});
+
+export const gameAddMalus = (emitterSocketId, malus) => ({
+  type: GAME_MALUS_ADD,
+  payload: {
+    emitterSocketId,
+    malus
+  }
+});
+
+export const gameAddMalusSuccess = malus => ({
+  type: GAME_MALUS_ADD_SUCCESS,
+  malus
 });
 
 // Thunk action creators
@@ -87,13 +114,12 @@ export const movePiece = direction => (dispatch, getState) => {
     if (newGrid) {
       let mod;
       if ((mod = isMod(pieces.piece)) !== null) {
-        if (mod.type === "tnt") {
+        if (mod.type === 'tnt') {
           setTimeout(() => {
             dispatch(setMod(mod));
           }, 5000);
         } else dispatch(setMod(mod));
       }
-      console.log("dispatch", mod);
       dispatch(
         updateBoard({
           grid: newGrid,
@@ -110,7 +136,7 @@ export const movePiece = direction => (dispatch, getState) => {
       dispatch(claimPiece());
       setTimeout(() => {
         dispatch(deleteLines());
-        if (mod && mod.type === "bomb") {
+        if (mod && mod.type === 'bomb') {
           dispatch(
             updateBoard({
               grid: deleteBomb(mod, newGrid),

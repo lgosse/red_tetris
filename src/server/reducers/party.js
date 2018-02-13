@@ -4,7 +4,6 @@ import { receiveMessage } from '../../client/actions/party';
 const party = (action, io, socket) => {
   switch (action.type) {
     case PARTY_SEND_MESSAGE: {
-      console.log(socket.partyId);
       if (!socket.partyId) return;
 
       io

@@ -1,28 +1,27 @@
-import React from "react";
-import { connect } from "react-redux";
-import styled, { keyframes } from "styled-components";
-import Square from "../../components/game/Square";
-import { Paragraph } from "../../components/helpers/Common";
+import React from 'react';
+import { connect } from 'react-redux';
+import styled, { keyframes } from 'styled-components';
+import Square from '../../components/game/Square';
+import { Paragraph } from '../../components/helpers/Common';
 
-// import Pieces from '../../components/game/Pieces';
-import { Tetri, Bomb } from "../../components/game/Tetri";
-import gameStyle from "../../styles/gameStyle";
-import globalStyle from "../../styles/global";
-import { deleteTnt } from "../../reducers/game/utils";
+import { Tetri, Bomb } from '../../components/game/Tetri';
+import gameStyle from '../../styles/gameStyle';
+import globalStyle from '../../styles/global';
+import { deleteTnt } from '../../reducers/game/utils';
 import {
   rotatePiece,
   movePiece,
   updatePlayer,
   claimPiece
-} from "../../actions/game/pieces";
+} from '../../actions/game/pieces';
 import {
   deleteLines,
   endParty,
   gridHasFocus,
   gridLoseFocus
-} from "../../actions/game/board";
-import { updateBoard } from "../../actions/game/board";
-import { setMod } from "../../actions/game/mods";
+} from '../../actions/game/board';
+import { updateBoard } from '../../actions/game/board';
+import { setMod } from '../../actions/game/mods';
 
 const Calque = ({ board, piece }) => {
   if (board.end === true) {
@@ -30,11 +29,11 @@ const Calque = ({ board, piece }) => {
       <div
         style={{
           ...gameStyle.calque,
-          textAlign: "center",
-          marginTop: "35vh",
-          fontSize: "5vh",
+          textAlign: 'center',
+          marginTop: '35vh',
+          fontSize: '5vh',
           fontFamily: globalStyle.font.family.game,
-          color: "white"
+          color: 'white'
         }}
       >
         YOU LOOSE
@@ -75,7 +74,7 @@ export const Grid = ({
     const mod = () => {
       if (mods) {
         switch (mods.type) {
-          case "bomb": {
+          case 'bomb': {
             return (
               <div>
                 {i === mods.y ? (
@@ -95,13 +94,13 @@ export const Grid = ({
             break;
           }
 
-          case "tnt": {
+          case 'tnt': {
             let tnt = [];
             if (Math.abs(mods.y - i) <= 3) {
               line.map((col, j) => {
                 if (Math.abs(mods.y - i) + Math.abs(mods.x - j) <= 3)
                   tnt.push(
-                    <div key={i + "" + j} style={gameStyle.tnt.explode(j)}>
+                    <div key={i + '' + j} style={gameStyle.tnt.explode(j)}>
                       <div style={gameStyle.tnt.anim}>
                         <div style={gameStyle.tnt.base1} />
                         <div style={gameStyle.tnt.base2} />
@@ -123,7 +122,7 @@ export const Grid = ({
     };
 
     return (
-      <div style={{ ...gameStyle.line, position: "relative" }} key={i}>
+      <div style={{ ...gameStyle.line, position: 'relative' }} key={i}>
         {linesDestroying}
         {mod()}
         {cols}
@@ -135,14 +134,14 @@ export const Grid = ({
     endGame(board);
   }
 
-  if (mods.type === "tnt") tntExplode(board.grid, mods);
+  if (mods.type === 'tnt') tntExplode(board.grid, mods);
 
   const refCallback = ref =>
     board.hasFocusedOnce === false && ref && ref.focus();
 
   return (
     <div
-      tabIndex={"0"}
+      tabIndex={'0'}
       onKeyDown={e => rotateit(e, pieces.piece, board)}
       id="game"
       ref={refCallback}
@@ -150,20 +149,20 @@ export const Grid = ({
       onBlur={onBlur}
       style={{
         ...gameStyle.grid,
-        outline: "none"
+        outline: 'none'
       }}
     >
       {!board.focus ? (
         <div
           style={{
-            width: "100%",
-            height: "100%",
-            position: "relative",
-            marginBottom: "-200%",
-            backgroundColor: "rgba(0, 0, 0, 0.6)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            width: '100%',
+            height: '100%',
+            position: 'relative',
+            marginBottom: '-200%',
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
             zIndex: 9999
           }}
         >
@@ -249,7 +248,6 @@ export const mapDispatchToGridProps = dispatch => {
   };
 
   const endGame = board => {
-    console.log("board", board);
     dispatch(endParty({ ...board, ending: false }));
   };
 
