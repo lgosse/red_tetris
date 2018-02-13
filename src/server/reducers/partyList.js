@@ -28,6 +28,7 @@ import { Piece } from '../models/Piece';
 import { updatePiecesGame } from '../../client/actions/game/pieces';
 import { gridZero } from '../../client/reducers/game/utils';
 import { updateBoard } from '../../client/actions/game/board';
+import { updateScore, resetScore } from '../../client/actions/game/score';
 
 export const userLeaves = async (io, socket) => {
   if (!socket.partyId) return;
@@ -222,8 +223,8 @@ const partyList = async (action, io, socket) => {
         io
           .to(party._id)
           .emit('action', updateBoard({ grid: gridZero(10, 20) }));
+        io.to(party._id).emit('action', resetScore(0));
         io.to(party._id).emit('action', updateParty(party));
-        console.log(new Piece());
         io
           .to(party._id)
           .emit('action', updatePiecesGame({ piece: new Piece() }));

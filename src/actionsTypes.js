@@ -55,6 +55,7 @@ export const GAME_LOSE = 'server/game-lose';
 export const GAME_MODS_SET = 'GAME_MODS_SET';
 
 export const GAME_SCORE_UPDATE = 'GAME_SCORE_UPDATE';
+export const GAME_SCORE_RESET = 'GAME_SCORE_RESET';
 
 // Server actions
 export const SERVER_PING = 'server/ping';
