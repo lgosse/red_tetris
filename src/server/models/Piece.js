@@ -17,9 +17,9 @@ class Piece {
   constructor(withBonus) {
     withBonus = true;
     let nbTetriminos = 7;
-    if (withBonus) nbTetriminos = 7;
+    if (withBonus) nbTetriminos = 12;
     this.grid = tetriminos[Math.trunc(Math.random() * nbTetriminos + 1)];
-    //this.grid = tetriminos[9];
+    //this.grid = tetriminos[12];
     this.x = 4;
     this.y = 0;
   }

@@ -5,7 +5,7 @@ import {
   GAME_BOARD_BLOCK_LINES_SERVER,
   GAME_HAS_FOCUS,
   GAME_LOSE_FOCUS
-} from '../../../actionsTypes';
+} from "../../../actionsTypes";
 
 export const gridHasFocus = () => ({
   type: GAME_HAS_FOCUS
@@ -34,8 +34,8 @@ export const deleteLines = () => ({
 
 const endAnimationSub = (board, grid, x, y) => {
   while (x >= 0) {
-    grid[grid.length - 1 - y][grid[0].length - 1 - x] = 8;
-    grid[y][x] = 8;
+    grid[grid.length - 1 - y][grid[0].length - 1 - x] = 13;
+    grid[y][x] = 13;
     x--;
     y--;
   }
@@ -53,7 +53,6 @@ export const endParty = board => (dispatch, getState) => {
         clearInterval(interval);
         return;
       }
-
       newBoard = { ...newBoard, grid: endAnimationSub(board, newGrid, x, y) };
       dispatch(updateBoard(newBoard));
       x++;
