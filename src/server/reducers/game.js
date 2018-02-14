@@ -32,7 +32,7 @@ import { getRankingListSuccess } from '../../client/actions/rankings';
 const game = async (action, io, socket) => {
   switch (action.type) {
     case GAME_PIECES_CLAIM_PIECE: {
-      io.to(socket.partyId).emit('action', claimPieceSuccess(new Piece()));
+      io.to(socket.partyId).emit('action', claimPieceSuccess(new PieceBonus()));
 
       break;
     }

@@ -130,16 +130,16 @@ export const movePiece = direction => (dispatch, getState) => {
       dispatch(claimPiece());
       setTimeout(() => {
         dispatch(deleteLines());
-        if (mod && mod.type === 'bomb') {
-          const newGrid = deleteBomb(mod, newGrid);
+        /* if (mod && mod.type === 'bomb') {
+          const newGrid2 = deleteBomb(mod, newGrid);
           dispatch(
             updateBoard({
-              grid: newGrid,
+              grid: newGrid2,
               lines
             })
           );
           dispatch(setMod(null));
-        }
+        } */
         dispatch(
           notifyGridUpdate(getState().game.board.grid, lines ? lines.length : 0)
         );

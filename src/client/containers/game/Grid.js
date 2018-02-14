@@ -19,7 +19,8 @@ import {
   endParty,
   gridHasFocus,
   gridLoseFocus,
-  notifyGridUpdate
+  notifyGridUpdate,
+  tntExplode
 } from '../../actions/game/board';
 import { updateBoard } from '../../actions/game/board';
 import { setMod } from '../../actions/game/mods';
@@ -61,7 +62,7 @@ export const Grid = ({
   mods,
   rotateit,
   endGame,
-  tntExplode,
+  tntExplodeDispatch,
   onFocus,
   onBlur
 }) => {
@@ -138,7 +139,7 @@ export const Grid = ({
     endGame(board);
   }
 
-  if (mods.type === 'tnt') tntExplode(board.grid, mods);
+  // if (mods.type === 'tnt') tntExplodeDispatch(board.grid, mods);
 
   const refCallback = ref =>
     board.hasFocusedOnce === false && ref && ref.focus();
@@ -195,22 +196,8 @@ export const mapStateToGridProps = ({
 });
 
 export const mapDispatchToGridProps = dispatch => {
-  const tntExplode = (grid, mod) => {
-    dispatch(setMod(null));
-    const tnt = { ...mod, type: 'tntGo' };
-    setTimeout(() => {
-      dispatch(setMod(tnt));
-      setTimeout(() => {
-        const newGrid = deleteTnt(mod, grid);
-        dispatch(
-          updateBoard({
-            grid: newGrid
-          })
-        );
-        dispatch(notifyGridUpdate(newGrid, 1));
-        dispatch(setMod(null));
-      }, 600);
-    }, 5000);
+  const tntExplodeDispatch = (grid, mod) => {
+    dispatch(tntExplode(grid, mod));
   };
 
   const rotateit = (event, piece, board) => {
@@ -265,7 +252,7 @@ export const mapDispatchToGridProps = dispatch => {
   const onFocus = () => dispatch(gridHasFocus());
   const onBlur = () => dispatch(gridLoseFocus());
 
-  return { rotateit, endGame, tntExplode, onFocus, onBlur };
+  return { rotateit, endGame, tntExplodeDispatch, onFocus, onBlur };
 };
 
 export default connect(mapStateToGridProps, mapDispatchToGridProps)(Grid);

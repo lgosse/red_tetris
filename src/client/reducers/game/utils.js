@@ -81,9 +81,10 @@ export const deleteLinesF = (grid, lines, force) => {
         newGrid[index][x] = 0;
         let i;
         for (i = index; i > 0; i--) {
-          newGrid[i][x] = newGrid[i - 1][x];
+          if (newGrid[i - 1][x] === 11) i = -1;
+          else newGrid[i][x] = newGrid[i - 1][x];
         }
-        newGrid[i][x] = 0;
+        if (i === 0) newGrid[i][x] = 0;
       }
     });
   });
@@ -91,6 +92,7 @@ export const deleteLinesF = (grid, lines, force) => {
 };
 
 export const deleteTnt = (mod, grid) => {
+  console.log('Hello');
   const newGrid = grid.map((line, y) => {
     return line.map((col, x) => {
       if (
@@ -106,8 +108,8 @@ export const deleteTnt = (mod, grid) => {
 
 export const isMod = piece => {
   const modTypes = {
-    "10": "bomb",
-    "11": "tnt"
+    '10': 'bomb',
+    '11': 'tnt'
   };
   let type = -1;
   piece.grid.findIndex(elem => {
