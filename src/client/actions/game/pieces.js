@@ -131,10 +131,10 @@ export const movePiece = direction => (dispatch, getState) => {
       setTimeout(() => {
         dispatch(deleteLines());
         if (mod && mod.type === 'bomb') {
-          const newGrid = deleteBomb(mod, newGrid);
+          const newGrid2 = deleteBomb(mod, newGrid);
           dispatch(
             updateBoard({
-              grid: newGrid,
+              grid: newGrid2,
               lines
             })
           );
