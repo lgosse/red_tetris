@@ -19,7 +19,7 @@ class Piece {
     let nbTetriminos = 7;
     if (withBonus) nbTetriminos = 12;
     this.grid = tetriminos[Math.trunc(Math.random() * nbTetriminos + 1)];
-    //this.grid = tetriminos[12];
+    this.grid = tetriminos[12];
     this.x = 4;
     this.y = 0;
   }

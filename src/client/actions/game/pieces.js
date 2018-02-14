@@ -86,14 +86,7 @@ export const movePiece = direction => (dispatch, getState) => {
 
     if (newGrid) {
       let mod;
-      if ((mod = isMod(pieces.piece)) !== null) {
-        if (mod.type === "tnt") {
-          setTimeout(() => {
-            dispatch(setMod(mod));
-          }, 5000);
-        } else dispatch(setMod(mod));
-      }
-      console.log("dispatch", mod);
+      if ((mod = isMod(pieces.piece)) !== null) dispatch(setMod(mod));
       dispatch(
         updateBoard({
           grid: newGrid,
@@ -111,9 +104,10 @@ export const movePiece = direction => (dispatch, getState) => {
       setTimeout(() => {
         dispatch(deleteLines());
         if (mod && mod.type === "bomb") {
+          const newGrid = deleteBomb(mod, newGrid);
           dispatch(
             updateBoard({
-              grid: deleteBomb(mod, newGrid),
+              grid: newGrid,
               lines
             })
           );

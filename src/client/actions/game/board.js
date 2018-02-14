@@ -49,7 +49,7 @@ export const endParty = board => (dispatch, getState) => {
     let x = 0;
     let y = board.grid.length - 1;
     let interval = setInterval(() => {
-      if (getState().game.board.grid.end === false) {
+      if (getState().game.board.end === true) {
         clearInterval(interval);
         return;
       }
@@ -60,7 +60,10 @@ export const endParty = board => (dispatch, getState) => {
         y--;
         x--;
       }
-      if (y < board.grid.length / 2) clearInterval(interval);
+      if (y < board.grid.length / 2) {
+        clearInterval(interval);
+        dispatch(updateBoard({ end: true }));
+      }
     }, 100);
   }
 };

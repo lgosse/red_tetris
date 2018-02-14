@@ -23,12 +23,12 @@ const global = {
       game: "Audiowide"
     },
     shadow: {
-      heavy: "4px 4px 2px rgba(17, 15, 15, 0.6);",
-      light: "1px 1px 0.5px rgba(17, 15, 15, 0.6);"
+      heavy: "4px 4px 2px rgba(17, 15, 15, 0.6)",
+      light: "1px 1px 0.5px rgba(17, 15, 15, 0.6)"
     }
   },
   shadow: {
-    light: "2px 2px 8px 0px #656565;"
+    light: "2px 2px 8px 0px #656565"
   },
   border: {
     radius: "10px"
