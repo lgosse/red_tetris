@@ -18,22 +18,26 @@ import {
   deleteLines,
   endParty,
   gridHasFocus,
-  gridLoseFocus
+  gridLoseFocus,
+  notifyGridUpdate
 } from '../../actions/game/board';
 import { updateBoard } from '../../actions/game/board';
 import { setMod } from '../../actions/game/mods';
 
 const Calque = ({ board, piece }) => {
   if (board.end === true) {
+    console.log('END YEH');
     return (
       <div
         style={{
           ...gameStyle.calque,
+          zIndex: '10000',
           textAlign: 'center',
           marginTop: '35vh',
           fontSize: '5vh',
           fontFamily: globalStyle.font.family.game,
-          color: 'white'
+          color: globalStyle.color.primary,
+          textShadow: globalStyle.font.shadow.heavy
         }}
       >
         YOU LOOSE
@@ -94,7 +98,7 @@ export const Grid = ({
             break;
           }
 
-          case 'tnt': {
+          case 'tntGo': {
             let tnt = [];
             if (Math.abs(mods.y - i) <= 3) {
               line.map((col, j) => {
@@ -192,14 +196,21 @@ export const mapStateToGridProps = ({
 
 export const mapDispatchToGridProps = dispatch => {
   const tntExplode = (grid, mod) => {
+    dispatch(setMod(null));
+    const tnt = { ...mod, type: 'tntGo' };
     setTimeout(() => {
-      dispatch(
-        updateBoard({
-          grid: deleteTnt(mod, grid)
-        })
-      );
-      dispatch(setMod(null));
-    }, 600);
+      dispatch(setMod(tnt));
+      setTimeout(() => {
+        const newGrid = deleteTnt(mod, grid);
+        dispatch(
+          updateBoard({
+            grid: newGrid
+          })
+        );
+        dispatch(notifyGridUpdate(newGrid, 1));
+        dispatch(setMod(null));
+      }, 600);
+    }, 5000);
   };
 
   const rotateit = (event, piece, board) => {

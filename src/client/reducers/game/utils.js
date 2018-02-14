@@ -71,13 +71,13 @@ export const checkLines = grid => {
   return lines;
 };
 
-export const deleteLinesF = (grid, lines) => {
+export const deleteLinesF = (grid, lines, force) => {
   let newGrid = [...grid];
   let newLines = [...lines];
 
   newLines.forEach(index => {
     newGrid[index].forEach((val, x) => {
-      if (val >= 0 && val <= 9) {
+      if ((val >= 0 && val <= 9) || (force && val === -1)) {
         newGrid[index][x] = 0;
         let i;
         for (i = index; i > 0; i--) {
@@ -126,7 +126,7 @@ export const isMod = piece => {
 
 export const deleteBomb = (mod, grid) => {
   if (!mod) return grid;
-  let newGrid = deleteLinesF(grid, [mod.y]);
+  let newGrid = deleteLinesF(grid, [mod.y], 1);
   newGrid.forEach((line, i) => {
     if (line[mod.x] !== 11) newGrid[i][mod.x] = 0;
   });

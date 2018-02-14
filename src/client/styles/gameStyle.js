@@ -1,16 +1,20 @@
 import styled, { keyframes } from "styled-components";
 
-const getColors = [
-  ["transparent"],
-  ["red"],
-  ["grey"],
-  ["blue"],
-  ["green"],
-  ["red"],
-  ["grey"],
-  ["blue"],
-  ["black"]
-];
+const getColors = {
+  "-1": "radial-gradient(white, grey, black)",
+  "0": "transparent",
+  "1": "#F44336", // red
+  "2": "#E91E63", // pink
+  "3": "#9C27B0", // purple
+  "4": "#673AB7", // deep purple
+  "5": "#3F51B5", // indigo
+  "6": "#03A9F4", // light blue
+  "7": "#8BC34A", // light green
+  "8": "#FFEB3B", // yellow
+  "9": "#795548", // brown
+  "10": "#FF9800", // orange
+  "13": "#f4f5f3" //blanc
+};
 
 const animations = {
   pulse: keyframes`
@@ -340,7 +344,7 @@ const gameStyle = {
       display: "inline-flex",
       width: "4vh",
       height: "4vh",
-      backgroundColor: getColors[color],
+      background: getColors[color],
       border: color == 0 ? "none" : "1px solid black"
     };
   },
