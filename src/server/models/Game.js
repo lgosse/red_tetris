@@ -9,16 +9,18 @@ const gameSchema = mongoose.Schema({
   size: Number,
   open: Boolean,
   playing: Boolean,
-  players: [playerSchema]
+  players: [playerSchema],
+  withBonus: Boolean
 });
 
 class Game {
-  constructor({ name, size }) {
+  constructor({ name, size, withBonus = true }) {
     this.name = name;
     this.size = size;
     this.open = false;
     this.playing = false;
     this.players = [];
+    this.withBonus = withBonus;
   }
 
   get solo() {

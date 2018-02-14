@@ -24,9 +24,11 @@ import {
   claimPieceSuccess,
   movePieceServer
 } from '../../client/actions/game/pieces';
-import Piece from '../models/Piece';
+import { Piece } from '../models/Piece';
 import { updatePiecesGame } from '../../client/actions/game/pieces';
 import { gridZero } from '../../client/reducers/game/utils';
+import { updateBoard } from '../../client/actions/game/board';
+import { updateScore, resetScore } from '../../client/actions/game/score';
 
 export const userLeaves = async (io, socket) => {
   if (!socket.partyId) return;
@@ -142,11 +144,7 @@ const partyList = async (action, io, socket) => {
         partyEdit = party;
       }
 
-      if (
-        partyEdit.players.length < partyEdit.size
-        // && partyEdit.players.filter(player => player.socketId === socket.id)
-        //   .length === 0
-      ) {
+      if (partyEdit.players.length < partyEdit.size) {
         partyEdit.addPlayer(
           new Player({
             ...action.player,
@@ -162,19 +160,6 @@ const partyList = async (action, io, socket) => {
 
         io.emit('action', await getParties());
       }
-      //  else if (
-      //   partyEdit.players.filter(player => player.socketId === socket.id)
-      //     .length !== 0
-      // ) {
-      //   partyEdit.players = partyEdit.players.map(
-      //     player =>
-      //       player.socketId === socket.id
-      //         ? { ...player, ...action.player, map: gridZero(10, 20) }
-      //         : player
-      //   );
-      //   partyEdit.save();
-      //   io.emit('action', await getParties());
-      // }
 
       socket.partyId = partyEdit._id;
       socket.join(partyEdit._id, () => {
@@ -235,6 +220,10 @@ const partyList = async (action, io, socket) => {
         await party.save();
 
         io.emit('action', await getParties());
+        io
+          .to(party._id)
+          .emit('action', updateBoard({ grid: gridZero(10, 20) }));
+        io.to(party._id).emit('action', resetScore(0));
         io.to(party._id).emit('action', updateParty(party));
         io
           .to(party._id)

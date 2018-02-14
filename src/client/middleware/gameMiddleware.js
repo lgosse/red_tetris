@@ -2,13 +2,15 @@ import {
   GAME_PIECES_PIECE_MOVE_SERVER,
   GAME_PIECES_PIECE_ROTATE_SERVER,
   GAME_MODS_SET,
-  GAME_BOARD_BLOCK_LINES_SERVER
+  GAME_BOARD_BLOCK_LINES_SERVER,
+  GAME_MALUS_ADD
 } from '../../actionsTypes';
 import {
   updatePiecesGame,
   claimPiece,
   movePiece,
-  rotatePiece
+  rotatePiece,
+  gameAddMalusSuccess
 } from '../actions/game/pieces';
 import {
   gridFusion,
@@ -45,6 +47,12 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
       dispatch(blockLines(action.payload));
 
       break;
+    }
+
+    case GAME_MALUS_ADD: {
+      if (getState().player.socketId !== action.payload.emitterSocketId) {
+        dispatch(gameAddMalusSuccess(action.payload.malus));
+      }
     }
 
     case GAME_MODS_SET: {
