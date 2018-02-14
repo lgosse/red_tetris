@@ -37,7 +37,11 @@ export const GAME_PIECES_PIECE_MOVE_SERVER = 'GAME_PIECES_PIECE_MOVE_SERVER';
 export const GAME_PIECES_PIECE_MOVE_SUCCESS = 'GAME_PIECES_PIECE_MOVE_SUCCESS';
 export const GAME_PIECES_CLAIM_PIECE = 'server/claim-piece';
 export const GAME_PIECES_CLAIM_PIECE_SUCCESS = 'PLAYER_CLAIM_PIECE_SUCCESS';
+export const GAME_BONUS_ADD = 'GAME_BONUS_ADD';
+export const GAME_MALUS_ADD = 'GAME_MALUS_ADD';
+export const GAME_MALUS_ADD_SUCCESS = 'GAME_MALUS_ADD_SUCCESS';
 export const GAME_PIECES_UPDATE = 'GAME_PIECES_UPDATE';
+export const GAME_PIECE_UPDATE = 'GAME_PIECE_UPDATE';
 
 export const GAME_HAS_FOCUS = 'GAME_HAS_FOCUS';
 export const GAME_LOSE_FOCUS = 'GAME_LOSE_FOCUS';
@@ -51,6 +55,7 @@ export const GAME_LOSE = 'server/game-lose';
 export const GAME_MODS_SET = 'GAME_MODS_SET';
 
 export const GAME_SCORE_UPDATE = 'GAME_SCORE_UPDATE';
+export const GAME_SCORE_RESET = 'GAME_SCORE_RESET';
 
 // Server actions
 export const SERVER_PING = 'server/ping';

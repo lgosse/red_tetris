@@ -1,7 +1,10 @@
 import {
   GAME_PIECES_CLAIM_PIECE,
   GAME_PIECES_CLAIM_PIECE_SUCCESS,
+  GAME_BONUS_ADD,
+  GAME_MALUS_ADD_SUCCESS,
   GAME_PIECES_UPDATE,
+  GAME_PIECE_UPDATE,
   GAME_PIECES_PIECE_MOVE_SUCCESS,
   GAME_PIECES_PIECE_ROTATE_SUCCESS,
   GAME_LOSE,
@@ -18,6 +21,16 @@ const pieces = (state = initialState, action) => {
       return {
         ...state,
         ...action.pieces
+      };
+    }
+
+    case GAME_PIECE_UPDATE: {
+      return {
+        ...state,
+        piece: {
+          ...state.piece,
+          ...action.piece
+        }
       };
     }
 
@@ -39,6 +52,20 @@ const pieces = (state = initialState, action) => {
       return {
         ...state,
         next: state.next ? state.next.concat(action.pieces) : action.pieces
+      };
+    }
+
+    case GAME_BONUS_ADD: {
+      return {
+        ...state,
+        next: state.next ? [action.bonus, ...state.next] : [action.bonus]
+      };
+    }
+
+    case GAME_MALUS_ADD_SUCCESS: {
+      return {
+        ...state,
+        next: state.next ? [action.malus, ...state.next] : [action.malus]
       };
     }
 
