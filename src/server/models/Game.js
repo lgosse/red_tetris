@@ -14,7 +14,7 @@ const gameSchema = mongoose.Schema({
 });
 
 class Game {
-  constructor({ name, size, withBonus = true }) {
+  constructor({ name, size, withBonus = false }) {
     this.name = name;
     this.size = size;
     this.open = false;

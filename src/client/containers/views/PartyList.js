@@ -1,30 +1,31 @@
-import React from "react";
-import { connect } from "react-redux";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-import { ping } from "../../actions/server";
+import { ping } from '../../actions/server';
 
 import {
   Button,
   FlexContainer,
   FlexSpacer,
   Paragraph,
-  FullSizeContainer
-} from "../../components/helpers/Common";
+  FullSizeContainer,
+  Icon
+} from '../../components/helpers/Common';
 
 export const PartyButton = ({ party, player, onClick }) => {
   return (
     <Link
-      to={`/#${party.name}[${player.nickname || "Unknown"}]`}
+      to={`/#${party.name}[${player.nickname || 'Unknown'}]`}
       style={
         !party.open
           ? {
-              textDecoration: "none",
-              pointerEvents: "none"
+              textDecoration: 'none',
+              pointerEvents: 'none'
             }
           : {
-              textDecoration: "none"
+              textDecoration: 'none'
             }
       }
     >
@@ -34,15 +35,18 @@ export const PartyButton = ({ party, player, onClick }) => {
         margin="10px"
         disabled={!party.open}
         style={{
-          display: "flex",
-          flexDirection: "row"
+          display: 'flex',
+          flexDirection: 'row'
         }}
         className="join-button"
       >
-        <div style={{ flex: 1, textAlign: "left" }}>{party.name}</div>
+        <div style={{ flex: 1, textAlign: 'left' }}>{party.name}</div>
         <div>
           Players: {party.players.length} / {party.size}
         </div>
+        {party.withBonus && (
+          <Icon marginTop="-2px" marginLeft="5px" className="bomb" />
+        )}
       </Button>
     </Link>
   );

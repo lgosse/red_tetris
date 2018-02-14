@@ -181,8 +181,13 @@ export const HexaSeparator = props => (
 const FaIcon = props => <i className={`fa fa-${props.className}`} />;
 
 export const Icon = styled(FaIcon)`
-  ${props => props.primary && `color: ${global.color.primary}`};
-  ${props => props.accent && `color: ${global.color.accent}`};
-  ${props => props.size && `font-size: ${props.size}`};
-  ${props => props.clickable && `cursor: pointer`};
+  ${props => props.margin && `margin: ${props.margin};`}
+  ${props => props.marginLeft && `margin-left: ${props.marginLeft};`}
+  ${props => props.marginRight && `margin-right: ${props.marginRight};`}
+  ${props => props.marginBottom && `margin-bottom: ${props.marginBottom};`}
+  ${props => props.marginTop && `margin-top: ${props.marginTop};`}
+  ${props => props.primary && `color: ${global.color.primary};`};
+  ${props => props.accent && `color: ${global.color.accent};`};
+  ${props => props.size && `font-size: ${props.size};`};
+  ${props => props.clickable && `cursor: pointer;`};
 `;
