@@ -3,6 +3,7 @@
 *.swo
 .idea
 build
+dist
 log
 tmp
 node_modules
