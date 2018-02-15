@@ -5,6 +5,9 @@ const params = {
     get url() {
       return 'http://' + this.host + ':' + this.port;
     }
+  },
+  db: {
+    host: '192.168.99.100'
   }
 };
 

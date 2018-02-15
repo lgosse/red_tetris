@@ -4,8 +4,9 @@ import ioReducer from './serverReducer';
 import mongoose from 'mongoose';
 import { userLeaves } from './reducers/partyList';
 import { updatePlayer } from '../client/actions/player';
+import params from '../../params';
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://192.168.99.100:27017/dev');
+mongoose.connect(`mongodb://${params.db.host}:27017/dev`);
 
 const logerror = debug('tetris:error'),
   loginfo = debug('tetris:info');
@@ -28,7 +29,7 @@ const initApp = (app, params, cb) => {
 
   app.on('request', handler);
 
-  app.listen({ port }, () => {
+  app.listen({ host: '0.0.0.0', port }, () => {
     loginfo(`tetris listen on ${params.url}`);
     cb();
   });
