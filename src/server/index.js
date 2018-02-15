@@ -12,7 +12,7 @@ const logerror = debug('tetris:error'),
   loginfo = debug('tetris:info');
 
 const initApp = (app, params, cb) => {
-  const { port } = params;
+  const { host, port } = params;
   const handler = (req, res) => {
     const file =
       req.url === '/bundle.js' ? '/../../build/bundle.js' : '/../../index.html';
@@ -29,7 +29,7 @@ const initApp = (app, params, cb) => {
 
   app.on('request', handler);
 
-  app.listen({ host: '0.0.0.0', port }, () => {
+  app.listen({ host, port }, () => {
     loginfo(`tetris listen on ${params.url}`);
     cb();
   });

@@ -1,13 +1,20 @@
 const params = {
   server: {
-    host: '0.0.0.0',
-    port: 3004,
+    host: process.env.RED_TETRIS_SERVER_HOST || '0.0.0.0',
+    port: process.env.RED_TETRIS_SERVER_PORT || 3004,
     get url() {
-      return 'http://' + this.host + ':' + this.port;
+      return `http://${this.host}:${this.port}`;
+    }
+  },
+  front: {
+    host: process.env.RED_TETRIS_FRONT_HOST || 'localhost',
+    port: process.env.RED_TETRIS_FRONT_PORT || 3004,
+    get url() {
+      return `http://${this.host}${this.port === 80 ? '' : ':' + this.port}`;
     }
   },
   db: {
-    host: '192.168.99.100'
+    host: process.env.RED_TETRIS_DB_HOST || '192.168.99.100'
   }
 };
 
