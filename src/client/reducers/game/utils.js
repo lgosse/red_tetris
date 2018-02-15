@@ -61,7 +61,7 @@ export const checkLines = grid => {
   grid.forEach((line, y) => {
     let i = 0;
     line.forEach((col, x) => {
-      if (col > 0 && col < 10) i++;
+      if (col > 0 && col !== 11 && col !== 10) i++;
     });
     if (i === grid[0].length) {
       lines.push(y);
@@ -71,19 +71,22 @@ export const checkLines = grid => {
   return lines;
 };
 
-export const deleteLinesF = (grid, lines) => {
+export const deleteLinesF = (grid, lines, force) => {
   let newGrid = [...grid];
   let newLines = [...lines];
 
   newLines.forEach(index => {
     newGrid[index].forEach((val, x) => {
-      if (val >= 0 && val <= 9) {
+      if ((val >= 0 && val <= 9) || (force && val !== 11)) {
         newGrid[index][x] = 0;
         let i;
         for (i = index; i > 0; i--) {
-          newGrid[i][x] = newGrid[i - 1][x];
+          if (newGrid[i - 1][x] === 11) {
+            newGrid[i][x] = 0;
+            i = -1;
+          } else newGrid[i][x] = newGrid[i - 1][x];
         }
-        newGrid[i][x] = 0;
+        if (i === 0) newGrid[i][x] = 0;
       }
     });
   });
@@ -106,8 +109,8 @@ export const deleteTnt = (mod, grid) => {
 
 export const isMod = piece => {
   const modTypes = {
-    "10": "bomb",
-    "11": "tnt"
+    '10': 'bomb',
+    '11': 'tnt'
   };
   let type = -1;
   piece.grid.findIndex(elem => {
@@ -126,7 +129,7 @@ export const isMod = piece => {
 
 export const deleteBomb = (mod, grid) => {
   if (!mod) return grid;
-  let newGrid = deleteLinesF(grid, [mod.y]);
+  let newGrid = deleteLinesF(grid, [mod.y], 1);
   newGrid.forEach((line, i) => {
     if (line[mod.x] !== 11) newGrid[i][mod.x] = 0;
   });

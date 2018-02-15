@@ -7,8 +7,8 @@ const params = {
     }
   },
   front: {
-    host: 'localhost',
-    port: 3004,
+    host: 'ec2-52-47-162-238.eu-west-3.compute.amazonaws.com',
+    port: 80,
     get url() {
       return `http://${this.host}${this.port === 80 ? '' : ':' + this.port}`;
     }

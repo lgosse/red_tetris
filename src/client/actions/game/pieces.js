@@ -89,6 +89,7 @@ export const movePiece = direction => (dispatch, getState) => {
   if (!pieces.piece) return;
 
   if (direction === 20) {
+    // Barre ESPACE
     let down = pieces.piece.y;
     while (!testCollision({ ...pieces.piece, y: down + 1 }, board.grid).collide)
       down++;
@@ -113,13 +114,7 @@ export const movePiece = direction => (dispatch, getState) => {
 
     if (newGrid) {
       let mod;
-      if ((mod = isMod(pieces.piece)) !== null) {
-        if (mod.type === 'tnt') {
-          setTimeout(() => {
-            dispatch(setMod(mod));
-          }, 5000);
-        } else dispatch(setMod(mod));
-      }
+      if ((mod = isMod(pieces.piece)) !== null) dispatch(setMod(mod));
       dispatch(
         updateBoard({
           grid: newGrid,
@@ -136,15 +131,6 @@ export const movePiece = direction => (dispatch, getState) => {
       dispatch(claimPiece());
       setTimeout(() => {
         dispatch(deleteLines());
-        if (mod && mod.type === 'bomb') {
-          dispatch(
-            updateBoard({
-              grid: deleteBomb(mod, newGrid),
-              lines
-            })
-          );
-          dispatch(setMod(null));
-        }
         dispatch(
           notifyGridUpdate(getState().game.board.grid, lines ? lines.length : 0)
         );

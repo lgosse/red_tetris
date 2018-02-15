@@ -2,9 +2,12 @@
 *.swp
 *.swo
 .idea
+build
+dist
 log
 tmp
 node_modules
 .nyc_output
 coverage
 package-lock.json
+param.js

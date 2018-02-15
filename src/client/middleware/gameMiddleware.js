@@ -19,15 +19,22 @@ import {
   gridZero,
   checkLines,
   isMod,
-  deleteLinesF
+  deleteLinesF,
+  deleteTnt,
+  deleteBomb
 } from '../reducers/game/utils';
 import {
   updateBoard,
   deleteLines,
   notifyGridUpdate,
-  blockLines
+  blockLines,
+  tntExplode,
+  tntExplode1,
+  tntExplode2,
+  bombExplode
 } from '../actions/game/board';
 import { gameLose } from '../actions/game/game';
+import { setMod } from '../actions/game/mods';
 
 const gameMiddleware = ({ dispatch, getState }) => next => action => {
   switch (action.type) {
@@ -57,17 +64,33 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
 
     case GAME_MODS_SET: {
       const { game: { board: { grid } } } = getState();
-      if (!action.mod || !action.mod.do) break;
+      if (!action.mod || !action.mod.type) break;
 
       switch (action.mod.type) {
         case 'bomb': {
-          let newGrid = deleteLinesF(grid, [action.mod.y]);
-          newGrid = newGrid.map(line => {
-            line[action.mod.x] = 0;
-          });
-          dispatch(updateBoard({ grid: newGrid }));
+          const mod = action.mod;
+          setTimeout(() => {
+            dispatch(bombExplode(mod));
+          }, 600);
           break;
         }
+
+        case 'tnt': {
+          const mod = action.mod;
+          setTimeout(() => {
+            dispatch(tntExplode1(mod));
+          }, 5000);
+          break;
+        }
+
+        case 'tntGo': {
+          const mod = action.mod;
+          setTimeout(() => {
+            dispatch(tntExplode2(mod));
+          }, 600);
+          break;
+        }
+
         default:
           break;
       }

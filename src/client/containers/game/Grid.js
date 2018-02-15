@@ -18,7 +18,9 @@ import {
   deleteLines,
   endParty,
   gridHasFocus,
-  gridLoseFocus
+  gridLoseFocus,
+  notifyGridUpdate,
+  tntExplode
 } from '../../actions/game/board';
 import { updateBoard } from '../../actions/game/board';
 import { setMod } from '../../actions/game/mods';
@@ -29,11 +31,7 @@ const Calque = ({ board, piece }) => {
       <div
         style={{
           ...gameStyle.calque,
-          textAlign: 'center',
-          marginTop: '35vh',
-          fontSize: '5vh',
-          fontFamily: globalStyle.font.family.game,
-          color: 'white'
+          ...gameStyle.endMessage
         }}
       >
         YOU LOOSE
@@ -57,7 +55,7 @@ export const Grid = ({
   mods,
   rotateit,
   endGame,
-  tntExplode,
+  tntExplodeDispatch,
   onFocus,
   onBlur
 }) => {
@@ -94,7 +92,7 @@ export const Grid = ({
             break;
           }
 
-          case 'tnt': {
+          case 'tntGo': {
             let tnt = [];
             if (Math.abs(mods.y - i) <= 3) {
               line.map((col, j) => {
@@ -134,8 +132,6 @@ export const Grid = ({
     endGame(board);
   }
 
-  if (mods.type === 'tnt') tntExplode(board.grid, mods);
-
   const refCallback = ref =>
     board.hasFocusedOnce === false && ref && ref.focus();
 
@@ -153,19 +149,7 @@ export const Grid = ({
       }}
     >
       {!board.focus ? (
-        <div
-          style={{
-            width: '100%',
-            height: '100%',
-            position: 'relative',
-            marginBottom: '-200%',
-            backgroundColor: 'rgba(0, 0, 0, 0.6)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            zIndex: 9999
-          }}
-        >
+        <div style={gameStyle.focusMessage}>
           <Paragraph gameFont size="12px" bold color="accent">
             CLICK TO PLAY
           </Paragraph>
@@ -191,15 +175,8 @@ export const mapStateToGridProps = ({
 });
 
 export const mapDispatchToGridProps = dispatch => {
-  const tntExplode = (grid, mod) => {
-    setTimeout(() => {
-      dispatch(
-        updateBoard({
-          grid: deleteTnt(mod, grid)
-        })
-      );
-      dispatch(setMod(null));
-    }, 600);
+  const tntExplodeDispatch = (grid, mod) => {
+    dispatch(tntExplode(grid, mod));
   };
 
   const rotateit = (event, piece, board) => {
@@ -254,7 +231,7 @@ export const mapDispatchToGridProps = dispatch => {
   const onFocus = () => dispatch(gridHasFocus());
   const onBlur = () => dispatch(gridLoseFocus());
 
-  return { rotateit, endGame, tntExplode, onFocus, onBlur };
+  return { rotateit, endGame, tntExplodeDispatch, onFocus, onBlur };
 };
 
 export default connect(mapStateToGridProps, mapDispatchToGridProps)(Grid);

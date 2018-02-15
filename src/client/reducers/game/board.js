@@ -16,7 +16,6 @@ import {
   deleteLinesF
 } from './utils';
 import { notifyGridUpdate } from '../../actions/game/board';
-import { socket } from '../../index';
 
 const initialState = {
   grid: gridZero(10, 20),

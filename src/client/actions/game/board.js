@@ -6,6 +6,8 @@ import {
   GAME_HAS_FOCUS,
   GAME_LOSE_FOCUS
 } from '../../../actionsTypes';
+import { setMod } from './mods';
+import { deleteTnt, deleteBomb } from '../../reducers/game/utils';
 
 export const gridHasFocus = () => ({
   type: GAME_HAS_FOCUS
@@ -34,8 +36,8 @@ export const deleteLines = () => ({
 
 const endAnimationSub = (board, grid, x, y) => {
   while (x >= 0) {
-    grid[grid.length - 1 - y][grid[0].length - 1 - x] = 8;
-    grid[y][x] = 8;
+    grid[grid.length - 1 - y][grid[0].length - 1 - x] = 13;
+    grid[y][x] = 13;
     x--;
     y--;
   }
@@ -49,11 +51,10 @@ export const endParty = board => (dispatch, getState) => {
     let x = 0;
     let y = board.grid.length - 1;
     let interval = setInterval(() => {
-      if (getState().game.board.grid.end === false) {
+      if (getState().game.board.end === true) {
         clearInterval(interval);
         return;
       }
-
       newBoard = { ...newBoard, grid: endAnimationSub(board, newGrid, x, y) };
       dispatch(updateBoard(newBoard));
       x++;
@@ -61,7 +62,10 @@ export const endParty = board => (dispatch, getState) => {
         y--;
         x--;
       }
-      if (y < board.grid.length / 2) clearInterval(interval);
+      if (y < board.grid.length / 2) {
+        clearInterval(interval);
+        dispatch(updateBoard({ end: true }));
+      }
     }, 100);
   }
 };
@@ -78,6 +82,7 @@ export const blockLines = ({ nbLines, except }) => (dispatch, getState) => {
   const state = getState();
   const socketId = state.player.socketId;
   const grid = state.game.board.grid;
+
   if (except === socketId) return;
 
   dispatch(
@@ -90,4 +95,31 @@ export const blockLines = ({ nbLines, except }) => (dispatch, getState) => {
     })
   );
   dispatch(notifyGridUpdate(getState().game.board.grid, 0));
+};
+
+export const bombExplode = mod => (dispatch, getState) => {
+  const newGrid = deleteBomb(mod, getState().game.board.grid);
+  dispatch(
+    updateBoard({
+      grid: newGrid
+    })
+  );
+  dispatch(notifyGridUpdate(newGrid, 1));
+  dispatch(setMod(null));
+};
+
+export const tntExplode1 = mod => (dispatch, getState) => {
+  const tnt = { ...mod, type: 'tntGo' };
+  dispatch(setMod(tnt));
+};
+
+export const tntExplode2 = mod => (dispatch, getState) => {
+  const newGrid = deleteTnt(mod, getState().game.board.grid);
+  dispatch(
+    updateBoard({
+      grid: newGrid
+    })
+  );
+  dispatch(notifyGridUpdate(newGrid, 1));
+  dispatch(setMod(null));
 };
