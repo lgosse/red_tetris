@@ -14,12 +14,12 @@ RUN		apk update && apk add yarn && chmod 770 .
 COPY  . .
 
 # Copying params file
-RUN   cp ./params.${RED_TETRIS_ENV}.js ./params.js
+COPY ./params.${RED_TETRIS_ENV}.js ./params.js
 
 # Running npm install
 RUN		yarn
 
-CMD   yarn client-dist && yarn srv-dist && node dist/server/main.js
+CMD   yarn client-dist && yarn srv-dist && node dist/server/main.js; ls -lah
 
 # It requires your app to listen on the port 3004
 EXPOSE  3004
