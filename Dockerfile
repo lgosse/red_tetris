@@ -19,7 +19,7 @@ COPY ./params.${RED_TETRIS_ENV}.js ./params.js
 # Running npm install
 RUN		yarn
 
-CMD   yarn client-dist && yarn srv-dist && node dist/server/main.js; ls -lah
+CMD   yarn client-dist && yarn srv-dist && node dist/server/main.js
 
 # It requires your app to listen on the port 3004
 EXPOSE  3004
