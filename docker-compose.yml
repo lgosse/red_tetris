@@ -8,7 +8,7 @@ services:
       - ./:/var/html/app/red_tetris
       - /var/html/app/red_tetris/node_modules
     ports:
-      - 3004:3004
+      - 80:80
     links: 
       - "database"
   database:
