@@ -40,8 +40,13 @@ const SendButton = styled.button`
 const MessagesContainer = styled.div`
   width: 100%;
   flex: 1;
-  overflow: scroll;
-  padding: 12px;
+  overflow-y: hidden;
+  padding: 14.5px;
+
+  &:hover {
+    overflow-y: scroll;
+    padding-right: 0px;
+  }
 `;
 
 const OwnerMessage = styled.div`

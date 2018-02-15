@@ -22,16 +22,27 @@ const initialState = { size: 10, players: [], messages: [], withBonus: false };
 
 const party = (state = initialState, action) => {
   switch (action.type) {
-    case PARTY_GET:
+    case PARTY_GET: {
       return getParty();
-    case PARTY_SAVE:
+    }
+
+    case PARTY_SAVE: {
       saveParty(action);
       return state;
-    case PARTY_UPDATE:
-      return action.party;
-    case PARTY_LEFT:
+    }
+
+    case PARTY_UPDATE: {
+      return {
+        ...state,
+        ...action.party
+      };
+    }
+
+    case PARTY_LEFT: {
       return initialState;
-    case PARTY_RECEIVE_MESSAGE:
+    }
+
+    case PARTY_RECEIVE_MESSAGE: {
       return {
         ...state,
         messages:
@@ -39,6 +50,8 @@ const party = (state = initialState, action) => {
             ? [...state.messages, action.message]
             : [action.message]
       };
+    }
+
     default:
       return state;
   }
