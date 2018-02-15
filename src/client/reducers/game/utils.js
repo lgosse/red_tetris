@@ -61,7 +61,7 @@ export const checkLines = grid => {
   grid.forEach((line, y) => {
     let i = 0;
     line.forEach((col, x) => {
-      if (col > 0 && col < 10) i++;
+      if (col > 0 && col !== 11 && col !== 10) i++;
     });
     if (i === grid[0].length) {
       lines.push(y);
