@@ -5,7 +5,9 @@ import {
   GAME_BOARD_BLOCK_LINES_SERVER,
   GAME_HAS_FOCUS,
   GAME_LOSE_FOCUS
-} from "../../../actionsTypes";
+} from '../../../actionsTypes';
+import { setMod } from './mods';
+import { deleteTnt, deleteBomb } from '../../reducers/game/utils';
 
 export const gridHasFocus = () => ({
   type: GAME_HAS_FOCUS
@@ -80,6 +82,7 @@ export const blockLines = ({ nbLines, except }) => (dispatch, getState) => {
   const state = getState();
   const socketId = state.player.socketId;
   const grid = state.game.board.grid;
+
   if (except === socketId) return;
 
   dispatch(
@@ -92,4 +95,31 @@ export const blockLines = ({ nbLines, except }) => (dispatch, getState) => {
     })
   );
   dispatch(notifyGridUpdate(getState().game.board.grid, 0));
+};
+
+export const bombExplode = mod => (dispatch, getState) => {
+  const newGrid = deleteBomb(mod, getState().game.board.grid);
+  dispatch(
+    updateBoard({
+      grid: newGrid
+    })
+  );
+  dispatch(notifyGridUpdate(newGrid, 1));
+  dispatch(setMod(null));
+};
+
+export const tntExplode1 = mod => (dispatch, getState) => {
+  const tnt = { ...mod, type: 'tntGo' };
+  dispatch(setMod(tnt));
+};
+
+export const tntExplode2 = mod => (dispatch, getState) => {
+  const newGrid = deleteTnt(mod, getState().game.board.grid);
+  dispatch(
+    updateBoard({
+      grid: newGrid
+    })
+  );
+  dispatch(notifyGridUpdate(newGrid, 1));
+  dispatch(setMod(null));
 };
