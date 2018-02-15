@@ -28,7 +28,10 @@ const party = (state = initialState, action) => {
       saveParty(action);
       return state;
     case PARTY_UPDATE:
-      return action.party;
+      return {
+        ...state,
+        ...action.party
+      };
     case PARTY_LEFT:
       return initialState;
     case PARTY_RECEIVE_MESSAGE:
