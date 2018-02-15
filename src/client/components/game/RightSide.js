@@ -16,6 +16,7 @@ import Chat from '../../containers/forms/Chat';
 const PlayerStatesContainer = FullSizeContainer.extend`
   display: flex;
   flex-wrap: wrap;
+  overflow
 `;
 
 const NoPlayers = () => (
@@ -70,7 +71,7 @@ const RightSide = ({ players }) => {
           <div
             style={{
               flex: 1,
-              overflow: 'scroll',
+              overflowY: 'scroll',
               minHeight: '210px',
               maxHeight: '210px'
             }}
