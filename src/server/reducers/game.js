@@ -26,7 +26,7 @@ import { gridZero } from '../../client/reducers/game/utils';
 import { resetGame, blockLinesServer } from '../../client/actions/game/board';
 
 import mongoose from 'mongoose';
-import { notifyGameOver } from '../../client/actions/game/game';
+import { notifyGameOver, endGame } from '../../client/actions/game/game';
 import { getRankingListSuccess } from '../../client/actions/rankings';
 
 const game = async (action, io, socket) => {
@@ -87,7 +87,9 @@ const game = async (action, io, socket) => {
 
       try {
         await party.save();
-        io.to(socket.partyId).emit('action', updateParty(party));
+        io
+          .to(socket.partyId)
+          .emit('action', updateParty({ players: party.players }));
       } catch (error) {
         console.error(error);
       }
@@ -114,7 +116,6 @@ const game = async (action, io, socket) => {
 
       party.updatePlayer({
         socketId: socket.id,
-        map: gridZero(10, 20),
         lose: true
       });
 
@@ -141,13 +142,14 @@ const game = async (action, io, socket) => {
 
         clearInterval(io.to(party._id).partyInterval);
         party.stopGame();
+        party.clearPlayersBoard();
+        try {
+          party.save();
+        } catch (error) {
+          console.error(error);
+        }
         setTimeout(() => {
-          try {
-            party.save();
-          } catch (error) {
-            console.error(error);
-          }
-          io.to(party._id).emit('action', updateParty(party));
+          io.to(party._id).emit('action', endGame());
         }, 3000);
       } else {
         try {
@@ -155,7 +157,9 @@ const game = async (action, io, socket) => {
         } catch (error) {
           console.error(error);
         }
-        io.to(party._id).emit('action', updateParty(party));
+        io
+          .to(party._id)
+          .emit('action', updateParty({ players: party.players }));
       }
 
       break;

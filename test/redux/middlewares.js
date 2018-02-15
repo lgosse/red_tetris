@@ -1,37 +1,37 @@
-import chai from "chai";
-import React from "react";
-import { createStore, applyMiddleware } from "redux";
-import { push } from "react-router-redux";
-const jsdom = require("jsdom");
+import chai from 'chai';
+import React from 'react';
+import { createStore, applyMiddleware } from 'redux';
+import { push } from 'react-router-redux';
+const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
-import { storeStateMiddleWare } from "../../src/client/middleware/storeStateMiddleWare";
+import { storeStateMiddleWare } from '../../src/client/middleware/storeStateMiddleWare';
 import {
   PARTY_UPDATE,
   PLAYER_GET,
   PARTY_GET,
   PARTY_LEAVE,
   ALERT_POP
-} from "../../src/actionsTypes";
-import { alert } from "../../src/client/actions/alert";
-import reducers from "../../src/client/reducers";
+} from '../../src/actionsTypes';
+import { alert } from '../../src/client/actions/alert';
+import reducers from '../../src/client/reducers';
 
-import { socketIoMiddleware } from "../../src/client/middleware/socketIoMiddleware";
+import { socketIoMiddleware } from '../../src/client/middleware/socketIoMiddleware';
 import {
   LOCATION_CHANGE,
   RESPONSE_PARTY_LIST,
   PARTY_LIST
-} from "../../src/actionsTypes";
-import { getParties } from "../../src/client/actions/partyList";
-import { ping } from "../../src/client/actions/server";
-import { configureStore, startServer } from "../helpers/server";
-import io from "socket.io-client";
-import params from "../../params";
-import { combineReducers } from "redux";
+} from '../../src/actionsTypes';
+import { getParties } from '../../src/client/actions/partyList';
+import { ping } from '../../src/client/actions/server';
+import { configureStore, startServer } from '../helpers/server';
+import io from 'socket.io-client';
+import params from '../../params';
+import { combineReducers } from 'redux';
 
 chai.should();
 
-describe("Middlewares", () => {
+describe('Middlewares', () => {
   let tetrisServer;
   before(cb =>
     startServer(params.server, (err, server) => {
@@ -44,27 +44,27 @@ describe("Middlewares", () => {
     tetrisServer.stop(done);
   });
 
-  describe("storeStateMiddleWare", () => {
+  describe('storeStateMiddleWare', () => {
     beforeEach(() => {
       const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
       global.document = dom.window.document;
       global.window = dom.window;
     });
-    it("should store state in window", () => {
+    it('should store state in window', () => {
       const store = createStore(
         combineReducers(reducers),
         {},
         applyMiddleware(storeStateMiddleWare)
       );
-      const MESSAGE = "This message should be available in the window object";
+      const MESSAGE = 'This message should be available in the window object';
       store.dispatch(alert(MESSAGE));
 
       const windowState = window.top.state;
       windowState.alert.should.deep.equal({ message: MESSAGE });
     });
   });
-  describe("socketIoMiddleware", () => {
-    it("should emit socket message on action type server/*", done => {
+  describe('socketIoMiddleware', () => {
+    it('should emit socket message on action type server/*', done => {
       const initialState = {};
       const socket = io(params.server.url);
       const store = configureStore(
@@ -80,10 +80,10 @@ describe("Middlewares", () => {
         }
       );
       store.dispatch(ping());
-      store.dispatch(push("/party-list"));
-      store.dispatch(push("/test"));
+      store.dispatch(push('/party-list'));
+      store.dispatch(push('/test'));
     });
-    it("should handle socket logic on LOCATION_CHANGE", done => {
+    it('should handle socket logic on LOCATION_CHANGE', done => {
       const initialState = {};
       const socket = io(params.server.url);
       const store = configureStore(
@@ -100,11 +100,11 @@ describe("Middlewares", () => {
       );
 
       store.dispatch(getParties());
-      store.dispatch(alert("This is a useless test"));
+      store.dispatch(alert('This is a useless test'));
     });
-    describe("roomHandler", () => {
-      describe("/party-list", () => {
-        it("should emit getParties action", done => {
+    describe('roomHandler', () => {
+      describe('/party-list', () => {
+        it('should emit getParties action', done => {
           const initialState = {};
           const socket = io(params.server.url);
           const store = configureStore(
@@ -118,12 +118,12 @@ describe("Middlewares", () => {
 
           store.dispatch({
             type: LOCATION_CHANGE,
-            payload: { pathname: "/party-list" }
+            payload: { pathname: '/party-list' }
           });
         });
       });
-      describe("/create-party", () => {
-        it("should reset actual party", done => {
+      describe('/create-party', () => {
+        it('should reset actual party', done => {
           const initialState = {};
           const socket = io(params.server.url);
           const store = configureStore(
@@ -141,12 +141,12 @@ describe("Middlewares", () => {
 
           store.dispatch({
             type: LOCATION_CHANGE,
-            payload: { pathname: "/create-party" }
+            payload: { pathname: '/create-party' }
           });
         });
       });
-      describe("/#<party name>[<player name>]", () => {
-        it("should redirect on / if there are no player nickname in room definition", done => {
+      describe('/#<party name>[<player name>]', () => {
+        it('should redirect on / if there are no player nickname in room definition', done => {
           const initialState = {};
           const socket = io(params.server.url);
           const store = configureStore(
@@ -154,7 +154,7 @@ describe("Middlewares", () => {
             socket,
             initialState,
             {
-              "@@router/CALL_HISTORY_METHOD": () => {
+              '@@router/CALL_HISTORY_METHOD': () => {
                 done();
               }
             }
@@ -162,13 +162,13 @@ describe("Middlewares", () => {
 
           store.dispatch({
             type: LOCATION_CHANGE,
-            payload: { pathname: "/", hash: "#Konoha" }
+            payload: { pathname: '/', hash: '#Konoha' }
           });
         });
-        it("should dispatch getPlayer if player nickname is ok", done => {
+        it('should dispatch getPlayer if player nickname is ok', done => {
           global.localStorage = {
             getItem: key =>
-              key === "player" ? "toto" : JSON.stringify({ name: "wsh" })
+              key === 'player' ? 'toto' : JSON.stringify({ name: 'wsh' })
           };
 
           const initialState = {};
@@ -186,38 +186,14 @@ describe("Middlewares", () => {
 
           store.dispatch({
             type: LOCATION_CHANGE,
-            payload: { pathname: "/", hash: "#Konoha[Naruto]" }
+            payload: { pathname: '/', hash: '#Konoha[Naruto]' }
           });
         });
-        it("should dispatch getParty if player nickname is ok", done => {
+        it('should handle inexistent player', () => {});
+        it('should leave party when url is party and changes', done => {
           global.localStorage = {
             getItem: key =>
-              key === "player" ? "toto" : JSON.stringify({ name: "wsh" })
-          };
-
-          const initialState = {};
-          const socket = io(params.server.url);
-          const store = configureStore(
-            combineReducers(reducers),
-            socket,
-            initialState,
-            {
-              [PARTY_GET]: () => {
-                done();
-              }
-            }
-          );
-
-          store.dispatch({
-            type: LOCATION_CHANGE,
-            payload: { pathname: "/", hash: "#Konoha[Naruto]" }
-          });
-        });
-        it("should handle inexistent player", () => {});
-        it("should leave party when url is party and changes", done => {
-          global.localStorage = {
-            getItem: key =>
-              key === "player" ? "toto" : JSON.stringify({ name: "wsh" })
+              key === 'player' ? 'toto' : JSON.stringify({ name: 'wsh' })
           };
 
           const initialState = {};
@@ -227,8 +203,8 @@ describe("Middlewares", () => {
               ...reducers,
               routing: () => ({
                 location: {
-                  pathname: "/",
-                  hash: "#mysuperparty[superplayer]"
+                  pathname: '/',
+                  hash: '#mysuperparty[superplayer]'
                 }
               })
             }),
@@ -243,10 +219,10 @@ describe("Middlewares", () => {
 
           store.dispatch({
             type: LOCATION_CHANGE,
-            payload: { pathname: "/", hash: "#Konoha[Naruto]" }
+            payload: { pathname: '/', hash: '#Konoha[Naruto]' }
           });
         });
-        it("should do nothing in case of changing location to exactly /", () => {
+        it('should do nothing in case of changing location to exactly /', () => {
           const initialState = {};
           let firstTry = true;
           const store = configureStore(
@@ -271,10 +247,10 @@ describe("Middlewares", () => {
 
           store.dispatch({
             type: LOCATION_CHANGE,
-            payload: { pathname: "/", hash: "" }
+            payload: { pathname: '/', hash: '' }
           });
         });
-        it("should do nothing when default", () => {
+        it('should do nothing when default', () => {
           const initialState = {};
           let firstTry = true;
           const store = configureStore(
@@ -299,14 +275,14 @@ describe("Middlewares", () => {
 
           store.dispatch({
             type: LOCATION_CHANGE,
-            payload: { pathname: "/toto", hash: "" }
+            payload: { pathname: '/toto', hash: '' }
           });
         });
       });
     });
   });
-  describe("effectsMiddleware", () => {
-    it("should call setTimeout on ALERT_POP", () => {
+  describe('effectsMiddleware', () => {
+    it('should call setTimeout on ALERT_POP', () => {
       const initialState = {};
       let firstTry = true;
       const store = configureStore(
@@ -318,7 +294,7 @@ describe("Middlewares", () => {
         {}
       );
 
-      store.dispatch(alert("TEST"));
+      store.dispatch(alert('TEST'));
     });
   });
 });

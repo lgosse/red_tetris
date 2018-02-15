@@ -9,11 +9,15 @@ import {
   GAME_PIECES_PIECE_ROTATE_SUCCESS,
   GAME_LOSE,
   PARTY_LEFT,
-  PARTY_START
+  PARTY_START,
+  GAME_END
 } from '../../../actionsTypes';
 import { gridFusion, findPlace, testCollision, gridZero } from './utils';
 
-const initialState = {};
+const initialState = {
+  piece: null,
+  next: []
+};
 
 const pieces = (state = initialState, action) => {
   switch (action.type) {
@@ -51,21 +55,30 @@ const pieces = (state = initialState, action) => {
     case GAME_PIECES_CLAIM_PIECE_SUCCESS: {
       return {
         ...state,
-        next: state.next ? state.next.concat(action.pieces) : action.pieces
+        next:
+          state.next && state.next.length
+            ? state.next.concat(action.pieces)
+            : action.pieces
       };
     }
 
     case GAME_BONUS_ADD: {
       return {
         ...state,
-        next: state.next ? [action.bonus, ...state.next] : [action.bonus]
+        next:
+          state.next && state.next.length
+            ? [action.bonus, ...state.next]
+            : [action.bonus]
       };
     }
 
     case GAME_MALUS_ADD_SUCCESS: {
       return {
         ...state,
-        next: state.next ? [action.malus, ...state.next] : [action.malus]
+        next:
+          state.next && state.next.length
+            ? [action.malus, ...state.next]
+            : [action.malus]
       };
     }
 
@@ -79,11 +92,8 @@ const pieces = (state = initialState, action) => {
     case PARTY_LEFT:
       return initialState;
 
-    case PARTY_START:
-      return {
-        piece: null,
-        next: []
-      };
+    case GAME_END:
+      return initialState;
 
     default:
       return state;

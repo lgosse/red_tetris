@@ -12,15 +12,6 @@ import {
   PARTY_RECEIVE_MESSAGE
 } from '../../actionsTypes';
 
-export const getParty = () => ({
-  type: PARTY_GET
-});
-
-export const saveParty = party => ({
-  type: PARTY_SAVE,
-  party
-});
-
 export const addParty = (party, player) => ({
   type: PARTY_ADD,
   party,

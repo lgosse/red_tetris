@@ -8,8 +8,3 @@ export const updatePlayer = player => ({
   type: PLAYER_UPDATE,
   player
 });
-
-export const savePlayer = player => ({
-  type: PLAYER_SAVE,
-  player
-});

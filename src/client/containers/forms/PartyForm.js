@@ -12,7 +12,7 @@ import {
 import { addParty, updateParty, saveParty } from '../../actions/party';
 import global from '../../styles/global';
 
-export const PartyForm = ({ party, player, createParty, changeParty }) => {
+export const PartyForm = ({ player, createParty, changeParty }) => {
   return (
     <FullSizeContainer padding="20px">
       <Paragraph center size="20px" padding="20px" gameFont color="accent">
@@ -20,15 +20,13 @@ export const PartyForm = ({ party, player, createParty, changeParty }) => {
       </Paragraph>
       <FlexContainer flex>
         <FlexSpacer />
-        <form onSubmit={e => createParty(e, party, player)}>
+        <form onSubmit={e => createParty(e, player)}>
           <FlexContainer>
             <Input
               id="partyNameInput"
               placeholder="Party name..."
               name="partyName"
-              value={party.name}
               required
-              onChange={e => changeParty(e, party, 'name')}
             />
           </FlexContainer>
           <FlexContainer>
@@ -37,19 +35,13 @@ export const PartyForm = ({ party, player, createParty, changeParty }) => {
               type="number"
               placeholder="10"
               name="partySize"
-              value={party.size}
-              min="1"
-              onChange={e => changeParty(e, party, 'size')}
+              min={1}
+              defaultValue={5}
+              max={10}
             />
           </FlexContainer>
           <FlexContainer padding={global.padding.md}>
-            <input
-              id="partyWithBonusInput"
-              type="checkbox"
-              name="withBonus"
-              checked={party.withBonus}
-              onChange={e => changeParty(e, party, 'withBonus')}
-            />
+            <input id="partyWithBonusInput" type="checkbox" name="withBonus" />
             <label
               htmlFor="partyWithBonusInput"
               style={{ color: global.color.accent, paddingLeft: '12px' }}
@@ -74,35 +66,25 @@ export const PartyForm = ({ party, player, createParty, changeParty }) => {
   );
 };
 
-export const mapStateToPartyFormProps = state => {
-  return {
-    party: state.party,
-    player: state.player
-  };
-};
+export const mapStateToPartyFormProps = ({ player }) => ({ player });
 
 export const mapDispatchToPartyFormProps = dispatch => {
-  const createParty = (event, party, player) => {
+  const createParty = (event, player) => {
     event.preventDefault();
+    const name = document.getElementById('partyNameInput').value.trim();
+    const size = document.getElementById('partySizeInput').value.trim();
+    const withBonus = document.getElementById('partyWithBonusInput').checked;
     const newParty = {
-      ...party,
+      name,
+      size,
+      withBonus,
       players: []
     };
-    dispatch(saveParty(newParty));
+
     dispatch(addParty(newParty, player));
   };
-  const changeParty = (event, party, field) => {
-    dispatch(
-      updateParty({
-        ...party,
-        [field]:
-          event.target.type === 'checkbox'
-            ? event.target.checked
-            : event.target.value
-      })
-    );
-  };
-  return { createParty, changeParty };
+
+  return { createParty };
 };
 
 export default connect(mapStateToPartyFormProps, mapDispatchToPartyFormProps)(

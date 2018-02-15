@@ -121,14 +121,16 @@ export const movePiece = direction => (dispatch, getState) => {
           lines
         })
       );
+
       dispatch(
         updatePiecesGame({
-          ...pieces,
-          piece: pieces.next[0],
-          next: pieces.next.slice(1)
+          ...getState().game.pieces,
+          piece: getState().game.pieces.next[0],
+          next: getState().game.pieces.next.slice(1)
         })
       );
       dispatch(claimPiece());
+
       setTimeout(() => {
         dispatch(deleteLines());
         dispatch(

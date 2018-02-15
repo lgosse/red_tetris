@@ -9,7 +9,6 @@ import {
 import { ROOM_PARTY_LIST } from '../../roomsName';
 import {
   addParty,
-  getParty,
   joinParty,
   updateParty,
   leaveParty,
@@ -46,7 +45,6 @@ const roomHandler = (socket, action, dispatch, getState) => {
         }
         playerNickname = playerNickname.substring(0, playerNickname.length - 1);
         dispatch(getPlayer());
-        dispatch(getParty());
         const state = getState();
         const player = state.player &&
           state.player.nickname && {
