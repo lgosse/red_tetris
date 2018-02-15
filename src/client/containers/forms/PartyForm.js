@@ -1,5 +1,5 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
 import {
   FullSizeContainer,
@@ -8,8 +8,9 @@ import {
   FlexContainer,
   FlexSpacer,
   Button
-} from "../../components/helpers/Common";
-import { addParty, updateParty, saveParty } from "../../actions/party";
+} from '../../components/helpers/Common';
+import { addParty, updateParty, saveParty } from '../../actions/party';
+import global from '../../styles/global';
 
 export const PartyForm = ({ party, player, createParty, changeParty }) => {
   return (
@@ -27,7 +28,7 @@ export const PartyForm = ({ party, player, createParty, changeParty }) => {
               name="partyName"
               value={party.name}
               required
-              onChange={e => changeParty(e, party, "name")}
+              onChange={e => changeParty(e, party, 'name')}
             />
           </FlexContainer>
           <FlexContainer>
@@ -38,15 +39,30 @@ export const PartyForm = ({ party, player, createParty, changeParty }) => {
               name="partySize"
               value={party.size}
               min="1"
-              onChange={e => changeParty(e, party, "size")}
+              onChange={e => changeParty(e, party, 'size')}
             />
+          </FlexContainer>
+          <FlexContainer padding={global.padding.md}>
+            <input
+              id="partyWithBonusInput"
+              type="checkbox"
+              name="withBonus"
+              checked={party.withBonus}
+              onChange={e => changeParty(e, party, 'withBonus')}
+            />
+            <label
+              htmlFor="partyWithBonusInput"
+              style={{ color: global.color.accent, paddingLeft: '12px' }}
+            >
+              EXPLOSION MODE
+            </label>
           </FlexContainer>
           <FlexContainer>
             <Button
               id="submitButton"
               type="submit"
               primary
-              style={{ marginLeft: "20px" }}
+              style={{ marginLeft: '20px' }}
             >
               CREATE PARTY
             </Button>
@@ -79,7 +95,10 @@ export const mapDispatchToPartyFormProps = dispatch => {
     dispatch(
       updateParty({
         ...party,
-        [field]: event.target.value
+        [field]:
+          event.target.type === 'checkbox'
+            ? event.target.checked
+            : event.target.value
       })
     );
   };
