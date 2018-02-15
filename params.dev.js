@@ -7,8 +7,8 @@ const params = {
     }
   },
   front: {
-    host: process.env.RED_TETRIS_FRONT_HOST || 'localhost',
-    port: process.env.RED_TETRIS_FRONT_PORT || 3004,
+    host: 'localhost',
+    port: 3004,
     get url() {
       return `http://${this.host}${this.port === 80 ? '' : ':' + this.port}`;
     }
