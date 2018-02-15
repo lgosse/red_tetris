@@ -27,7 +27,6 @@ import { setMod } from '../../actions/game/mods';
 
 const Calque = ({ board, piece }) => {
   if (board.end === true) {
-    console.log('END YEH');
     return (
       <div
         style={{

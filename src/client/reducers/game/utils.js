@@ -77,12 +77,14 @@ export const deleteLinesF = (grid, lines, force) => {
 
   newLines.forEach(index => {
     newGrid[index].forEach((val, x) => {
-      if ((val >= 0 && val <= 9) || (force && val === -1)) {
+      if ((val >= 0 && val <= 9) || (force && val !== 11)) {
         newGrid[index][x] = 0;
         let i;
         for (i = index; i > 0; i--) {
-          if (newGrid[i - 1][x] === 11) i = -1;
-          else newGrid[i][x] = newGrid[i - 1][x];
+          if (newGrid[i - 1][x] === 11) {
+            newGrid[i][x] = 0;
+            i = -1;
+          } else newGrid[i][x] = newGrid[i - 1][x];
         }
         if (i === 0) newGrid[i][x] = 0;
       }
@@ -92,7 +94,6 @@ export const deleteLinesF = (grid, lines, force) => {
 };
 
 export const deleteTnt = (mod, grid) => {
-  console.log('Hello');
   const newGrid = grid.map((line, y) => {
     return line.map((col, x) => {
       if (
