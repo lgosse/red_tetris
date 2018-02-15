@@ -15,7 +15,7 @@ RUN		apk update && apk add yarn && chmod 770 .
 COPY  . .
 
 # Running npm install
-RUN		yarn && cp params.prod.js params.js 
+RUN		yarn
 
 CMD   yarn client-dist && yarn srv-dist && node dist/server/main.js
 
