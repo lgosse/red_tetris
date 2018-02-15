@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import globalStyle from './global';
 
 const getColors = {
   '-1': 'radial-gradient(white, grey, black)',
@@ -99,6 +100,26 @@ const gameStyle = {
     minHeight: '80vh',
     width: '40vh',
     minWidth: '40vh'
+  },
+  endMessage: {
+    zIndex: '10000',
+    textAlign: 'center',
+    marginTop: '35vh',
+    fontSize: '5vh',
+    fontFamily: globalStyle.font.family.game,
+    color: globalStyle.color.primary,
+    textShadow: globalStyle.font.shadow.heavy
+  },
+  focusMessage: {
+    width: '100%',
+    height: '100%',
+    position: 'relative',
+    marginBottom: '-200%',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 9999
   },
   piece: position => {
     return {

@@ -33,7 +33,7 @@ import gameMiddleware from './middleware/gameMiddleware';
 import io from 'socket.io-client';
 import params from '../../params';
 
-export const socket = io(params.server.url);
+export const socket = io(params.front.url);
 
 import { getPlayer } from './actions/player';
 import { getParties } from './actions/partyList';

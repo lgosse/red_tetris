@@ -31,13 +31,7 @@ const Calque = ({ board, piece }) => {
       <div
         style={{
           ...gameStyle.calque,
-          zIndex: '10000',
-          textAlign: 'center',
-          marginTop: '35vh',
-          fontSize: '5vh',
-          fontFamily: globalStyle.font.family.game,
-          color: globalStyle.color.primary,
-          textShadow: globalStyle.font.shadow.heavy
+          ...gameStyle.endMessage
         }}
       >
         YOU LOOSE
@@ -138,8 +132,6 @@ export const Grid = ({
     endGame(board);
   }
 
-  // if (mods.type === 'tnt') tntExplodeDispatch(board.grid, mods);
-
   const refCallback = ref =>
     board.hasFocusedOnce === false && ref && ref.focus();
 
@@ -157,19 +149,7 @@ export const Grid = ({
       }}
     >
       {!board.focus ? (
-        <div
-          style={{
-            width: '100%',
-            height: '100%',
-            position: 'relative',
-            marginBottom: '-200%',
-            backgroundColor: 'rgba(0, 0, 0, 0.6)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            zIndex: 9999
-          }}
-        >
+        <div style={gameStyle.focusMessage}>
           <Paragraph gameFont size="12px" bold color="accent">
             CLICK TO PLAY
           </Paragraph>

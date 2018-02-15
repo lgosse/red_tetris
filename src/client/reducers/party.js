@@ -18,7 +18,7 @@ const saveParty = action => {
   localStorage.setItem('party', JSON.stringify(action.party));
 };
 
-const initialState = { size: 10, players: [], messages: [] };
+const initialState = { size: 10, players: [], messages: [], withBonus: false };
 
 const party = (state = initialState, action) => {
   switch (action.type) {

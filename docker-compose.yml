@@ -1,5 +1,15 @@
 version: "2"
 services:
+  application:
+    container_name: red_tetris_app
+    build: .
+    volumes:
+      - ./:/var/html/app/red_tetris
+      - /var/html/app/red_tetris/node_modules
+    ports:
+      - 80:3004
+    links: 
+      - "database"
   database:
     container_name: red_tetris_mongo
     image: mongo

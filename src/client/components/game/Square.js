@@ -1,22 +1,23 @@
-import React from "react";
-import global from "../../styles/global";
-import gameStyle from "../../styles/gameStyle";
+import React from 'react';
+import global from '../../styles/global';
+import gameStyle from '../../styles/gameStyle';
 
 const Square = ({ color }) => {
   if (color === 10) {
+    // Bomb
     return (
       <div
         style={{
-          width: "4vh",
-          height: "4vh",
-          zIndex: "2"
+          width: '4vh',
+          height: '4vh',
+          zIndex: '2'
         }}
       >
         <div
           style={{
-            display: "flex",
-            animation: gameStyle.animations.bomb + " 0.2s infinite",
-            animationDirection: "alternate"
+            display: 'flex',
+            animation: gameStyle.animations.bomb + ' 0.2s infinite',
+            animationDirection: 'alternate'
           }}
         >
           <div style={gameStyle.bomb.all} />
@@ -24,10 +25,10 @@ const Square = ({ color }) => {
           <div style={gameStyle.bomb.reflect} />
           <div
             style={{
-              position: "absolute",
-              transform: "rotate(-10deg)",
-              animation: gameStyle.animations.fire + " 0.1s infinite",
-              animationDirection: "alternate"
+              position: 'absolute',
+              transform: 'rotate(-10deg)',
+              animation: gameStyle.animations.fire + ' 0.1s infinite',
+              animationDirection: 'alternate'
             }}
           >
             <div style={gameStyle.bomb.fire} />
@@ -38,13 +39,14 @@ const Square = ({ color }) => {
       </div>
     );
   } else if (color === 11) {
+    // Dynamite
     return (
       <div
         style={{
-          width: "4vh",
-          height: "4vh",
-          zIndex: "2",
-          position: "relative"
+          width: '4vh',
+          height: '4vh',
+          zIndex: '2',
+          position: 'relative'
         }}
       >
         <div style={gameStyle.tnt.base}>
