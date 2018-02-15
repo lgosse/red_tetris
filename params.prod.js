@@ -4,10 +4,10 @@ const params = {
     port: 3004,
     get url() {
       return 'http://' + this.host + ':' + this.port;
-    },
-    db: {
-      host: 'database'
     }
+  },
+  db: {
+    host: 'database'
   }
 };
 
