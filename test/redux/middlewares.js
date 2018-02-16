@@ -189,7 +189,6 @@ describe('Middlewares', () => {
             payload: { pathname: '/', hash: '#Konoha[Naruto]' }
           });
         });
-        it('should handle inexistent player', () => {});
         it('should leave party when url is party and changes', done => {
           global.localStorage = {
             getItem: key =>
