@@ -55,6 +55,9 @@ export const GAME_MODS_SET = 'GAME_MODS_SET';
 export const GAME_SCORE_UPDATE = 'GAME_SCORE_UPDATE';
 export const GAME_SCORE_RESET = 'GAME_SCORE_RESET';
 
+export const INPUT_KEYBOARD = 'INPUT_KEYBOARD';
+export const REMOVE_INPUT_KEYBOARD = 'REMOVE_INPUT_KEYBOARD';
+
 // Server actions
 export const SERVER_PING = 'server/ping';
 
