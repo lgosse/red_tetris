@@ -24,6 +24,7 @@ import {
 } from '../../actions/game/board';
 import { updateBoard } from '../../actions/game/board';
 import { setMod } from '../../actions/game/mods';
+import { input } from '../../actions/game/inputs';
 
 const Calque = ({ board, piece }) => {
   if (board.end === true) {
@@ -182,46 +183,47 @@ export const mapDispatchToGridProps = dispatch => {
   const rotateit = (event, piece, board) => {
     if (board.end || board.ending || piece === null) return;
 
-    switch (event.keyCode) {
-      case 39: // RIGHT
-        dispatch(movePiece(1));
-        event.preventDefault();
-        event.stopPropagation();
-        break;
-      case 37: // LEFT
-        dispatch(movePiece(-1));
-        event.preventDefault();
-        event.stopPropagation();
-        break;
-      case 40: // DOWN
-        dispatch(movePiece(0));
-        event.preventDefault();
-        event.stopPropagation();
-        break;
-      case 32: // SPACE
-        dispatch(movePiece(20));
-        event.stopPropagation();
-        event.preventDefault();
-        break;
-      case 38:
-      case 68: // UP or D
-        dispatch(rotatePiece(1));
-        event.preventDefault();
-        event.stopPropagation();
-        break;
-      case 65: // A
-        dispatch(rotatePiece(-1));
-        event.preventDefault();
-        event.stopPropagation();
-        break;
-      case 69: // E
-        endGame(board);
-        event.preventDefault();
-        event.stopPropagation();
-        break;
-      default:
-        break;
-    }
+    dispatch(input(event));
+    // switch (event.keyCode) {
+    //   case 39: // RIGHT
+    //     dispatch(movePiece(1));
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     break;
+    //   case 37: // LEFT
+    //     dispatch(movePiece(-1));
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     break;
+    //   case 40: // DOWN
+    //     dispatch(movePiece(0));
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     break;
+    //   case 32: // SPACE
+    //     dispatch(movePiece(20));
+    //     event.stopPropagation();
+    //     event.preventDefault();
+    //     break;
+    //   case 38:
+    //   case 68: // UP or D
+    //     dispatch(rotatePiece(1));
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     break;
+    //   case 65: // A
+    //     dispatch(rotatePiece(-1));
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     break;
+    //   case 69: // E
+    //     endGame(board);
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     break;
+    //   default:
+    //     break;
+    // }
   };
 
   const endGame = board => {

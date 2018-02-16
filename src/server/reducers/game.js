@@ -59,9 +59,7 @@ const game = async (action, io, socket) => {
       );
 
       if (action.payload.nbLinesDestroyed - 1 > 0) {
-        io
-          .to(socket.partyId)
-          .emit('action', updateCurrentPiece({ x: 4, y: 0 }));
+        io.to(socket.partyId).emit('action', updateCurrentPiece({ y: 0 }));
         io
           .to(socket.partyId)
           .emit(
