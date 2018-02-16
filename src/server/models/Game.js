@@ -68,10 +68,11 @@ class Game {
   }
 
   clearPlayersBoard() {
-    this.players = this.players.map(player => ({
-      ...player,
-      map: gridZero(10, 20)
-    }));
+    this.players = this.players.map(player => {
+      player.map = gridZero(10, 20);
+
+      return player;
+    });
   }
 
   isOver() {
