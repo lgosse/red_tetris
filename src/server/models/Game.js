@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import { playerSchema } from '../models/Player';
+import { gridZero } from '../../client/reducers/game/utils';
 
 const gameSchema = mongoose.Schema({
   name: {
@@ -64,6 +65,13 @@ class Game {
 
   getPlayerBySocketId(socketId) {
     return this.players.find(player => player.socketId === socketId);
+  }
+
+  clearPlayersBoard() {
+    this.players = this.players.map(player => ({
+      ...player,
+      map: gridZero(10, 20)
+    }));
   }
 
   isOver() {

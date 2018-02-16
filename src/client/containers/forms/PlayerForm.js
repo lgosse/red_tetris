@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { connect } from "react-redux";
-import { updatePlayer, savePlayer } from "../../actions/player";
+import React from 'react';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { updatePlayer, savePlayer } from '../../actions/player';
 
 import {
   FullSizeContainer,
@@ -10,7 +10,7 @@ import {
   FlexContainer,
   FlexSpacer,
   Button
-} from "../../components/helpers/Common";
+} from '../../components/helpers/Common';
 
 export const PlayerForm = ({ player, changeNickname, saveNickname }) => {
   return (
@@ -20,25 +20,15 @@ export const PlayerForm = ({ player, changeNickname, saveNickname }) => {
       </Paragraph>
       <FlexContainer flex>
         <FlexSpacer />
-        <form onSubmit={e => saveNickname(e, player)}>
-          <FlexContainer>
-            <Input
-              id="nicknameInput"
-              placeholder="Nickname..."
-              name="nickname"
-              value={player.nickname}
-              onChange={e => changeNickname(e, player)}
-            />
-            <Button
-              id="submitButton"
-              type="submit"
-              primary
-              style={{ marginLeft: "20px" }}
-            >
-              SAVE
-            </Button>
-          </FlexContainer>
-        </form>
+        <FlexContainer>
+          <Input
+            id="nicknameInput"
+            placeholder="Nickname..."
+            name="nickname"
+            value={player.nickname || ''}
+            onChange={e => changeNickname(e, player)}
+          />
+        </FlexContainer>
         <FlexSpacer />
       </FlexContainer>
     </FullSizeContainer>
@@ -51,16 +41,8 @@ export const mapStateToPlayerFormProps = ({ player }) => ({
 
 export const mapDispatchToPlayerFormProps = dispatch => ({
   changeNickname(event, player) {
-    dispatch(
-      updatePlayer({
-        ...player,
-        nickname: event.target.value
-      })
-    );
-  },
-  saveNickname(event, player) {
-    event.preventDefault();
-    dispatch(savePlayer(player));
+    const nickname = document.getElementById('nicknameInput').value.trim();
+    dispatch(updatePlayer({ nickname }));
   }
 });
 

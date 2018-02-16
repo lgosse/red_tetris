@@ -7,8 +7,6 @@ export const PARTY_LIST = 'server/party-list';
 export const RESPONSE_PARTY_LIST = 'RESPONSE_PARTY_LIST';
 
 // Party actions
-export const PARTY_GET = 'PARTY_GET';
-export const PARTY_SAVE = 'PARTY_SAVE';
 export const PARTY_ADD = 'server/party-add';
 export const PARTY_UPDATE = 'PARTY_UPDATE';
 export const PARTY_OPEN = 'server/toggle-open-party';
@@ -22,7 +20,6 @@ export const PARTY_RECEIVE_MESSAGE = 'PARTY_RECEIVE_MESSAGE';
 
 // Player actions
 export const PLAYER_UPDATE = 'PLAYER_UPDATE';
-export const PLAYER_SAVE = 'PLAYER_SAVE';
 export const PLAYER_GET = 'PLAYER_GET';
 
 export const RANKINGS_LIST = 'server/ranking-list';
@@ -52,6 +49,7 @@ export const GAME_BOARD_NOTIFY_GRID_UPDATE = 'server/notify-grid-update';
 export const GAME_BOARD_UPDATE = 'GAME_BOARD_UPDATE';
 
 export const GAME_LOSE = 'server/game-lose';
+export const GAME_END = 'GAME_END';
 export const GAME_MODS_SET = 'GAME_MODS_SET';
 
 export const GAME_SCORE_UPDATE = 'GAME_SCORE_UPDATE';

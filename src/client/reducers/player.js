@@ -7,22 +7,16 @@ const getPlayer = () => {
   return '';
 };
 
-const savePlayer = action => {
-  localStorage.setItem('player', action.player.nickname);
-};
-
 const player = (state = {}, action) => {
   switch (action.type) {
     case PLAYER_UPDATE: {
+      if (action.player.nickname)
+        localStorage.setItem('player', action.player.nickname);
+
       return {
         ...state,
         ...action.player
       };
-    }
-
-    case PLAYER_SAVE: {
-      savePlayer(action);
-      return state;
     }
 
     case PLAYER_GET: {

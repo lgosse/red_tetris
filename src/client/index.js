@@ -46,6 +46,9 @@ import CreateParty from './containers/views/CreateParty';
 import Party from './containers/views/Party';
 import PartyList from './containers/views/PartyList';
 
+import Game from './containers/game/Game';
+import { alert } from './actions/alert';
+
 let initialState = {};
 
 const history = createBrowserHistory();
@@ -69,14 +72,17 @@ export const store = createStore(
 
 const checkNickname = () => {
   const player = store.getState().player;
-  return Boolean(player.nickname);
+  const isNickNameValid = !!player.nickname;
+  if (!isNickNameValid)
+    setTimeout(() =>
+      store.dispatch(alert('You must enter your player nickname'), 0)
+    );
+  return isNickNameValid;
 };
 
 const checkHash = () => {
   return window.location.hash.length > 1;
 };
-
-import Game from './containers/game/Game';
 
 ReactDom.render(
   <Provider store={store}>
