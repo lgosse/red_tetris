@@ -21,6 +21,7 @@ export const PARTY_RECEIVE_MESSAGE = 'PARTY_RECEIVE_MESSAGE';
 // Player actions
 export const PLAYER_UPDATE = 'PLAYER_UPDATE';
 export const PLAYER_GET = 'PLAYER_GET';
+export const PLAYER_TOGGLE_READY = 'server/player-toggle-ready';
 
 export const RANKINGS_LIST = 'server/ranking-list';
 export const RESPONSE_RANKINGS_LIST = 'RESPONSE_RANKINGS_LIST';

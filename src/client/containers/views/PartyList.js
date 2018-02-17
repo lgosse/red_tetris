@@ -63,7 +63,7 @@ const PartyListMap = ({ partyList, player }) => (
 const NoParties = () => (
   <FullSizeContainer>
     <Paragraph gameFont center color="accent" size="20px">
-      <div>No room are actually available</div>
+      <div>No game are actually available</div>
       <Link to="create-party" id="new-game-link">
         <Button primary margin="20px">
           Create one here

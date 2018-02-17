@@ -1,6 +1,5 @@
 // Models
 import GameModel from '../models/Game';
-import Player from '../models/Player';
 import RankingModel, { Ranking } from '../models/Ranking';
 
 // Action Types
@@ -25,7 +24,6 @@ import { alert } from '../../client/actions/alert';
 import { gridZero } from '../../client/reducers/game/utils';
 import { resetGame, blockLinesServer } from '../../client/actions/game/board';
 
-import mongoose from 'mongoose';
 import { notifyGameOver, endGame } from '../../client/actions/game/game';
 import { getRankingListSuccess } from '../../client/actions/rankings';
 

@@ -181,6 +181,7 @@ export const HexaSeparator = props => (
 const FaIcon = props => <i className={`fa fa-${props.className}`} />;
 
 export const Icon = styled(FaIcon)`
+  ${props => props.width && `width: ${props.width}`}
   ${props => props.margin && `margin: ${props.margin};`}
   ${props => props.marginLeft && `margin-left: ${props.marginLeft};`}
   ${props => props.marginRight && `margin-right: ${props.marginRight};`}

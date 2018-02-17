@@ -13,7 +13,9 @@ export const INPUT_KEYBOARD_SPACE = 32,
   INPUT_KEYBOARD_LETTER_H = 'INPUT_KEYBOARD_LETTER_H';
 
 export const input = event => (dispatch, getState) => {
-  const inputs = getState().game.inputs;
+  const state = getState();
+  const inputs = state.game.inputs;
+  const pieces = state.game.pieces;
   const keyCode = event.keyCode;
 
   if (inputs.indexOf(keyCode) !== -1) return;
@@ -29,7 +31,7 @@ export const input = event => (dispatch, getState) => {
         type: REMOVE_INPUT_KEYBOARD,
         input: keyCode
       }),
-    250
+    100
   );
 
   switch (keyCode) {
@@ -48,11 +50,14 @@ export const input = event => (dispatch, getState) => {
       event.preventDefault();
       event.stopPropagation();
       break;
-    case INPUT_KEYBOARD_SPACE:
-      dispatch(movePiece(20));
-      event.stopPropagation();
-      event.preventDefault();
-      break;
+    case INPUT_KEYBOARD_SPACE: {
+      if (pieces.next.length) {
+        dispatch(movePiece(20));
+        event.stopPropagation();
+        event.preventDefault();
+        break;
+      }
+    }
     case INPUT_KEYBOARD_UP:
     case INPUT_KEYBOARD_LETTER_D:
       dispatch(rotatePiece(1));
