@@ -137,7 +137,16 @@ const game = async (action, io, socket) => {
           io
             .to(party._id)
             .emit('action', alert(`${winner.nickname} has won the game!`));
-          io.to(party._id).emit('action', displayEnd(winner));
+          io.to(party._id).emit(
+            'action',
+            displayEnd(
+              winner,
+              party.players.map(player => ({
+                nickname: player.nickname,
+                score: player.score
+              }))
+            )
+          );
         }
 
         clearInterval(io.to(party._id).partyInterval);

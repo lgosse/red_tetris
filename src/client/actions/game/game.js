@@ -14,9 +14,12 @@ export const gameLose = () => (dispatch, getState) =>
 
 export const endGame = () => ({ type: GAME_END });
 
-export const displayEnd = winner => ({
+export const displayEnd = (winner, players) => ({
   type: GAME_DISPLAY_END,
-  winner
+  payload: {
+    winner,
+    players
+  }
 });
 
 export const hideEnd = () => ({
