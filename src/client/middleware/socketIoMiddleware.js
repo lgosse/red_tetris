@@ -10,7 +10,6 @@ import { ROOM_PARTY_LIST } from '../../roomsName';
 import {
   addParty,
   joinParty,
-  updateParty,
   leaveParty,
   validatePartyHash
 } from '../actions/party';
@@ -32,9 +31,6 @@ const roomHandler = (socket, action, dispatch, getState) => {
       break;
     case '/party-list':
       socket.emit('action', getParties());
-      break;
-    case '/create-party':
-      dispatch(updateParty({ size: 10 }));
       break;
     case '/': {
       if (action.payload.hash[0] === '#' && action.payload.hash.length > 1) {

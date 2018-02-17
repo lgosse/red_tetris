@@ -8,12 +8,7 @@ import { Tetri, Bomb } from '../../components/game/Tetri';
 import gameStyle from '../../styles/gameStyle';
 import globalStyle from '../../styles/global';
 import { deleteTnt } from '../../reducers/game/utils';
-import {
-  rotatePiece,
-  movePiece,
-  updatePlayer,
-  claimPiece
-} from '../../actions/game/pieces';
+import { rotatePiece, movePiece, claimPiece } from '../../actions/game/pieces';
 import {
   deleteLines,
   endParty,
