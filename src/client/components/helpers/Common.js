@@ -192,3 +192,49 @@ export const Icon = styled(FaIcon)`
   ${props => props.size && `font-size: ${props.size};`};
   ${props => props.clickable && `cursor: pointer;`};
 `;
+
+export const ModalBackground = styled.div`
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  z-index: 10;
+`;
+
+export const ModalContainer = styled.div`
+  max-width: ${props => (props.width ? props.width : '500px')};
+  border-radius: ${global.border.radius};
+  overflow: hidden;
+  box-shadow: ${global.shadow.light};
+  flex: 1;
+`;
+
+export const Modal = ({ children }) => (
+  <ModalBackground>
+    <ModalContainer>{children}</ModalContainer>
+  </ModalBackground>
+);
+
+export const ModalHeader = RedContainer.extend`
+  width: 100%;
+  padding: ${global.padding.md};
+  font-size: ${global.font.size.title};
+  font-family: ${global.font.family.game};
+  text-shadow: ${global.font.shadow.heavy};
+  color: ${global.color.accent};
+`;
+
+export const ModalBody = LightContainer.extend`
+  width: 100%;
+  padding: ${global.padding.md};
+`;
+
+export const ModalFooter = RedContainer.extend`
+  width: 100%;
+  color: ${global.color.accent};
+  padding: ${global.padding.md};
+`;

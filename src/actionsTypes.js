@@ -51,6 +51,8 @@ export const GAME_BOARD_UPDATE = 'GAME_BOARD_UPDATE';
 
 export const GAME_LOSE = 'server/game-lose';
 export const GAME_END = 'GAME_END';
+export const GAME_DISPLAY_END = 'GAME_DISPLAY_END';
+export const GAME_HIDE_END = 'GAME_HIDE_END';
 export const GAME_MODS_SET = 'GAME_MODS_SET';
 
 export const GAME_SCORE_UPDATE = 'GAME_SCORE_UPDATE';

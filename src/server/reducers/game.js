@@ -24,8 +24,13 @@ import { alert } from '../../client/actions/alert';
 import { gridZero } from '../../client/reducers/game/utils';
 import { resetGame, blockLinesServer } from '../../client/actions/game/board';
 
-import { notifyGameOver, endGame } from '../../client/actions/game/game';
+import {
+  notifyGameOver,
+  endGame,
+  displayEnd
+} from '../../client/actions/game/game';
 import { getRankingListSuccess } from '../../client/actions/rankings';
+import { updatePlayer } from '../../client/actions/player';
 
 const game = async (action, io, socket) => {
   switch (action.type) {
@@ -47,14 +52,13 @@ const game = async (action, io, socket) => {
 
       if (!party || !party.playing) return;
 
-      socket.emit(
-        'action',
-        updateScore(
-          action.payload.nbLinesDestroyed
-            ? 100 + 500 * Math.pow(2, action.payload.nbLinesDestroyed - 1)
-            : 100
-        )
-      );
+      const addScore = action.payload.nbLinesDestroyed
+        ? 100 + 500 * Math.pow(2, action.payload.nbLinesDestroyed - 1)
+        : 100;
+
+      party.incrementPlayerScore(socket.id, addScore);
+
+      socket.emit('action', updateScore(addScore));
 
       if (action.payload.nbLinesDestroyed - 1 > 0) {
         io.to(socket.partyId).emit('action', updateCurrentPiece({ y: 0 }));
@@ -128,17 +132,18 @@ const game = async (action, io, socket) => {
             console.error(error);
           }
         } else {
+          const winner = party.findAlivePlayers()[0];
+
           io
             .to(party._id)
-            .emit(
-              'action',
-              alert(`${party.findAlivePlayers()[0].nickname} has won the game`)
-            );
+            .emit('action', alert(`${winner.nickname} has won the game!`));
+          io.to(party._id).emit('action', displayEnd(winner));
         }
 
         clearInterval(io.to(party._id).partyInterval);
         party.stopGame();
         party.clearPlayersBoard();
+        io.to(party._id).emit('action', updatePlayer({ ready: false }));
         try {
           party.save();
         } catch (error) {

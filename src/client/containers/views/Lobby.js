@@ -111,7 +111,7 @@ export const ReadyButton = ({ player, toggleReadyClick }) =>
       primary
       onClick={() => toggleReadyClick()}
     >
-      READY
+      NOT READY
     </Button>
   ) : (
     <Button
@@ -119,7 +119,7 @@ export const ReadyButton = ({ player, toggleReadyClick }) =>
       primary
       onClick={() => toggleReadyClick()}
     >
-      NOT READY
+      READY
     </Button>
   );
 
@@ -183,10 +183,10 @@ export const Lobby = ({
           <BeginPartyButton
             party={party}
             beginParty={beginParty}
-            disabled={party.players.reduce((acc, player) => {
-              console.log(acc, player.ready);
-              return acc || !player.ready;
-            }, false)}
+            disabled={party.players.reduce(
+              (acc, player) => acc || !player.ready,
+              false
+            )}
           />
           <FlexSpacer />
         </FlexContainer>
