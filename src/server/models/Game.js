@@ -59,6 +59,16 @@ class Game {
     });
   }
 
+  incrementPlayerScore(socketId, score) {
+    this.players = this.players.map(player => {
+      if (player.socketId === socketId) {
+        player.update({ score: player.score + score });
+      }
+
+      return player;
+    });
+  }
+
   findAlivePlayers() {
     return this.players.filter(player => player.lose === false);
   }
@@ -71,6 +81,8 @@ class Game {
     this.players = this.players.map(player => {
       player.map = gridZero(10, 20);
       player.lose = false;
+      player.score = 0;
+      player.ready = false;
 
       return player;
     });

@@ -6,7 +6,8 @@ const playerSchema = new mongoose.Schema({
   socketId: String,
   map: [[Number]],
   lose: Boolean,
-  ready: Boolean
+  ready: Boolean,
+  score: Number
 });
 
 class Player {
@@ -16,6 +17,7 @@ class Player {
     this.map = gridZero(10, 20);
     this.lose = false;
     this.ready = false;
+    this.score = 0;
   }
 
   update(newPlayer) {

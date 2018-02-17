@@ -184,46 +184,6 @@ export const mapDispatchToGridProps = dispatch => {
     if (board.end || board.ending || piece === null) return;
 
     dispatch(input(event));
-    // switch (event.keyCode) {
-    //   case 39: // RIGHT
-    //     dispatch(movePiece(1));
-    //     event.preventDefault();
-    //     event.stopPropagation();
-    //     break;
-    //   case 37: // LEFT
-    //     dispatch(movePiece(-1));
-    //     event.preventDefault();
-    //     event.stopPropagation();
-    //     break;
-    //   case 40: // DOWN
-    //     dispatch(movePiece(0));
-    //     event.preventDefault();
-    //     event.stopPropagation();
-    //     break;
-    //   case 32: // SPACE
-    //     dispatch(movePiece(20));
-    //     event.stopPropagation();
-    //     event.preventDefault();
-    //     break;
-    //   case 38:
-    //   case 68: // UP or D
-    //     dispatch(rotatePiece(1));
-    //     event.preventDefault();
-    //     event.stopPropagation();
-    //     break;
-    //   case 65: // A
-    //     dispatch(rotatePiece(-1));
-    //     event.preventDefault();
-    //     event.stopPropagation();
-    //     break;
-    //   case 69: // E
-    //     endGame(board);
-    //     event.preventDefault();
-    //     event.stopPropagation();
-    //     break;
-    //   default:
-    //     break;
-    // }
   };
 
   const endGame = board => {
