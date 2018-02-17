@@ -144,6 +144,9 @@ const game = async (action, io, socket) => {
         party.stopGame();
         party.clearPlayersBoard();
         io.to(party._id).emit('action', updatePlayer({ ready: false }));
+        io
+          .to(party._id)
+          .emit('action', updateParty({ players: party.players }));
         try {
           party.save();
         } catch (error) {

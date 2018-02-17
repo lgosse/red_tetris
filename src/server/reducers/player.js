@@ -29,7 +29,7 @@ const player = async (action, io, socket) => {
         io
           .to(socket.partyId)
           .emit('action', updateParty({ players: party.players }));
-        socket.emit('action', updatePlayer(player));
+        socket.emit('action', updatePlayer({ ready: player.ready }));
       } catch (error) {
         console.error(error);
       }
