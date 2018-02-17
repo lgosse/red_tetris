@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import global from "../../styles/global";
-import PlayerForm from "../forms/PlayerForm";
+import React from 'react';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import global from '../../styles/global';
+import PlayerForm from '../forms/PlayerForm';
 
 import {
   FullSizeContainer,
@@ -11,7 +11,7 @@ import {
   FlexContainer,
   FlexSpacer,
   Paragraph
-} from "../../components/helpers/Common";
+} from '../../components/helpers/Common';
 
 const ButtonsContainer = styled.div`
   box-sizing: border-box;
@@ -29,7 +29,7 @@ const NewGame = () => {
         <ButtonsContainer>
           <Link to="create-party" id="create-party-link">
             <Button primary width="100%" marginTop="20px">
-              CREATE A NEW PARTY
+              CREATE A NEW GAME
             </Button>
           </Link>
           <Paragraph gameFont color="accent" size="20px" center padding="20px">
@@ -37,7 +37,7 @@ const NewGame = () => {
           </Paragraph>
           <Link to="party-list" id="party-list-link">
             <Button primary width="100%">
-              JOIN A PARTY
+              JOIN A GAME
             </Button>
           </Link>
         </ButtonsContainer>

@@ -21,6 +21,7 @@ import {
   Line,
   Container
 } from '../../components/home/RedTetrisHeader';
+import { toggleReady } from '../../actions/player';
 
 export const PlayersList = ({ players = [], kickPlayer, actualPlayer }) => (
   <FullSizeContainer>
@@ -38,6 +39,11 @@ export const PlayersList = ({ players = [], kickPlayer, actualPlayer }) => (
             width: '200px'
           }}
         >
+          {player.ready ? (
+            <Icon width="20px" className="check" />
+          ) : (
+            <Icon width="20px" className="hourglass-half" />
+          )}
           <Paragraph gameFont>{player.nickname}</Paragraph>
           <FlexSpacer />
           {players[0].socketId === actualPlayer.socketId && (
@@ -98,55 +104,62 @@ export const RoomView = ({ party, kickPlayer, player }) => (
   </FlexContainer>
 );
 
-export const TogglePartyOpenButton = ({ player, party, toggleOpenParty }) => {
-  if (
-    party.players &&
-    party.players[0] &&
-    player.socketId === party.players[0].socketId
-  ) {
-    return party.open ? (
-      <Button
-        style={{ margin: global.padding.md }}
-        primary
-        onClick={() => toggleOpenParty(party._id)}
-      >
-        CLOSE PARTY
-      </Button>
-    ) : (
-      <Button
-        style={{ margin: global.padding.md }}
-        primary
-        onClick={() => toggleOpenParty(party._id)}
-      >
-        OPEN PARTY
-      </Button>
-    );
-  } else {
-    return <div />;
-  }
-};
-
-export const BeginPartyButton = ({ party, player, beginParty }) =>
-  party.players &&
-  party.players[0] &&
-  player.socketId === party.players[0].socketId ? (
+export const ReadyButton = ({ player, toggleReadyClick }) =>
+  player.ready ? (
     <Button
       style={{ margin: global.padding.md }}
       primary
-      onClick={() => beginParty(party._id)}
+      onClick={() => toggleReadyClick()}
     >
-      BEGIN PARTY
+      READY
     </Button>
   ) : (
-    <div />
+    <Button
+      style={{ margin: global.padding.md }}
+      primary
+      onClick={() => toggleReadyClick()}
+    >
+      NOT READY
+    </Button>
   );
+
+export const TogglePartyOpenButton = ({ party, toggleOpenParty }) =>
+  party.open ? (
+    <Button
+      style={{ margin: global.padding.md }}
+      primary
+      onClick={() => toggleOpenParty(party._id)}
+    >
+      CLOSE PARTY
+    </Button>
+  ) : (
+    <Button
+      style={{ margin: global.padding.md }}
+      primary
+      onClick={() => toggleOpenParty(party._id)}
+    >
+      OPEN PARTY
+    </Button>
+  );
+
+export const BeginPartyButton = ({ party, beginParty, disabled }) => (
+  <Button
+    style={{ margin: global.padding.md }}
+    primary
+    disabled={disabled}
+    onClick={() => beginParty(party._id)}
+  >
+    BEGIN PARTY
+  </Button>
+);
 
 export const Lobby = ({
   party,
   kickPlayer,
   player,
   toggleOpenParty,
-  beginParty
+  beginParty,
+  toggleReadyClick
 }) => {
   return (
     <FullSizeContainer>
@@ -155,18 +168,31 @@ export const Lobby = ({
       </LightContainer>
       <FlexContainer>
         <FlexSpacer />
-        <TogglePartyOpenButton
-          party={party}
-          player={player}
-          toggleOpenParty={toggleOpenParty}
-        />
-        <BeginPartyButton
-          party={party}
-          player={player}
-          beginParty={beginParty}
-        />
+        <ReadyButton player={player} toggleReadyClick={toggleReadyClick} />
         <FlexSpacer />
       </FlexContainer>
+      {party.players &&
+      party.players[0] &&
+      player.socketId === party.players[0].socketId ? (
+        <FlexContainer>
+          <FlexSpacer />
+          <TogglePartyOpenButton
+            party={party}
+            toggleOpenParty={toggleOpenParty}
+          />
+          <BeginPartyButton
+            party={party}
+            beginParty={beginParty}
+            disabled={party.players.reduce((acc, player) => {
+              console.log(acc, player.ready);
+              return acc || !player.ready;
+            }, false)}
+          />
+          <FlexSpacer />
+        </FlexContainer>
+      ) : (
+        <div />
+      )}
       {party.players &&
         party.players.length > 1 && (
           <FlexContainer style={{ maxHeight: '300px' }} flex>
@@ -185,9 +211,18 @@ const mapStateToProps = ({ party, player }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  kickPlayer: playerId => dispatch(kickPlayer(playerId)),
-  toggleOpenParty: partyId => dispatch(toggleOpenParty(partyId)),
-  beginParty: partyId => dispatch(startParty(partyId))
+  kickPlayer(playerId) {
+    dispatch(kickPlayer(playerId));
+  },
+  toggleOpenParty(partyId) {
+    dispatch(toggleOpenParty(partyId));
+  },
+  beginParty(partyId) {
+    dispatch(startParty(partyId));
+  },
+  toggleReadyClick() {
+    dispatch(toggleReady());
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Lobby);

@@ -70,6 +70,7 @@ class Game {
   clearPlayersBoard() {
     this.players = this.players.map(player => {
       player.map = gridZero(10, 20);
+      player.lose = false;
 
       return player;
     });
