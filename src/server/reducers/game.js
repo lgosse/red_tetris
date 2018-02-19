@@ -120,18 +120,18 @@ const game = async (action, io, socket) => {
       });
 
       if (party.isOver()) {
-        if (party.solo === true) {
-          try {
-            await new RankingModel(
-              new Ranking({
-                score: action.score + 100,
-                playerName: party.getPlayerBySocketId(socket.id).nickname
-              })
-            ).save();
-          } catch (error) {
-            console.error(error);
-          }
-        } else {
+        try {
+          await new RankingModel(
+            new Ranking({
+              score: action.score + 100,
+              playerName: party.getPlayerBySocketId(socket.id).nickname
+            })
+          ).save();
+        } catch (error) {
+          console.error(error);
+        }
+
+        if (!party.solo) {
           const winner = party.findAlivePlayers()[0];
 
           io

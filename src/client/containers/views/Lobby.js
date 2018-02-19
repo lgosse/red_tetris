@@ -130,7 +130,7 @@ export const TogglePartyOpenButton = ({ party, toggleOpenParty }) =>
       primary
       onClick={() => toggleOpenParty(party._id)}
     >
-      CLOSE PARTY
+      CLOSE GAME
     </Button>
   ) : (
     <Button
@@ -138,7 +138,7 @@ export const TogglePartyOpenButton = ({ party, toggleOpenParty }) =>
       primary
       onClick={() => toggleOpenParty(party._id)}
     >
-      OPEN PARTY
+      OPEN GAME
     </Button>
   );
 
@@ -149,7 +149,7 @@ export const BeginPartyButton = ({ party, beginParty, disabled }) => (
     disabled={disabled}
     onClick={() => beginParty(party._id)}
   >
-    BEGIN PARTY
+    BEGIN GAME
   </Button>
 );
 

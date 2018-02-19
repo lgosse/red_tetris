@@ -15,6 +15,7 @@ const LeftSideTop = styled.div`
   font-family: ${global.font.family.game};
   font-size: ${global.font.size.title};
   color: ${global.color.primary};
+  padding-bottom: ${global.padding.md};
   text-align: center;
 `;
 
@@ -33,7 +34,7 @@ const GameInfoContainer = styled.div`
   border: 5px solid ${global.color.primary};
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  padding: ${props => (props.noPadding ? 0 : global.padding.md)};
+  padding: ${props => (props.noPadding ? 0 : global.padding.sm)};
   width: 100%;
   font-family: ${global.font.family.game};
   font-size: 14px;
@@ -43,7 +44,7 @@ const GameInfoContainer = styled.div`
 
 const GameInfo = ({ title, children, flex, noPadding }) => (
   <FullSizeContainer
-    padding={`0 ${global.padding.md} ${global.padding.sm}`}
+    padding={`0 ${global.padding.md} ${global.padding.md}`}
     style={
       flex && {
         flex: 1,
@@ -95,7 +96,7 @@ const LeftSide = ({ party, player, game }) => (
         <FlexSpacer />
       </FlexContainer>
     </GameInfo>
-    <GameInfo title="Hold" noPadding flex>
+    <GameInfo title="HOLD" noPadding flex>
       <FlexContainer
         height="100%"
         style={{ justifyContent: 'center', alignItems: 'center' }}
