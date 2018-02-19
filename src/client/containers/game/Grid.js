@@ -30,7 +30,7 @@ const Calque = ({ board, piece }) => {
           ...gameStyle.endMessage
         }}
       >
-        YOU LOOSE
+        YOU LOSE
       </div>
     );
   } else if (!piece) {
