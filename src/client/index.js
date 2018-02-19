@@ -99,7 +99,7 @@ ReactDom.render(
           <Route path="/ranking" component={Ranking} />
           <Route path="/new-game" component={NewGame} />
           <Route
-            path="/create-party"
+            path="/create-game"
             render={() => {
               return checkNickname() ? (
                 <CreateParty />
@@ -109,7 +109,7 @@ ReactDom.render(
             }}
           />
           <Route
-            path="/party-list"
+            path="/game-list"
             render={() => {
               return checkNickname() ? (
                 <PartyList />

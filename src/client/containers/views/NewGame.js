@@ -27,7 +27,7 @@ const NewGame = () => {
       <FlexContainer>
         <FlexSpacer />
         <ButtonsContainer>
-          <Link to="create-party" id="create-party-link">
+          <Link to="create-game" id="create-party-link">
             <Button primary width="100%" marginTop="20px">
               CREATE A NEW GAME
             </Button>
@@ -35,7 +35,7 @@ const NewGame = () => {
           <Paragraph gameFont color="accent" size="20px" center padding="20px">
             OR
           </Paragraph>
-          <Link to="party-list" id="party-list-link">
+          <Link to="game-list" id="party-list-link">
             <Button primary width="100%">
               JOIN A GAME
             </Button>
