@@ -17,7 +17,7 @@ import {
 } from '../../components/helpers/Common';
 import { hideEnd } from '../../actions/game/game';
 
-export const EndingModal = ({ ending, party, closeModal }) => (
+export const EndingModal = ({ ending, closeModal }) => (
   <Modal>
     <ModalHeader style={{ textAlign: 'center' }}>RESULTS</ModalHeader>
     <ModalBody
@@ -40,7 +40,7 @@ export const EndingModal = ({ ending, party, closeModal }) => (
         SCORES
       </Paragraph>
       <div>
-        {party.players
+        {ending.players
           .sort((prevPlayer, actPlayer) => prevPlayer.score > actPlayer.score)
           .map((player, index) => (
             <Paragraph
@@ -72,7 +72,7 @@ export const Party = ({ ending, party, closeModal }) => (
   <div>
     {party.playing ? <Game /> : <Lobby />}
     {ending.shouldDisplay && !party.playing ? (
-      <EndingModal party={party} ending={ending} closeModal={closeModal} />
+      <EndingModal ending={ending} closeModal={closeModal} />
     ) : (
       <span />
     )}
