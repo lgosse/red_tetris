@@ -1,5 +1,5 @@
 import { INPUT_KEYBOARD, REMOVE_INPUT_KEYBOARD } from '../../../actionsTypes';
-import { movePiece, rotatePiece } from './pieces';
+import { movePiece, rotatePiece, holdPiece, claimPiece } from './pieces';
 import { endGame } from './game';
 
 export const INPUT_KEYBOARD_SPACE = 32,
@@ -10,7 +10,7 @@ export const INPUT_KEYBOARD_SPACE = 32,
   INPUT_KEYBOARD_LETTER_A = 65,
   INPUT_KEYBOARD_LETTER_D = 68,
   INPUT_KEYBOARD_LETTER_E = 69,
-  INPUT_KEYBOARD_LETTER_H = 'INPUT_KEYBOARD_LETTER_H';
+  INPUT_KEYBOARD_LETTER_H = 72;
 
 export const input = event => (dispatch, getState) => {
   const state = getState();
@@ -55,8 +55,8 @@ export const input = event => (dispatch, getState) => {
         dispatch(movePiece(20));
         event.stopPropagation();
         event.preventDefault();
-        break;
       }
+      break;
     }
     case INPUT_KEYBOARD_UP:
     case INPUT_KEYBOARD_LETTER_D:
@@ -74,6 +74,15 @@ export const input = event => (dispatch, getState) => {
       event.preventDefault();
       event.stopPropagation();
       break;
+    case INPUT_KEYBOARD_LETTER_H: {
+      if (state.game.pieces.canHold) {
+        dispatch(holdPiece());
+        dispatch(claimPiece());
+      }
+      event.preventDefault();
+      event.stopPropagation();
+      break;
+    }
     default:
       break;
   }
