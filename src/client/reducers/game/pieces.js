@@ -10,13 +10,17 @@ import {
   GAME_LOSE,
   PARTY_LEFT,
   PARTY_START,
-  GAME_END
+  GAME_END,
+  GAME_PIECES_HOLD,
+  GAME_PIECES_RESET_HOLD
 } from '../../../actionsTypes';
 import { gridFusion, findPlace, testCollision, gridZero } from './utils';
 
 const initialState = {
   piece: null,
-  next: []
+  next: [],
+  hold: null,
+  canHold: true
 };
 
 const pieces = (state = initialState, action) => {
@@ -51,6 +55,26 @@ const pieces = (state = initialState, action) => {
         piece: action.piece
       };
     }
+
+    case GAME_PIECES_HOLD: {
+      return {
+        ...state,
+        hold: {
+          ...state.piece,
+          x: 4,
+          y: 0
+        },
+        piece: state.hold ? state.hold : state.next[0],
+        next: state.hold ? state.next : state.next.slice(1),
+        canHold: false
+      };
+    }
+
+    case GAME_PIECES_RESET_HOLD:
+      return {
+        ...state,
+        canHold: true
+      };
 
     case GAME_PIECES_CLAIM_PIECE_SUCCESS: {
       return {

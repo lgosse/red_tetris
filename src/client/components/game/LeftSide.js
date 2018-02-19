@@ -33,7 +33,7 @@ const GameInfoContainer = styled.div`
   border: 5px solid ${global.color.primary};
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  padding: ${global.padding.md};
+  padding: ${props => (props.noPadding ? 0 : global.padding.md)};
   width: 100%;
   font-family: ${global.font.family.game};
   font-size: 14px;
@@ -41,9 +41,9 @@ const GameInfoContainer = styled.div`
   flex: 1;
 `;
 
-const GameInfo = ({ title, children, flex }) => (
+const GameInfo = ({ title, children, flex, noPadding }) => (
   <FullSizeContainer
-    padding={global.padding.md}
+    padding={`0 ${global.padding.md} ${global.padding.sm}`}
     style={
       flex && {
         flex: 1,
@@ -61,16 +61,20 @@ const GameInfo = ({ title, children, flex }) => (
     >
       {title}
     </div>
-    <GameInfoContainer>{children}</GameInfoContainer>
+    <GameInfoContainer noPadding={noPadding}>{children}</GameInfoContainer>
   </FullSizeContainer>
 );
 
 const LeftSide = ({ party, player, game }) => (
   <LeftSideContainer>
     <LeftSideTop>{party.name}</LeftSideTop>
-    <GameInfo title="PLAYER">{player.nickname}</GameInfo>
-    <GameInfo title="SCORE">{game.score}</GameInfo>
-    <GameInfo title="NEXT PIECE" flex>
+    <GameInfo title="PLAYER" style={{ paddingBottom: 0 }}>
+      {player.nickname}
+    </GameInfo>
+    <GameInfo title="SCORE" style={{ paddingBottom: 0 }}>
+      {game.score}
+    </GameInfo>
+    <GameInfo title="NEXT PIECE" style={{ paddingBottom: 0 }} noPadding flex>
       <FlexContainer height="100%">
         <FlexSpacer />
         <div
@@ -89,6 +93,16 @@ const LeftSide = ({ party, player, game }) => (
           <div style={{ flex: 1 }} />
         </div>
         <FlexSpacer />
+      </FlexContainer>
+    </GameInfo>
+    <GameInfo title="Hold" noPadding flex>
+      <FlexContainer
+        height="100%"
+        style={{ justifyContent: 'center', alignItems: 'center' }}
+      >
+        {game.pieces.hold && (
+          <Tetri padding="12px" tetri={game.pieces.hold.grid} />
+        )}
       </FlexContainer>
     </GameInfo>
   </LeftSideContainer>
