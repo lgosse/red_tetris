@@ -77,7 +77,7 @@ export const deleteLinesF = (grid, lines, force) => {
 
   newLines.forEach(index => {
     newGrid[index].forEach((val, x) => {
-      if ((val >= 0 && val <= 9) || (force && val !== 11)) {
+      if ((val >= 0 && val <= 9 || val === 12) || (force && val !== 11)) {
         newGrid[index][x] = 0;
         let i;
         for (i = index; i > 0; i--) {

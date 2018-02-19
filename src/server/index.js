@@ -2,11 +2,17 @@ import fs from 'fs';
 import debug from 'debug';
 import ioReducer from './serverReducer';
 import mongoose from 'mongoose';
-import { userLeaves } from './reducers/partyList';
+import { userLeaves, getParties } from './reducers/partyList';
 import { updatePlayer } from '../client/actions/player';
 import params from '../../params';
 mongoose.Promise = Promise;
 mongoose.connect(`mongodb://${params.db.host}:27017/dev`);
+
+import GameModel from './models/Game';
+import { setTimeout } from 'timers';
+import pingUser from '../client/actions/server';
+import { SERVER_PING_USER } from '../actionsTypes';
+
 
 const logerror = debug('tetris:error'),
   loginfo = debug('tetris:info');
@@ -51,6 +57,24 @@ const initEngine = io => {
   });
 };
 
+const autoPing = async (io) => {
+  const partyList = await GameModel.find({}).exec();
+  partyList.forEach((party) => {
+    party.players.forEach((player) => {
+      console.log(player.socketId);
+      //io.to(player.socketId).emit('action', { type: SERVER_PING_USER, player: player.socketId });
+      io.emit('pingUser');
+      io.on('action', (action) => {
+        console.log("PONG Is OK");
+      });
+      setTimeout(() => {
+        console.log("PONG IS NOT OK");
+      }, 3000);
+    });
+  });
+};
+
+
 export function create(params) {
   const promise = new Promise((resolve, reject) => {
     const app = require('http').createServer();
@@ -67,6 +91,7 @@ export function create(params) {
 
       initEngine(io);
       resolve({ stop });
+      setInterval(() => { autoPing(io) }, 5000);
     });
   });
   return promise;

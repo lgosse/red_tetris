@@ -63,6 +63,8 @@ export const REMOVE_INPUT_KEYBOARD = 'REMOVE_INPUT_KEYBOARD';
 
 // Server actions
 export const SERVER_PING = 'server/ping';
+export const SERVER_PING_USER = 'server/pingUser';
+export const SERVER_PONG_USER = 'server/pongUser';
 
 // Router actions
 export const LOCATION_CHANGE = '@@router/LOCATION_CHANGE';

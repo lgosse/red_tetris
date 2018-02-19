@@ -4,7 +4,8 @@ import {
   ALERT_POP,
   ALERT_RESET,
   SERVER_REDIRECT,
-  PARTY_UPDATE
+  PARTY_UPDATE,
+  SERVER_PONG_USER
 } from '../../actionsTypes';
 import { ROOM_PARTY_LIST } from '../../roomsName';
 import {
@@ -63,6 +64,9 @@ const socketIoMiddleWare = socket => ({ dispatch, getState }) => {
     socket.on('action', action => {
       dispatch(action);
     });
+    socket.on('pingUser', () => {
+      dispatch({type: SERVER_PONG_USER});
+    })
 
   return next => action => {
     roomHandler(socket, action, dispatch, getState);
