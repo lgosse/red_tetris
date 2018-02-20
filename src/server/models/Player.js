@@ -7,7 +7,9 @@ const playerSchema = new mongoose.Schema({
   map: [[Number]],
   lose: Boolean,
   ready: Boolean,
-  score: Number
+  score: Number,
+  ping: Number,
+  lastPing: Number
 });
 
 class Player {
@@ -18,6 +20,8 @@ class Player {
     this.lose = false;
     this.ready = false;
     this.score = 0;
+    this.ping = 0;
+    this.lastPing = 0;
   }
 
   update(newPlayer) {

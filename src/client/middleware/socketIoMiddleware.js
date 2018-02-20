@@ -15,7 +15,7 @@ import {
   validatePartyHash
 } from '../actions/party';
 import { getParties } from '../actions/partyList';
-import { savePlayer, getPlayer } from '../actions/player';
+import { savePlayer, getPlayer, updatePlayer } from '../actions/player';
 import { getRankingList } from '../actions/rankings';
 
 const roomHandler = (socket, action, dispatch, getState) => {
@@ -60,14 +60,11 @@ const roomHandler = (socket, action, dispatch, getState) => {
 };
 
 const socketIoMiddleWare = socket => ({ dispatch, getState }) => {
-  if (socket)
+  if (socket) {
     socket.on('action', action => {
       dispatch(action);
     });
-    socket.on('pingUser', () => {
-      dispatch({type: SERVER_PONG_USER});
-    })
-
+  }
   return next => action => {
     roomHandler(socket, action, dispatch, getState);
 

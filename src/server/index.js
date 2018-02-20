@@ -11,7 +11,7 @@ mongoose.connect(`mongodb://${params.db.host}:27017/dev`);
 import GameModel from './models/Game';
 import { setTimeout } from 'timers';
 import pingUser from '../client/actions/server';
-import { SERVER_PING_USER } from '../actionsTypes';
+import { SERVER_PING_USER, PARTY_KICK_PLAYER, PARTY_LEAVE } from '../actionsTypes';
 
 
 const logerror = debug('tetris:error'),
@@ -59,17 +59,31 @@ const initEngine = io => {
 
 const autoPing = async (io) => {
   const partyList = await GameModel.find({}).exec();
-  partyList.forEach((party) => {
-    party.players.forEach((player) => {
-      console.log(player.socketId);
-      //io.to(player.socketId).emit('action', { type: SERVER_PING_USER, player: player.socketId });
-      io.emit('pingUser');
-      io.on('action', (action) => {
-        console.log("PONG Is OK");
-      });
-      setTimeout(() => {
-        console.log("PONG IS NOT OK");
-      }, 3000);
+  
+  partyList.forEach( async (party) => {
+    party.players.forEach(async (player) => {  
+      //io.to(player.socketId).emit('action', { type: SERVER_PING_USER, player: player.socketId });      
+      const pingUser = async (nb) => {
+        console.log("start");
+        if (nb === 0) {
+          io.emit('action', { type: PARTY_KICK_PLAYER, playerId: player.socketId });
+          userLeaves(io, io.to(player.socketId)); // ?????????????????????
+          //io.to(player.socketId).emit('action', { type: PARTY_LEAVE });          
+        } else {
+          const date = Date.now();
+          io.to(player.socketId).emit('action', { type: SERVER_PING_USER, player: player, partyId: party._id, ping: date});
+          await setTimeout( async () => {
+            const partyNow = await GameModel.findById(party._id).exec();
+            const playerNow = partyNow.getPlayerBySocketId(player.socketId);
+            console.log("("+nb+") ", player.socketId, playerNow.ping, playerNow.lastPing - date);
+            if (playerNow.lastPing - date < 0 || playerNow.lastPing - date > 2000)
+              await setTimeout( async () => (await pingUser(nb - 1)), 2000);
+          }, 2000);  
+        }
+        console.log("end");
+      }
+
+      await pingUser(2);
     });
   });
 };
@@ -90,8 +104,8 @@ export function create(params) {
       };
 
       initEngine(io);
+      setInterval( async () => { await autoPing(io) }, 7000);
       resolve({ stop });
-      setInterval(() => { autoPing(io) }, 5000);
     });
   });
   return promise;
