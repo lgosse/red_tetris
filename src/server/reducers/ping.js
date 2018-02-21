@@ -1,5 +1,7 @@
-import { SERVER_PING, SERVER_PING_USER, SERVER_PONG_USER } from "../../actionsTypes";
+import { SERVER_PING, SERVER_PING_USER, SERVER_PONG_USER, PLAYER_UPDATE } from "../../actionsTypes";
 import GameModel from '../models/Game';
+import { updatePlayer } from '../../client/actions/player';
+import { updateParty } from '../../client/actions/party';
 
 const ping = (action, io, socket) => {
   switch (action.type) {
@@ -13,7 +15,18 @@ const ping = (action, io, socket) => {
         const player = party.getPlayerBySocketId(action.player.socketId);
         player.ping = Date.now() - action.ping;
         player.lastPing = Date.now();
-        party.save();
+
+        party.updatePlayer(player);
+        try {
+          await party.save();
+          io
+            .to(socket.partyId)
+            .emit('action', updateParty({ players: party.players }));
+          socket.emit('action', updatePlayer({ ready: player.ready }));
+        } catch (error) {
+          console.error(error);
+        }
+        socket.emit("action", { type: PLAYER_UPDATE, player: player });
       }
       updateP()
 //      socket.emit("action", { type: SERVER_PONG_USER, player: action.player, partyId: action.partyId, ping: action.ping });

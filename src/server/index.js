@@ -58,34 +58,46 @@ const initEngine = io => {
 };
 
 const autoPing = async (io) => {
+  const timeout = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  console.log("start");
   const partyList = await GameModel.find({}).exec();
-  
-  partyList.forEach( async (party) => {
-    party.players.forEach(async (player) => {  
-      //io.to(player.socketId).emit('action', { type: SERVER_PING_USER, player: player.socketId });      
+  let i, j;
+  for (i = 0; i < partyList.length; i++) {
+    console.log("start1");
+    const party = partyList[i];
+    for (j = 0; j < party.players.length; j++) {
+      console.log("start2");
+      const player = party.players[j];
       const pingUser = async (nb) => {
-        console.log("start");
+        console.log("start3 - ", nb);
+      
         if (nb === 0) {
-          io.emit('action', { type: PARTY_KICK_PLAYER, playerId: player.socketId });
-          userLeaves(io, io.to(player.socketId)); // ?????????????????????
-          //io.to(player.socketId).emit('action', { type: PARTY_LEAVE });          
+          await io.emit('action', { type: PARTY_KICK_PLAYER, playerId: player.socketId });
+          if (Object.keys(io.sockets.sockets).findIndex(key => (player.socketId === key)) !== -1)
+            userLeaves(io, io.sockets.sockets[player.socketId]); // ?????????????????????
+          else
+            userLeaves(io, { id: player.socketId, partyId: party._id, fake: true });
         } else {
           const date = Date.now();
           io.to(player.socketId).emit('action', { type: SERVER_PING_USER, player: player, partyId: party._id, ping: date});
-          await setTimeout( async () => {
-            const partyNow = await GameModel.findById(party._id).exec();
-            const playerNow = partyNow.getPlayerBySocketId(player.socketId);
-            console.log("("+nb+") ", player.socketId, playerNow.ping, playerNow.lastPing - date);
-            if (playerNow.lastPing - date < 0 || playerNow.lastPing - date > 2000)
-              await setTimeout( async () => (await pingUser(nb - 1)), 2000);
-          }, 2000);  
+          await timeout(2000);
+          const partyNow = await GameModel.findById(party._id).exec();
+          const playerNow = partyNow.getPlayerBySocketId(player.socketId);
+          console.log("("+nb+") ", player.socketId, playerNow.ping, playerNow.lastPing - date);
+          if (playerNow.lastPing - date < 0 || playerNow.lastPing - date > 2000)
+            await pingUser(nb - 1); 
         }
-        console.log("end");
+        console.log("end3 - ", nb);
       }
-
       await pingUser(2);
-    });
-  });
+      console.log("end2");
+    };
+    console.log("end1");
+  };
+  console.log("end");
 };
 
 
@@ -104,7 +116,16 @@ export function create(params) {
       };
 
       initEngine(io);
-      setInterval( async () => { await autoPing(io) }, 7000);
+      let go = true;
+      setInterval( async () => {
+        if (go) {
+          go = false;
+          console.log("----Begin");
+          await autoPing(io)
+          console.log("----Ending");
+          go = true;
+        }
+      }, 2000);
       resolve({ stop });
     });
   });
