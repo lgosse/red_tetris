@@ -7,7 +7,7 @@ import { Paragraph } from '../../components/helpers/Common';
 import { Tetri, Bomb } from '../../components/game/Tetri';
 import gameStyle from '../../styles/gameStyle';
 import globalStyle from '../../styles/global';
-import { deleteTnt } from '../../reducers/game/utils';
+import { deleteTnt, testCollision, isLighting } from '../../reducers/game/utils';
 import { rotatePiece, movePiece, claimPiece } from '../../actions/game/pieces';
 import {
   deleteLines,
@@ -57,6 +57,8 @@ export const Grid = ({
 }) => {
   const grid = board.grid.map((line, i) => {
     const cols = line.map((col, j) => {
+      if (col === 0 && pieces.piece && isLighting(board.grid, pieces.piece, j, i))
+        return <Square color={42} key={j} />;
       return <Square color={col} key={j} />;
     });
 
