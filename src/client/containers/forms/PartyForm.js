@@ -16,7 +16,7 @@ export const PartyForm = ({ player, createParty, changeParty }) => {
   return (
     <FullSizeContainer padding="20px">
       <Paragraph center size="20px" padding="20px" gameFont color="accent">
-        Create a new Party
+        Create a new Game
       </Paragraph>
       <FlexContainer flex>
         <FlexSpacer />
@@ -24,12 +24,18 @@ export const PartyForm = ({ player, createParty, changeParty }) => {
           <FlexContainer>
             <Input
               id="partyNameInput"
-              placeholder="Party name..."
+              placeholder="Room name..."
               name="partyName"
               required
             />
           </FlexContainer>
-          <FlexContainer>
+          <FlexContainer direction="column">
+            <label
+              htmlFor="partySizeInput"
+              style={{ color: global.color.accent, paddingTop: '12px' }}
+            >
+              Number of players
+            </label>
             <Input
               id="partySizeInput"
               type="number"
@@ -56,7 +62,7 @@ export const PartyForm = ({ player, createParty, changeParty }) => {
               primary
               style={{ marginLeft: '20px' }}
             >
-              CREATE PARTY
+              CREATE GAME
             </Button>
           </FlexContainer>
         </form>

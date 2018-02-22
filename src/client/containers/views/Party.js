@@ -41,7 +41,7 @@ export const EndingModal = ({ ending, closeModal }) => (
       </Paragraph>
       <div>
         {ending.players
-          .sort((prevPlayer, actPlayer) => prevPlayer.score > actPlayer.score)
+          .sort((prevPlayer, actPlayer) => prevPlayer.score < actPlayer.score)
           .map((player, index) => (
             <Paragraph
               key={index}
@@ -69,7 +69,7 @@ export const EndingModal = ({ ending, closeModal }) => (
 );
 
 export const Party = ({ ending, party, closeModal }) => (
-  <div>
+  <div style={{ padding: '20px' }}>
     {party.playing ? <Game /> : <Lobby />}
     {ending.shouldDisplay && !party.playing ? (
       <EndingModal ending={ending} closeModal={closeModal} />

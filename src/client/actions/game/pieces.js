@@ -8,7 +8,9 @@ import {
   GAME_BONUS_ADD,
   GAME_MALUS_ADD,
   GAME_MALUS_ADD_SUCCESS,
-  GAME_PIECE_UPDATE
+  GAME_PIECE_UPDATE,
+  GAME_PIECES_HOLD,
+  GAME_PIECES_RESET_HOLD
 } from '../../../actionsTypes';
 import {
   gridFusion,
@@ -115,6 +117,7 @@ export const movePiece = direction => (dispatch, getState) => {
     if (newGrid) {
       let mod;
       if ((mod = isMod(pieces.piece)) !== null) dispatch(setMod(mod));
+      dispatch(resetHold());
       dispatch(
         updateBoard({
           grid: newGrid,
@@ -170,3 +173,11 @@ export const rotatePiece = direction => (dispatch, getState) => {
     );
   }
 };
+
+export const holdPiece = () => ({
+  type: GAME_PIECES_HOLD
+});
+
+export const resetHold = () => ({
+  type: GAME_PIECES_RESET_HOLD
+});
