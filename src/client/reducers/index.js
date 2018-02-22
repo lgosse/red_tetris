@@ -5,6 +5,7 @@ import player from "./player";
 import partyList from "./partyList";
 import party from "./party";
 import ranking from "./ranking";
+import music from "./game/music";
 
 export default {
   alert,
@@ -13,5 +14,6 @@ export default {
   player,
   partyList,
   party,
-  ranking
+  ranking,
+  music
 };

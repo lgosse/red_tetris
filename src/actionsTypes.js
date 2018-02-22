@@ -18,6 +18,9 @@ export const PARTY_START = 'server/party-toggle-playing';
 export const PARTY_SEND_MESSAGE = 'server/send-message';
 export const PARTY_RECEIVE_MESSAGE = 'PARTY_RECEIVE_MESSAGE';
 
+//Music action
+export const TOGGLE_MUSIC = 'TOGGLE_MUSIC';
+
 // Player actions
 export const PLAYER_UPDATE = 'PLAYER_UPDATE';
 export const PLAYER_GET = 'PLAYER_GET';
