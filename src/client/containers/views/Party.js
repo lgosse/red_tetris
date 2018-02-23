@@ -178,7 +178,7 @@ export const EndingModal = ({ ending, closeModal }) => (
 );
 
 export const Party = ({ ending, party, closeModal, closeRules }) => (
-  <div style={{ padding: '20px' }}>
+  <div>
     {party.playing ? <Game /> : <Lobby />}
     {ending.shouldDisplay && !party.playing ? (
       <EndingModal ending={ending} closeModal={closeModal} />
