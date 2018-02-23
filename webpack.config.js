@@ -9,20 +9,22 @@ module.exports = {
   },
 
   module: {
-    loaders: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel',
-      query:{
-        presets: ["es2015", "react", "stage-0"]
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015', 'react', 'stage-0']
+        }
+      },
+      {
+        test: /\.(mp3|wav)$/,
+        loader: 'file-loader',
+        query: {
+          name: 'static/media/[name].[hash:8].[ext]'
+        }
       }
-    },
-    {
-      test: /\.mp3$/,
-      loader: 'file-loader',
-      query: {
-         name: 'static/media/[name].[hash:8].[ext]'
-      }
-   }]
+    ]
   }
 };
