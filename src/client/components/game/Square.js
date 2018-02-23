@@ -56,6 +56,13 @@ const Square = ({ color }) => {
         <div style={gameStyle.tnt.bandes[2]} />
       </div>
     );
+  } else if (color === 42) {
+    return (
+      <div style={gameStyle.square(0)}>
+        <div style={{zIndex: '0', backgroundColor: 'rgba(255, 250, 205, 0.05)', width: '4vh', height: '4vh', position: 'absolute'}} />
+        <div style={gameStyle.squareIn(0)} />
+      </div>
+    );
   } else {
     return (
       <div style={gameStyle.square(color)}>

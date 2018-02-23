@@ -4,7 +4,8 @@ import {
   ALERT_POP,
   ALERT_RESET,
   SERVER_REDIRECT,
-  PARTY_UPDATE
+  PARTY_UPDATE,
+  SERVER_PONG_USER
 } from '../../actionsTypes';
 import { ROOM_PARTY_LIST } from '../../roomsName';
 import {
@@ -14,7 +15,7 @@ import {
   validatePartyHash
 } from '../actions/party';
 import { getParties } from '../actions/partyList';
-import { savePlayer, getPlayer } from '../actions/player';
+import { savePlayer, getPlayer, updatePlayer } from '../actions/player';
 import { getRankingList } from '../actions/rankings';
 
 const roomHandler = (socket, action, dispatch, getState) => {
@@ -59,11 +60,11 @@ const roomHandler = (socket, action, dispatch, getState) => {
 };
 
 const socketIoMiddleWare = socket => ({ dispatch, getState }) => {
-  if (socket)
+  if (socket) {
     socket.on('action', action => {
       dispatch(action);
     });
-
+  }
   return next => action => {
     roomHandler(socket, action, dispatch, getState);
 

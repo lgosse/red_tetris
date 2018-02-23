@@ -44,7 +44,7 @@ export const PlayersList = ({ players = [], kickPlayer, actualPlayer }) => (
             margin: global.padding.sm,
             display: 'flex',
             flexDirection: 'row',
-            width: '200px'
+            maxWidth: '400px'
           }}
         >
           {player.ready ? (
@@ -53,6 +53,8 @@ export const PlayersList = ({ players = [], kickPlayer, actualPlayer }) => (
             <Icon width="20px" className="hourglass-half" />
           )}
           <Paragraph gameFont>{player.nickname}</Paragraph>
+          <FlexSpacer />
+          <div>{player.ping}</div>
           <FlexSpacer />
           {players[0].socketId === actualPlayer.socketId && (
             <div onClick={() => kickPlayer(player.socketId)}>

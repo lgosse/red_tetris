@@ -2,11 +2,16 @@ import fs from 'fs';
 import debug from 'debug';
 import ioReducer from './serverReducer';
 import mongoose from 'mongoose';
-import { userLeaves } from './reducers/partyList';
+import { userLeaves, getParties } from './reducers/partyList';
 import { updatePlayer } from '../client/actions/player';
 import params from '../../params';
 mongoose.Promise = Promise;
 mongoose.connect(`mongodb://${params.db.host}:27017/dev`);
+
+import GameModel from './models/Game';
+import { setTimeout } from 'timers';
+import { SERVER_PING_USER, PARTY_KICK_PLAYER, PARTY_LEAVE } from '../actionsTypes';
+
 
 const logerror = debug('tetris:error'),
   loginfo = debug('tetris:info');
@@ -35,7 +40,9 @@ const initApp = (app, params, cb) => {
   });
 };
 
-const initEngine = io => {
+const initEngine = async (io) => {
+  
+  
   io.on('connection', socket => {
     socket.emit('action', updatePlayer({ socketId: socket.id }));
 
@@ -49,7 +56,89 @@ const initEngine = io => {
       userLeaves(io, socket);
     });
   });
+  while (1) {
+    await autoPing(io);
+    console.log("Turn");
+    await timeout(4000);
+  }
+  // let go = true;
+  // setInterval( async () => {
+  //   if (go) {
+  //     go = false;
+  //     console.log("----Begin");
+  //     console.log("----Ending");
+  //     go = true;
+  //   }
+  // }, 20000);
 };
+
+const pingPlayer = async (io, party, player, countBeforeKick) => {
+  console.log("start3 - ", countBeforeKick);
+
+  if (countBeforeKick === 0) {
+    io.emit('action', { type: PARTY_KICK_PLAYER, playerId: player.socketId });
+    if (Object.keys(io.sockets.sockets).findIndex(key => (player.socketId === key)) !== -1)
+      userLeaves(io, io.sockets.sockets[player.socketId]);
+    else
+      userLeaves(io, { id: player.socketId, partyId: party._id, fake: true });
+  } else {
+
+    // Pinging user
+    const date = Date.now();
+    io.to(player.socketId).emit('action', { type: SERVER_PING_USER, player: player, partyId: party._id, ping: date});
+
+    // Waiting for ping to be received and rethrown
+    await timeout(2000);
+
+    // Checking if user is good to be kicked
+    let partyNow;
+    try {
+      partyNow = await GameModel.findById(party._id).exec();
+    } catch (e) {
+      console.error(e);
+    }
+    if (!partyNow) return;
+
+    const playerNow = partyNow.getPlayerBySocketId(player.socketId);
+    console.log(`(${countBeforeKick})` , player.socketId, playerNow.ping, playerNow.lastPing - date);
+    if (playerNow.lastPing - date < 0 || playerNow.lastPing - date > 2000)
+      await pingPlayer(io, party, player, countBeforeKick - 1); 
+
+  }
+
+  console.log("end3 - ", countBeforeKick);
+}
+
+const timeout = (ms) => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+const autoPing = async (io) => {
+  console.log("start");
+  let partyList;
+  try { 
+    partyList = await GameModel.find({}).exec();
+  } catch (e) {
+    console.error(e);
+    throw new Error(e);
+  }
+  if (!partyList) return;
+
+  const promises = [];
+  partyList.forEach(party => party.players.forEach(player => {
+    promises.push(pingPlayer(io, party, player, 2));
+    console.log("end2");
+  }))
+
+  await Promise.all(promises);
+  // for (i = 0; i < partyList.length; i++) {
+  //   console.log("start1");
+  //   const party = partyList[i];
+  //   console.log("end1");
+  // };
+  console.log("end");
+};
+
 
 export function create(params) {
   const promise = new Promise((resolve, reject) => {

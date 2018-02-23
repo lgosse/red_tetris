@@ -15,7 +15,7 @@ const Line = ({ line }) => (
             key={index}
             style={{
               width: "4vh",
-              height: "4vh"
+              height: "4vh",
             }}
           />
         )
