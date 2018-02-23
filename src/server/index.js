@@ -58,31 +58,19 @@ const initEngine = async (io) => {
   });
   while (1) {
     await autoPing(io);
-    console.log("Turn");
     await timeout(4000);
   }
-  // let go = true;
-  // setInterval( async () => {
-  //   if (go) {
-  //     go = false;
-  //     console.log("----Begin");
-  //     console.log("----Ending");
-  //     go = true;
-  //   }
-  // }, 20000);
 };
 
 const pingPlayer = async (io, party, player, countBeforeKick) => {
-  console.log("start3 - ", countBeforeKick);
-
   if (countBeforeKick === 0) {
     io.emit('action', { type: PARTY_KICK_PLAYER, playerId: player.socketId });
+
     if (Object.keys(io.sockets.sockets).findIndex(key => (player.socketId === key)) !== -1)
       userLeaves(io, io.sockets.sockets[player.socketId]);
     else
       userLeaves(io, { id: player.socketId, partyId: party._id, fake: true });
   } else {
-
     // Pinging user
     const date = Date.now();
     io.to(player.socketId).emit('action', { type: SERVER_PING_USER, player: player, partyId: party._id, ping: date});
@@ -100,13 +88,10 @@ const pingPlayer = async (io, party, player, countBeforeKick) => {
     if (!partyNow) return;
 
     const playerNow = partyNow.getPlayerBySocketId(player.socketId);
-    console.log(`(${countBeforeKick})` , player.socketId, playerNow.ping, playerNow.lastPing - date);
-    if (playerNow.lastPing - date < 0 || playerNow.lastPing - date > 2000)
+    if (playerNow.lastPing - date < 0 || playerNow.lastPing - date > 1200)
       await pingPlayer(io, party, player, countBeforeKick - 1); 
-
   }
-
-  console.log("end3 - ", countBeforeKick);
+  return;
 }
 
 const timeout = (ms) => {
@@ -114,7 +99,6 @@ const timeout = (ms) => {
 }
 
 const autoPing = async (io) => {
-  console.log("start");
   let partyList;
   try { 
     partyList = await GameModel.find({}).exec();
@@ -127,16 +111,10 @@ const autoPing = async (io) => {
   const promises = [];
   partyList.forEach(party => party.players.forEach(player => {
     promises.push(pingPlayer(io, party, player, 2));
-    console.log("end2");
   }))
 
   await Promise.all(promises);
-  // for (i = 0; i < partyList.length; i++) {
-  //   console.log("start1");
-  //   const party = partyList[i];
-  //   console.log("end1");
-  // };
-  console.log("end");
+  return;
 };
 
 
