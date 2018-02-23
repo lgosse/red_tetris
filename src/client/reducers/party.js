@@ -4,7 +4,8 @@ import {
   PARTY_UPDATE,
   PARTY_LEFT,
   PARTY_RECEIVE_MESSAGE,
-  GAME_END
+  GAME_END,
+  PARTY_TOGGLE_RULES
 } from '../../actionsTypes';
 import { gridZero } from './game/utils';
 
@@ -12,7 +13,13 @@ const saveParty = action => {
   localStorage.setItem('party', JSON.stringify(action.party));
 };
 
-const initialState = { size: 10, players: [], messages: [], withBonus: false };
+const initialState = {
+  size: 10,
+  players: [],
+  messages: [],
+  withBonus: false,
+  showRules: false
+};
 
 const party = (state = initialState, action) => {
   switch (action.type) {
@@ -45,6 +52,13 @@ const party = (state = initialState, action) => {
           state.messages && state.messages.length
             ? [...state.messages, action.message]
             : [action.message]
+      };
+    }
+
+    case PARTY_TOGGLE_RULES: {
+      return {
+        ...state,
+        showRules: !state.showRules
       };
     }
 
