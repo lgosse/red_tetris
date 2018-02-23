@@ -2,7 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import global from '../../styles/global';
 
-import { kickPlayer, toggleOpenParty, startParty } from '../../actions/party';
+import {
+  kickPlayer,
+  toggleOpenParty,
+  startParty,
+  toggleRules
+} from '../../actions/party';
 
 import Chat from '../forms/Chat';
 
@@ -13,7 +18,10 @@ import {
   FlexSpacer,
   Paragraph,
   Icon,
-  Button
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody
 } from '../../components/helpers/Common';
 import {
   Block,
@@ -159,7 +167,8 @@ export const Lobby = ({
   player,
   toggleOpenParty,
   beginParty,
-  toggleReadyClick
+  toggleReadyClick,
+  showRules
 }) => {
   return (
     <FullSizeContainer>
@@ -193,6 +202,17 @@ export const Lobby = ({
       ) : (
         <div />
       )}
+      <FlexContainer>
+        <FlexSpacer />
+        <Button
+          primary
+          onClick={() => showRules()}
+          style={{ margin: global.padding.md }}
+        >
+          SHOW RULES
+        </Button>
+        <FlexSpacer />
+      </FlexContainer>
       {party.players &&
         party.players.length > 1 && (
           <FlexContainer style={{ maxHeight: '300px' }} flex>
@@ -222,6 +242,9 @@ const mapDispatchToProps = dispatch => ({
   },
   toggleReadyClick() {
     dispatch(toggleReady());
+  },
+  showRules() {
+    dispatch(toggleRules());
   }
 });
 

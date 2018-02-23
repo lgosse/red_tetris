@@ -9,7 +9,8 @@ import {
   PARTY_OPEN,
   PARTY_START,
   PARTY_SEND_MESSAGE,
-  PARTY_RECEIVE_MESSAGE
+  PARTY_RECEIVE_MESSAGE,
+  PARTY_TOGGLE_RULES
 } from '../../actionsTypes';
 
 export const addParty = (party, player) => ({
@@ -46,6 +47,10 @@ export const toggleOpenParty = partyId => ({
 export const startParty = partyId => ({
   type: PARTY_START,
   partyId
+});
+
+export const toggleRules = () => ({
+  type: PARTY_TOGGLE_RULES
 });
 
 export const sendMessage = message => (dispatch, getState) => {

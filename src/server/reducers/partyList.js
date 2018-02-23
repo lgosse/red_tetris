@@ -142,6 +142,10 @@ const partyList = async (action, io, socket) => {
           });
       } else {
         partyEdit = party;
+        if (party.open === false) {
+          socket.emit('action', push('/'));
+          return;
+        }
       }
 
       if (partyEdit.players.length < partyEdit.size) {
