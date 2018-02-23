@@ -16,6 +16,13 @@ module.exports = {
       query:{
         presets: ["es2015", "react", "stage-0"]
       }
-    }]
+    },
+    {
+      test: /\.mp3$/,
+      loader: 'file-loader',
+      query: {
+         name: 'static/media/[name].[hash:8].[ext]'
+      }
+   }]
   }
 };

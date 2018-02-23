@@ -4,6 +4,8 @@ import styled, { keyframes } from 'styled-components';
 import Square from '../../components/game/Square';
 import { Paragraph, Icon } from '../../components/helpers/Common';
 
+import musicTetris from "../../../media/music.mp3"
+
 import { Tetri, Bomb } from '../../components/game/Tetri';
 import gameStyle from '../../styles/gameStyle';
 import globalStyle from '../../styles/global';
@@ -26,7 +28,7 @@ const MusicPlayer = ({music, toggleSound}) => {
   return (
     <div onClick={toggleSound} style={{zIndex: '50000', position: 'absolute', right: '10px', top: '10px'}}>
       <Icon className="music" size='30px' clickable primary={!music} accent={music} />
-      <audio src="https://www.w3schools.com/html/horse.mp3" muted={!music} autoPlay loop />
+      <audio src={musicTetris} muted={!music} autoPlay loop />
     </div>
   );
 };
