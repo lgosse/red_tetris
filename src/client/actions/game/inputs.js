@@ -1,6 +1,8 @@
 import { INPUT_KEYBOARD, REMOVE_INPUT_KEYBOARD } from '../../../actionsTypes';
 import { movePiece, rotatePiece, holdPiece, claimPiece } from './pieces';
 import { endGame } from './game';
+import Beep4 from '../../../media/Beep4.wav';
+import Sweep5 from '../../../media/Sweep5.wav';
 
 export const INPUT_KEYBOARD_SPACE = 32,
   INPUT_KEYBOARD_LEFT = 37,
@@ -16,7 +18,9 @@ export const input = event => (dispatch, getState) => {
   const state = getState();
   const inputs = state.game.inputs;
   const pieces = state.game.pieces;
+  const music = state.music;
   const keyCode = event.keyCode;
+  const playSound = sound => music && new Audio(sound).play();
 
   if (inputs.indexOf(keyCode) !== -1) return;
 
@@ -60,11 +64,13 @@ export const input = event => (dispatch, getState) => {
     }
     case INPUT_KEYBOARD_UP:
     case INPUT_KEYBOARD_LETTER_D:
+      playSound(Beep4);
       dispatch(rotatePiece(1));
       event.preventDefault();
       event.stopPropagation();
       break;
     case INPUT_KEYBOARD_LETTER_A:
+      playSound(Beep4);
       dispatch(rotatePiece(-1));
       event.preventDefault();
       event.stopPropagation();
@@ -76,6 +82,7 @@ export const input = event => (dispatch, getState) => {
       break;
     case INPUT_KEYBOARD_LETTER_H: {
       if (state.game.pieces.canHold) {
+        playSound(Sweep5);
         dispatch(holdPiece());
         dispatch(claimPiece());
       }

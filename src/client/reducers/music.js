@@ -1,4 +1,4 @@
-import { TOGGLE_MUSIC } from '../../../actionsTypes';
+import { TOGGLE_MUSIC } from '../../actionsTypes';
 
 const music = (state = true, action) => {
   switch (action.type) {

@@ -3,7 +3,9 @@ import {
   GAME_PIECES_PIECE_ROTATE_SERVER,
   GAME_MODS_SET,
   GAME_BOARD_BLOCK_LINES_SERVER,
-  GAME_MALUS_ADD
+  GAME_MALUS_ADD,
+  GAME_PIECES_CLAIM_PIECE,
+  GAME_LOSE
 } from '../../actionsTypes';
 import {
   updatePiecesGame,
@@ -35,8 +37,14 @@ import {
 } from '../actions/game/board';
 import { gameLose } from '../actions/game/game';
 import { setMod } from '../actions/game/mods';
+import Beep1 from '../../media/Beep1.wav';
+import ShutDown1 from '../../media/Shut_Down1.wav';
+import Explosion3 from '../../media/Explosion3.wav';
+import Explosion4 from '../../media/Explosion4.wav';
 
 const gameMiddleware = ({ dispatch, getState }) => next => action => {
+  const playSound = sound => getState().music && new Audio(sound).play();
+
   switch (action.type) {
     case GAME_PIECES_PIECE_MOVE_SERVER: {
       dispatch(movePiece(action.direction));
@@ -60,6 +68,20 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
       if (getState().player.socketId !== action.payload.emitterSocketId) {
         dispatch(gameAddMalusSuccess(action.payload.malus));
       }
+
+      break;
+    }
+
+    case GAME_PIECES_CLAIM_PIECE: {
+      playSound(Beep1);
+
+      break;
+    }
+
+    case GAME_LOSE: {
+      playSound(ShutDown1);
+
+      break;
     }
 
     case GAME_MODS_SET: {
@@ -69,6 +91,7 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
       switch (action.mod.type) {
         case 'bomb': {
           const mod = action.mod;
+          playSound(Explosion3);
           setTimeout(() => {
             dispatch(bombExplode(mod));
           }, 600);
@@ -85,6 +108,7 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
 
         case 'tntGo': {
           const mod = action.mod;
+          playSound(Explosion4);
           setTimeout(() => {
             dispatch(tntExplode2(mod));
           }, 600);

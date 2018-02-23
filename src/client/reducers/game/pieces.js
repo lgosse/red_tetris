@@ -76,6 +76,10 @@ const pieces = (state = initialState, action) => {
         canHold: true
       };
 
+    case GAME_PIECES_CLAIM_PIECE: {
+      return state;
+    }
+
     case GAME_PIECES_CLAIM_PIECE_SUCCESS: {
       return {
         ...state,
