@@ -24,7 +24,7 @@ export const PlayerName = styled.div`
 
 const PlayerState = ({ player }) => (
   <PlayerStateContainer>
-    <PlayerName> {player.nickname} </PlayerName>
+    <PlayerName> {player.nickname} - {player.ping} </PlayerName>
     <Map map={player.map} />
   </PlayerStateContainer>
 );

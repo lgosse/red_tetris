@@ -1,6 +1,20 @@
 export const gridZero = (sizeX, sizeY) =>
   [...Array(sizeY ? sizeY : sizeX)].map(() => [...Array(sizeX)].map(() => 0));
 
+export const isLighting = (grid, piece, x, y) => {
+  let j = x - piece.x;
+  if (j < 0 || j >= piece.grid[0].length)
+    return false;
+
+  let down = piece.y;
+  while (!testCollision({ ...piece, y: down + 1 }, grid).collide)
+    down++;
+
+  if (y - down >= 0 && y - down < piece.grid.length && piece.grid[y - down][j] !== 0)
+    return true;
+  return false;
+};
+
 const calcWeight = grid => {
   let weight = 0;
   grid.forEach((line, y) => {
@@ -77,7 +91,7 @@ export const deleteLinesF = (grid, lines, force) => {
 
   newLines.forEach(index => {
     newGrid[index].forEach((val, x) => {
-      if ((val >= 0 && val <= 9) || (force && val !== 11)) {
+      if ((val >= 0 && val <= 9 || val === 12) || (force && val !== 11)) {
         newGrid[index][x] = 0;
         let i;
         for (i = index; i > 0; i--) {

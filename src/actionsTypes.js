@@ -19,6 +19,9 @@ export const PARTY_SEND_MESSAGE = 'server/send-message';
 export const PARTY_RECEIVE_MESSAGE = 'PARTY_RECEIVE_MESSAGE';
 export const PARTY_TOGGLE_RULES = 'PARTY_TOGGLE_RULES';
 
+//Music action
+export const TOGGLE_MUSIC = 'TOGGLE_MUSIC';
+
 // Player actions
 export const PLAYER_UPDATE = 'PLAYER_UPDATE';
 export const PLAYER_GET = 'PLAYER_GET';
@@ -66,6 +69,8 @@ export const REMOVE_INPUT_KEYBOARD = 'REMOVE_INPUT_KEYBOARD';
 
 // Server actions
 export const SERVER_PING = 'server/ping';
+export const SERVER_PING_USER = 'server/pingUser';
+export const SERVER_PONG_USER = 'server/pongUser';
 
 // Router actions
 export const LOCATION_CHANGE = '@@router/LOCATION_CHANGE';

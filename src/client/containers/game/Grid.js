@@ -2,12 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled, { keyframes } from 'styled-components';
 import Square from '../../components/game/Square';
-import { Paragraph } from '../../components/helpers/Common';
+import { Paragraph, Icon } from '../../components/helpers/Common';
+
+import musicTetris from "../../../media/music.mp3"
 
 import { Tetri, Bomb } from '../../components/game/Tetri';
 import gameStyle from '../../styles/gameStyle';
 import globalStyle from '../../styles/global';
-import { deleteTnt } from '../../reducers/game/utils';
+import { deleteTnt, testCollision, isLighting } from '../../reducers/game/utils';
 import { rotatePiece, movePiece, claimPiece } from '../../actions/game/pieces';
 import {
   deleteLines,
@@ -20,6 +22,16 @@ import {
 import { updateBoard } from '../../actions/game/board';
 import { setMod } from '../../actions/game/mods';
 import { input } from '../../actions/game/inputs';
+import { toggleMusic } from '../../actions/game/music';
+
+const MusicPlayer = ({music, toggleSound}) => {
+  return (
+    <div onClick={toggleSound} style={{zIndex: '50000', position: 'absolute', right: '10px', top: '10px'}}>
+      <Icon className="music" size='30px' clickable primary={!music} accent={music} />
+      <audio src={musicTetris} muted={!music} autoPlay loop />
+    </div>
+  );
+};
 
 const Calque = ({ board, piece }) => {
   if (board.end === true) {
@@ -49,14 +61,18 @@ export const Grid = ({
   board,
   pieces,
   mods,
+  music,
   rotateit,
   endGame,
   tntExplodeDispatch,
   onFocus,
-  onBlur
+  onBlur,
+  toggleSound
 }) => {
   const grid = board.grid.map((line, i) => {
     const cols = line.map((col, j) => {
+      if (col === 0 && pieces.piece && isLighting(board.grid, pieces.piece, j, i))
+        return <Square color={42} key={j} />;
       return <Square color={col} key={j} />;
     });
 
@@ -141,9 +157,12 @@ export const Grid = ({
       onBlur={onBlur}
       style={{
         ...gameStyle.grid,
+        position: 'relative',
         outline: 'none'
       }}
     >
+      <MusicPlayer music={music} toggleSound={toggleSound} />
+    
       {!board.focus ? (
         <div style={gameStyle.focusMessage}>
           <Paragraph gameFont size="12px" bold color="accent">
@@ -153,7 +172,6 @@ export const Grid = ({
       ) : (
         <div />
       )}
-
       <Calque board={board} piece={pieces.piece} />
       {grid}
     </div>
@@ -162,18 +180,24 @@ export const Grid = ({
 
 export const mapStateToGridProps = ({
   party,
-  game: { board, pieces, mods }
+  game: { board, pieces, mods },
+  music
 }) => ({
   party,
   board,
   pieces,
-  mods
+  mods,
+  music
 });
 
 export const mapDispatchToGridProps = dispatch => {
   const tntExplodeDispatch = (grid, mod) => {
     dispatch(tntExplode(grid, mod));
   };
+
+  const toggleSound = () => {
+    dispatch(toggleMusic());
+  }
 
   const rotateit = (event, piece, board) => {
     if (board.end || board.ending || piece === null) return;
@@ -188,7 +212,7 @@ export const mapDispatchToGridProps = dispatch => {
   const onFocus = () => dispatch(gridHasFocus());
   const onBlur = () => dispatch(gridLoseFocus());
 
-  return { rotateit, endGame, tntExplodeDispatch, onFocus, onBlur };
+  return { rotateit, endGame, tntExplodeDispatch, onFocus, onBlur, toggleSound };
 };
 
 export default connect(mapStateToGridProps, mapDispatchToGridProps)(Grid);
