@@ -41,9 +41,10 @@ import Beep1 from '../../media/Beep1.wav';
 import ShutDown1 from '../../media/Shut_Down1.wav';
 import Explosion3 from '../../media/Explosion3.wav';
 import Explosion4 from '../../media/Explosion4.wav';
+import { createPlayer } from '../../media/playSound';
 
 const gameMiddleware = ({ dispatch, getState }) => next => action => {
-  const playSound = sound => getState().music && new Audio(sound).play();
+  const playSound = createPlayer(getState().music);
 
   switch (action.type) {
     case GAME_PIECES_PIECE_MOVE_SERVER: {
