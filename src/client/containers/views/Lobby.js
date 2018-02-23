@@ -202,6 +202,17 @@ export const Lobby = ({
       ) : (
         <div />
       )}
+      <FlexContainer>
+        <FlexSpacer />
+        <Button
+          primary
+          onClick={() => showRules()}
+          style={{ margin: global.padding.md }}
+        >
+          SHOW RULES
+        </Button>
+        <FlexSpacer />
+      </FlexContainer>
       {party.players &&
         party.players.length > 1 && (
           <FlexContainer style={{ maxHeight: '300px' }} flex>
@@ -210,13 +221,6 @@ export const Lobby = ({
             <FlexSpacer />
           </FlexContainer>
         )}
-      <FlexContainer>
-        <FlexSpacer />
-        <Button primary onClick={() => showRules()}>
-          SHOW RULES
-        </Button>
-        <FlexSpacer />
-      </FlexContainer>
     </FullSizeContainer>
   );
 };

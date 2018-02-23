@@ -18,7 +18,7 @@ class Game {
   constructor({ name, size, withBonus = false }) {
     this.name = name;
     this.size = size;
-    this.open = false;
+    this.open = true;
     this.playing = false;
     this.players = [];
     this.withBonus = withBonus;
