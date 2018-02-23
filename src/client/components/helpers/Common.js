@@ -135,6 +135,7 @@ export const Paragraph = styled.div`
   font-size: ${props => (props.size ? props.size : `14px`)};
   ${props => props.padding && `padding: ${props.padding}`};
   ${props => props.gameFont && `font-family: ${global.font.family.game}`};
+  ${props => props.flex && `display: flex`};
 `;
 
 export const RedContainer = FullSizeContainer.extend`
@@ -181,7 +182,7 @@ export const HexaSeparator = props => (
 const FaIcon = props => <i className={`fa fa-${props.className}`} />;
 
 export const Icon = styled(FaIcon)`
-  ${props => props.width && `width: ${props.width}`}
+  ${props => props.width && `width: ${props.width};`}
   ${props => props.margin && `margin: ${props.margin};`}
   ${props => props.marginLeft && `margin-left: ${props.marginLeft};`}
   ${props => props.marginRight && `margin-right: ${props.marginRight};`}
@@ -202,6 +203,7 @@ export const ModalBackground = styled.div`
   justify-content: center;
   align-items: center;
   top: 0;
+  left: 0;
   z-index: 10;
 `;
 
@@ -237,4 +239,13 @@ export const ModalFooter = RedContainer.extend`
   width: 100%;
   color: ${global.color.accent};
   padding: ${global.padding.md};
+`;
+
+export const Text = styled.div`
+  font-family: ${props =>
+    props.gameFont ? global.font.family.game : global.font.family.primary};
+  font-size: ${props => props.size || global.font.size.subtitle};
+  color: ${props =>
+    props.primary ? global.color.primary : global.color.accent};
+  ${props => props.padding && `padding: ${props.padding};`};
 `;

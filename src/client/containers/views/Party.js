@@ -13,9 +13,118 @@ import {
   Button,
   Paragraph,
   HexaSeparator,
-  FlexSpacer
+  FlexSpacer,
+  Icon,
+  Text,
+  FullSizeContainer
 } from '../../components/helpers/Common';
 import { hideEnd } from '../../actions/game/game';
+import { toggleRules } from '../../actions/party';
+
+export const RulesModal = ({ closeRules }) => (
+  <Modal>
+    <ModalHeader style={{ textAlign: 'center' }}>RULES</ModalHeader>
+    <ModalBody>
+      <Paragraph gameFont size="20px" color="primary">
+        CONTROLS
+      </Paragraph>
+      <div style={{ padding: '10px' }}>
+        <Paragraph flex>
+          <Icon
+            className="arrow-circle-left"
+            size="30px"
+            primary
+            margin={global.padding.sm}
+          />
+          <Text primary style={{ padding: '12px' }}>
+            Move left
+          </Text>
+        </Paragraph>
+        <Paragraph flex>
+          <Icon
+            className="arrow-circle-right"
+            size="30px"
+            primary
+            margin={global.padding.sm}
+          />
+          <Text primary style={{ padding: '12px' }}>
+            Move right
+          </Text>
+        </Paragraph>
+        <Paragraph flex>
+          <Icon
+            className="arrow-circle-down"
+            size="30px"
+            primary
+            margin={global.padding.sm}
+          />
+          <Text primary style={{ padding: '12px' }}>
+            Move down
+          </Text>
+        </Paragraph>
+        <Paragraph flex>
+          <Icon
+            className="arrow-circle-up"
+            size="30px"
+            primary
+            margin={global.padding.sm}
+          />
+          <Text primary style={{ padding: '12px' }}>
+            Rotate
+          </Text>
+        </Paragraph>
+        <Paragraph flex>
+          <Paragraph
+            gameFont
+            size="30px"
+            color="primary"
+            padding={global.padding.sm}
+          >
+            H
+          </Paragraph>
+          <Text primary style={{ padding: '12px', paddingTop: '14px' }}>
+            Hold piece
+          </Text>
+        </Paragraph>
+        <Paragraph flex>
+          <Paragraph
+            gameFont
+            size="20px"
+            color="primary"
+            padding={global.padding.sm}
+          >
+            SPACE
+          </Paragraph>
+          <Text primary style={{ padding: '8px' }}>
+            Place instantly
+          </Text>
+        </Paragraph>
+      </div>
+      <Paragraph gameFont size="20px" color="primary">
+        GAME
+      </Paragraph>
+      <div style={{ padding: '10px' }}>
+        <Text primary size="16px" padding="8px">
+          The last player alive win the game.
+        </Text>
+        <Text primary size="16px" padding="8px">
+          Destroying N lines will block N - 1 lines on your enemies board. These
+          lines are indestructible, except in explosion mode with bombs and
+          dynamites.
+        </Text>
+        <Text primary size="16px" padding="8px">
+          In explosion mode, destroying more than 2 lines will trigger either a
+          bonus for you or a malus for your enemies.
+        </Text>
+      </div>
+    </ModalBody>
+    <ModalFooter style={{ display: 'flex', justifyContent: 'center' }}>
+      <Button primary onClick={closeRules}>
+        CLOSE
+      </Button>
+    </ModalFooter>
+  </Modal>
+);
 
 export const EndingModal = ({ ending, closeModal }) => (
   <Modal>
@@ -68,11 +177,16 @@ export const EndingModal = ({ ending, closeModal }) => (
   </Modal>
 );
 
-export const Party = ({ ending, party, closeModal }) => (
+export const Party = ({ ending, party, closeModal, closeRules }) => (
   <div style={{ padding: '20px' }}>
     {party.playing ? <Game /> : <Lobby />}
     {ending.shouldDisplay && !party.playing ? (
       <EndingModal ending={ending} closeModal={closeModal} />
+    ) : (
+      <span />
+    )}
+    {party.showRules && !party.playing ? (
+      <RulesModal closeRules={closeRules} />
     ) : (
       <span />
     )}
@@ -84,6 +198,9 @@ const mapStateToProps = ({ game: { ending }, party }) => ({ ending, party });
 const mapDispatchToProps = dispatch => ({
   closeModal() {
     dispatch(hideEnd());
+  },
+  closeRules() {
+    dispatch(toggleRules());
   }
 });
 
