@@ -63,7 +63,6 @@ const initEngine = async io => {
 
     socket.on('disconnect', () => {
       loginfo('Socket disconnected: ' + socket.id);
-      userLeaves(io, socket);
     });
   });
   while (1) {
@@ -108,12 +107,12 @@ const pingPlayer = async (io, party, player, countBeforeKick) => {
     const playerNow = partyNow.getPlayerBySocketId(player.socketId);
     if (!playerNow) return;
     if (playerNow.lastPing - date < 0 || playerNow.lastPing - date > 1200)
-      await pingPlayer(io, party, player, countBeforeKick - 1); 
+      await pingPlayer(io, party, player, countBeforeKick - 1);
   }
   return;
-}
+};
 
-const timeout = (ms) => {
+const timeout = ms => {
   return new Promise(resolve => setTimeout(resolve, ms));
 };
 

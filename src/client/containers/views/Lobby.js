@@ -42,20 +42,27 @@ export const PlayersList = ({ players = [], kickPlayer, actualPlayer }) => (
             border: `1px solid ${global.color.primary}`,
             padding: global.padding.md,
             margin: global.padding.sm,
+            width: `250px`,
             display: 'flex',
             flexDirection: 'row',
             maxWidth: '400px'
           }}
         >
           {player.ready ? (
-            <Icon width="20px" className="check" />
+            <Icon marginRight="6px" width="20px" className="check" />
           ) : (
-            <Icon width="20px" className="hourglass-half" />
+            <Icon marginRight="6px" width="20px" className="hourglass-half" />
           )}
-          <Paragraph gameFont>{player.nickname}</Paragraph>
+          <Paragraph gameFont>{`${player.nickname.slice(0, 10)}${
+            player.nickname.length > 10 ? '...' : ''
+          }`}</Paragraph>
           <FlexSpacer />
-          <div>{player.ping}</div>
-          <FlexSpacer />
+          <FlexContainer style={{ paddingRight: '10px' }}>
+            <Paragraph size="16px" style={{ paddingRight: '6px' }}>
+              {player.ping}ms
+            </Paragraph>
+            <Icon className="signal" />
+          </FlexContainer>
           {players[0].socketId === actualPlayer.socketId && (
             <div onClick={() => kickPlayer(player.socketId)}>
               <Icon clickable className="times" />
@@ -67,6 +74,7 @@ export const PlayersList = ({ players = [], kickPlayer, actualPlayer }) => (
     ))}
   </FullSizeContainer>
 );
+'adjhf'.slice();
 
 export const RoomView = ({ party, kickPlayer, player }) => (
   <FlexContainer>
@@ -87,7 +95,7 @@ export const RoomView = ({ party, kickPlayer, player }) => (
     <FlexSpacer />
     <FullSizeContainer>
       <Paragraph gameFont color="primary" size="26px" bold center>
-        {party.name}
+        {`${party.name.slice(0, 10)}${party.name.length > 10 ? '...' : ''}`}
       </Paragraph>
       <PlayersList
         style={{ padding: '20px' }}
