@@ -46,7 +46,7 @@ const endAnimationSub = (board, grid, x, y) => {
 
 export const showEnd = () => (dispatch, getState) => {
   dispatch(updateBoard({ end: true }));
-  setTimeout(() => dispatch(updateBoard({ end: true })), 1500);
+  setTimeout(() => dispatch(updateBoard({ end: false })), 1500);
 };
 
 export const endParty = board => (dispatch, getState) => {

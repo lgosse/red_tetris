@@ -40,9 +40,7 @@ export const PartyButton = ({ party, player, onClick }) => {
         }}
         className="join-button"
       >
-        <div style={{ flex: 1, textAlign: 'left' }}>
-          {`${party.name.slice(0, 10)}${party.name.length > 10 ? '...' : ''}`}
-        </div>
+        <div style={{ flex: 1, textAlign: 'left' }}>{party.name}</div>
         <div>
           Players: {party.players.length} / {party.size}
         </div>

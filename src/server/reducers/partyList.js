@@ -43,18 +43,18 @@ export const userLeaves = async (io, socket) => {
     console.error(`Party ${socket.partyId} not found!`);
     return;
   }
-  
+
   if (party.getPlayerBySocketId(socket.id)) {
     party.removePlayer(socket.id);
     delete socket.partyId;
     if (!socket.fake) {
-        socket.leave(party._id, err => {
+      socket.leave(party._id, err => {
         if (err) console.error(err);
         socket.emit('action', { type: PARTY_LEFT });
       });
     }
   }
-  
+
   if (party.players.length === 0) {
     await party.remove();
   } else {

@@ -63,6 +63,7 @@ const initEngine = async io => {
 
     socket.on('disconnect', () => {
       loginfo('Socket disconnected: ' + socket.id);
+      userLeaves(io, socket);
     });
   });
   while (1) {

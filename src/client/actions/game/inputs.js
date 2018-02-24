@@ -55,11 +55,9 @@ export const input = event => (dispatch, getState) => {
       event.stopPropagation();
       break;
     case INPUT_KEYBOARD_SPACE: {
-      if (pieces.next.length) {
-        dispatch(movePiece(20));
-        event.stopPropagation();
-        event.preventDefault();
-      }
+      dispatch(movePiece(20));
+      event.stopPropagation();
+      event.preventDefault();
       break;
     }
     case INPUT_KEYBOARD_UP:

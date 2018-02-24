@@ -25,6 +25,7 @@ export const PlayerForm = ({ player, changeNickname, saveNickname }) => {
             id="nicknameInput"
             placeholder="Nickname..."
             name="nickname"
+            maxLength="10"
             value={player.nickname || ''}
             onChange={e => changeNickname(e, player)}
           />

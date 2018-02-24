@@ -26,6 +26,7 @@ export const PartyForm = ({ player, createParty, changeParty }) => {
               id="partyNameInput"
               placeholder="Room name..."
               name="partyName"
+              maxLength="20"
               required
             />
           </FlexContainer>

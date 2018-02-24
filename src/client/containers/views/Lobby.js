@@ -74,7 +74,6 @@ export const PlayersList = ({ players = [], kickPlayer, actualPlayer }) => (
     ))}
   </FullSizeContainer>
 );
-'adjhf'.slice();
 
 export const RoomView = ({ party, kickPlayer, player }) => (
   <FlexContainer>
@@ -95,7 +94,7 @@ export const RoomView = ({ party, kickPlayer, player }) => (
     <FlexSpacer />
     <FullSizeContainer>
       <Paragraph gameFont color="primary" size="26px" bold center>
-        {`${party.name.slice(0, 10)}${party.name.length > 10 ? '...' : ''}`}
+        {party.name}
       </Paragraph>
       <PlayersList
         style={{ padding: '20px' }}
