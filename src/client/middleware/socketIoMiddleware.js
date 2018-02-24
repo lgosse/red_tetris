@@ -4,8 +4,7 @@ import {
   ALERT_POP,
   ALERT_RESET,
   SERVER_REDIRECT,
-  PARTY_UPDATE,
-  SERVER_PONG_USER
+  PARTY_UPDATE
 } from '../../actionsTypes';
 import { ROOM_PARTY_LIST } from '../../roomsName';
 import {

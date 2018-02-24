@@ -1,6 +1,5 @@
 import { INPUT_KEYBOARD, REMOVE_INPUT_KEYBOARD } from '../../../actionsTypes';
 import { movePiece, rotatePiece, holdPiece, claimPiece } from './pieces';
-import { endGame } from './game';
 import Beep4 from '../../../media/Beep4.wav';
 import Sweep5 from '../../../media/Sweep5.wav';
 import { createPlayer } from '../../../media/playSound';
@@ -73,11 +72,6 @@ export const input = event => (dispatch, getState) => {
     case INPUT_KEYBOARD_LETTER_A:
       playSound(Beep4);
       dispatch(rotatePiece(-1));
-      event.preventDefault();
-      event.stopPropagation();
-      break;
-    case INPUT_KEYBOARD_LETTER_E:
-      endGame(board);
       event.preventDefault();
       event.stopPropagation();
       break;

@@ -70,15 +70,6 @@ const initEngine = async io => {
     await autoPing(io);
     await timeout(4000);
   }
-  // let go = true;
-  // setInterval( async () => {
-  //   if (go) {
-  //     go = false;
-  //     console.log("----Begin");
-  //     console.log("----Ending");
-  //     go = true;
-  //   }
-  // }, 20000);
 };
 
 const pingPlayer = async (io, party, player, countBeforeKick) => {
@@ -115,12 +106,14 @@ const pingPlayer = async (io, party, player, countBeforeKick) => {
     if (!partyNow) return;
 
     const playerNow = partyNow.getPlayerBySocketId(player.socketId);
-    if (playerNow.lastPing - date < 0 || playerNow.lastPing - date > 2000)
-      await pingPlayer(io, party, player, countBeforeKick - 1);
+    if (!playerNow) return;
+    if (playerNow.lastPing - date < 0 || playerNow.lastPing - date > 1200)
+      await pingPlayer(io, party, player, countBeforeKick - 1); 
   }
-};
+  return;
+}
 
-const timeout = ms => {
+const timeout = (ms) => {
   return new Promise(resolve => setTimeout(resolve, ms));
 };
 
@@ -142,11 +135,6 @@ const autoPing = async io => {
   );
 
   await Promise.all(promises);
-  // for (i = 0; i < partyList.length; i++) {
-  //   console.log("start1");
-  //   const party = partyList[i];
-  //   console.log("end1");
-  // };
 };
 
 export function create(params) {

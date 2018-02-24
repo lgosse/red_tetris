@@ -1,18 +1,19 @@
-import { SERVER_PING, SERVER_PING_USER, SERVER_PONG_USER, PLAYER_UPDATE } from "../../actionsTypes";
+import { SERVER_PING, SERVER_PING_USER, PLAYER_UPDATE } from "../../actionsTypes";
 import GameModel from '../models/Game';
 import { updatePlayer } from '../../client/actions/player';
 import { updateParty } from '../../client/actions/party';
 
-const ping = (action, io, socket) => {
+const ping = async (action, io, socket) => {
   switch (action.type) {
     case SERVER_PING: {
       socket.emit("action", { type: "pong" });
       break;
     }
     case SERVER_PING_USER: {
-      const updateP = async () => {
         const party = await GameModel.findById(action.partyId).exec();
+        if (!party) break;
         const player = party.getPlayerBySocketId(action.player.socketId);
+        if (!player) break;
         player.ping = Date.now() - action.ping;
         player.lastPing = Date.now();
 
@@ -27,9 +28,6 @@ const ping = (action, io, socket) => {
           console.error(error);
         }
         socket.emit("action", { type: PLAYER_UPDATE, player: player });
-      }
-      updateP()
-//      socket.emit("action", { type: SERVER_PONG_USER, player: action.player, partyId: action.partyId, ping: action.ping });
       break;
     }
   }
