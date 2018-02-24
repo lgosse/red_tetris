@@ -92,6 +92,7 @@ export const movePiece = direction => (dispatch, getState) => {
 
   if (direction === 20) {
     // Barre ESPACE
+    if (!pieces.next.length) return;
     let down = pieces.piece.y;
     while (!testCollision({ ...pieces.piece, y: down + 1 }, board.grid).collide)
       down++;

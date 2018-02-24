@@ -229,12 +229,7 @@ const partyList = async (action, io, socket) => {
           .to(party._id)
           .emit('action', updateBoard({ grid: gridZero(10, 20) }));
         io.to(party._id).emit('action', resetScore(0));
-        io
-          .to(party._id)
-          .emit(
-            'action',
-            updateParty({ playing: party.playing, open: party.open })
-          );
+        io.to(party._id).emit('action', updateParty(party));
         io
           .to(party._id)
           .emit('action', updatePiecesGame({ piece: new Piece() }));
