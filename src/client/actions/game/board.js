@@ -44,15 +44,19 @@ const endAnimationSub = (board, grid, x, y) => {
   return grid;
 };
 
+export const showEnd = () => (dispatch, getState) => {
+  dispatch(updateBoard({ end: true }));
+  setTimeout(() => dispatch(updateBoard({ end: true })), 1500);
+};
+
 export const endParty = board => (dispatch, getState) => {
   if (getState().party.playing === true) {
     let newGrid = [...board.grid];
     let newBoard = { ...board, grid: newGrid };
     let x = 0;
     let y = board.grid.length - 1;
-    let end = false;
     let interval = setInterval(() => {
-      if (end === true) {
+      if (getState().game.board.end === true) {
         clearInterval(interval);
         return;
       }
@@ -65,7 +69,7 @@ export const endParty = board => (dispatch, getState) => {
       }
       if (y < board.grid.length / 2) {
         clearInterval(interval);
-        end = true;
+        dispatch(showEnd());
       }
     }, 100);
   }
