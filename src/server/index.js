@@ -88,6 +88,7 @@ const pingPlayer = async (io, party, player, countBeforeKick) => {
     if (!partyNow) return;
 
     const playerNow = partyNow.getPlayerBySocketId(player.socketId);
+    if (!playerNow) return;
     if (playerNow.lastPing - date < 0 || playerNow.lastPing - date > 1200)
       await pingPlayer(io, party, player, countBeforeKick - 1); 
   }

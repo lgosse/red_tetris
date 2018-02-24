@@ -25,8 +25,7 @@ const initialState = {
   lines: null,
   winner: null,
   focus: false,
-  hasFocusedOnce: false,
-  messages: []
+  hasFocusedOnce: false
 };
 
 const board = (state = { ...initialState }, action) => {
@@ -62,10 +61,7 @@ const board = (state = { ...initialState }, action) => {
       return initialState;
 
     case GAME_END:
-      return {
-        messages: state.messages,
-        ...initialState
-      };
+      return initialState;
 
     case GAME_HAS_FOCUS:
       return {
