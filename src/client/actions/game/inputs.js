@@ -2,6 +2,7 @@ import { INPUT_KEYBOARD, REMOVE_INPUT_KEYBOARD } from '../../../actionsTypes';
 import { movePiece, rotatePiece, holdPiece, claimPiece } from './pieces';
 import Beep4 from '../../../media/Beep4.wav';
 import Sweep5 from '../../../media/Sweep5.wav';
+import { createPlayer } from '../../../media/playSound';
 
 export const INPUT_KEYBOARD_SPACE = 32,
   INPUT_KEYBOARD_LEFT = 37,
@@ -19,7 +20,7 @@ export const input = event => (dispatch, getState) => {
   const pieces = state.game.pieces;
   const music = state.music;
   const keyCode = event.keyCode;
-  const playSound = sound => music && new Audio(sound).play();
+  const playSound = createPlayer(music);
 
   if (inputs.indexOf(keyCode) !== -1) return;
 

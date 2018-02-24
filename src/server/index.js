@@ -10,8 +10,11 @@ mongoose.connect(`mongodb://${params.db.host}:27017/dev`);
 
 import GameModel from './models/Game';
 import { setTimeout } from 'timers';
-import { SERVER_PING_USER, PARTY_KICK_PLAYER, PARTY_LEAVE } from '../actionsTypes';
-
+import {
+  SERVER_PING_USER,
+  PARTY_KICK_PLAYER,
+  PARTY_LEAVE
+} from '../actionsTypes';
 
 const logerror = debug('tetris:error'),
   loginfo = debug('tetris:info');
@@ -19,8 +22,17 @@ const logerror = debug('tetris:error'),
 const initApp = (app, params, cb) => {
   const { host, port } = params;
   const handler = (req, res) => {
-    const file =
-      req.url === '/bundle.js' ? '/../../build/bundle.js' : '/../../index.html';
+    let file;
+
+    if (req.url.indexOf('/static/media') === 0) {
+      file = `/../../build/${req.url}`;
+    } else {
+      file =
+        req.url === '/bundle.js'
+          ? '/../../build/bundle.js'
+          : '/../../index.html';
+    }
+
     fs.readFile(__dirname + file, (err, data) => {
       if (err) {
         logerror(err);
@@ -40,9 +52,7 @@ const initApp = (app, params, cb) => {
   });
 };
 
-const initEngine = async (io) => {
-  
-  
+const initEngine = async io => {
   io.on('connection', socket => {
     socket.emit('action', updatePlayer({ socketId: socket.id }));
 
@@ -65,15 +75,23 @@ const initEngine = async (io) => {
 const pingPlayer = async (io, party, player, countBeforeKick) => {
   if (countBeforeKick === 0) {
     io.emit('action', { type: PARTY_KICK_PLAYER, playerId: player.socketId });
-
-    if (Object.keys(io.sockets.sockets).findIndex(key => (player.socketId === key)) !== -1)
+    if (
+      Object.keys(io.sockets.sockets).findIndex(
+        key => player.socketId === key
+      ) !== -1
+    )
       userLeaves(io, io.sockets.sockets[player.socketId]);
     else
       userLeaves(io, { id: player.socketId, partyId: party._id, fake: true });
   } else {
     // Pinging user
     const date = Date.now();
-    io.to(player.socketId).emit('action', { type: SERVER_PING_USER, player: player, partyId: party._id, ping: date});
+    io.to(player.socketId).emit('action', {
+      type: SERVER_PING_USER,
+      player: player,
+      partyId: party._id,
+      ping: date
+    });
 
     // Waiting for ping to be received and rethrown
     await timeout(2000);
@@ -97,11 +115,11 @@ const pingPlayer = async (io, party, player, countBeforeKick) => {
 
 const timeout = (ms) => {
   return new Promise(resolve => setTimeout(resolve, ms));
-}
+};
 
-const autoPing = async (io) => {
+const autoPing = async io => {
   let partyList;
-  try { 
+  try {
     partyList = await GameModel.find({}).exec();
   } catch (e) {
     console.error(e);
@@ -110,18 +128,28 @@ const autoPing = async (io) => {
   if (!partyList) return;
 
   const promises = [];
-  partyList.forEach(party => party.players.forEach(player => {
-    promises.push(pingPlayer(io, party, player, 2));
-  }))
+  partyList.forEach(party =>
+    party.players.forEach(player => {
+      promises.push(pingPlayer(io, party, player, 2));
+    })
+  );
 
   await Promise.all(promises);
-  return;
 };
-
 
 export function create(params) {
   const promise = new Promise((resolve, reject) => {
-    const app = require('http').createServer();
+    const app = require('http').createServer((req, res) => {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Request-Method', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+      res.setHeader('Access-Control-Allow-Headers', '*');
+      if (req.method === 'OPTIONS') {
+        res.writeHead(200);
+        res.end();
+        return;
+      }
+    });
     initApp(app, params, () => {
       const io = require('socket.io')(app);
       const stop = cb => {
