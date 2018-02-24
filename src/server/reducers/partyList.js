@@ -43,18 +43,18 @@ export const userLeaves = async (io, socket) => {
     console.error(`Party ${socket.partyId} not found!`);
     return;
   }
-  
+
   if (party.getPlayerBySocketId(socket.id)) {
     party.removePlayer(socket.id);
     delete socket.partyId;
     if (!socket.fake) {
-        socket.leave(party._id, err => {
+      socket.leave(party._id, err => {
         if (err) console.error(err);
         socket.emit('action', { type: PARTY_LEFT });
       });
     }
   }
-  
+
   if (party.players.length === 0) {
     await party.remove();
   } else {
@@ -229,7 +229,12 @@ const partyList = async (action, io, socket) => {
           .to(party._id)
           .emit('action', updateBoard({ grid: gridZero(10, 20) }));
         io.to(party._id).emit('action', resetScore(0));
-        io.to(party._id).emit('action', updateParty(party));
+        io
+          .to(party._id)
+          .emit(
+            'action',
+            updateParty({ playing: party.playing, open: party.open })
+          );
         io
           .to(party._id)
           .emit('action', updatePiecesGame({ piece: new Piece() }));
