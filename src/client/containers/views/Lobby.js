@@ -48,7 +48,6 @@ export const PlayersList = ({ players = [], kickPlayer, actualPlayer }) => (
             maxWidth: '400px'
           }}
         >
-          {console.log(player.ready)}
           {player.ready ? (
             <Icon marginRight="6px" width="20px" className="check" />
           ) : (

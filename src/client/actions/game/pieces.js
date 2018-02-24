@@ -91,8 +91,6 @@ export const movePiece = direction => (dispatch, getState) => {
   if (!pieces.piece) return;
 
   if (direction === 20) {
-    console.log(pieces.next);
-    if (!pieces.next.length) return;
     let down = pieces.piece.y;
     while (!testCollision({ ...pieces.piece, y: down + 1 }, board.grid).collide)
       down++;
@@ -130,7 +128,7 @@ export const movePiece = direction => (dispatch, getState) => {
         updatePiecesGame({
           ...getState().game.pieces,
           piece: getState().game.pieces.next[0],
-          next: getState().game.pieces.next.slice(1)
+          next: getState().game.pieces.next.splice(0, 1)
         })
       );
       dispatch(claimPiece());
