@@ -29,7 +29,7 @@ const roomHandler = (socket, action, dispatch, getState) => {
     case '/ranking':
       socket.emit('action', getRankingList());
       break;
-    case '/party-list':
+    case '/game-list':
       socket.emit('action', getParties());
       break;
     case '/': {
