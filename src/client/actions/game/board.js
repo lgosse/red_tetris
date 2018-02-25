@@ -4,7 +4,8 @@ import {
   GAME_BOARD_NOTIFY_GRID_UPDATE,
   GAME_BOARD_BLOCK_LINES_SERVER,
   GAME_HAS_FOCUS,
-  GAME_LOSE_FOCUS
+  GAME_LOSE_FOCUS,
+  GAME_BOARD_DELETE_LINES_SOUND
 } from '../../../actionsTypes';
 import { setMod } from './mods';
 import { deleteTnt, deleteBomb } from '../../reducers/game/utils';
@@ -32,6 +33,10 @@ export const notifyGridUpdate = (grid, nbLinesDestroyed) => ({
 
 export const deleteLines = () => ({
   type: GAME_BOARD_DELETE_LINES
+});
+
+export const deleteLinesSound = () => ({
+  type: GAME_BOARD_DELETE_LINES_SOUND
 });
 
 const endAnimationSub = (board, grid, x, y) => {

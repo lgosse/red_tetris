@@ -6,7 +6,10 @@ import {
   GAME_MALUS_ADD,
   GAME_PIECES_CLAIM_PIECE,
   GAME_LOSE,
-  PARTY_START_SUCCESS
+  PARTY_START_SUCCESS,
+  GAME_BONUS_ADD,
+  GAME_BOARD_DELETE_LINES,
+  GAME_BOARD_DELETE_LINES_SOUND
 } from '../../actionsTypes';
 import {
   updatePiecesGame,
@@ -42,6 +45,7 @@ import Beep1 from '../../media/Beep1.wav';
 import ShutDown1 from '../../media/Shut_Down1.wav';
 import Explosion3 from '../../media/Explosion3.wav';
 import Explosion4 from '../../media/Explosion4.wav';
+import DeleteLines from '../../media/DeleteLines.wav';
 import { createPlayer } from '../../media/playSound';
 
 const gameMiddleware = ({ dispatch, getState }) => next => action => {
@@ -70,6 +74,12 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
       if (getState().player.socketId !== action.payload.emitterSocketId) {
         dispatch(gameAddMalusSuccess(action.payload.malus));
       }
+
+      break;
+    }
+
+    case GAME_BOARD_DELETE_LINES_SOUND: {
+      playSound(DeleteLines);
 
       break;
     }
