@@ -12,6 +12,8 @@ export const Game = ({ party, player, game, winner }) => (
       width: '100%',
       paddingRight: '10%',
       paddingLeft: '10%',
+      paddingTop: '20px',
+      paddingBottom: '20px',
       display: 'flex'
     }}
   >

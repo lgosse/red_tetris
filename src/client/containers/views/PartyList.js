@@ -19,7 +19,7 @@ export const PartyButton = ({ party, player, onClick }) => {
     <Link
       to={`/#${party.name}[${player.nickname || 'Unknown'}]`}
       style={
-        !party.open
+        !party.open || party.players.length >= party.size
           ? {
               textDecoration: 'none',
               pointerEvents: 'none'
@@ -33,7 +33,7 @@ export const PartyButton = ({ party, player, onClick }) => {
         width="400px"
         primary
         margin="10px"
-        disabled={!party.open}
+        disabled={!party.open || party.players.length >= party.size}
         style={{
           display: 'flex',
           flexDirection: 'row'
