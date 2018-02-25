@@ -128,7 +128,7 @@ export const movePiece = direction => (dispatch, getState) => {
         updatePiecesGame({
           ...getState().game.pieces,
           piece: getState().game.pieces.next[0],
-          next: getState().game.pieces.next.splice(0, 1)
+          next: getState().game.pieces.next.slice(1)
         })
       );
       dispatch(claimPiece());
