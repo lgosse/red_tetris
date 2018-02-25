@@ -30,7 +30,6 @@ import {
   deleteLinesSound
 } from './board';
 import { gameLose } from './game';
-import { setTimeout } from 'timers';
 
 export const updatePiecesGame = pieces => ({
   type: GAME_PIECES_UPDATE,

@@ -9,7 +9,6 @@ mongoose.Promise = Promise;
 mongoose.connect(`mongodb://${params.db.host}:27017/dev`);
 
 import GameModel from './models/Game';
-import { setTimeout } from 'timers';
 import {
   SERVER_PING_USER,
   PARTY_KICK_PLAYER,
@@ -66,15 +65,14 @@ const initEngine = async io => {
       userLeaves(io, socket);
     });
   });
-  while (1) {
-    await autoPing(io);
-    await timeout(4000);
-  }
+  // while (1) {
+  //   await autoPing(io);
+  //   await timeout(4000);
+  // }
 };
 
 const pingPlayer = async (io, party, player, countBeforeKick) => {
   if (countBeforeKick === 0) {
-    console.log('KICK PLAYER', player);
     io.emit('action', { type: PARTY_KICK_PLAYER, playerId: player.socketId });
     if (
       Object.keys(io.sockets.sockets).findIndex(

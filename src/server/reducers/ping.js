@@ -16,18 +16,16 @@ const ping = async (action, io, socket) => {
         if (!player) break;
         player.ping = Date.now() - action.ping;
         player.lastPing = Date.now();
-
-        party.updatePlayer(player);
+        party.updatePlayer({ ping: player.ping, lastPing: player.lastPing });
         try {
           await party.save();
           io
             .to(socket.partyId)
             .emit('action', updateParty({ players: party.players }));
-          socket.emit('action', updatePlayer({ ready: player.ready }));
+          socket.emit('action', updatePlayer({ ping: player.ping, lastPing: player.lastPing }));
         } catch (error) {
           console.error(error);
         }
-        socket.emit("action", { type: PLAYER_UPDATE, player: player });
       break;
     }
   }
