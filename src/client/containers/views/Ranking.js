@@ -35,9 +35,9 @@ const Rank = ({ score }) => (
       center
       style={{
         color: globalStyle.color.primary,
-        textAlign: 'right',
+        textAlign: 'left',
         paddingLeft: globalStyle.padding.md,
-        width: '100px'
+        width: '150px'
       }}
     >
       {score.score}

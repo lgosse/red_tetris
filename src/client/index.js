@@ -14,17 +14,9 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import {
   ConnectedRouter,
   routerReducer,
-  routerMiddleware,
-  push
+  routerMiddleware
 } from 'react-router-redux';
-import {
-  Switch,
-  Router,
-  Redirect,
-  Route,
-  hashHistory,
-  browserHistory
-} from 'react-router';
+import { Switch, Redirect, Route } from 'react-router';
 
 // Project stuff
 import socketIoMiddleware from './middleware/socketIoMiddleware';
@@ -36,7 +28,6 @@ import params from '../../params';
 export const socket = io(params.front.url);
 
 import { getPlayer } from './actions/player';
-import { getParties } from './actions/partyList';
 import App from './containers/App';
 import Home from './containers/views/Home';
 import Ranking from './containers/views/Ranking';
@@ -46,10 +37,7 @@ import CreateParty from './containers/views/CreateParty';
 import Party from './containers/views/Party';
 import PartyList from './containers/views/PartyList';
 
-import Game from './containers/game/Game';
 import { alert } from './actions/alert';
-
-let initialState = {};
 
 const history = createBrowserHistory();
 
@@ -58,7 +46,7 @@ const routingMiddleware = routerMiddleware(history);
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export const store = createStore(
   combineReducers({ ...reducers, routing: routerReducer }),
-  initialState,
+  {},
   composeEnhancers(
     applyMiddleware(
       thunk,
@@ -72,17 +60,16 @@ export const store = createStore(
 
 const checkNickname = () => {
   const player = store.getState().player;
-  const isNickNameValid = !!player.nickname;
-  if (!isNickNameValid)
+  const isNickNameValid = Boolean(player.nickname);
+  if (!isNickNameValid) {
     setTimeout(() =>
       store.dispatch(alert('You must enter your player nickname'), 0)
     );
+  }
   return isNickNameValid;
 };
 
-const checkHash = () => {
-  return window.location.hash.length > 1;
-};
+const checkHash = () => window.location.hash.length > 1;
 
 ReactDom.render(
   <Provider store={store}>
@@ -92,21 +79,15 @@ ReactDom.render(
           <Route
             exact
             path="/"
-            render={() => {
-              return checkHash() ? <Party /> : <Home />;
-            }}
+            render={() => (checkHash() ? <Party /> : <Home />)}
           />
           <Route path="/ranking" component={Ranking} />
           <Route path="/new-game" component={NewGame} />
           <Route
             path="/create-game"
-            render={() => {
-              return checkNickname() ? (
-                <CreateParty />
-              ) : (
-                <Redirect to="/new-game" />
-              );
-            }}
+            render={() =>
+              checkNickname() ? <CreateParty /> : <Redirect to="/new-game" />
+            }
           />
           <Route
             path="/game-list"

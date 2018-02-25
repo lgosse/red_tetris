@@ -94,7 +94,7 @@ const pingPlayer = async (io, party, player, countBeforeKick) => {
     });
 
     // Waiting for ping to be received and rethrown
-    await timeout(2000);
+    await timeout(500);
 
     // Checking if user is good to be kicked
     let partyNow;

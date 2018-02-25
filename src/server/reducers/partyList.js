@@ -19,14 +19,13 @@ import {
 
 // Actions
 import { push } from 'react-router-redux';
-import { updateParty } from '../../client/actions/party';
+import { updateParty, startPartySuccess } from '../../client/actions/party';
 import {
   claimPieceSuccess,
   movePieceServer
 } from '../../client/actions/game/pieces';
 import { Piece } from '../models/Piece';
 import { updatePiecesGame } from '../../client/actions/game/pieces';
-import { gridZero } from '../../client/reducers/game/utils';
 import { updateBoard } from '../../client/actions/game/board';
 import { updateScore, resetScore } from '../../client/actions/game/score';
 
@@ -225,20 +224,11 @@ const partyList = async (action, io, socket) => {
         await party.save();
 
         io.emit('action', await getParties());
-        io
-          .to(party._id)
-          .emit('action', updateBoard({ grid: gridZero(10, 20) }));
-        io.to(party._id).emit('action', resetScore(0));
-        io.to(party._id).emit('action', updateParty(party));
-        io
-          .to(party._id)
-          .emit('action', updatePiecesGame({ piece: new Piece() }));
-        io
-          .to(party._id)
-          .emit('action', claimPieceSuccess([new Piece(), new Piece()]));
-        io.to(party._id).partyInterval = setInterval(() => {
-          io.to(party._id).emit('action', movePieceServer(0));
-        }, 1000);
+        const room = io.to(party._id);
+        room.emit('action', startPartySuccess());
+        room.emit('action', updateParty(party));
+        room.emit('action', updatePiecesGame({ piece: new Piece() }));
+        room.emit('action', claimPieceSuccess([new Piece(), new Piece()]));
       } catch (error) {
         console.error(error);
       }

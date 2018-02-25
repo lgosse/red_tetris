@@ -16,6 +16,7 @@ import {
 import { getParties } from '../actions/partyList';
 import { savePlayer, getPlayer, updatePlayer } from '../actions/player';
 import { getRankingList } from '../actions/rankings';
+import { alert } from '../actions/alert';
 
 const roomHandler = (socket, action, dispatch, getState) => {
   if (action.type !== LOCATION_CHANGE) return;
@@ -62,6 +63,11 @@ const socketIoMiddleWare = socket => ({ dispatch, getState }) => {
   if (socket) {
     socket.on('action', action => {
       dispatch(action);
+    });
+
+    socket.on('disconnect', () => {
+      dispatch(push('/'));
+      dispatch(alert('A problem occured. Check your internet connection.'));
     });
   }
   return next => action => {

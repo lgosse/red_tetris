@@ -149,7 +149,6 @@ const game = async (action, io, socket) => {
           );
         }
 
-        clearInterval(io.to(party._id).partyInterval);
         party.stopGame();
         party.clearPlayersBoard();
         io.to(party._id).emit('action', updatePlayer({ ready: false }));
