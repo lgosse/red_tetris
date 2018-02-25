@@ -1,9 +1,9 @@
-import { GAME_SCORE_UPDATE, GAME_SCORE_RESET } from '../../../actionsTypes';
+import { GAME_SCORE_UPDATE, PARTY_START_SUCCESS } from '../../../actionsTypes';
 
 const score = (state = 0, action) => {
   switch (action.type) {
-    case GAME_SCORE_RESET: {
-      return action.score;
+    case PARTY_START_SUCCESS: {
+      return 0;
     }
 
     case GAME_SCORE_UPDATE: {

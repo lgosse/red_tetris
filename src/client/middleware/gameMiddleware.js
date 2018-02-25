@@ -5,7 +5,8 @@ import {
   GAME_BOARD_BLOCK_LINES_SERVER,
   GAME_MALUS_ADD,
   GAME_PIECES_CLAIM_PIECE,
-  GAME_LOSE
+  GAME_LOSE,
+  PARTY_START_SUCCESS
 } from '../../actionsTypes';
 import {
   updatePiecesGame,
@@ -81,6 +82,20 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
 
     case GAME_LOSE: {
       playSound(ShutDown1);
+
+      break;
+    }
+
+    case PARTY_START_SUCCESS: {
+      const partyInterval = setInterval(() => {
+        if (!getState().party.playing) {
+          clearInterval(partyInterval);
+
+          return;
+        }
+
+        dispatch(movePiece(0));
+      }, 1000);
 
       break;
     }

@@ -1,4 +1,6 @@
 export const createPlayer = music => sound => {
-  const audio = new Audio(sound);
-  audio.play().catch(console.log);
+  if (music) {
+    const audio = new Audio(sound);
+    audio.play().catch(console.log);
+  }
 };

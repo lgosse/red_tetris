@@ -6,7 +6,8 @@ import {
   PARTY_LEFT,
   GAME_HAS_FOCUS,
   GAME_LOSE_FOCUS,
-  GAME_END
+  GAME_END,
+  PARTY_START_SUCCESS
 } from '../../../actionsTypes';
 import {
   gridFusion,
@@ -58,6 +59,13 @@ const board = (state = { ...initialState }, action) => {
 
     case PARTY_LEFT:
       return initialState;
+
+    case PARTY_START_SUCCESS: {
+      return {
+        ...state,
+        grid: initialState.grid
+      };
+    }
 
     case GAME_END:
       return initialState;
