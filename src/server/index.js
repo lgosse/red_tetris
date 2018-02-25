@@ -74,6 +74,7 @@ const initEngine = async io => {
 
 const pingPlayer = async (io, party, player, countBeforeKick) => {
   if (countBeforeKick === 0) {
+    console.log('KICK PLAYER', player);
     io.emit('action', { type: PARTY_KICK_PLAYER, playerId: player.socketId });
     if (
       Object.keys(io.sockets.sockets).findIndex(
@@ -94,7 +95,7 @@ const pingPlayer = async (io, party, player, countBeforeKick) => {
     });
 
     // Waiting for ping to be received and rethrown
-    await timeout(500);
+    await timeout(2000);
 
     // Checking if user is good to be kicked
     let partyNow;
@@ -108,7 +109,7 @@ const pingPlayer = async (io, party, player, countBeforeKick) => {
     const playerNow = partyNow.getPlayerBySocketId(player.socketId);
     if (!playerNow) return;
     if (playerNow.lastPing - date < 0 || playerNow.lastPing - date > 1200)
-      await pingPlayer(io, party, player, countBeforeKick - 1);
+      await pingPlayer(io, partyNow, playerNow, countBeforeKick - 1);
   }
   return;
 };

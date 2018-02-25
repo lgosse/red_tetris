@@ -22,7 +22,7 @@ const player = async (action, io, socket) => {
 
       const player = party.getPlayerBySocketId(socket.id);
       player.ready = !player.ready;
-      party.updatePlayer(player);
+      party.updatePlayer({ socketId: player.socketId, ready: player.ready });
 
       try {
         await party.save();
