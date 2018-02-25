@@ -22,7 +22,13 @@ import {
   deleteBomb
 } from '../../reducers/game/utils';
 import { setMod, useMod } from './mods';
-import { updateBoard, deleteLines, notifyGridUpdate, endParty } from './board';
+import {
+  updateBoard,
+  deleteLines,
+  notifyGridUpdate,
+  endParty,
+  deleteLinesSound
+} from './board';
 import { gameLose } from './game';
 import { setTimeout } from 'timers';
 
@@ -133,8 +139,9 @@ export const movePiece = direction => (dispatch, getState) => {
       );
       dispatch(claimPiece());
 
+      if (lines) dispatch(deleteLinesSound());
       setTimeout(() => {
-        dispatch(deleteLines());
+        if (lines) dispatch(deleteLines());
         dispatch(
           notifyGridUpdate(getState().game.board.grid, lines ? lines.length : 0)
         );
