@@ -18,7 +18,7 @@ import {
 } from './utils';
 import { notifyGridUpdate } from '../../actions/game/board';
 
-const initialState = {
+const initialState = () => ({
   grid: gridZero(10, 20),
   ending: false,
   end: false,
@@ -26,9 +26,9 @@ const initialState = {
   winner: null,
   focus: false,
   hasFocusedOnce: false
-};
+});
 
-const board = (state = { ...initialState }, action) => {
+const board = (state = { ...initialState() }, action) => {
   switch (action.type) {
     case GAME_BOARD_UPDATE:
       return {
@@ -58,17 +58,17 @@ const board = (state = { ...initialState }, action) => {
     }
 
     case PARTY_LEFT:
-      return initialState;
+      return initialState();
 
     case PARTY_START_SUCCESS: {
       return {
         ...state,
-        grid: initialState.grid
+        grid: gridZero(10, 20)
       };
     }
 
     case GAME_END:
-      return initialState;
+      return initialState();
 
     case GAME_HAS_FOCUS:
       return {
