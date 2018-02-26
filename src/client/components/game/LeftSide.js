@@ -11,7 +11,7 @@ import {
   FlexSpacer
 } from '../helpers/Common';
 
-const LeftSideTop = styled.div`
+export const LeftSideTop = styled.div`
   font-family: ${global.font.family.game};
   font-size: ${global.font.size.title};
   color: ${global.color.primary};
@@ -19,7 +19,7 @@ const LeftSideTop = styled.div`
   text-align: center;
 `;
 
-const LeftSideContainer = LightContainer.extend`
+export const LeftSideContainer = LightContainer.extend`
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -30,7 +30,7 @@ const LeftSideContainer = LightContainer.extend`
   min-height: 80vh;
 `;
 
-const GameInfoContainer = styled.div`
+export const GameInfoContainer = styled.div`
   border: 5px solid ${global.color.primary};
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -42,7 +42,7 @@ const GameInfoContainer = styled.div`
   flex: 1;
 `;
 
-const GameInfo = ({ title, children, flex, noPadding }) => (
+export const GameInfo = ({ title, children, flex, noPadding }) => (
   <FullSizeContainer
     padding={`0 ${global.padding.md} ${global.padding.md}`}
     style={
@@ -86,11 +86,10 @@ const LeftSide = ({ party, player, game }) => (
           }}
         >
           <div style={{ flex: 1 }} />
-          {game.pieces.next && game.pieces.next[0] ? (
-            <Tetri padding="12px" tetri={game.pieces.next[0].grid} />
-          ) : (
-            <div />
-          )}
+          {game.pieces.next &&
+            game.pieces.next[0] && (
+              <Tetri padding="12px" tetri={game.pieces.next[0].grid} />
+            )}
           <div style={{ flex: 1 }} />
         </div>
         <FlexSpacer />

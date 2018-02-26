@@ -3,20 +3,20 @@ import global from '../../styles/global';
 import styled from 'styled-components';
 import { FlexContainer, FullSizeContainer } from '../helpers/Common';
 
-const MapVoid = styled.div`
+export const MapVoid = styled.div`
   flex: 1;
   margin-left: 1px;
   margin-top: 1px;
 `;
 
-const MapItem = styled.div`
+export const MapItem = styled.div`
   background-color: ${global.color.accent};
   flex: 1;
   margin-left: 1px;
   margin-top: 1px;
 `;
 
-const Line = ({ line }) => (
+export const Line = ({ line }) => (
   <FlexContainer flex>
     {line.map(
       (column, index) =>
@@ -25,7 +25,7 @@ const Line = ({ line }) => (
   </FlexContainer>
 );
 
-const LinesContainer = FlexContainer.extend`
+export const LinesContainer = FlexContainer.extend`
   flex-direction: column;
   height: 155px;
 `;
