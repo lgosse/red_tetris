@@ -37,31 +37,16 @@ ShallowWrapper {
           flex={true}
         >
           <styled.div />
-          <form
-            onSubmit={[Function]}
-          >
-            <styled.div>
-              <styled.input
-                id="nicknameInput"
-                name="nickname"
-                onChange={[Function]}
-                placeholder="Nickname..."
-                value="test"
-              />
-              <styled.button
-                id="submitButton"
-                primary={true}
-                style={
-                  Object {
-                    "marginLeft": "20px",
-                  }
-                }
-                type="submit"
-              >
-                SAVE
-              </styled.button>
-            </styled.div>
-          </form>
+          <styled.div>
+            <styled.input
+              id="nicknameInput"
+              maxLength="10"
+              name="nickname"
+              onChange={[Function]}
+              placeholder="Nickname..."
+              value="test"
+            />
+          </styled.div>
           <styled.div />
         </styled.div>,
       ],
@@ -92,31 +77,16 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <styled.div />,
-            <form
-              onSubmit={[Function]}
-            >
-              <styled.div>
-                <styled.input
-                  id="nicknameInput"
-                  name="nickname"
-                  onChange={[Function]}
-                  placeholder="Nickname..."
-                  value="test"
-                />
-                <styled.button
-                  id="submitButton"
-                  primary={true}
-                  style={
-                    Object {
-                      "marginLeft": "20px",
-                    }
-                  }
-                  type="submit"
-                >
-                  SAVE
-                </styled.button>
-              </styled.div>
-            </form>,
+            <styled.div>
+              <styled.input
+                id="nicknameInput"
+                maxLength="10"
+                name="nickname"
+                onChange={[Function]}
+                placeholder="Nickname..."
+                value="test"
+              />
+            </styled.div>,
             <styled.div />,
           ],
           "flex": true,
@@ -135,30 +105,16 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "class",
             "props": Object {
-              "children": <styled.div>
-                <styled.input
-                  id="nicknameInput"
-                  name="nickname"
-                  onChange={[Function]}
-                  placeholder="Nickname..."
-                  value="test"
-                />
-                <styled.button
-                  id="submitButton"
-                  primary={true}
-                  style={
-                    Object {
-                      "marginLeft": "20px",
-                    }
-                  }
-                  type="submit"
-                >
-                  SAVE
-                </styled.button>
-              </styled.div>,
-              "onSubmit": [Function],
+              "children": <styled.input
+                id="nicknameInput"
+                maxLength="10"
+                name="nickname"
+                onChange={[Function]}
+                placeholder="Nickname..."
+                value="test"
+              />,
             },
             "ref": null,
             "rendered": Object {
@@ -166,66 +122,18 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": Array [
-                  <styled.input
-                    id="nicknameInput"
-                    name="nickname"
-                    onChange={[Function]}
-                    placeholder="Nickname..."
-                    value="test"
-                  />,
-                  <styled.button
-                    id="submitButton"
-                    primary={true}
-                    style={
-                      Object {
-                        "marginLeft": "20px",
-                      }
-                    }
-                    type="submit"
-                  >
-                    SAVE
-                  </styled.button>,
-                ],
+                "id": "nicknameInput",
+                "maxLength": "10",
+                "name": "nickname",
+                "onChange": [Function],
+                "placeholder": "Nickname...",
+                "value": "test",
               },
               "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "id": "nicknameInput",
-                    "name": "nickname",
-                    "onChange": [Function],
-                    "placeholder": "Nickname...",
-                    "value": "test",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "children": "SAVE",
-                    "id": "submitButton",
-                    "primary": true,
-                    "style": Object {
-                      "marginLeft": "20px",
-                    },
-                    "type": "submit",
-                  },
-                  "ref": null,
-                  "rendered": "SAVE",
-                  "type": [Function],
-                },
-              ],
+              "rendered": null,
               "type": [Function],
             },
-            "type": "form",
+            "type": [Function],
           },
           Object {
             "instance": null,
@@ -262,31 +170,16 @@ ShallowWrapper {
             flex={true}
           >
             <styled.div />
-            <form
-              onSubmit={[Function]}
-            >
-              <styled.div>
-                <styled.input
-                  id="nicknameInput"
-                  name="nickname"
-                  onChange={[Function]}
-                  placeholder="Nickname..."
-                  value="test"
-                />
-                <styled.button
-                  id="submitButton"
-                  primary={true}
-                  style={
-                    Object {
-                      "marginLeft": "20px",
-                    }
-                  }
-                  type="submit"
-                >
-                  SAVE
-                </styled.button>
-              </styled.div>
-            </form>
+            <styled.div>
+              <styled.input
+                id="nicknameInput"
+                maxLength="10"
+                name="nickname"
+                onChange={[Function]}
+                placeholder="Nickname..."
+                value="test"
+              />
+            </styled.div>
             <styled.div />
           </styled.div>,
         ],
@@ -317,31 +210,16 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <styled.div />,
-              <form
-                onSubmit={[Function]}
-              >
-                <styled.div>
-                  <styled.input
-                    id="nicknameInput"
-                    name="nickname"
-                    onChange={[Function]}
-                    placeholder="Nickname..."
-                    value="test"
-                  />
-                  <styled.button
-                    id="submitButton"
-                    primary={true}
-                    style={
-                      Object {
-                        "marginLeft": "20px",
-                      }
-                    }
-                    type="submit"
-                  >
-                    SAVE
-                  </styled.button>
-                </styled.div>
-              </form>,
+              <styled.div>
+                <styled.input
+                  id="nicknameInput"
+                  maxLength="10"
+                  name="nickname"
+                  onChange={[Function]}
+                  placeholder="Nickname..."
+                  value="test"
+                />
+              </styled.div>,
               <styled.div />,
             ],
             "flex": true,
@@ -360,30 +238,16 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
-                "children": <styled.div>
-                  <styled.input
-                    id="nicknameInput"
-                    name="nickname"
-                    onChange={[Function]}
-                    placeholder="Nickname..."
-                    value="test"
-                  />
-                  <styled.button
-                    id="submitButton"
-                    primary={true}
-                    style={
-                      Object {
-                        "marginLeft": "20px",
-                      }
-                    }
-                    type="submit"
-                  >
-                    SAVE
-                  </styled.button>
-                </styled.div>,
-                "onSubmit": [Function],
+                "children": <styled.input
+                  id="nicknameInput"
+                  maxLength="10"
+                  name="nickname"
+                  onChange={[Function]}
+                  placeholder="Nickname..."
+                  value="test"
+                />,
               },
               "ref": null,
               "rendered": Object {
@@ -391,66 +255,18 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "children": Array [
-                    <styled.input
-                      id="nicknameInput"
-                      name="nickname"
-                      onChange={[Function]}
-                      placeholder="Nickname..."
-                      value="test"
-                    />,
-                    <styled.button
-                      id="submitButton"
-                      primary={true}
-                      style={
-                        Object {
-                          "marginLeft": "20px",
-                        }
-                      }
-                      type="submit"
-                    >
-                      SAVE
-                    </styled.button>,
-                  ],
+                  "id": "nicknameInput",
+                  "maxLength": "10",
+                  "name": "nickname",
+                  "onChange": [Function],
+                  "placeholder": "Nickname...",
+                  "value": "test",
                 },
                 "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "class",
-                    "props": Object {
-                      "id": "nicknameInput",
-                      "name": "nickname",
-                      "onChange": [Function],
-                      "placeholder": "Nickname...",
-                      "value": "test",
-                    },
-                    "ref": null,
-                    "rendered": null,
-                    "type": [Function],
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "class",
-                    "props": Object {
-                      "children": "SAVE",
-                      "id": "submitButton",
-                      "primary": true,
-                      "style": Object {
-                        "marginLeft": "20px",
-                      },
-                      "type": "submit",
-                    },
-                    "ref": null,
-                    "rendered": "SAVE",
-                    "type": [Function],
-                  },
-                ],
+                "rendered": null,
                 "type": [Function],
               },
-              "type": "form",
+              "type": [Function],
             },
             Object {
               "instance": null,

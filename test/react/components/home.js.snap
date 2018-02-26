@@ -289,7 +289,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "className": "sc-VigVT dqLUBk",
+      "className": "sc-chPdSV eQAPhT",
     },
     "ref": null,
     "rendered": null,
@@ -301,7 +301,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "className": "sc-VigVT dqLUBk",
+        "className": "sc-chPdSV eQAPhT",
       },
       "ref": null,
       "rendered": null,
@@ -337,7 +337,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "className": "sc-VigVT dqLUBk",
+      "className": "sc-chPdSV eQAPhT",
     },
     "ref": null,
     "rendered": null,
@@ -349,7 +349,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "className": "sc-VigVT dqLUBk",
+        "className": "sc-chPdSV eQAPhT",
       },
       "ref": null,
       "rendered": null,
@@ -385,7 +385,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "className": "sc-VigVT fqGRmv",
+      "className": "sc-chPdSV bWmUlX",
       "color": "accent",
     },
     "ref": null,
@@ -398,7 +398,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "className": "sc-VigVT fqGRmv",
+        "className": "sc-chPdSV bWmUlX",
         "color": "accent",
       },
       "ref": null,
@@ -433,7 +433,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "className": "sc-jzJRlG fkvSFS",
+      "className": "sc-kpOJdX jhbKKI",
     },
     "ref": null,
     "rendered": null,
@@ -445,7 +445,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "className": "sc-jzJRlG fkvSFS",
+        "className": "sc-kpOJdX jhbKKI",
       },
       "ref": null,
       "rendered": null,
@@ -481,7 +481,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "className": "sc-jzJRlG iMElWn",
+      "className": "sc-kpOJdX cWSXVv",
       "height": "20px",
     },
     "ref": null,
@@ -494,7 +494,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "className": "sc-jzJRlG iMElWn",
+        "className": "sc-kpOJdX cWSXVv",
         "height": "20px",
       },
       "ref": null,
@@ -531,7 +531,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "className": "sc-jzJRlG jfZrsc",
+      "className": "sc-kpOJdX jLQLcJ",
       "width": "20px",
     },
     "ref": null,
@@ -544,7 +544,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "className": "sc-jzJRlG jfZrsc",
+        "className": "sc-kpOJdX jLQLcJ",
         "width": "20px",
       },
       "ref": null,

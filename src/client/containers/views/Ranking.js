@@ -74,7 +74,7 @@ const Ranks = ({ ranking }) => (
   <div>{ranking.map((score, index) => <Rank key={index} score={score} />)}</div>
 );
 
-const Ranking = ({ ranking }) => (
+export const Ranking = ({ ranking }) => (
   <FullSizeContainer padding="20px">
     {ranking.length ? <Ranks ranking={ranking} /> : <NoRanks />}
   </FullSizeContainer>

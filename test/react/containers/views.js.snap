@@ -176,17 +176,44 @@ ShallowWrapper {
                 "display": "flex",
                 "flexDirection": "row",
                 "margin": "8px",
+                "maxWidth": "400px",
                 "padding": "16px",
-                "width": "200px",
+                "width": "250px",
               }
             }
           >
+            <Styled(FaIcon)
+              className="hourglass-half"
+              marginRight="6px"
+              width="20px"
+            />
             <styled.div
               gameFont={true}
             >
               Sakura
             </styled.div>
             <styled.div />
+            <styled.div
+              style={
+                Object {
+                  "paddingRight": "10px",
+                }
+              }
+            >
+              <styled.div
+                size="16px"
+                style={
+                  Object {
+                    "paddingRight": "6px",
+                  }
+                }
+              >
+                ms
+              </styled.div>
+              <Styled(FaIcon)
+                className="signal"
+              />
+            </styled.div>
             <div
               onClick={[Function]}
             >
@@ -204,7 +231,7 @@ ShallowWrapper {
     "rendered": Array [
       Object {
         "instance": null,
-        "key": "wcnjn-T8ENU4iD1XAAAC",
+        "key": "0",
         "nodeType": "class",
         "props": Object {
           "children": Array [
@@ -217,17 +244,44 @@ ShallowWrapper {
                   "display": "flex",
                   "flexDirection": "row",
                   "margin": "8px",
+                  "maxWidth": "400px",
                   "padding": "16px",
-                  "width": "200px",
+                  "width": "250px",
                 }
               }
             >
+              <Styled(FaIcon)
+                className="hourglass-half"
+                marginRight="6px"
+                width="20px"
+              />
               <styled.div
                 gameFont={true}
               >
                 Sakura
               </styled.div>
               <styled.div />
+              <styled.div
+                style={
+                  Object {
+                    "paddingRight": "10px",
+                  }
+                }
+              >
+                <styled.div
+                  size="16px"
+                  style={
+                    Object {
+                      "paddingRight": "6px",
+                    }
+                  }
+                >
+                  ms
+                </styled.div>
+                <Styled(FaIcon)
+                  className="signal"
+                />
+              </styled.div>
               <div
                 onClick={[Function]}
               >
@@ -257,12 +311,38 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
+                <Styled(FaIcon)
+                  className="hourglass-half"
+                  marginRight="6px"
+                  width="20px"
+                />,
                 <styled.div
                   gameFont={true}
                 >
                   Sakura
                 </styled.div>,
                 <styled.div />,
+                <styled.div
+                  style={
+                    Object {
+                      "paddingRight": "10px",
+                    }
+                  }
+                >
+                  <styled.div
+                    size="16px"
+                    style={
+                      Object {
+                        "paddingRight": "6px",
+                      }
+                    }
+                  >
+                    ms
+                  </styled.div>
+                  <Styled(FaIcon)
+                    className="signal"
+                  />
+                </styled.div>,
                 <div
                   onClick={[Function]}
                 >
@@ -278,12 +358,26 @@ ShallowWrapper {
                 "display": "flex",
                 "flexDirection": "row",
                 "margin": "8px",
+                "maxWidth": "400px",
                 "padding": "16px",
-                "width": "200px",
+                "width": "250px",
               },
             },
             "ref": null,
             "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "className": "hourglass-half",
+                  "marginRight": "6px",
+                  "width": "20px",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
               Object {
                 "instance": null,
                 "key": undefined,
@@ -303,6 +397,67 @@ ShallowWrapper {
                 "props": Object {},
                 "ref": null,
                 "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <styled.div
+                      size="16px"
+                      style={
+                        Object {
+                          "paddingRight": "6px",
+                        }
+                      }
+                    >
+                      ms
+                    </styled.div>,
+                    <Styled(FaIcon)
+                      className="signal"
+                    />,
+                  ],
+                  "style": Object {
+                    "paddingRight": "10px",
+                  },
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": Array [
+                        undefined,
+                        "ms",
+                      ],
+                      "size": "16px",
+                      "style": Object {
+                        "paddingRight": "6px",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      undefined,
+                      "ms",
+                    ],
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "className": "signal",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                ],
                 "type": [Function],
               },
               Object {
@@ -366,17 +521,44 @@ ShallowWrapper {
                   "display": "flex",
                   "flexDirection": "row",
                   "margin": "8px",
+                  "maxWidth": "400px",
                   "padding": "16px",
-                  "width": "200px",
+                  "width": "250px",
                 }
               }
             >
+              <Styled(FaIcon)
+                className="hourglass-half"
+                marginRight="6px"
+                width="20px"
+              />
               <styled.div
                 gameFont={true}
               >
                 Sakura
               </styled.div>
               <styled.div />
+              <styled.div
+                style={
+                  Object {
+                    "paddingRight": "10px",
+                  }
+                }
+              >
+                <styled.div
+                  size="16px"
+                  style={
+                    Object {
+                      "paddingRight": "6px",
+                    }
+                  }
+                >
+                  ms
+                </styled.div>
+                <Styled(FaIcon)
+                  className="signal"
+                />
+              </styled.div>
               <div
                 onClick={[Function]}
               >
@@ -394,7 +576,7 @@ ShallowWrapper {
       "rendered": Array [
         Object {
           "instance": null,
-          "key": "wcnjn-T8ENU4iD1XAAAC",
+          "key": "0",
           "nodeType": "class",
           "props": Object {
             "children": Array [
@@ -407,17 +589,44 @@ ShallowWrapper {
                     "display": "flex",
                     "flexDirection": "row",
                     "margin": "8px",
+                    "maxWidth": "400px",
                     "padding": "16px",
-                    "width": "200px",
+                    "width": "250px",
                   }
                 }
               >
+                <Styled(FaIcon)
+                  className="hourglass-half"
+                  marginRight="6px"
+                  width="20px"
+                />
                 <styled.div
                   gameFont={true}
                 >
                   Sakura
                 </styled.div>
                 <styled.div />
+                <styled.div
+                  style={
+                    Object {
+                      "paddingRight": "10px",
+                    }
+                  }
+                >
+                  <styled.div
+                    size="16px"
+                    style={
+                      Object {
+                        "paddingRight": "6px",
+                      }
+                    }
+                  >
+                    ms
+                  </styled.div>
+                  <Styled(FaIcon)
+                    className="signal"
+                  />
+                </styled.div>
                 <div
                   onClick={[Function]}
                 >
@@ -447,12 +656,38 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
+                  <Styled(FaIcon)
+                    className="hourglass-half"
+                    marginRight="6px"
+                    width="20px"
+                  />,
                   <styled.div
                     gameFont={true}
                   >
                     Sakura
                   </styled.div>,
                   <styled.div />,
+                  <styled.div
+                    style={
+                      Object {
+                        "paddingRight": "10px",
+                      }
+                    }
+                  >
+                    <styled.div
+                      size="16px"
+                      style={
+                        Object {
+                          "paddingRight": "6px",
+                        }
+                      }
+                    >
+                      ms
+                    </styled.div>
+                    <Styled(FaIcon)
+                      className="signal"
+                    />
+                  </styled.div>,
                   <div
                     onClick={[Function]}
                   >
@@ -468,12 +703,26 @@ ShallowWrapper {
                   "display": "flex",
                   "flexDirection": "row",
                   "margin": "8px",
+                  "maxWidth": "400px",
                   "padding": "16px",
-                  "width": "200px",
+                  "width": "250px",
                 },
               },
               "ref": null,
               "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "className": "hourglass-half",
+                    "marginRight": "6px",
+                    "width": "20px",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
                 Object {
                   "instance": null,
                   "key": undefined,
@@ -493,6 +742,67 @@ ShallowWrapper {
                   "props": Object {},
                   "ref": null,
                   "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <styled.div
+                        size="16px"
+                        style={
+                          Object {
+                            "paddingRight": "6px",
+                          }
+                        }
+                      >
+                        ms
+                      </styled.div>,
+                      <Styled(FaIcon)
+                        className="signal"
+                      />,
+                    ],
+                    "style": Object {
+                      "paddingRight": "10px",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": Array [
+                          undefined,
+                          "ms",
+                        ],
+                        "size": "16px",
+                        "style": Object {
+                          "paddingRight": "6px",
+                        },
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        undefined,
+                        "ms",
+                      ],
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "className": "signal",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                  ],
                   "type": [Function],
                 },
                 Object {
@@ -1971,7 +2281,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": "OPEN PARTY",
+      "children": "OPEN GAME",
       "onClick": [Function],
       "primary": true,
       "style": Object {
@@ -1979,7 +2289,7 @@ ShallowWrapper {
       },
     },
     "ref": null,
-    "rendered": "OPEN PARTY",
+    "rendered": "OPEN GAME",
     "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
@@ -1988,7 +2298,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "children": "OPEN PARTY",
+        "children": "OPEN GAME",
         "onClick": [Function],
         "primary": true,
         "style": Object {
@@ -1996,7 +2306,7 @@ ShallowWrapper {
         },
       },
       "ref": null,
-      "rendered": "OPEN PARTY",
+      "rendered": "OPEN GAME",
       "type": [Function],
     },
   ],
@@ -2053,7 +2363,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": "CLOSE PARTY",
+      "children": "CLOSE GAME",
       "onClick": [Function],
       "primary": true,
       "style": Object {
@@ -2061,7 +2371,7 @@ ShallowWrapper {
       },
     },
     "ref": null,
-    "rendered": "CLOSE PARTY",
+    "rendered": "CLOSE GAME",
     "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
@@ -2070,7 +2380,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "children": "CLOSE PARTY",
+        "children": "CLOSE GAME",
         "onClick": [Function],
         "primary": true,
         "style": Object {
@@ -2078,7 +2388,7 @@ ShallowWrapper {
         },
       },
       "ref": null,
-      "rendered": "CLOSE PARTY",
+      "rendered": "CLOSE GAME",
       "type": [Function],
     },
   ],
@@ -2133,21 +2443,35 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
-    "props": Object {},
+    "nodeType": "class",
+    "props": Object {
+      "children": "OPEN GAME",
+      "onClick": [Function],
+      "primary": true,
+      "style": Object {
+        "margin": "16px",
+      },
+    },
     "ref": null,
-    "rendered": null,
-    "type": "div",
+    "rendered": "OPEN GAME",
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
-      "props": Object {},
+      "nodeType": "class",
+      "props": Object {
+        "children": "OPEN GAME",
+        "onClick": [Function],
+        "primary": true,
+        "style": Object {
+          "margin": "16px",
+        },
+      },
       "ref": null,
-      "rendered": null,
-      "type": "div",
+      "rendered": "OPEN GAME",
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -2239,24 +2563,7 @@ ShallowWrapper {
         </styled.div>,
         <styled.div>
           <styled.div />
-          <TogglePartyOpenButton
-            party={
-              Object {
-                "__v": 3,
-                "_id": "5a73305e4dbfed22aa7d0df5",
-                "name": "Sasuke",
-                "open": false,
-                "players": Array [
-                  Object {
-                    "_id": "5a73305e4dbfed22aa7d0df6",
-                    "nickname": "Sakura",
-                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
-                  },
-                ],
-                "playing": true,
-                "size": 10,
-              }
-            }
+          <ReadyButton
             player={
               Object {
                 "_id": "myid",
@@ -2264,37 +2571,27 @@ ShallowWrapper {
                 "socketId": "socket different",
               }
             }
-            toggleOpenParty={[Function]}
-          />
-          <BeginPartyButton
-            beginParty={[Function]}
-            party={
-              Object {
-                "__v": 3,
-                "_id": "5a73305e4dbfed22aa7d0df5",
-                "name": "Sasuke",
-                "open": false,
-                "players": Array [
-                  Object {
-                    "_id": "5a73305e4dbfed22aa7d0df6",
-                    "nickname": "Sakura",
-                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
-                  },
-                ],
-                "playing": true,
-                "size": 10,
-              }
-            }
-            player={
-              Object {
-                "_id": "myid",
-                "nickname": "Naruto",
-                "socketId": "socket different",
-              }
-            }
+            toggleReadyClick={undefined}
           />
           <styled.div />
         </styled.div>,
+        <div />,
+        <styled.div>
+          <styled.div />
+          <styled.button
+            onClick={[Function]}
+            primary={true}
+            style={
+              Object {
+                "margin": "16px",
+              }
+            }
+          >
+            SHOW RULES
+          </styled.button>
+          <styled.div />
+        </styled.div>,
+        false,
       ],
     },
     "ref": null,
@@ -2374,24 +2671,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <styled.div />,
-            <TogglePartyOpenButton
-              party={
-                Object {
-                  "__v": 3,
-                  "_id": "5a73305e4dbfed22aa7d0df5",
-                  "name": "Sasuke",
-                  "open": false,
-                  "players": Array [
-                    Object {
-                      "_id": "5a73305e4dbfed22aa7d0df6",
-                      "nickname": "Sakura",
-                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
-                    },
-                  ],
-                  "playing": true,
-                  "size": 10,
-                }
-              }
+            <ReadyButton
               player={
                 Object {
                   "_id": "myid",
@@ -2399,34 +2679,7 @@ ShallowWrapper {
                   "socketId": "socket different",
                 }
               }
-              toggleOpenParty={[Function]}
-            />,
-            <BeginPartyButton
-              beginParty={[Function]}
-              party={
-                Object {
-                  "__v": 3,
-                  "_id": "5a73305e4dbfed22aa7d0df5",
-                  "name": "Sasuke",
-                  "open": false,
-                  "players": Array [
-                    Object {
-                      "_id": "5a73305e4dbfed22aa7d0df6",
-                      "nickname": "Sakura",
-                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
-                    },
-                  ],
-                  "playing": true,
-                  "size": 10,
-                }
-              }
-              player={
-                Object {
-                  "_id": "myid",
-                  "nickname": "Naruto",
-                  "socketId": "socket different",
-                }
-              }
+              toggleReadyClick={undefined}
             />,
             <styled.div />,
           ],
@@ -2447,58 +2700,12 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "function",
             "props": Object {
-              "party": Object {
-                "__v": 3,
-                "_id": "5a73305e4dbfed22aa7d0df5",
-                "name": "Sasuke",
-                "open": false,
-                "players": Array [
-                  Object {
-                    "_id": "5a73305e4dbfed22aa7d0df6",
-                    "nickname": "Sakura",
-                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
-                  },
-                ],
-                "playing": true,
-                "size": 10,
-              },
               "player": Object {
                 "_id": "myid",
                 "nickname": "Naruto",
                 "socketId": "socket different",
               },
-              "toggleOpenParty": [Function],
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "beginParty": [Function],
-              "party": Object {
-                "__v": 3,
-                "_id": "5a73305e4dbfed22aa7d0df5",
-                "name": "Sasuke",
-                "open": false,
-                "players": Array [
-                  Object {
-                    "_id": "5a73305e4dbfed22aa7d0df6",
-                    "nickname": "Sakura",
-                    "socketId": "wcnjn-T8ENU4iD1XAAAC",
-                  },
-                ],
-                "playing": true,
-                "size": 10,
-              },
-              "player": Object {
-                "_id": "myid",
-                "nickname": "Naruto",
-                "socketId": "socket different",
-              },
+              "toggleReadyClick": undefined,
             },
             "ref": null,
             "rendered": null,
@@ -2516,6 +2723,76 @@ ShallowWrapper {
         ],
         "type": [Function],
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled.div />,
+            <styled.button
+              onClick={[Function]}
+              primary={true}
+              style={
+                Object {
+                  "margin": "16px",
+                }
+              }
+            >
+              SHOW RULES
+            </styled.button>,
+            <styled.div />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "SHOW RULES",
+              "onClick": [Function],
+              "primary": true,
+              "style": Object {
+                "margin": "16px",
+              },
+            },
+            "ref": null,
+            "rendered": "SHOW RULES",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      false,
     ],
     "type": [Function],
   },
@@ -2559,24 +2836,7 @@ ShallowWrapper {
           </styled.div>,
           <styled.div>
             <styled.div />
-            <TogglePartyOpenButton
-              party={
-                Object {
-                  "__v": 3,
-                  "_id": "5a73305e4dbfed22aa7d0df5",
-                  "name": "Sasuke",
-                  "open": false,
-                  "players": Array [
-                    Object {
-                      "_id": "5a73305e4dbfed22aa7d0df6",
-                      "nickname": "Sakura",
-                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
-                    },
-                  ],
-                  "playing": true,
-                  "size": 10,
-                }
-              }
+            <ReadyButton
               player={
                 Object {
                   "_id": "myid",
@@ -2584,37 +2844,27 @@ ShallowWrapper {
                   "socketId": "socket different",
                 }
               }
-              toggleOpenParty={[Function]}
-            />
-            <BeginPartyButton
-              beginParty={[Function]}
-              party={
-                Object {
-                  "__v": 3,
-                  "_id": "5a73305e4dbfed22aa7d0df5",
-                  "name": "Sasuke",
-                  "open": false,
-                  "players": Array [
-                    Object {
-                      "_id": "5a73305e4dbfed22aa7d0df6",
-                      "nickname": "Sakura",
-                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
-                    },
-                  ],
-                  "playing": true,
-                  "size": 10,
-                }
-              }
-              player={
-                Object {
-                  "_id": "myid",
-                  "nickname": "Naruto",
-                  "socketId": "socket different",
-                }
-              }
+              toggleReadyClick={undefined}
             />
             <styled.div />
           </styled.div>,
+          <div />,
+          <styled.div>
+            <styled.div />
+            <styled.button
+              onClick={[Function]}
+              primary={true}
+              style={
+                Object {
+                  "margin": "16px",
+                }
+              }
+            >
+              SHOW RULES
+            </styled.button>
+            <styled.div />
+          </styled.div>,
+          false,
         ],
       },
       "ref": null,
@@ -2694,24 +2944,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <styled.div />,
-              <TogglePartyOpenButton
-                party={
-                  Object {
-                    "__v": 3,
-                    "_id": "5a73305e4dbfed22aa7d0df5",
-                    "name": "Sasuke",
-                    "open": false,
-                    "players": Array [
-                      Object {
-                        "_id": "5a73305e4dbfed22aa7d0df6",
-                        "nickname": "Sakura",
-                        "socketId": "wcnjn-T8ENU4iD1XAAAC",
-                      },
-                    ],
-                    "playing": true,
-                    "size": 10,
-                  }
-                }
+              <ReadyButton
                 player={
                   Object {
                     "_id": "myid",
@@ -2719,34 +2952,7 @@ ShallowWrapper {
                     "socketId": "socket different",
                   }
                 }
-                toggleOpenParty={[Function]}
-              />,
-              <BeginPartyButton
-                beginParty={[Function]}
-                party={
-                  Object {
-                    "__v": 3,
-                    "_id": "5a73305e4dbfed22aa7d0df5",
-                    "name": "Sasuke",
-                    "open": false,
-                    "players": Array [
-                      Object {
-                        "_id": "5a73305e4dbfed22aa7d0df6",
-                        "nickname": "Sakura",
-                        "socketId": "wcnjn-T8ENU4iD1XAAAC",
-                      },
-                    ],
-                    "playing": true,
-                    "size": 10,
-                  }
-                }
-                player={
-                  Object {
-                    "_id": "myid",
-                    "nickname": "Naruto",
-                    "socketId": "socket different",
-                  }
-                }
+                toggleReadyClick={undefined}
               />,
               <styled.div />,
             ],
@@ -2767,58 +2973,12 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "function",
               "props": Object {
-                "party": Object {
-                  "__v": 3,
-                  "_id": "5a73305e4dbfed22aa7d0df5",
-                  "name": "Sasuke",
-                  "open": false,
-                  "players": Array [
-                    Object {
-                      "_id": "5a73305e4dbfed22aa7d0df6",
-                      "nickname": "Sakura",
-                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
-                    },
-                  ],
-                  "playing": true,
-                  "size": 10,
-                },
                 "player": Object {
                   "_id": "myid",
                   "nickname": "Naruto",
                   "socketId": "socket different",
                 },
-                "toggleOpenParty": [Function],
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "beginParty": [Function],
-                "party": Object {
-                  "__v": 3,
-                  "_id": "5a73305e4dbfed22aa7d0df5",
-                  "name": "Sasuke",
-                  "open": false,
-                  "players": Array [
-                    Object {
-                      "_id": "5a73305e4dbfed22aa7d0df6",
-                      "nickname": "Sakura",
-                      "socketId": "wcnjn-T8ENU4iD1XAAAC",
-                    },
-                  ],
-                  "playing": true,
-                  "size": 10,
-                },
-                "player": Object {
-                  "_id": "myid",
-                  "nickname": "Naruto",
-                  "socketId": "socket different",
-                },
+                "toggleReadyClick": undefined,
               },
               "ref": null,
               "rendered": null,
@@ -2836,6 +2996,76 @@ ShallowWrapper {
           ],
           "type": [Function],
         },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled.div />,
+              <styled.button
+                onClick={[Function]}
+                primary={true}
+                style={
+                  Object {
+                    "margin": "16px",
+                  }
+                }
+              >
+                SHOW RULES
+              </styled.button>,
+              <styled.div />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "SHOW RULES",
+                "onClick": [Function],
+                "primary": true,
+                "style": Object {
+                  "margin": "16px",
+                },
+              },
+              "ref": null,
+              "rendered": "SHOW RULES",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        false,
       ],
       "type": [Function],
     },
@@ -3567,14 +3797,14 @@ ShallowWrapper {
             <Link
               id="create-party-link"
               replace={false}
-              to="create-party"
+              to="create-game"
             >
               <styled.button
                 marginTop="20px"
                 primary={true}
                 width="100%"
               >
-                CREATE A NEW PARTY
+                CREATE A NEW GAME
               </styled.button>
             </Link>
             <styled.div
@@ -3589,13 +3819,13 @@ ShallowWrapper {
             <Link
               id="party-list-link"
               replace={false}
-              to="party-list"
+              to="game-list"
             >
               <styled.button
                 primary={true}
                 width="100%"
               >
-                JOIN A PARTY
+                JOIN A GAME
               </styled.button>
             </Link>
           </styled.div>
@@ -3635,14 +3865,14 @@ ShallowWrapper {
               <Link
                 id="create-party-link"
                 replace={false}
-                to="create-party"
+                to="create-game"
               >
                 <styled.button
                   marginTop="20px"
                   primary={true}
                   width="100%"
                 >
-                  CREATE A NEW PARTY
+                  CREATE A NEW GAME
                 </styled.button>
               </Link>
               <styled.div
@@ -3657,13 +3887,13 @@ ShallowWrapper {
               <Link
                 id="party-list-link"
                 replace={false}
-                to="party-list"
+                to="game-list"
               >
                 <styled.button
                   primary={true}
                   width="100%"
                 >
-                  JOIN A PARTY
+                  JOIN A GAME
                 </styled.button>
               </Link>
             </styled.div>,
@@ -3690,14 +3920,14 @@ ShallowWrapper {
                 <Link
                   id="create-party-link"
                   replace={false}
-                  to="create-party"
+                  to="create-game"
                 >
                   <styled.button
                     marginTop="20px"
                     primary={true}
                     width="100%"
                   >
-                    CREATE A NEW PARTY
+                    CREATE A NEW GAME
                   </styled.button>
                 </Link>,
                 <styled.div
@@ -3712,13 +3942,13 @@ ShallowWrapper {
                 <Link
                   id="party-list-link"
                   replace={false}
-                  to="party-list"
+                  to="game-list"
                 >
                   <styled.button
                     primary={true}
                     width="100%"
                   >
-                    JOIN A PARTY
+                    JOIN A GAME
                   </styled.button>
                 </Link>,
               ],
@@ -3735,11 +3965,11 @@ ShallowWrapper {
                     primary={true}
                     width="100%"
                   >
-                    CREATE A NEW PARTY
+                    CREATE A NEW GAME
                   </styled.button>,
                   "id": "create-party-link",
                   "replace": false,
-                  "to": "create-party",
+                  "to": "create-game",
                 },
                 "ref": null,
                 "rendered": Object {
@@ -3747,13 +3977,13 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": "CREATE A NEW PARTY",
+                    "children": "CREATE A NEW GAME",
                     "marginTop": "20px",
                     "primary": true,
                     "width": "100%",
                   },
                   "ref": null,
-                  "rendered": "CREATE A NEW PARTY",
+                  "rendered": "CREATE A NEW GAME",
                   "type": [Function],
                 },
                 "type": [Function],
@@ -3783,11 +4013,11 @@ ShallowWrapper {
                     primary={true}
                     width="100%"
                   >
-                    JOIN A PARTY
+                    JOIN A GAME
                   </styled.button>,
                   "id": "party-list-link",
                   "replace": false,
-                  "to": "party-list",
+                  "to": "game-list",
                 },
                 "ref": null,
                 "rendered": Object {
@@ -3795,12 +4025,12 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": "JOIN A PARTY",
+                    "children": "JOIN A GAME",
                     "primary": true,
                     "width": "100%",
                   },
                   "ref": null,
-                  "rendered": "JOIN A PARTY",
+                  "rendered": "JOIN A GAME",
                   "type": [Function],
                 },
                 "type": [Function],
@@ -3839,14 +4069,14 @@ ShallowWrapper {
               <Link
                 id="create-party-link"
                 replace={false}
-                to="create-party"
+                to="create-game"
               >
                 <styled.button
                   marginTop="20px"
                   primary={true}
                   width="100%"
                 >
-                  CREATE A NEW PARTY
+                  CREATE A NEW GAME
                 </styled.button>
               </Link>
               <styled.div
@@ -3861,13 +4091,13 @@ ShallowWrapper {
               <Link
                 id="party-list-link"
                 replace={false}
-                to="party-list"
+                to="game-list"
               >
                 <styled.button
                   primary={true}
                   width="100%"
                 >
-                  JOIN A PARTY
+                  JOIN A GAME
                 </styled.button>
               </Link>
             </styled.div>
@@ -3907,14 +4137,14 @@ ShallowWrapper {
                 <Link
                   id="create-party-link"
                   replace={false}
-                  to="create-party"
+                  to="create-game"
                 >
                   <styled.button
                     marginTop="20px"
                     primary={true}
                     width="100%"
                   >
-                    CREATE A NEW PARTY
+                    CREATE A NEW GAME
                   </styled.button>
                 </Link>
                 <styled.div
@@ -3929,13 +4159,13 @@ ShallowWrapper {
                 <Link
                   id="party-list-link"
                   replace={false}
-                  to="party-list"
+                  to="game-list"
                 >
                   <styled.button
                     primary={true}
                     width="100%"
                   >
-                    JOIN A PARTY
+                    JOIN A GAME
                   </styled.button>
                 </Link>
               </styled.div>,
@@ -3962,14 +4192,14 @@ ShallowWrapper {
                   <Link
                     id="create-party-link"
                     replace={false}
-                    to="create-party"
+                    to="create-game"
                   >
                     <styled.button
                       marginTop="20px"
                       primary={true}
                       width="100%"
                     >
-                      CREATE A NEW PARTY
+                      CREATE A NEW GAME
                     </styled.button>
                   </Link>,
                   <styled.div
@@ -3984,13 +4214,13 @@ ShallowWrapper {
                   <Link
                     id="party-list-link"
                     replace={false}
-                    to="party-list"
+                    to="game-list"
                   >
                     <styled.button
                       primary={true}
                       width="100%"
                     >
-                      JOIN A PARTY
+                      JOIN A GAME
                     </styled.button>
                   </Link>,
                 ],
@@ -4007,11 +4237,11 @@ ShallowWrapper {
                       primary={true}
                       width="100%"
                     >
-                      CREATE A NEW PARTY
+                      CREATE A NEW GAME
                     </styled.button>,
                     "id": "create-party-link",
                     "replace": false,
-                    "to": "create-party",
+                    "to": "create-game",
                   },
                   "ref": null,
                   "rendered": Object {
@@ -4019,13 +4249,13 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "class",
                     "props": Object {
-                      "children": "CREATE A NEW PARTY",
+                      "children": "CREATE A NEW GAME",
                       "marginTop": "20px",
                       "primary": true,
                       "width": "100%",
                     },
                     "ref": null,
-                    "rendered": "CREATE A NEW PARTY",
+                    "rendered": "CREATE A NEW GAME",
                     "type": [Function],
                   },
                   "type": [Function],
@@ -4055,11 +4285,11 @@ ShallowWrapper {
                       primary={true}
                       width="100%"
                     >
-                      JOIN A PARTY
+                      JOIN A GAME
                     </styled.button>,
                     "id": "party-list-link",
                     "replace": false,
-                    "to": "party-list",
+                    "to": "game-list",
                   },
                   "ref": null,
                   "rendered": Object {
@@ -4067,12 +4297,12 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "class",
                     "props": Object {
-                      "children": "JOIN A PARTY",
+                      "children": "JOIN A GAME",
                       "primary": true,
                       "width": "100%",
                     },
                     "ref": null,
-                    "rendered": "JOIN A PARTY",
+                    "rendered": "JOIN A GAME",
                     "type": [Function],
                   },
                   "type": [Function],
@@ -4218,11 +4448,16 @@ ShallowWrapper {
 }
 `;
 
-exports[`Party render should render as expected with party not playing 1`] = `
+exports[`Party render should render as expected with party not playing & endingDisplay 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Party
+    ending={
+      Object {
+        "shouldDisplay": true,
+      }
+    }
     party={
       Object {
         "__v": 3,
@@ -4251,21 +4486,246 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
-    "props": Object {},
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Connect(Lobby) />,
+        <EndingModal
+          closeModal={undefined}
+          ending={
+            Object {
+              "shouldDisplay": true,
+            }
+          }
+        />,
+        <span />,
+      ],
+    },
     "ref": null,
-    "rendered": null,
-    "type": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "closeModal": undefined,
+          "ending": Object {
+            "shouldDisplay": true,
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "span",
+      },
+    ],
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
-      "props": Object {},
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Connect(Lobby) />,
+          <EndingModal
+            closeModal={undefined}
+            ending={
+              Object {
+                "shouldDisplay": true,
+              }
+            }
+          />,
+          <span />,
+        ],
+      },
       "ref": null,
-      "rendered": null,
-      "type": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "closeModal": undefined,
+            "ending": Object {
+              "shouldDisplay": true,
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "span",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Party render should render as expected with party not playing 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Party
+    ending={
+      Object {
+        "shouldDisplay": false,
+      }
+    }
+    party={
+      Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": false,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": false,
+        "size": 10,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Connect(Lobby) />,
+        <span />,
+        <span />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "span",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "span",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Connect(Lobby) />,
+          <span />,
+          <span />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "span",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "span",
+        },
+      ],
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -4283,6 +4743,11 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Party
+    ending={
+      Object {
+        "shouldDisplay": true,
+      }
+    }
     party={
       Object {
         "__v": 3,
@@ -4311,21 +4776,89 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
-    "props": Object {},
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Connect(Game) />,
+        <span />,
+        <span />,
+      ],
+    },
     "ref": null,
-    "rendered": null,
-    "type": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "span",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "span",
+      },
+    ],
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
-      "props": Object {},
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Connect(Game) />,
+          <span />,
+          <span />,
+        ],
+      },
       "ref": null,
-      "rendered": null,
-      "type": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "span",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "span",
+        },
+      ],
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -4727,6 +5260,7 @@ ShallowWrapper {
              / 
             10
           </div>,
+          undefined,
         ],
         "className": "join-button",
         "disabled": true,
@@ -4776,6 +5310,7 @@ ShallowWrapper {
           ],
           "type": "div",
         },
+        undefined,
       ],
       "type": [Function],
     },
@@ -4847,6 +5382,7 @@ ShallowWrapper {
                / 
               10
             </div>,
+            undefined,
           ],
           "className": "join-button",
           "disabled": true,
@@ -4896,6 +5432,7 @@ ShallowWrapper {
             ],
             "type": "div",
           },
+          undefined,
         ],
         "type": [Function],
       },
@@ -5013,6 +5550,7 @@ ShallowWrapper {
              / 
             10
           </div>,
+          undefined,
         ],
         "className": "join-button",
         "disabled": true,
@@ -5062,6 +5600,7 @@ ShallowWrapper {
           ],
           "type": "div",
         },
+        undefined,
       ],
       "type": [Function],
     },
@@ -5133,6 +5672,7 @@ ShallowWrapper {
                / 
               10
             </div>,
+            undefined,
           ],
           "className": "join-button",
           "disabled": true,
@@ -5182,6 +5722,7 @@ ShallowWrapper {
             ],
             "type": "div",
           },
+          undefined,
         ],
         "type": [Function],
       },
@@ -6466,7 +7007,17 @@ exports[`Ranking should render as expected 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Ranking />,
+  Symbol(enzyme.__unrendered__): <Ranking
+    ranking={
+      Array [
+        Object {
+          "date": "djhbva",
+          "playerName": "test",
+          "score": 0,
+        },
+      ]
+    }
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -6477,25 +7028,79 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
-      "children": "this is the ranking page",
+      "children": <Ranks
+        ranking={
+          Array [
+            Object {
+              "date": "djhbva",
+              "playerName": "test",
+              "score": 0,
+            },
+          ]
+        }
+      />,
+      "padding": "20px",
     },
     "ref": null,
-    "rendered": "this is the ranking page",
-    "type": "div",
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "ranking": Array [
+          Object {
+            "date": "djhbva",
+            "playerName": "test",
+            "score": 0,
+          },
+        ],
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
-        "children": "this is the ranking page",
+        "children": <Ranks
+          ranking={
+            Array [
+              Object {
+                "date": "djhbva",
+                "playerName": "test",
+                "score": 0,
+              },
+            ]
+          }
+        />,
+        "padding": "20px",
       },
       "ref": null,
-      "rendered": "this is the ranking page",
-      "type": "div",
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "ranking": Array [
+            Object {
+              "date": "djhbva",
+              "playerName": "test",
+              "score": 0,
+            },
+          ],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {
