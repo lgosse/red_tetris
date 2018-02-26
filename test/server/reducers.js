@@ -178,7 +178,6 @@ describe('Server reducers', () => {
           {
             [PARTY_UPDATE]: ({ dispatch, getState }) => {
               const { party } = getState();
-              console.log(party);
               const player = party.players.find(
                 player => player.nickname === 'PlayerToFind'
               );
@@ -191,52 +190,11 @@ describe('Server reducers', () => {
         );
 
         store.dispatch(
-          joinParty({ name: 'MYSUPERPARTY' }, { nickname: 'PlayerToFind' })
+          joinParty(
+            { name: 'MYSUPERPARTY', size: 10 },
+            { nickname: 'PlayerToFind' }
+          )
         );
-      });
-      it('should modify player if already in party.players', done => {
-        const initialState = {};
-        let initialisation = true;
-        const socket = io(params.server.url);
-        const store = configureStore(
-          combineReducers(reducers),
-          socket,
-          initialState,
-          {},
-          ({ dispatch, getState }) => next => action => {
-            const result = next(action);
-            if (action.type === PARTY_UPDATE) {
-              const { party } = getState();
-              const player = party.players.find(
-                player => player.nickname === 'PlayerToModify'
-              );
-
-              if (initialisation) {
-                initialisation = false;
-                store.dispatch(
-                  joinParty(
-                    { name: 'MYSUPERPARTY', _id: party._id },
-                    { nickname: 'POTO', _id: player._id }
-                  )
-                );
-              } else {
-                const player = party.players.find(
-                  player => player.nickname === 'POTO'
-                );
-
-                if (!player.nickname)
-                  throw new Error("Player nickname wasn't modified");
-                done();
-              }
-            }
-            return result;
-          }
-        );
-
-        store.dispatch(
-          joinParty({ name: 'MYSUPERPARTY' }, { nickname: 'PlayerToModify' })
-        );
-        socket.emit('action', { type: 'PARTY_DELETE_ALL' });
       });
     });
     describe('Type: PARTY_LEAVE', () => {
@@ -261,7 +219,7 @@ describe('Server reducers', () => {
         );
 
         store.dispatch(
-          joinParty({ name: 'MyAwfulParty' }, { nickname: 'Bastard' })
+          joinParty({ name: 'MyAwfulParty', size: 10 }, { nickname: 'Bastard' })
         );
       });
     });
@@ -300,6 +258,7 @@ describe('Server reducers', () => {
       it('should toggle open state', done => {
         const initialState = {};
         let initialisation = true;
+        let end = false;
         const socket = io(params.server.url);
         const store = configureStore(
           combineReducers(reducers),
@@ -307,11 +266,15 @@ describe('Server reducers', () => {
           initialState,
           {},
           ({ dispatch, getState }) => next => action => {
+            next(action);
             if (action.type === PARTY_UPDATE) {
               if (initialisation === true) {
                 initialisation = false;
+                action.party.open.should.equal(true);
                 dispatch(toggleOpenParty(action.party._id));
-              } else if (action.party.open === true) {
+              } else if (end === false) {
+                end = true;
+                action.party.open.should.equal(false);
                 done();
                 socket.emit('action', { type: 'PARTY_DELETE_ALL' });
               }
@@ -320,7 +283,10 @@ describe('Server reducers', () => {
         );
 
         store.dispatch(
-          joinParty({ name: 'MyAwesomeParty' }, { nickname: 'Bastard' })
+          joinParty(
+            { name: 'MyAwesomeParty', size: 10 },
+            { nickname: 'Bastard' }
+          )
         );
       });
     });
