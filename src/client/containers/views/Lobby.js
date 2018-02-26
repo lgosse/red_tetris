@@ -53,9 +53,7 @@ export const PlayersList = ({ players = [], kickPlayer, actualPlayer }) => (
           ) : (
             <Icon marginRight="6px" width="20px" className="hourglass-half" />
           )}
-          <Paragraph gameFont>{`${player.nickname.slice(0, 10)}${
-            player.nickname.length > 10 ? '...' : ''
-          }`}</Paragraph>
+          <Paragraph gameFont>{player.nickname}</Paragraph>
           <FlexSpacer />
           <FlexContainer style={{ paddingRight: '10px' }}>
             <Paragraph size="16px" style={{ paddingRight: '6px' }}>
@@ -121,43 +119,25 @@ export const RoomView = ({ party, kickPlayer, player }) => (
   </FlexContainer>
 );
 
-export const ReadyButton = ({ player, toggleReadyClick }) =>
-  player.ready ? (
-    <Button
-      style={{ margin: global.padding.md }}
-      primary
-      onClick={() => toggleReadyClick()}
-    >
-      NOT READY
-    </Button>
-  ) : (
-    <Button
-      style={{ margin: global.padding.md }}
-      primary
-      onClick={() => toggleReadyClick()}
-    >
-      READY
-    </Button>
-  );
+export const ReadyButton = ({ player, toggleReadyClick }) => (
+  <Button
+    style={{ margin: global.padding.md }}
+    primary
+    onClick={toggleReadyClick}
+  >
+    {player.ready ? 'NOT READY' : 'READY'}
+  </Button>
+);
 
-export const TogglePartyOpenButton = ({ party, toggleOpenParty }) =>
-  party.open ? (
-    <Button
-      style={{ margin: global.padding.md }}
-      primary
-      onClick={() => toggleOpenParty(party._id)}
-    >
-      CLOSE GAME
-    </Button>
-  ) : (
-    <Button
-      style={{ margin: global.padding.md }}
-      primary
-      onClick={() => toggleOpenParty(party._id)}
-    >
-      OPEN GAME
-    </Button>
-  );
+export const TogglePartyOpenButton = ({ party, toggleOpenParty }) => (
+  <Button
+    style={{ margin: global.padding.md }}
+    primary
+    onClick={() => toggleOpenParty(party._id)}
+  >
+    {party.open ? 'CLOSE GAME' : 'OPEN GAME'}
+  </Button>
+);
 
 export const BeginPartyButton = ({ party, beginParty, disabled }) => (
   <Button
@@ -215,7 +195,7 @@ export const Lobby = ({
         <FlexSpacer />
         <Button
           primary
-          onClick={() => showRules()}
+          onClick={showRules}
           style={{ margin: global.padding.md }}
         >
           SHOW RULES
@@ -234,12 +214,12 @@ export const Lobby = ({
   );
 };
 
-const mapStateToProps = ({ party, player }) => ({
+export const mapStateToLobbyProps = ({ party, player }) => ({
   party,
   player
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToLobbyProps = dispatch => ({
   kickPlayer(playerId) {
     dispatch(kickPlayer(playerId));
   },
@@ -257,4 +237,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Lobby);
+export default connect(mapStateToLobbyProps, mapDispatchToLobbyProps)(Lobby);
