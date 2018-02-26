@@ -1,0 +1,5267 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Game components GameInfos should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <GameInfos
+    party={
+      Object {
+        "name": "tata",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": "tata",
+    },
+    "ref": null,
+    "rendered": "tata",
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": "tata",
+      },
+      "ref": null,
+      "rendered": "tata",
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components LeftSide GameInfo should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <GameInfo />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <div
+          style={
+            Object {
+              "color": "#cd4436",
+              "fontFamily": "Audiowide",
+              "fontSize": "20px",
+            }
+          }
+        />,
+        <styled.div
+          noPadding={undefined}
+        />,
+      ],
+      "padding": "0 16px 16px",
+      "style": undefined,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+          "style": Object {
+            "color": "#cd4436",
+            "fontFamily": "Audiowide",
+            "fontSize": "20px",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": undefined,
+          "noPadding": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "color": "#cd4436",
+                "fontFamily": "Audiowide",
+                "fontSize": "20px",
+              }
+            }
+          />,
+          <styled.div
+            noPadding={undefined}
+          />,
+        ],
+        "padding": "0 16px 16px",
+        "style": undefined,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+            "style": Object {
+              "color": "#cd4436",
+              "fontFamily": "Audiowide",
+              "fontSize": "20px",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": undefined,
+            "noPadding": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components LeftSide GameInfo should render as expected with noPadding=false 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <GameInfo
+    noPadding={false}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <div
+          style={
+            Object {
+              "color": "#cd4436",
+              "fontFamily": "Audiowide",
+              "fontSize": "20px",
+            }
+          }
+        />,
+        <styled.div
+          noPadding={false}
+        />,
+      ],
+      "padding": "0 16px 16px",
+      "style": undefined,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+          "style": Object {
+            "color": "#cd4436",
+            "fontFamily": "Audiowide",
+            "fontSize": "20px",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": undefined,
+          "noPadding": false,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "color": "#cd4436",
+                "fontFamily": "Audiowide",
+                "fontSize": "20px",
+              }
+            }
+          />,
+          <styled.div
+            noPadding={false}
+          />,
+        ],
+        "padding": "0 16px 16px",
+        "style": undefined,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+            "style": Object {
+              "color": "#cd4436",
+              "fontFamily": "Audiowide",
+              "fontSize": "20px",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": undefined,
+            "noPadding": false,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components LeftSide GameInfo should render as expected with noPadding=true 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <GameInfo
+    noPadding={true}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <div
+          style={
+            Object {
+              "color": "#cd4436",
+              "fontFamily": "Audiowide",
+              "fontSize": "20px",
+            }
+          }
+        />,
+        <styled.div
+          noPadding={true}
+        />,
+      ],
+      "padding": "0 16px 16px",
+      "style": undefined,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+          "style": Object {
+            "color": "#cd4436",
+            "fontFamily": "Audiowide",
+            "fontSize": "20px",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": undefined,
+          "noPadding": true,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "color": "#cd4436",
+                "fontFamily": "Audiowide",
+                "fontSize": "20px",
+              }
+            }
+          />,
+          <styled.div
+            noPadding={true}
+          />,
+        ],
+        "padding": "0 16px 16px",
+        "style": undefined,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+            "style": Object {
+              "color": "#cd4436",
+              "fontFamily": "Audiowide",
+              "fontSize": "20px",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": undefined,
+            "noPadding": true,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components LeftSide GameInfoContainer should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <styled.div />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "className": "sc-kpOJdX hJGEEJ",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "className": "sc-kpOJdX hJGEEJ",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components LeftSide GameInfoContainer should render as expected with noPadding=false 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <styled.div
+    noPadding={false}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "className": "sc-kpOJdX hJGEEJ",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "className": "sc-kpOJdX hJGEEJ",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components LeftSide GameInfoContainer should render as expected with noPadding=true 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <styled.div
+    noPadding={true}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "className": "sc-kpOJdX iYpTae",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "className": "sc-kpOJdX iYpTae",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components LeftSide LeftSide should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <LeftSide
+    game={
+      Object {
+        "pieces": Object {
+          "hold": Object {
+            "grid": Array [
+              Array [
+                1,
+                1,
+              ],
+              Array [
+                1,
+                1,
+              ],
+            ],
+          },
+          "next": Array [
+            Object {
+              "grid": Array [
+                Array [
+                  1,
+                  1,
+                ],
+                Array [
+                  1,
+                  1,
+                ],
+              ],
+            },
+          ],
+        },
+        "score": 50000,
+      }
+    }
+    party={
+      Object {
+        "name": "testParty",
+      }
+    }
+    player={
+      Object {
+        "nickname": "toto",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.div>
+          testParty
+        </styled.div>,
+        <GameInfo
+          style={
+            Object {
+              "paddingBottom": 0,
+            }
+          }
+          title="PLAYER"
+        >
+          toto
+        </GameInfo>,
+        <GameInfo
+          style={
+            Object {
+              "paddingBottom": 0,
+            }
+          }
+          title="SCORE"
+        >
+          50000
+        </GameInfo>,
+        <GameInfo
+          flex={true}
+          noPadding={true}
+          style={
+            Object {
+              "paddingBottom": 0,
+            }
+          }
+          title="NEXT PIECE"
+        >
+          <styled.div
+            height="100%"
+          >
+            <styled.div />
+            <div
+              style={
+                Object {
+                  "display": "flex",
+                  "flexDirection": "column",
+                  "height": "100%",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              />
+              <Tetri
+                padding="12px"
+                tetri={
+                  Array [
+                    Array [
+                      1,
+                      1,
+                    ],
+                    Array [
+                      1,
+                      1,
+                    ],
+                  ]
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              />
+            </div>
+            <styled.div />
+          </styled.div>
+        </GameInfo>,
+        <GameInfo
+          flex={true}
+          noPadding={true}
+          title="HOLD"
+        >
+          <styled.div
+            height="100%"
+            style={
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Tetri
+              padding="12px"
+              tetri={
+                Array [
+                  Array [
+                    1,
+                    1,
+                  ],
+                  Array [
+                    1,
+                    1,
+                  ],
+                ]
+              }
+            />
+          </styled.div>
+        </GameInfo>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "testParty",
+        },
+        "ref": null,
+        "rendered": "testParty",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": "toto",
+          "style": Object {
+            "paddingBottom": 0,
+          },
+          "title": "PLAYER",
+        },
+        "ref": null,
+        "rendered": "toto",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": 50000,
+          "style": Object {
+            "paddingBottom": 0,
+          },
+          "title": "SCORE",
+        },
+        "ref": null,
+        "rendered": 50000,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": <styled.div
+            height="100%"
+          >
+            <styled.div />
+            <div
+              style={
+                Object {
+                  "display": "flex",
+                  "flexDirection": "column",
+                  "height": "100%",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              />
+              <Tetri
+                padding="12px"
+                tetri={
+                  Array [
+                    Array [
+                      1,
+                      1,
+                    ],
+                    Array [
+                      1,
+                      1,
+                    ],
+                  ]
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              />
+            </div>
+            <styled.div />
+          </styled.div>,
+          "flex": true,
+          "noPadding": true,
+          "style": Object {
+            "paddingBottom": 0,
+          },
+          "title": "NEXT PIECE",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled.div />,
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexDirection": "column",
+                    "height": "100%",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "flex": 1,
+                    }
+                  }
+                />
+                <Tetri
+                  padding="12px"
+                  tetri={
+                    Array [
+                      Array [
+                        1,
+                        1,
+                      ],
+                      Array [
+                        1,
+                        1,
+                      ],
+                    ]
+                  }
+                />
+                <div
+                  style={
+                    Object {
+                      "flex": 1,
+                    }
+                  }
+                />
+              </div>,
+              <styled.div />,
+            ],
+            "height": "100%",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <div
+                    style={
+                      Object {
+                        "flex": 1,
+                      }
+                    }
+                  />,
+                  <Tetri
+                    padding="12px"
+                    tetri={
+                      Array [
+                        Array [
+                          1,
+                          1,
+                        ],
+                        Array [
+                          1,
+                          1,
+                        ],
+                      ]
+                    }
+                  />,
+                  <div
+                    style={
+                      Object {
+                        "flex": 1,
+                      }
+                    }
+                  />,
+                ],
+                "style": Object {
+                  "display": "flex",
+                  "flexDirection": "column",
+                  "height": "100%",
+                },
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "style": Object {
+                      "flex": 1,
+                    },
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "padding": "12px",
+                    "tetri": Array [
+                      Array [
+                        1,
+                        1,
+                      ],
+                      Array [
+                        1,
+                        1,
+                      ],
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "style": Object {
+                      "flex": 1,
+                    },
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": <styled.div
+            height="100%"
+            style={
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Tetri
+              padding="12px"
+              tetri={
+                Array [
+                  Array [
+                    1,
+                    1,
+                  ],
+                  Array [
+                    1,
+                    1,
+                  ],
+                ]
+              }
+            />
+          </styled.div>,
+          "flex": true,
+          "noPadding": true,
+          "title": "HOLD",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <Tetri
+              padding="12px"
+              tetri={
+                Array [
+                  Array [
+                    1,
+                    1,
+                  ],
+                  Array [
+                    1,
+                    1,
+                  ],
+                ]
+              }
+            />,
+            "height": "100%",
+            "style": Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "padding": "12px",
+              "tetri": Array [
+                Array [
+                  1,
+                  1,
+                ],
+                Array [
+                  1,
+                  1,
+                ],
+              ],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div>
+            testParty
+          </styled.div>,
+          <GameInfo
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }
+            title="PLAYER"
+          >
+            toto
+          </GameInfo>,
+          <GameInfo
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }
+            title="SCORE"
+          >
+            50000
+          </GameInfo>,
+          <GameInfo
+            flex={true}
+            noPadding={true}
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }
+            title="NEXT PIECE"
+          >
+            <styled.div
+              height="100%"
+            >
+              <styled.div />
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexDirection": "column",
+                    "height": "100%",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "flex": 1,
+                    }
+                  }
+                />
+                <Tetri
+                  padding="12px"
+                  tetri={
+                    Array [
+                      Array [
+                        1,
+                        1,
+                      ],
+                      Array [
+                        1,
+                        1,
+                      ],
+                    ]
+                  }
+                />
+                <div
+                  style={
+                    Object {
+                      "flex": 1,
+                    }
+                  }
+                />
+              </div>
+              <styled.div />
+            </styled.div>
+          </GameInfo>,
+          <GameInfo
+            flex={true}
+            noPadding={true}
+            title="HOLD"
+          >
+            <styled.div
+              height="100%"
+              style={
+                Object {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Tetri
+                padding="12px"
+                tetri={
+                  Array [
+                    Array [
+                      1,
+                      1,
+                    ],
+                    Array [
+                      1,
+                      1,
+                    ],
+                  ]
+                }
+              />
+            </styled.div>
+          </GameInfo>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "testParty",
+          },
+          "ref": null,
+          "rendered": "testParty",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "toto",
+            "style": Object {
+              "paddingBottom": 0,
+            },
+            "title": "PLAYER",
+          },
+          "ref": null,
+          "rendered": "toto",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": 50000,
+            "style": Object {
+              "paddingBottom": 0,
+            },
+            "title": "SCORE",
+          },
+          "ref": null,
+          "rendered": 50000,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <styled.div
+              height="100%"
+            >
+              <styled.div />
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexDirection": "column",
+                    "height": "100%",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "flex": 1,
+                    }
+                  }
+                />
+                <Tetri
+                  padding="12px"
+                  tetri={
+                    Array [
+                      Array [
+                        1,
+                        1,
+                      ],
+                      Array [
+                        1,
+                        1,
+                      ],
+                    ]
+                  }
+                />
+                <div
+                  style={
+                    Object {
+                      "flex": 1,
+                    }
+                  }
+                />
+              </div>
+              <styled.div />
+            </styled.div>,
+            "flex": true,
+            "noPadding": true,
+            "style": Object {
+              "paddingBottom": 0,
+            },
+            "title": "NEXT PIECE",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <styled.div />,
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                      "flexDirection": "column",
+                      "height": "100%",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "flex": 1,
+                      }
+                    }
+                  />
+                  <Tetri
+                    padding="12px"
+                    tetri={
+                      Array [
+                        Array [
+                          1,
+                          1,
+                        ],
+                        Array [
+                          1,
+                          1,
+                        ],
+                      ]
+                    }
+                  />
+                  <div
+                    style={
+                      Object {
+                        "flex": 1,
+                      }
+                    }
+                  />
+                </div>,
+                <styled.div />,
+              ],
+              "height": "100%",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div
+                      style={
+                        Object {
+                          "flex": 1,
+                        }
+                      }
+                    />,
+                    <Tetri
+                      padding="12px"
+                      tetri={
+                        Array [
+                          Array [
+                            1,
+                            1,
+                          ],
+                          Array [
+                            1,
+                            1,
+                          ],
+                        ]
+                      }
+                    />,
+                    <div
+                      style={
+                        Object {
+                          "flex": 1,
+                        }
+                      }
+                    />,
+                  ],
+                  "style": Object {
+                    "display": "flex",
+                    "flexDirection": "column",
+                    "height": "100%",
+                  },
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "style": Object {
+                        "flex": 1,
+                      },
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "padding": "12px",
+                      "tetri": Array [
+                        Array [
+                          1,
+                          1,
+                        ],
+                        Array [
+                          1,
+                          1,
+                        ],
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "style": Object {
+                        "flex": 1,
+                      },
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <styled.div
+              height="100%"
+              style={
+                Object {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Tetri
+                padding="12px"
+                tetri={
+                  Array [
+                    Array [
+                      1,
+                      1,
+                    ],
+                    Array [
+                      1,
+                      1,
+                    ],
+                  ]
+                }
+              />
+            </styled.div>,
+            "flex": true,
+            "noPadding": true,
+            "title": "HOLD",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <Tetri
+                padding="12px"
+                tetri={
+                  Array [
+                    Array [
+                      1,
+                      1,
+                    ],
+                    Array [
+                      1,
+                      1,
+                    ],
+                  ]
+                }
+              />,
+              "height": "100%",
+              "style": Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "padding": "12px",
+                "tetri": Array [
+                  Array [
+                    1,
+                    1,
+                  ],
+                  Array [
+                    1,
+                    1,
+                  ],
+                ],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components LeftSide LeftSideContainer should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <styled.div />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "className": "sc-kGXeez gJlsDZ",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "className": "sc-kGXeez gJlsDZ",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components LeftSide LeftSideTop should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <styled.div />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "className": "sc-kgoBCf cnlCXB",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "className": "sc-kgoBCf cnlCXB",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components Map Line should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Line
+    line={
+      Array [
+        0,
+        1,
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.div />,
+        <styled.div />,
+      ],
+      "flex": true,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div />,
+          <styled.div />,
+        ],
+        "flex": true,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components Map LinesContainer should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <styled.div />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "className": "sc-jKJlTe fodUMM",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "className": "sc-jKJlTe fodUMM",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components Map Map should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Map
+    map={
+      Array [
+        Array [
+          0,
+          0,
+          1,
+          1,
+        ],
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <Line
+          line={
+            Array [
+              0,
+              0,
+              1,
+              1,
+            ]
+          }
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "function",
+        "props": Object {
+          "line": Array [
+            0,
+            0,
+            1,
+            1,
+          ],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <Line
+            line={
+              Array [
+                0,
+                0,
+                1,
+                1,
+              ]
+            }
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "function",
+          "props": Object {
+            "line": Array [
+              0,
+              0,
+              1,
+              1,
+            ],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components Map MapItem should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <styled.div />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "className": "sc-ckVGcZ cQsTgX",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "className": "sc-ckVGcZ cQsTgX",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components Map MapVoid should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <styled.div />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "className": "sc-dxgOiQ kMsLUK",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "className": "sc-dxgOiQ kMsLUK",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components PlayerState PlayerName should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <styled.div />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "className": "sc-hMqMXs iMClhw",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "className": "sc-hMqMXs iMClhw",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components PlayerState PlayerState should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PlayerState
+    player={
+      Object {
+        "map": Array [
+          Array [
+            0,
+            1,
+          ],
+        ],
+        "nickname": "tata",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.div>
+           
+          tata
+           
+        </styled.div>,
+        <Map
+          map={
+            Array [
+              Array [
+                0,
+                1,
+              ],
+            ]
+          }
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            " ",
+            "tata",
+            " ",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          " ",
+          "tata",
+          " ",
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "map": Array [
+            Array [
+              0,
+              1,
+            ],
+          ],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div>
+             
+            tata
+             
+          </styled.div>,
+          <Map
+            map={
+              Array [
+                Array [
+                  0,
+                  1,
+                ],
+              ]
+            }
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              " ",
+              "tata",
+              " ",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            " ",
+            "tata",
+            " ",
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "map": Array [
+              Array [
+                0,
+                1,
+              ],
+            ],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components PlayerState PlayerStateContainer should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <styled.div />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "className": "sc-eNQAEJ jwjCZi",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "className": "sc-eNQAEJ jwjCZi",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components RightSide NoPlayers should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <NoPlayers />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.div
+          center={true}
+          gameFont={true}
+          padding="16px"
+        >
+          THERE ARE NO OTHER PLAYERS
+        </styled.div>,
+        <styled.div
+          center={true}
+          gameFont={true}
+          padding="16px"
+        >
+          PLAY WITH YOUR FRIENDS!
+        </styled.div>,
+      ],
+      "style": Object {
+        "color": "#cd4436",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "center": true,
+          "children": "THERE ARE NO OTHER PLAYERS",
+          "gameFont": true,
+          "padding": "16px",
+        },
+        "ref": null,
+        "rendered": "THERE ARE NO OTHER PLAYERS",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "center": true,
+          "children": "PLAY WITH YOUR FRIENDS!",
+          "gameFont": true,
+          "padding": "16px",
+        },
+        "ref": null,
+        "rendered": "PLAY WITH YOUR FRIENDS!",
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div
+            center={true}
+            gameFont={true}
+            padding="16px"
+          >
+            THERE ARE NO OTHER PLAYERS
+          </styled.div>,
+          <styled.div
+            center={true}
+            gameFont={true}
+            padding="16px"
+          >
+            PLAY WITH YOUR FRIENDS!
+          </styled.div>,
+        ],
+        "style": Object {
+          "color": "#cd4436",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "center": true,
+            "children": "THERE ARE NO OTHER PLAYERS",
+            "gameFont": true,
+            "padding": "16px",
+          },
+          "ref": null,
+          "rendered": "THERE ARE NO OTHER PLAYERS",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "center": true,
+            "children": "PLAY WITH YOUR FRIENDS!",
+            "gameFont": true,
+            "padding": "16px",
+          },
+          "ref": null,
+          "rendered": "PLAY WITH YOUR FRIENDS!",
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components RightSide PlayerStates should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PlayerStates
+    players={
+      Array [
+        Object {
+          "nickname": "toto",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled.div
+          flex={true}
+          padding="10px"
+        >
+          <styled.div />
+          <PlayerState
+            player={
+              Object {
+                "nickname": "toto",
+              }
+            }
+          />
+          <styled.div />
+        </styled.div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled.div />,
+            <PlayerState
+              player={
+                Object {
+                  "nickname": "toto",
+                }
+              }
+            />,
+            <styled.div />,
+          ],
+          "flex": true,
+          "padding": "10px",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "player": Object {
+                "nickname": "toto",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div
+            flex={true}
+            padding="10px"
+          >
+            <styled.div />
+            <PlayerState
+              player={
+                Object {
+                  "nickname": "toto",
+                }
+              }
+            />
+            <styled.div />
+          </styled.div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled.div />,
+              <PlayerState
+                player={
+                  Object {
+                    "nickname": "toto",
+                  }
+                }
+              />,
+              <styled.div />,
+            ],
+            "flex": true,
+            "padding": "10px",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "player": Object {
+                  "nickname": "toto",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components RightSide PlayerStatesContainer should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <styled.div />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "className": "sc-brqgnP bmGUJg",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "className": "sc-brqgnP bmGUJg",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components RightSide RightSide should render as expected with players 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <RightSide
+    players={
+      Array [
+        Object {
+          "nickname": "toto",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": <div
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "height": "100%",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "flex": 1,
+              "maxHeight": "210px",
+              "minHeight": "210px",
+              "overflowY": "scroll",
+            }
+          }
+        >
+          <styled.div>
+            PLAYERS
+          </styled.div>
+          <PlayerStates
+            players={
+              Array [
+                Object {
+                  "nickname": "toto",
+                },
+              ]
+            }
+          />
+        </div>
+        <Connect(Chat) />
+      </div>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "flex": 1,
+                "maxHeight": "210px",
+                "minHeight": "210px",
+                "overflowY": "scroll",
+              }
+            }
+          >
+            <styled.div>
+              PLAYERS
+            </styled.div>
+            <PlayerStates
+              players={
+                Array [
+                  Object {
+                    "nickname": "toto",
+                  },
+                ]
+              }
+            />
+          </div>,
+          <Connect(Chat) />,
+        ],
+        "style": Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "height": "100%",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <styled.div>
+                PLAYERS
+              </styled.div>,
+              <PlayerStates
+                players={
+                  Array [
+                    Object {
+                      "nickname": "toto",
+                    },
+                  ]
+                }
+              />,
+            ],
+            "style": Object {
+              "flex": 1,
+              "maxHeight": "210px",
+              "minHeight": "210px",
+              "overflowY": "scroll",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "PLAYERS",
+              },
+              "ref": null,
+              "rendered": "PLAYERS",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "players": Array [
+                  Object {
+                    "nickname": "toto",
+                  },
+                ],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "column",
+              "height": "100%",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "flex": 1,
+                "maxHeight": "210px",
+                "minHeight": "210px",
+                "overflowY": "scroll",
+              }
+            }
+          >
+            <styled.div>
+              PLAYERS
+            </styled.div>
+            <PlayerStates
+              players={
+                Array [
+                  Object {
+                    "nickname": "toto",
+                  },
+                ]
+              }
+            />
+          </div>
+          <Connect(Chat) />
+        </div>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              style={
+                Object {
+                  "flex": 1,
+                  "maxHeight": "210px",
+                  "minHeight": "210px",
+                  "overflowY": "scroll",
+                }
+              }
+            >
+              <styled.div>
+                PLAYERS
+              </styled.div>
+              <PlayerStates
+                players={
+                  Array [
+                    Object {
+                      "nickname": "toto",
+                    },
+                  ]
+                }
+              />
+            </div>,
+            <Connect(Chat) />,
+          ],
+          "style": Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "height": "100%",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <styled.div>
+                  PLAYERS
+                </styled.div>,
+                <PlayerStates
+                  players={
+                    Array [
+                      Object {
+                        "nickname": "toto",
+                      },
+                    ]
+                  }
+                />,
+              ],
+              "style": Object {
+                "flex": 1,
+                "maxHeight": "210px",
+                "minHeight": "210px",
+                "overflowY": "scroll",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "PLAYERS",
+                },
+                "ref": null,
+                "rendered": "PLAYERS",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "players": Array [
+                    Object {
+                      "nickname": "toto",
+                    },
+                  ],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components RightSide RightSide should render as expected without players 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <RightSide
+    players={Array []}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": <NoPlayers />,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {},
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <NoPlayers />,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components RightSide RightSideContainer should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <styled.div />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "className": "sc-jAaTju iGnQdn",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "className": "sc-jAaTju iGnQdn",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components RightSide RightSideTop should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <styled.div />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "className": "sc-cMljjf fABiod",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "className": "sc-cMljjf fABiod",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components Square BedRock should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <BedRock />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          style={
+            Object {
+              "backgroundColor": "rgba(255, 250, 205, 0.05)",
+              "height": "4vh",
+              "position": "absolute",
+              "width": "4vh",
+              "zIndex": "0",
+            }
+          }
+        />,
+        <div
+          style={
+            Object {
+              "border": "1px solid rgba(0, 0, 0, 0.2)",
+              "borderBottom": "1px solid rgba(0, 0, 0, 0.2)",
+              "borderRight": "1px solid rgba(0, 0, 0, 0.2)",
+              "height": "100%",
+              "margin": "0px",
+              "width": "100%",
+            }
+          }
+        />,
+      ],
+      "style": Object {
+        "background": "transparent",
+        "border": "none",
+        "display": "inline-flex",
+        "height": "4vh",
+        "width": "4vh",
+        "zIndex": "0",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "style": Object {
+            "backgroundColor": "rgba(255, 250, 205, 0.05)",
+            "height": "4vh",
+            "position": "absolute",
+            "width": "4vh",
+            "zIndex": "0",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "style": Object {
+            "border": "1px solid rgba(0, 0, 0, 0.2)",
+            "borderBottom": "1px solid rgba(0, 0, 0, 0.2)",
+            "borderRight": "1px solid rgba(0, 0, 0, 0.2)",
+            "height": "100%",
+            "margin": "0px",
+            "width": "100%",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "backgroundColor": "rgba(255, 250, 205, 0.05)",
+                "height": "4vh",
+                "position": "absolute",
+                "width": "4vh",
+                "zIndex": "0",
+              }
+            }
+          />,
+          <div
+            style={
+              Object {
+                "border": "1px solid rgba(0, 0, 0, 0.2)",
+                "borderBottom": "1px solid rgba(0, 0, 0, 0.2)",
+                "borderRight": "1px solid rgba(0, 0, 0, 0.2)",
+                "height": "100%",
+                "margin": "0px",
+                "width": "100%",
+              }
+            }
+          />,
+        ],
+        "style": Object {
+          "background": "transparent",
+          "border": "none",
+          "display": "inline-flex",
+          "height": "4vh",
+          "width": "4vh",
+          "zIndex": "0",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "style": Object {
+              "backgroundColor": "rgba(255, 250, 205, 0.05)",
+              "height": "4vh",
+              "position": "absolute",
+              "width": "4vh",
+              "zIndex": "0",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "style": Object {
+              "border": "1px solid rgba(0, 0, 0, 0.2)",
+              "borderBottom": "1px solid rgba(0, 0, 0, 0.2)",
+              "borderRight": "1px solid rgba(0, 0, 0, 0.2)",
+              "height": "100%",
+              "margin": "0px",
+              "width": "100%",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components Square Bomb should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Bomb />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        style={
+          Object {
+            "animation": "jJTOlu 0.2s infinite",
+            "animationDirection": "alternate",
+            "display": "flex",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "background": "radial-gradient(circle at 1vh 1vh, blue, black)",
+              "border": "2px solid black",
+              "borderRadius": "50%",
+              "display": "inline-flex",
+              "height": "4vh",
+              "width": "4vh",
+              "zIndex": "2",
+            }
+          }
+        />
+        <div
+          style={
+            Object {
+              "borderRadius": "50%",
+              "borderRight": "4px solid white",
+              "height": "2.5vh",
+              "marginLeft": "1.6vh",
+              "marginTop": "-1.1vh",
+              "position": "absolute",
+              "transform": "rotate(35deg)",
+              "width": "2vh",
+              "zIndex": "1.5",
+            }
+          }
+        />
+        <div
+          style={
+            Object {
+              "animation": "hkljAl 0.1s infinite",
+              "animationDirection": "alternate",
+              "background": "radial-gradient(circle at 0.5vh 0.5vh, yellow, blue)",
+              "borderRadius": "50%",
+              "height": "1.4vh",
+              "marginLeft": "0.7vh",
+              "marginTop": "0.6vh",
+              "position": "absolute",
+              "transform": "rotate(40deg)",
+              "width": "1vh",
+              "zIndex": "2",
+            }
+          }
+        />
+        <div
+          style={
+            Object {
+              "animation": "cKiklN 0.1s infinite",
+              "animationDirection": "alternate",
+              "position": "absolute",
+              "transform": "rotate(-10deg)",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "borderBottomLeftRadius": "50%",
+                "borderBottomRightRadius": "50%",
+                "borderColor": "transparent transparent red transparent",
+                "borderStyle": "solid",
+                "borderWidth": "0 0.7vh 1.8vh 0.7vh",
+                "height": "2vh",
+                "marginLeft": "2.8vh",
+                "marginTop": "-2.1vh",
+                "position": "absolute",
+                "width": "1vh",
+                "zIndex": "2",
+              }
+            }
+          />
+          <div
+            style={
+              Object {
+                "borderBottomLeftRadius": "50%",
+                "borderBottomRightRadius": "50%",
+                "borderColor": "transparent transparent orange transparent",
+                "borderStyle": "solid",
+                "borderWidth": "0 0.5vh 1.4vh 0.5vh",
+                "height": "1.8vh",
+                "marginLeft": "3vh",
+                "marginTop": "-1.95vh",
+                "position": "absolute",
+                "width": "1vh",
+                "zIndex": "3",
+              }
+            }
+          />
+          <div
+            style={
+              Object {
+                "borderBottomLeftRadius": "50%",
+                "borderBottomRightRadius": "50%",
+                "borderColor": "transparent transparent yellow transparent",
+                "borderStyle": "solid",
+                "borderWidth": "0 0.3vh 0.7vh 0.3vh",
+                "height": "1vh",
+                "marginLeft": "3.15vh",
+                "marginTop": "-1.2vh",
+                "position": "absolute",
+                "width": "0.7vh",
+                "zIndex": "4",
+              }
+            }
+          />
+        </div>
+      </div>,
+      "style": Object {
+        "height": "4vh",
+        "width": "4vh",
+        "zIndex": "2",
+      },
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "background": "radial-gradient(circle at 1vh 1vh, blue, black)",
+                "border": "2px solid black",
+                "borderRadius": "50%",
+                "display": "inline-flex",
+                "height": "4vh",
+                "width": "4vh",
+                "zIndex": "2",
+              }
+            }
+          />,
+          <div
+            style={
+              Object {
+                "borderRadius": "50%",
+                "borderRight": "4px solid white",
+                "height": "2.5vh",
+                "marginLeft": "1.6vh",
+                "marginTop": "-1.1vh",
+                "position": "absolute",
+                "transform": "rotate(35deg)",
+                "width": "2vh",
+                "zIndex": "1.5",
+              }
+            }
+          />,
+          <div
+            style={
+              Object {
+                "animation": "hkljAl 0.1s infinite",
+                "animationDirection": "alternate",
+                "background": "radial-gradient(circle at 0.5vh 0.5vh, yellow, blue)",
+                "borderRadius": "50%",
+                "height": "1.4vh",
+                "marginLeft": "0.7vh",
+                "marginTop": "0.6vh",
+                "position": "absolute",
+                "transform": "rotate(40deg)",
+                "width": "1vh",
+                "zIndex": "2",
+              }
+            }
+          />,
+          <div
+            style={
+              Object {
+                "animation": "cKiklN 0.1s infinite",
+                "animationDirection": "alternate",
+                "position": "absolute",
+                "transform": "rotate(-10deg)",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "borderBottomLeftRadius": "50%",
+                  "borderBottomRightRadius": "50%",
+                  "borderColor": "transparent transparent red transparent",
+                  "borderStyle": "solid",
+                  "borderWidth": "0 0.7vh 1.8vh 0.7vh",
+                  "height": "2vh",
+                  "marginLeft": "2.8vh",
+                  "marginTop": "-2.1vh",
+                  "position": "absolute",
+                  "width": "1vh",
+                  "zIndex": "2",
+                }
+              }
+            />
+            <div
+              style={
+                Object {
+                  "borderBottomLeftRadius": "50%",
+                  "borderBottomRightRadius": "50%",
+                  "borderColor": "transparent transparent orange transparent",
+                  "borderStyle": "solid",
+                  "borderWidth": "0 0.5vh 1.4vh 0.5vh",
+                  "height": "1.8vh",
+                  "marginLeft": "3vh",
+                  "marginTop": "-1.95vh",
+                  "position": "absolute",
+                  "width": "1vh",
+                  "zIndex": "3",
+                }
+              }
+            />
+            <div
+              style={
+                Object {
+                  "borderBottomLeftRadius": "50%",
+                  "borderBottomRightRadius": "50%",
+                  "borderColor": "transparent transparent yellow transparent",
+                  "borderStyle": "solid",
+                  "borderWidth": "0 0.3vh 0.7vh 0.3vh",
+                  "height": "1vh",
+                  "marginLeft": "3.15vh",
+                  "marginTop": "-1.2vh",
+                  "position": "absolute",
+                  "width": "0.7vh",
+                  "zIndex": "4",
+                }
+              }
+            />
+          </div>,
+        ],
+        "style": Object {
+          "animation": "jJTOlu 0.2s infinite",
+          "animationDirection": "alternate",
+          "display": "flex",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "style": Object {
+              "background": "radial-gradient(circle at 1vh 1vh, blue, black)",
+              "border": "2px solid black",
+              "borderRadius": "50%",
+              "display": "inline-flex",
+              "height": "4vh",
+              "width": "4vh",
+              "zIndex": "2",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "style": Object {
+              "borderRadius": "50%",
+              "borderRight": "4px solid white",
+              "height": "2.5vh",
+              "marginLeft": "1.6vh",
+              "marginTop": "-1.1vh",
+              "position": "absolute",
+              "transform": "rotate(35deg)",
+              "width": "2vh",
+              "zIndex": "1.5",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "style": Object {
+              "animation": "hkljAl 0.1s infinite",
+              "animationDirection": "alternate",
+              "background": "radial-gradient(circle at 0.5vh 0.5vh, yellow, blue)",
+              "borderRadius": "50%",
+              "height": "1.4vh",
+              "marginLeft": "0.7vh",
+              "marginTop": "0.6vh",
+              "position": "absolute",
+              "transform": "rotate(40deg)",
+              "width": "1vh",
+              "zIndex": "2",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                style={
+                  Object {
+                    "borderBottomLeftRadius": "50%",
+                    "borderBottomRightRadius": "50%",
+                    "borderColor": "transparent transparent red transparent",
+                    "borderStyle": "solid",
+                    "borderWidth": "0 0.7vh 1.8vh 0.7vh",
+                    "height": "2vh",
+                    "marginLeft": "2.8vh",
+                    "marginTop": "-2.1vh",
+                    "position": "absolute",
+                    "width": "1vh",
+                    "zIndex": "2",
+                  }
+                }
+              />,
+              <div
+                style={
+                  Object {
+                    "borderBottomLeftRadius": "50%",
+                    "borderBottomRightRadius": "50%",
+                    "borderColor": "transparent transparent orange transparent",
+                    "borderStyle": "solid",
+                    "borderWidth": "0 0.5vh 1.4vh 0.5vh",
+                    "height": "1.8vh",
+                    "marginLeft": "3vh",
+                    "marginTop": "-1.95vh",
+                    "position": "absolute",
+                    "width": "1vh",
+                    "zIndex": "3",
+                  }
+                }
+              />,
+              <div
+                style={
+                  Object {
+                    "borderBottomLeftRadius": "50%",
+                    "borderBottomRightRadius": "50%",
+                    "borderColor": "transparent transparent yellow transparent",
+                    "borderStyle": "solid",
+                    "borderWidth": "0 0.3vh 0.7vh 0.3vh",
+                    "height": "1vh",
+                    "marginLeft": "3.15vh",
+                    "marginTop": "-1.2vh",
+                    "position": "absolute",
+                    "width": "0.7vh",
+                    "zIndex": "4",
+                  }
+                }
+              />,
+            ],
+            "style": Object {
+              "animation": "cKiklN 0.1s infinite",
+              "animationDirection": "alternate",
+              "position": "absolute",
+              "transform": "rotate(-10deg)",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "style": Object {
+                  "borderBottomLeftRadius": "50%",
+                  "borderBottomRightRadius": "50%",
+                  "borderColor": "transparent transparent red transparent",
+                  "borderStyle": "solid",
+                  "borderWidth": "0 0.7vh 1.8vh 0.7vh",
+                  "height": "2vh",
+                  "marginLeft": "2.8vh",
+                  "marginTop": "-2.1vh",
+                  "position": "absolute",
+                  "width": "1vh",
+                  "zIndex": "2",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "style": Object {
+                  "borderBottomLeftRadius": "50%",
+                  "borderBottomRightRadius": "50%",
+                  "borderColor": "transparent transparent orange transparent",
+                  "borderStyle": "solid",
+                  "borderWidth": "0 0.5vh 1.4vh 0.5vh",
+                  "height": "1.8vh",
+                  "marginLeft": "3vh",
+                  "marginTop": "-1.95vh",
+                  "position": "absolute",
+                  "width": "1vh",
+                  "zIndex": "3",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "style": Object {
+                  "borderBottomLeftRadius": "50%",
+                  "borderBottomRightRadius": "50%",
+                  "borderColor": "transparent transparent yellow transparent",
+                  "borderStyle": "solid",
+                  "borderWidth": "0 0.3vh 0.7vh 0.3vh",
+                  "height": "1vh",
+                  "marginLeft": "3.15vh",
+                  "marginTop": "-1.2vh",
+                  "position": "absolute",
+                  "width": "0.7vh",
+                  "zIndex": "4",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          style={
+            Object {
+              "animation": "jJTOlu 0.2s infinite",
+              "animationDirection": "alternate",
+              "display": "flex",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "background": "radial-gradient(circle at 1vh 1vh, blue, black)",
+                "border": "2px solid black",
+                "borderRadius": "50%",
+                "display": "inline-flex",
+                "height": "4vh",
+                "width": "4vh",
+                "zIndex": "2",
+              }
+            }
+          />
+          <div
+            style={
+              Object {
+                "borderRadius": "50%",
+                "borderRight": "4px solid white",
+                "height": "2.5vh",
+                "marginLeft": "1.6vh",
+                "marginTop": "-1.1vh",
+                "position": "absolute",
+                "transform": "rotate(35deg)",
+                "width": "2vh",
+                "zIndex": "1.5",
+              }
+            }
+          />
+          <div
+            style={
+              Object {
+                "animation": "hkljAl 0.1s infinite",
+                "animationDirection": "alternate",
+                "background": "radial-gradient(circle at 0.5vh 0.5vh, yellow, blue)",
+                "borderRadius": "50%",
+                "height": "1.4vh",
+                "marginLeft": "0.7vh",
+                "marginTop": "0.6vh",
+                "position": "absolute",
+                "transform": "rotate(40deg)",
+                "width": "1vh",
+                "zIndex": "2",
+              }
+            }
+          />
+          <div
+            style={
+              Object {
+                "animation": "cKiklN 0.1s infinite",
+                "animationDirection": "alternate",
+                "position": "absolute",
+                "transform": "rotate(-10deg)",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "borderBottomLeftRadius": "50%",
+                  "borderBottomRightRadius": "50%",
+                  "borderColor": "transparent transparent red transparent",
+                  "borderStyle": "solid",
+                  "borderWidth": "0 0.7vh 1.8vh 0.7vh",
+                  "height": "2vh",
+                  "marginLeft": "2.8vh",
+                  "marginTop": "-2.1vh",
+                  "position": "absolute",
+                  "width": "1vh",
+                  "zIndex": "2",
+                }
+              }
+            />
+            <div
+              style={
+                Object {
+                  "borderBottomLeftRadius": "50%",
+                  "borderBottomRightRadius": "50%",
+                  "borderColor": "transparent transparent orange transparent",
+                  "borderStyle": "solid",
+                  "borderWidth": "0 0.5vh 1.4vh 0.5vh",
+                  "height": "1.8vh",
+                  "marginLeft": "3vh",
+                  "marginTop": "-1.95vh",
+                  "position": "absolute",
+                  "width": "1vh",
+                  "zIndex": "3",
+                }
+              }
+            />
+            <div
+              style={
+                Object {
+                  "borderBottomLeftRadius": "50%",
+                  "borderBottomRightRadius": "50%",
+                  "borderColor": "transparent transparent yellow transparent",
+                  "borderStyle": "solid",
+                  "borderWidth": "0 0.3vh 0.7vh 0.3vh",
+                  "height": "1vh",
+                  "marginLeft": "3.15vh",
+                  "marginTop": "-1.2vh",
+                  "position": "absolute",
+                  "width": "0.7vh",
+                  "zIndex": "4",
+                }
+              }
+            />
+          </div>
+        </div>,
+        "style": Object {
+          "height": "4vh",
+          "width": "4vh",
+          "zIndex": "2",
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              style={
+                Object {
+                  "background": "radial-gradient(circle at 1vh 1vh, blue, black)",
+                  "border": "2px solid black",
+                  "borderRadius": "50%",
+                  "display": "inline-flex",
+                  "height": "4vh",
+                  "width": "4vh",
+                  "zIndex": "2",
+                }
+              }
+            />,
+            <div
+              style={
+                Object {
+                  "borderRadius": "50%",
+                  "borderRight": "4px solid white",
+                  "height": "2.5vh",
+                  "marginLeft": "1.6vh",
+                  "marginTop": "-1.1vh",
+                  "position": "absolute",
+                  "transform": "rotate(35deg)",
+                  "width": "2vh",
+                  "zIndex": "1.5",
+                }
+              }
+            />,
+            <div
+              style={
+                Object {
+                  "animation": "hkljAl 0.1s infinite",
+                  "animationDirection": "alternate",
+                  "background": "radial-gradient(circle at 0.5vh 0.5vh, yellow, blue)",
+                  "borderRadius": "50%",
+                  "height": "1.4vh",
+                  "marginLeft": "0.7vh",
+                  "marginTop": "0.6vh",
+                  "position": "absolute",
+                  "transform": "rotate(40deg)",
+                  "width": "1vh",
+                  "zIndex": "2",
+                }
+              }
+            />,
+            <div
+              style={
+                Object {
+                  "animation": "cKiklN 0.1s infinite",
+                  "animationDirection": "alternate",
+                  "position": "absolute",
+                  "transform": "rotate(-10deg)",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "borderBottomLeftRadius": "50%",
+                    "borderBottomRightRadius": "50%",
+                    "borderColor": "transparent transparent red transparent",
+                    "borderStyle": "solid",
+                    "borderWidth": "0 0.7vh 1.8vh 0.7vh",
+                    "height": "2vh",
+                    "marginLeft": "2.8vh",
+                    "marginTop": "-2.1vh",
+                    "position": "absolute",
+                    "width": "1vh",
+                    "zIndex": "2",
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "borderBottomLeftRadius": "50%",
+                    "borderBottomRightRadius": "50%",
+                    "borderColor": "transparent transparent orange transparent",
+                    "borderStyle": "solid",
+                    "borderWidth": "0 0.5vh 1.4vh 0.5vh",
+                    "height": "1.8vh",
+                    "marginLeft": "3vh",
+                    "marginTop": "-1.95vh",
+                    "position": "absolute",
+                    "width": "1vh",
+                    "zIndex": "3",
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "borderBottomLeftRadius": "50%",
+                    "borderBottomRightRadius": "50%",
+                    "borderColor": "transparent transparent yellow transparent",
+                    "borderStyle": "solid",
+                    "borderWidth": "0 0.3vh 0.7vh 0.3vh",
+                    "height": "1vh",
+                    "marginLeft": "3.15vh",
+                    "marginTop": "-1.2vh",
+                    "position": "absolute",
+                    "width": "0.7vh",
+                    "zIndex": "4",
+                  }
+                }
+              />
+            </div>,
+          ],
+          "style": Object {
+            "animation": "jJTOlu 0.2s infinite",
+            "animationDirection": "alternate",
+            "display": "flex",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "style": Object {
+                "background": "radial-gradient(circle at 1vh 1vh, blue, black)",
+                "border": "2px solid black",
+                "borderRadius": "50%",
+                "display": "inline-flex",
+                "height": "4vh",
+                "width": "4vh",
+                "zIndex": "2",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "style": Object {
+                "borderRadius": "50%",
+                "borderRight": "4px solid white",
+                "height": "2.5vh",
+                "marginLeft": "1.6vh",
+                "marginTop": "-1.1vh",
+                "position": "absolute",
+                "transform": "rotate(35deg)",
+                "width": "2vh",
+                "zIndex": "1.5",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "style": Object {
+                "animation": "hkljAl 0.1s infinite",
+                "animationDirection": "alternate",
+                "background": "radial-gradient(circle at 0.5vh 0.5vh, yellow, blue)",
+                "borderRadius": "50%",
+                "height": "1.4vh",
+                "marginLeft": "0.7vh",
+                "marginTop": "0.6vh",
+                "position": "absolute",
+                "transform": "rotate(40deg)",
+                "width": "1vh",
+                "zIndex": "2",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  style={
+                    Object {
+                      "borderBottomLeftRadius": "50%",
+                      "borderBottomRightRadius": "50%",
+                      "borderColor": "transparent transparent red transparent",
+                      "borderStyle": "solid",
+                      "borderWidth": "0 0.7vh 1.8vh 0.7vh",
+                      "height": "2vh",
+                      "marginLeft": "2.8vh",
+                      "marginTop": "-2.1vh",
+                      "position": "absolute",
+                      "width": "1vh",
+                      "zIndex": "2",
+                    }
+                  }
+                />,
+                <div
+                  style={
+                    Object {
+                      "borderBottomLeftRadius": "50%",
+                      "borderBottomRightRadius": "50%",
+                      "borderColor": "transparent transparent orange transparent",
+                      "borderStyle": "solid",
+                      "borderWidth": "0 0.5vh 1.4vh 0.5vh",
+                      "height": "1.8vh",
+                      "marginLeft": "3vh",
+                      "marginTop": "-1.95vh",
+                      "position": "absolute",
+                      "width": "1vh",
+                      "zIndex": "3",
+                    }
+                  }
+                />,
+                <div
+                  style={
+                    Object {
+                      "borderBottomLeftRadius": "50%",
+                      "borderBottomRightRadius": "50%",
+                      "borderColor": "transparent transparent yellow transparent",
+                      "borderStyle": "solid",
+                      "borderWidth": "0 0.3vh 0.7vh 0.3vh",
+                      "height": "1vh",
+                      "marginLeft": "3.15vh",
+                      "marginTop": "-1.2vh",
+                      "position": "absolute",
+                      "width": "0.7vh",
+                      "zIndex": "4",
+                    }
+                  }
+                />,
+              ],
+              "style": Object {
+                "animation": "cKiklN 0.1s infinite",
+                "animationDirection": "alternate",
+                "position": "absolute",
+                "transform": "rotate(-10deg)",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "style": Object {
+                    "borderBottomLeftRadius": "50%",
+                    "borderBottomRightRadius": "50%",
+                    "borderColor": "transparent transparent red transparent",
+                    "borderStyle": "solid",
+                    "borderWidth": "0 0.7vh 1.8vh 0.7vh",
+                    "height": "2vh",
+                    "marginLeft": "2.8vh",
+                    "marginTop": "-2.1vh",
+                    "position": "absolute",
+                    "width": "1vh",
+                    "zIndex": "2",
+                  },
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "style": Object {
+                    "borderBottomLeftRadius": "50%",
+                    "borderBottomRightRadius": "50%",
+                    "borderColor": "transparent transparent orange transparent",
+                    "borderStyle": "solid",
+                    "borderWidth": "0 0.5vh 1.4vh 0.5vh",
+                    "height": "1.8vh",
+                    "marginLeft": "3vh",
+                    "marginTop": "-1.95vh",
+                    "position": "absolute",
+                    "width": "1vh",
+                    "zIndex": "3",
+                  },
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "style": Object {
+                    "borderBottomLeftRadius": "50%",
+                    "borderBottomRightRadius": "50%",
+                    "borderColor": "transparent transparent yellow transparent",
+                    "borderStyle": "solid",
+                    "borderWidth": "0 0.3vh 0.7vh 0.3vh",
+                    "height": "1vh",
+                    "marginLeft": "3.15vh",
+                    "marginTop": "-1.2vh",
+                    "position": "absolute",
+                    "width": "0.7vh",
+                    "zIndex": "4",
+                  },
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components Square Dynamite should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Dynamite />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          style={
+            Object {
+              "background": "linear-gradient(to right, black, red, red, red, black, red, red, red, black, red, red, red, black)",
+              "borderBottom": "solid 1px black",
+              "borderTop": "solid 1px black",
+              "height": "80%",
+              "margin": "10%",
+              "position": "absolute",
+              "width": "80%",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "animation": "QGIau 0.25s infinite",
+                "animationDirection": "alternate",
+                "backgroundColor": "yellow",
+                "border": "solid 2px black",
+                "borderRadius": "50%",
+                "height": "1vh",
+                "marginLeft": "1.1vh",
+                "marginTop": "1.05vh",
+                "width": "1vh",
+              }
+            }
+          />
+        </div>,
+        <div
+          style={
+            Object {
+              "backgroundColor": "black",
+              "height": "0.6vh",
+              "margin": "0.2vh",
+              "marginTop": "0.9vh",
+              "position": "absolute",
+              "width": "3.6vh",
+            }
+          }
+        />,
+        <div
+          style={
+            Object {
+              "backgroundColor": "black",
+              "height": "0.6vh",
+              "margin": "0.2vh",
+              "marginTop": "2.6vh",
+              "position": "absolute",
+              "width": "3.6vh",
+            }
+          }
+        />,
+      ],
+      "style": Object {
+        "height": "4vh",
+        "position": "relative",
+        "width": "4vh",
+        "zIndex": "2",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            style={
+              Object {
+                "animation": "QGIau 0.25s infinite",
+                "animationDirection": "alternate",
+                "backgroundColor": "yellow",
+                "border": "solid 2px black",
+                "borderRadius": "50%",
+                "height": "1vh",
+                "marginLeft": "1.1vh",
+                "marginTop": "1.05vh",
+                "width": "1vh",
+              }
+            }
+          />,
+          "style": Object {
+            "background": "linear-gradient(to right, black, red, red, red, black, red, red, red, black, red, red, red, black)",
+            "borderBottom": "solid 1px black",
+            "borderTop": "solid 1px black",
+            "height": "80%",
+            "margin": "10%",
+            "position": "absolute",
+            "width": "80%",
+          },
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "style": Object {
+              "animation": "QGIau 0.25s infinite",
+              "animationDirection": "alternate",
+              "backgroundColor": "yellow",
+              "border": "solid 2px black",
+              "borderRadius": "50%",
+              "height": "1vh",
+              "marginLeft": "1.1vh",
+              "marginTop": "1.05vh",
+              "width": "1vh",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "style": Object {
+            "backgroundColor": "black",
+            "height": "0.6vh",
+            "margin": "0.2vh",
+            "marginTop": "0.9vh",
+            "position": "absolute",
+            "width": "3.6vh",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "style": Object {
+            "backgroundColor": "black",
+            "height": "0.6vh",
+            "margin": "0.2vh",
+            "marginTop": "2.6vh",
+            "position": "absolute",
+            "width": "3.6vh",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "background": "linear-gradient(to right, black, red, red, red, black, red, red, red, black, red, red, red, black)",
+                "borderBottom": "solid 1px black",
+                "borderTop": "solid 1px black",
+                "height": "80%",
+                "margin": "10%",
+                "position": "absolute",
+                "width": "80%",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "animation": "QGIau 0.25s infinite",
+                  "animationDirection": "alternate",
+                  "backgroundColor": "yellow",
+                  "border": "solid 2px black",
+                  "borderRadius": "50%",
+                  "height": "1vh",
+                  "marginLeft": "1.1vh",
+                  "marginTop": "1.05vh",
+                  "width": "1vh",
+                }
+              }
+            />
+          </div>,
+          <div
+            style={
+              Object {
+                "backgroundColor": "black",
+                "height": "0.6vh",
+                "margin": "0.2vh",
+                "marginTop": "0.9vh",
+                "position": "absolute",
+                "width": "3.6vh",
+              }
+            }
+          />,
+          <div
+            style={
+              Object {
+                "backgroundColor": "black",
+                "height": "0.6vh",
+                "margin": "0.2vh",
+                "marginTop": "2.6vh",
+                "position": "absolute",
+                "width": "3.6vh",
+              }
+            }
+          />,
+        ],
+        "style": Object {
+          "height": "4vh",
+          "position": "relative",
+          "width": "4vh",
+          "zIndex": "2",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              style={
+                Object {
+                  "animation": "QGIau 0.25s infinite",
+                  "animationDirection": "alternate",
+                  "backgroundColor": "yellow",
+                  "border": "solid 2px black",
+                  "borderRadius": "50%",
+                  "height": "1vh",
+                  "marginLeft": "1.1vh",
+                  "marginTop": "1.05vh",
+                  "width": "1vh",
+                }
+              }
+            />,
+            "style": Object {
+              "background": "linear-gradient(to right, black, red, red, red, black, red, red, red, black, red, red, red, black)",
+              "borderBottom": "solid 1px black",
+              "borderTop": "solid 1px black",
+              "height": "80%",
+              "margin": "10%",
+              "position": "absolute",
+              "width": "80%",
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "style": Object {
+                "animation": "QGIau 0.25s infinite",
+                "animationDirection": "alternate",
+                "backgroundColor": "yellow",
+                "border": "solid 2px black",
+                "borderRadius": "50%",
+                "height": "1vh",
+                "marginLeft": "1.1vh",
+                "marginTop": "1.05vh",
+                "width": "1vh",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "style": Object {
+              "backgroundColor": "black",
+              "height": "0.6vh",
+              "margin": "0.2vh",
+              "marginTop": "0.9vh",
+              "position": "absolute",
+              "width": "3.6vh",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "style": Object {
+              "backgroundColor": "black",
+              "height": "0.6vh",
+              "margin": "0.2vh",
+              "marginTop": "2.6vh",
+              "position": "absolute",
+              "width": "3.6vh",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components Square Square color 10 should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Square
+    color={10}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {},
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {},
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components Square Square color 11 should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Square
+    color={11}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {},
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {},
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components Square Square color 42 should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Square
+    color={42}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {},
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {},
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components Square Square color other should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Square
+    color={1}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "color": 1,
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "color": 1,
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components Square StandardBlock should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <StandardBlock />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        style={
+          Object {
+            "border": "1vh solid rgba(255, 255, 255, 0.2)",
+            "borderBottom": "1vh solid rgba(0, 0, 0, 0.2)",
+            "borderRight": "1vh solid rgba(0, 0, 0, 0.2)",
+            "height": "92%",
+            "margin": "4%",
+            "width": "92%",
+          }
+        }
+      />,
+      "style": Object {
+        "background": undefined,
+        "border": "1px solid black",
+        "display": "inline-flex",
+        "height": "4vh",
+        "width": "4vh",
+        "zIndex": "2",
+      },
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "style": Object {
+          "border": "1vh solid rgba(255, 255, 255, 0.2)",
+          "borderBottom": "1vh solid rgba(0, 0, 0, 0.2)",
+          "borderRight": "1vh solid rgba(0, 0, 0, 0.2)",
+          "height": "92%",
+          "margin": "4%",
+          "width": "92%",
+        },
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          style={
+            Object {
+              "border": "1vh solid rgba(255, 255, 255, 0.2)",
+              "borderBottom": "1vh solid rgba(0, 0, 0, 0.2)",
+              "borderRight": "1vh solid rgba(0, 0, 0, 0.2)",
+              "height": "92%",
+              "margin": "4%",
+              "width": "92%",
+            }
+          }
+        />,
+        "style": Object {
+          "background": undefined,
+          "border": "1px solid black",
+          "display": "inline-flex",
+          "height": "4vh",
+          "width": "4vh",
+          "zIndex": "2",
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "style": Object {
+            "border": "1vh solid rgba(255, 255, 255, 0.2)",
+            "borderBottom": "1vh solid rgba(0, 0, 0, 0.2)",
+            "borderRight": "1vh solid rgba(0, 0, 0, 0.2)",
+            "height": "92%",
+            "margin": "4%",
+            "width": "92%",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components Tetri Line should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Line
+    line={
+      Array [
+        0,
+        1,
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          style={
+            Object {
+              "height": "4vh",
+              "width": "4vh",
+            }
+          }
+        />,
+        <Square
+          color={1}
+        />,
+      ],
+      "style": Object {
+        "display": "flex",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "host",
+        "props": Object {
+          "style": Object {
+            "height": "4vh",
+            "width": "4vh",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "function",
+        "props": Object {
+          "color": 1,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            style={
+              Object {
+                "height": "4vh",
+                "width": "4vh",
+              }
+            }
+          />,
+          <Square
+            color={1}
+          />,
+        ],
+        "style": Object {
+          "display": "flex",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "host",
+          "props": Object {
+            "style": Object {
+              "height": "4vh",
+              "width": "4vh",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "function",
+          "props": Object {
+            "color": 1,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game components Tetri Tetri should render as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Tetri
+    position={
+      Object {
+        "x": 4,
+        "y": 0,
+      }
+    }
+    tetri={
+      Array [
+        Array [
+          1,
+          1,
+        ],
+        Array [
+          1,
+          1,
+        ],
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Line
+          line={
+            Array [
+              1,
+              1,
+            ]
+          }
+        />,
+        <Line
+          line={
+            Array [
+              1,
+              1,
+            ]
+          }
+        />,
+      ],
+      "style": Object {
+        "marginLeft": "16vh",
+        "marginTop": "0vh",
+        "position": "relative",
+        "transition": "all 0.1s",
+        "transitionTimingFunction": "linear",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "function",
+        "props": Object {
+          "line": Array [
+            1,
+            1,
+          ],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "function",
+        "props": Object {
+          "line": Array [
+            1,
+            1,
+          ],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Line
+            line={
+              Array [
+                1,
+                1,
+              ]
+            }
+          />,
+          <Line
+            line={
+              Array [
+                1,
+                1,
+              ]
+            }
+          />,
+        ],
+        "style": Object {
+          "marginLeft": "16vh",
+          "marginTop": "0vh",
+          "position": "relative",
+          "transition": "all 0.1s",
+          "transitionTimingFunction": "linear",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "function",
+          "props": Object {
+            "line": Array [
+              1,
+              1,
+            ],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "function",
+          "props": Object {
+            "line": Array [
+              1,
+              1,
+            ],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
