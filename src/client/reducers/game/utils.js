@@ -86,7 +86,7 @@ export const checkLines = grid => {
 };
 
 export const deleteLinesF = (grid, lines, force) => {
-  let newGrid = [...grid];
+  let newGrid = grid.map(line => ([...line]));
   let newLines = [...lines];
 
   newLines.forEach(index => {

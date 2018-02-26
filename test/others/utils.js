@@ -54,8 +54,8 @@ describe('utils', () => {
     [
       [0,0,0,0,0, 0,0,0,0,0],
       [0,0,0,0,0, 0,0,0,0,0],
-      [0,0,0,0,0, 0,0,0,0,0],
-      [0,0,0,0,0, 0,0,0,0,0],
+      [0,11,0,0,0, 0,0,0,0,0],
+      [4,0,0,0,0, 0,0,0,0,0],
       [5,0,0,0,0, 0,0,0,0,0],
       [1,1,1,1,1, 1,1,1,1,1],
       [0,0,0,0,0, 0,0,0,0,0],
@@ -203,10 +203,17 @@ describe('utils', () => {
     })
   });
 
-  /*describe('deleteLinesF', () =>{
+  describe('deleteLinesF', () => {
     it('should delete lines in the grid', () => {
-      deleteLinesF()
+      let output;
+      output = deleteLinesF(grids[2], [5, 13], true);
+      output[5].should.be.deep.equal([4,0,0,0,0, 0,0,0,0,0]);
+      output[13].should.be.deep.equal([2,2,2,2,2, 2,2,2,2,0]);
+      
+      output = deleteLinesF(grids[2], [5, 13]);
+      output[5].should.be.deep.equal([5,0,0,0,0, 0,0,0,0,0]);
+      output[13].should.be.deep.equal(grids[2][13]);
     });
-  });*/
+  });
 
 });
