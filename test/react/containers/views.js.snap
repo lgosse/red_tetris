@@ -17282,6 +17282,172 @@ ShallowWrapper {
 }
 `;
 
+exports[`Views Party render should render as expected with party not playing & showRules 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Party
+    ending={
+      Object {
+        "shouldDisplay": true,
+      }
+    }
+    party={
+      Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": false,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": false,
+        "showRules": true,
+        "size": 10,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Connect(Lobby) />,
+        <EndingModal
+          closeModal={undefined}
+          ending={
+            Object {
+              "shouldDisplay": true,
+            }
+          }
+        />,
+        <RulesModal
+          closeRules={undefined}
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "closeModal": undefined,
+          "ending": Object {
+            "shouldDisplay": true,
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "closeRules": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Connect(Lobby) />,
+          <EndingModal
+            closeModal={undefined}
+            ending={
+              Object {
+                "shouldDisplay": true,
+              }
+            }
+          />,
+          <RulesModal
+            closeRules={undefined}
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "closeModal": undefined,
+            "ending": Object {
+              "shouldDisplay": true,
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "closeRules": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
 exports[`Views Party render should render as expected with party not playing 1`] = `
 ShallowWrapper {
   "length": 1,

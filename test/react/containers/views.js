@@ -27,14 +27,19 @@ import {
   Code404,
   Message
 } from '../../../src/client/containers/views/NotFound';
-import { Party } from '../../../src/client/containers/views/Party';
+import {
+  Party,
+  mapDispatchToPartyProps,
+  mapStateToPartyProps
+} from '../../../src/client/containers/views/Party';
 import CreateParty from '../../../src/client/containers/views/CreateParty';
 import {
   PARTY_KICK_PLAYER,
   PARTY_START,
   PARTY_OPEN,
   PLAYER_TOGGLE_READY,
-  PARTY_TOGGLE_RULES
+  PARTY_TOGGLE_RULES,
+  GAME_HIDE_END
 } from '../../../src/actionsTypes';
 
 chai.should();
@@ -210,6 +215,28 @@ describe('Views', () => {
         );
         output.should.matchSnapshot();
       });
+      it('should render as expected with party not playing & showRules', () => {
+        const party = {
+          players: [
+            {
+              _id: '5a73305e4dbfed22aa7d0df6',
+              nickname: 'Sakura',
+              socketId: 'wcnjn-T8ENU4iD1XAAAC'
+            }
+          ],
+          _id: '5a73305e4dbfed22aa7d0df5',
+          showRules: true,
+          size: 10,
+          name: 'Sasuke',
+          open: false,
+          playing: false,
+          __v: 3
+        };
+        const output = shallow(
+          <Party ending={{ shouldDisplay: true }} party={party} />
+        );
+        output.should.matchSnapshot();
+      });
       it('should render as expected with party playing', () => {
         const party = {
           players: [
@@ -230,6 +257,43 @@ describe('Views', () => {
           <Party ending={{ shouldDisplay: true }} party={party} />
         );
         output.should.matchSnapshot();
+      });
+    });
+    describe('mapStateToPartyProps', () => {
+      it('should map state as expected', () => {
+        const state = {
+          party: 'toto',
+          game: {
+            ending: true
+          }
+        };
+        const props = mapStateToPartyProps({ ...state, wsh: 'mdr' });
+        props.should.deep.equal({
+          party: state.party,
+          ending: state.game.ending
+        });
+      });
+    });
+    describe('mapDispatchToPartyProps', () => {
+      describe('closeModal', () => {
+        it('should dispatch closeModal action', done => {
+          const dispatch = action => {
+            action.type.should.equal(GAME_HIDE_END);
+            done();
+          };
+          const { closeModal } = mapDispatchToPartyProps(dispatch);
+          closeModal();
+        });
+      });
+      describe('closeRules', () => {
+        it('should dispatch closeRules action', done => {
+          const dispatch = action => {
+            action.type.should.equal(PARTY_TOGGLE_RULES);
+            done();
+          };
+          const { closeRules } = mapDispatchToPartyProps(dispatch);
+          closeRules();
+        });
       });
     });
   });

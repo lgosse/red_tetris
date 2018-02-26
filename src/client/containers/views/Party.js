@@ -193,9 +193,12 @@ export const Party = ({ ending, party, closeModal, closeRules }) => (
   </div>
 );
 
-const mapStateToProps = ({ game: { ending }, party }) => ({ ending, party });
+export const mapStateToPartyProps = ({ game: { ending }, party }) => ({
+  ending,
+  party
+});
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToPartyProps = dispatch => ({
   closeModal() {
     dispatch(hideEnd());
   },
@@ -204,4 +207,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Party);
+export default connect(mapStateToPartyProps, mapDispatchToPartyProps)(Party);
