@@ -135,11 +135,12 @@ const partyList = async (action, io, socket) => {
           console.error(error);
         }
 
-        if (!partyEdit)
+        if (!partyEdit) {
           socket.emit('action', {
             type: ALERT_POP,
             message: 'A problem occured while trying to join your party.'
           });
+        }
       } else {
         partyEdit = party;
         if (party.open === false) {
