@@ -178,6 +178,7 @@ describe('Server reducers', () => {
           {
             [PARTY_UPDATE]: ({ dispatch, getState }) => {
               const { party } = getState();
+              console.log(party);
               const player = party.players.find(
                 player => player.nickname === 'PlayerToFind'
               );

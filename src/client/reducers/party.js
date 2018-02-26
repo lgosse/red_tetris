@@ -13,15 +13,15 @@ const saveParty = action => {
   localStorage.setItem('party', JSON.stringify(action.party));
 };
 
-const initialState = {
+export const partyInitialState = () => ({
   size: 10,
   players: [],
   messages: [],
   withBonus: false,
   showRules: false
-};
+});
 
-const party = (state = initialState, action) => {
+const party = (state = partyInitialState(), action) => {
   switch (action.type) {
     case PARTY_UPDATE: {
       return {
@@ -31,7 +31,7 @@ const party = (state = initialState, action) => {
     }
 
     case PARTY_LEFT: {
-      return initialState;
+      return partyInitialState();
     }
 
     case GAME_END: {

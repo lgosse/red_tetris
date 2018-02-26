@@ -28,17 +28,21 @@ import { configureStore, startServer } from '../helpers/server';
 import io from 'socket.io-client';
 import params from '../../params';
 import { combineReducers } from 'redux';
+import GameModel from '../../src/server/models/Game';
 
 chai.should();
 
 describe('Middlewares', () => {
   let tetrisServer;
-  before(cb =>
+  before(async cb => {
     startServer(params.server, (err, server) => {
       tetrisServer = server;
       cb();
-    })
-  );
+    });
+    await GameModel.find({})
+      .remove()
+      .exec();
+  });
 
   after(done => {
     tetrisServer.stop(done);
@@ -80,7 +84,7 @@ describe('Middlewares', () => {
         }
       );
       store.dispatch(ping());
-      store.dispatch(push('/party-list'));
+      store.dispatch(push('/game-list'));
       store.dispatch(push('/test'));
     });
     it('should handle socket logic on LOCATION_CHANGE', done => {
@@ -103,7 +107,7 @@ describe('Middlewares', () => {
       store.dispatch(alert('This is a useless test'));
     });
     describe('roomHandler', () => {
-      describe('/party-list', () => {
+      describe('/game-list', () => {
         it('should emit getParties action', done => {
           const initialState = {};
           const socket = io(params.server.url);
@@ -118,30 +122,7 @@ describe('Middlewares', () => {
 
           store.dispatch({
             type: LOCATION_CHANGE,
-            payload: { pathname: '/party-list' }
-          });
-        });
-      });
-      describe('/create-party', () => {
-        it('should reset actual party', done => {
-          const initialState = {};
-          const socket = io(params.server.url);
-          const store = configureStore(
-            combineReducers(reducers),
-            socket,
-            initialState,
-            {
-              [PARTY_UPDATE]: ({ dispatch, getState }) => {
-                const { party } = getState();
-                party.should.deep.equal({ size: 10 });
-                done();
-              }
-            }
-          );
-
-          store.dispatch({
-            type: LOCATION_CHANGE,
-            payload: { pathname: '/create-party' }
+            payload: { pathname: '/game-list' }
           });
         });
       });
@@ -179,38 +160,6 @@ describe('Middlewares', () => {
             initialState,
             {
               [PLAYER_GET]: () => {
-                done();
-              }
-            }
-          );
-
-          store.dispatch({
-            type: LOCATION_CHANGE,
-            payload: { pathname: '/', hash: '#Konoha[Naruto]' }
-          });
-        });
-        it('should leave party when url is party and changes', done => {
-          global.localStorage = {
-            getItem: key =>
-              key === 'player' ? 'toto' : JSON.stringify({ name: 'wsh' })
-          };
-
-          const initialState = {};
-          const socket = io(params.server.url);
-          const store = configureStore(
-            combineReducers({
-              ...reducers,
-              routing: () => ({
-                location: {
-                  pathname: '/',
-                  hash: '#mysuperparty[superplayer]'
-                }
-              })
-            }),
-            socket,
-            initialState,
-            {
-              [PARTY_LEAVE]: () => {
                 done();
               }
             }
