@@ -1,9 +1,9 @@
-import React from "react";
-import Map from "./Map";
-import global from "../../styles/global";
-import styled from "styled-components";
+import React from 'react';
+import Map from './Map';
+import global from '../../styles/global';
+import styled from 'styled-components';
 
-import { RedContainer } from "../helpers/Common";
+import { RedContainer } from '../helpers/Common';
 
 export const PlayerStateContainer = RedContainer.extend`
   box-shadow: ${global.shadow.light};
@@ -24,7 +24,7 @@ export const PlayerName = styled.div`
 
 const PlayerState = ({ player }) => (
   <PlayerStateContainer>
-    <PlayerName> {player.nickname} - {player.ping} </PlayerName>
+    <PlayerName> {player.nickname} </PlayerName>
     <Map map={player.map} />
   </PlayerStateContainer>
 );

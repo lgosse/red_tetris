@@ -1,11 +1,11 @@
-import React from "react";
-import gameStyle from "../../styles/gameStyle";
-import Square from "./Square";
+import React from 'react';
+import gameStyle from '../../styles/gameStyle';
+import Square from './Square';
 
-import { isMod } from "../../reducers/game/utils";
+import { isMod } from '../../reducers/game/utils';
 
-const Line = ({ line }) => (
-  <div style={{ display: "flex" }}>
+export const Line = ({ line }) => (
+  <div style={{ display: 'flex' }}>
     {line.map(
       (square, index) =>
         square ? (
@@ -14,8 +14,8 @@ const Line = ({ line }) => (
           <div
             key={index}
             style={{
-              width: "4vh",
-              height: "4vh",
+              width: '4vh',
+              height: '4vh'
             }}
           />
         )
@@ -37,7 +37,8 @@ const reduceColumnsEndTetri = tetri =>
       )
     : tetri;
 
-const reduceTetri = tetri => reduceColumnsEndTetri(tetri);
+export const reduceTetri = tetri =>
+  reduceColumnsEndTetri(reduceColumnsEndTetri(tetri));
 
 export const Tetri = ({ tetri, position }) => {
   return (

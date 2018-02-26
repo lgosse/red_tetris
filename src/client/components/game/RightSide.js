@@ -13,13 +13,13 @@ import {
 } from '../helpers/Common';
 import Chat from '../../containers/forms/Chat';
 
-const PlayerStatesContainer = FullSizeContainer.extend`
+export const PlayerStatesContainer = FullSizeContainer.extend`
   display: flex;
   flex-wrap: wrap;
   overflow
 `;
 
-const NoPlayers = () => (
+export const NoPlayers = () => (
   <FullSizeContainer style={{ color: global.color.primary }}>
     <Paragraph padding={global.padding.md} gameFont center>
       THERE ARE NO OTHER PLAYERS
@@ -30,7 +30,7 @@ const NoPlayers = () => (
   </FullSizeContainer>
 );
 
-const PlayerStates = ({ players }) => (
+export const PlayerStates = ({ players }) => (
   <PlayerStatesContainer>
     {players.map((player, index) => (
       <FlexContainer flex key={index} padding="10px">
@@ -42,14 +42,14 @@ const PlayerStates = ({ players }) => (
   </PlayerStatesContainer>
 );
 
-const RightSideTop = styled.div`
+export const RightSideTop = styled.div`
   font-family: ${global.font.family.game};
   font-size: ${global.font.size.subtitle};
   color: ${global.color.primary};
   text-align: center;
 `;
 
-const RightSideContainer = LightContainer.extend`
+export const RightSideContainer = LightContainer.extend`
   flex: 1;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
