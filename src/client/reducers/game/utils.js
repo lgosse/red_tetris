@@ -15,7 +15,7 @@ export const isLighting = (grid, piece, x, y) => {
   return false;
 };
 
-const calcWeight = grid => {
+export const calcWeight = grid => {
   let weight = 0;
   grid.forEach((line, y) => {
     line.forEach((col, x) => {
