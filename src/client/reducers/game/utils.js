@@ -1,5 +1,5 @@
 export const gridZero = (sizeX, sizeY) =>
-  [...Array(sizeY ? sizeY : sizeX)].map(() => [...Array(sizeX)].map(() => 0));
+  [...Array(sizeY)].map(() => [...Array(sizeX)].map(() => 0));
 
 export const isLighting = (grid, piece, x, y) => {
   let j = x - piece.x;
@@ -19,7 +19,7 @@ export const calcWeight = grid => {
   let weight = 0;
   grid.forEach((line, y) => {
     line.forEach((col, x) => {
-      if (col !== 0) weight += x - parseInt(grid.length / 2);
+      if (col !== 0) weight += x - ((grid.length - 1) / 2);
     });
   });
   if (weight > 0) weight = -1;
