@@ -5,16 +5,12 @@
   "license": "MIT",
   "scripts": {
     "eslint": "eslint src",
-    "client-dist":
-      "NODE_ENV=production webpack --history-api-fallback --progress --colors",
-    "client-dev":
-      "webpack-dev-server --history-api-fallback --colors --hot --inline --host 0.0.0.0 --port 8080",
+    "client-dist": "NODE_ENV=production webpack --history-api-fallback --progress --colors",
+    "client-dev": "webpack-dev-server --history-api-fallback --colors --hot --inline --host 0.0.0.0 --port 8080",
     "srv-dev": "DEBUG=tetris:* babel-watch -w src src/server/main.js",
     "srv-dist": "DEBUG=tetris:* babel src --out-dir dist",
-    "test":
-      "mocha --compilers js:./test/compiler.js --require babel-core/register --reporter spec --recursive",
-    "coverage":
-      "NODE_ENV=test nyc --include src --all -r text -r lcov -r text --require babel-core/register npm test ",
+    "test": "mocha --compilers js:./test/compiler.js --require babel-core/register --reporter spec --recursive",
+    "coverage": "NODE_ENV=test nyc --include src --all -r text -r lcov -r text --require babel-core/register npm test ",
     "coverage-update": "CHAI_JEST_SNAPSHOT_UPDATE_ALL=true npm run coverage"
   },
   "dependencies": {
@@ -65,9 +61,15 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "nyc": {
-    "exclude": ["build"]
+    "exclude": [
+      "build"
+    ]
   },
   "babel": {
-    "presets": ["es2015", "react", "stage-0"]
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ]
   }
 }

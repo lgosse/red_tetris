@@ -1,5 +1,5 @@
 export const gridZero = (sizeX, sizeY) =>
-  [...Array(sizeY ? sizeY : sizeX)].map(() => [...Array(sizeX)].map(() => 0));
+  [...Array(sizeY)].map(() => [...Array(sizeX)].map(() => 0));
 
 export const isLighting = (grid, piece, x, y) => {
   let j = x - piece.x;
@@ -15,11 +15,11 @@ export const isLighting = (grid, piece, x, y) => {
   return false;
 };
 
-const calcWeight = grid => {
+export const calcWeight = grid => {
   let weight = 0;
   grid.forEach((line, y) => {
     line.forEach((col, x) => {
-      if (col !== 0) weight += x - parseInt(grid.length / 2);
+      if (col !== 0) weight += x - ((grid.length - 1) / 2);
     });
   });
   if (weight > 0) weight = -1;
@@ -56,7 +56,7 @@ export const testCollision = (piece, grid) => {
 };
 
 export const gridFusion = (piece, grid) => {
-  let newGrid = [...grid];
+  let newGrid = grid.map(line => ([...line]));
 
   if (testCollision(piece, grid).collide) return null;
   piece.grid.forEach((line, y) => {
@@ -86,7 +86,7 @@ export const checkLines = grid => {
 };
 
 export const deleteLinesF = (grid, lines, force) => {
-  let newGrid = [...grid];
+  let newGrid = grid.map(line => ([...line]));
   let newLines = [...lines];
 
   newLines.forEach(index => {
@@ -131,13 +131,13 @@ export const isMod = piece => {
     return (
       -1 !=
       elem.findIndex(value => {
-        if (value >= 10) type = value;
-        return value >= 10;
+        if (value >= 10 && value <= 11) type = value;
+        return (value >= 10 && value <= 11);
       })
     );
   });
   if (type != -1)
-    return { type: modTypes[type], do: false, x: piece.x, y: piece.y };
+    return { type: modTypes[type], x: piece.x, y: piece.y };
   else return null;
 };
 
