@@ -6,7 +6,7 @@ import { Paragraph, Icon } from '../../components/helpers/Common';
 
 import musicTetris from '../../../media/music.mp3';
 
-import { Tetri, Bomb } from '../../components/game/Tetri';
+import { Tetri } from '../../components/game/Tetri';
 import gameStyle from '../../styles/gameStyle';
 import globalStyle from '../../styles/global';
 import {
@@ -28,7 +28,7 @@ import { setMod } from '../../actions/game/mods';
 import { input } from '../../actions/game/inputs';
 import { toggleMusic } from '../../actions/game/music';
 
-const MusicPlayer = ({ music, toggleSound }) => {
+export const MusicPlayer = ({ music, toggleSound }) => {
   return (
     <div
       onClick={toggleSound}
@@ -51,117 +51,116 @@ const MusicPlayer = ({ music, toggleSound }) => {
   );
 };
 
-const Calque = ({ board, piece }) => {
-  if (board.end === true) {
-    return (
-      <div
-        style={{
-          ...gameStyle.calque,
-          ...gameStyle.endMessage
-        }}
-      >
-        YOU LOSE
-      </div>
-    );
-  } else if (!piece) {
-    return <div />;
-  } else {
-    return (
-      <div style={gameStyle.calque}>
-        <Tetri position={piece} tetri={piece.grid} />
-      </div>
-    );
+export const FrontLayer = ({ board, piece }) =>
+  board.end ? (
+    <div
+      style={{
+        ...gameStyle.calque,
+        ...gameStyle.endMessage
+      }}
+    >
+      YOU LOSE
+    </div>
+  ) : (
+    <div style={gameStyle.calque}>
+      {piece ? <Tetri position={piece} tetri={piece.grid} /> : <div />}
+    </div>
+  );
+
+export const LinesDestroying = ({ board, indexLine }) =>
+  board.lines && board.lines.indexOf(indexLine) !== -1 ? (
+    <div style={gameStyle.lineDestroying} />
+  ) : (
+    <div />
+  );
+
+export const Bomb = ({ mods, indexLine }) => (
+  <div>
+    {indexLine === mods.y ? (
+      <div style={gameStyle.bomb.explode(mods.x, mods.y, 0)} />
+    ) : (
+      <div />
+    )}
+    <div
+      style={gameStyle.bomb.explode(
+        mods.x,
+        mods.y,
+        indexLine === mods.y ? 2 : 1
+      )}
+    />
+  </div>
+);
+
+export const TntGoBlock = ({ indexColumn }) => (
+  <div style={gameStyle.tnt.explode(indexColumn)}>
+    <div style={gameStyle.tnt.anim}>
+      <div style={gameStyle.tnt.base1} />
+      <div style={gameStyle.tnt.base2} />
+      <div style={gameStyle.tnt.circle} />
+    </div>
+  </div>
+);
+
+export const Mod = ({ mods, line, indexLine }) => {
+  switch (mods.type) {
+    case 'bomb':
+      return <Bomb mods={mods} indexLine={indexLine} />;
+
+    case 'tntGo': {
+      return (
+        <div>
+          {Math.abs(mods.y - indexLine) <= 3 &&
+            line
+              .filter(
+                (col, indexColumn) =>
+                  Math.abs(mods.y - indexLine) +
+                    Math.abs(mods.x - indexColumn) <=
+                  3
+              )
+              .map((col, indexColumn) => (
+                <TntGoBlock key={indexColumn} indexColumn={indexColumn} />
+              ))}
+        </div>
+      );
+    }
+
+    default:
+      return <span />;
   }
 };
 
+export const GridContent = ({ board, mods, pieces }) => (
+  <div>
+    {board.grid.map((line, indexLine) => (
+      <div style={{ ...gameStyle.line, position: 'relative' }} key={indexLine}>
+        <LinesDestroying board={board} indexLine={indexLine} />
+        {mods && <Mod mods={mods} line={line} indexLine={indexLine} />}
+        {line.map(
+          (column, indexColumn) =>
+            column === 0 &&
+            pieces.piece &&
+            isLighting(board.grid, pieces.piece, indexColumn, indexLine) ? (
+              <Square color={42} key={indexColumn} />
+            ) : (
+              <Square color={column} key={indexColumn} />
+            )
+        )}
+      </div>
+    ))}
+  </div>
+);
+
 export const Grid = ({
-  party,
   board,
   pieces,
   mods,
   music,
   rotateit,
   endGame,
-  tntExplodeDispatch,
   onFocus,
   onBlur,
   toggleSound
 }) => {
-  const grid = board.grid.map((line, i) => {
-    const cols = line.map((col, j) => {
-      if (
-        col === 0 &&
-        pieces.piece &&
-        isLighting(board.grid, pieces.piece, j, i)
-      )
-        return <Square color={42} key={j} />;
-      return <Square color={col} key={j} />;
-    });
-
-    const linesDestroying =
-      board.lines && board.lines.indexOf(i) !== -1 ? (
-        <div style={gameStyle.lineDestroying} />
-      ) : null;
-
-    const mod = () => {
-      if (mods) {
-        switch (mods.type) {
-          case 'bomb': {
-            return (
-              <div>
-                {i === mods.y ? (
-                  <div style={gameStyle.bomb.explode(mods.x, mods.y, 0)} />
-                ) : (
-                  <div />
-                )}
-                <div
-                  style={gameStyle.bomb.explode(
-                    mods.x,
-                    mods.y,
-                    i === mods.y ? 2 : 1
-                  )}
-                />
-              </div>
-            );
-            break;
-          }
-
-          case 'tntGo': {
-            let tnt = [];
-            if (Math.abs(mods.y - i) <= 3) {
-              line.map((col, j) => {
-                if (Math.abs(mods.y - i) + Math.abs(mods.x - j) <= 3)
-                  tnt.push(
-                    <div key={i + '' + j} style={gameStyle.tnt.explode(j)}>
-                      <div style={gameStyle.tnt.anim}>
-                        <div style={gameStyle.tnt.base1} />
-                        <div style={gameStyle.tnt.base2} />
-                        <div style={gameStyle.tnt.circle} />
-                      </div>
-                    </div>
-                  );
-              });
-            }
-            return tnt;
-            break;
-          }
-
-          default:
-            return null;
-            break;
-        }
-      } else return null;
-    };
-
-    return (
-      <div style={{ ...gameStyle.line, position: 'relative' }} key={i}>
-        {linesDestroying}
-        {mod()}
-        {cols}
-      </div>
-    );
-  });
-
   if (pieces.piece === null && board.ending && board.lines === null) {
     endGame(board);
   }
@@ -184,7 +183,6 @@ export const Grid = ({
       }}
     >
       <MusicPlayer music={music} toggleSound={toggleSound} />
-
       {!board.focus ? (
         <div style={gameStyle.focusMessage}>
           <Paragraph gameFont size="12px" bold color="accent">
@@ -194,54 +192,40 @@ export const Grid = ({
       ) : (
         <div />
       )}
-      <Calque board={board} piece={pieces.piece} />
-      {grid}
+      <FrontLayer board={board} piece={pieces.piece} />
+      <GridContent board={board} pieces={pieces} mods={mods} />
     </div>
   );
 };
 
 export const mapStateToGridProps = ({
-  party,
   game: { board, pieces, mods },
   music
 }) => ({
-  party,
   board,
   pieces,
   mods,
   music
 });
 
-export const mapDispatchToGridProps = dispatch => {
-  const tntExplodeDispatch = (grid, mod) => {
-    dispatch(tntExplode(grid, mod));
-  };
-
-  const toggleSound = () => {
+export const mapDispatchToGridProps = dispatch => ({
+  toggleSound() {
     dispatch(toggleMusic());
-  };
-
-  const rotateit = (event, piece, board) => {
+  },
+  rotateit(event, piece, board) {
     if (board.end || board.ending || piece === null) return;
 
     dispatch(input(event));
-  };
-
-  const endGame = board => {
+  },
+  endGame(board) {
     dispatch(endParty({ ...board, ending: false }));
-  };
-
-  const onFocus = () => dispatch(gridHasFocus());
-  const onBlur = () => dispatch(gridLoseFocus());
-
-  return {
-    rotateit,
-    endGame,
-    tntExplodeDispatch,
-    onFocus,
-    onBlur,
-    toggleSound
-  };
-};
+  },
+  onFocus() {
+    dispatch(gridHasFocus());
+  },
+  onBlur() {
+    dispatch(gridLoseFocus());
+  }
+});
 
 export default connect(mapStateToGridProps, mapDispatchToGridProps)(Grid);
