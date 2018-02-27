@@ -7,7 +7,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <PlayerForm
     player={
       Object {
-        "nickname": "test",
+        "nickname": undefined,
       }
     }
   />,
@@ -44,7 +44,7 @@ ShallowWrapper {
               name="nickname"
               onChange={[Function]}
               placeholder="Nickname..."
-              value="test"
+              value=""
             />
           </styled.div>
           <styled.div />
@@ -84,7 +84,7 @@ ShallowWrapper {
                 name="nickname"
                 onChange={[Function]}
                 placeholder="Nickname..."
-                value="test"
+                value=""
               />
             </styled.div>,
             <styled.div />,
@@ -113,7 +113,7 @@ ShallowWrapper {
                 name="nickname"
                 onChange={[Function]}
                 placeholder="Nickname..."
-                value="test"
+                value=""
               />,
             },
             "ref": null,
@@ -127,7 +127,7 @@ ShallowWrapper {
                 "name": "nickname",
                 "onChange": [Function],
                 "placeholder": "Nickname...",
-                "value": "test",
+                "value": "",
               },
               "ref": null,
               "rendered": null,
@@ -177,7 +177,7 @@ ShallowWrapper {
                 name="nickname"
                 onChange={[Function]}
                 placeholder="Nickname..."
-                value="test"
+                value=""
               />
             </styled.div>
             <styled.div />
@@ -217,7 +217,7 @@ ShallowWrapper {
                   name="nickname"
                   onChange={[Function]}
                   placeholder="Nickname..."
-                  value="test"
+                  value=""
                 />
               </styled.div>,
               <styled.div />,
@@ -246,7 +246,7 @@ ShallowWrapper {
                   name="nickname"
                   onChange={[Function]}
                   placeholder="Nickname..."
-                  value="test"
+                  value=""
                 />,
               },
               "ref": null,
@@ -260,7 +260,7 @@ ShallowWrapper {
                   "name": "nickname",
                   "onChange": [Function],
                   "placeholder": "Nickname...",
-                  "value": "test",
+                  "value": "",
                 },
                 "ref": null,
                 "rendered": null,

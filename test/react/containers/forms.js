@@ -30,7 +30,7 @@ describe('PlayerForm', () => {
   };
   describe('PlayerForm component', () => {
     it('should render as expected', () => {
-      const output = shallow(<PlayerForm player={PLAYER} />);
+      const output = shallow(<PlayerForm player={{ nickname: undefined }} />);
       output.should.matchSnapshot();
     });
     it('should trigger changeNickname on typing into the input', done => {
@@ -56,11 +56,31 @@ describe('PlayerForm', () => {
     });
   });
   describe('mapDispatchToPlayerFormProps', () => {
-    it('should map changeNickname function to PlayerForm props', () => {
-      const dispatch = () => {};
-      const playerFormProps = mapDispatchToPlayerFormProps(dispatch);
-
-      expect(playerFormProps.changeNickname).to.exist;
+    it('should map changeNickname function to PlayerForm props', done => {
+      global.document = {
+        getElementById() {
+          return {
+            value: {
+              trim() {
+                return 'toto';
+              }
+            }
+          };
+        }
+      };
+      const dispatch = action => {
+        action.player.should.deep.equal({ nickname: 'toto' });
+        done();
+      };
+      const { changeNickname } = mapDispatchToPlayerFormProps(dispatch);
+      changeNickname(dispatch);
     });
   });
+});
+
+describe('PartyForm', () => {
+  describe('PartyForm', () => {
+    it('should render as expected', () => {});
+  });
+  describe('mapState', () => {});
 });
