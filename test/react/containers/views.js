@@ -6,7 +6,10 @@ import equalJSX from 'chai-equal-jsx';
 import { Connect, StyledComponent } from '../../helpers/mockComponents';
 
 import Home from '../../../src/client/containers/views/Home';
-import { Ranking } from '../../../src/client/containers/views/Ranking';
+import {
+  Ranking,
+  mapStateToRankingProps
+} from '../../../src/client/containers/views/Ranking';
 import NewGame from '../../../src/client/containers/views/NewGame';
 import NotFound from '../../../src/client/containers/views/NotFound';
 import {
@@ -52,6 +55,11 @@ describe('Views', () => {
         <Ranking ranking={[{ score: 0, playerName: 'test', date: 'djhbva' }]} />
       );
       output.should.matchSnapshot();
+    });
+    describe('mapStateToRankingProps', () => {
+      mapStateToRankingProps({ ranking: 'toto' }).should.deep.equal({
+        ranking: 'toto'
+      });
     });
   });
 
@@ -157,6 +165,29 @@ describe('Views', () => {
             size: 10,
             name: 'Sasuke',
             open: false,
+            playing: false,
+            __v: 3
+          };
+          const player = { socketId: 'toto' };
+          const goToParty = () => {};
+          const output = shallow(
+            <PartyButton party={party} player={player} goToParty={goToParty} />
+          );
+          output.should.matchSnapshot();
+        });
+        it('should render as expected with party open but as much players as party size', () => {
+          const party = {
+            players: [
+              {
+                _id: '5a73305e4dbfed22aa7d0df6',
+                nickname: 'Sakura',
+                socketId: 'wcnjn-T8ENU4iD1XAAAC'
+              }
+            ],
+            _id: '5a73305e4dbfed22aa7d0df5',
+            size: 1,
+            name: 'Sasuke',
+            open: true,
             playing: false,
             __v: 3
           };
