@@ -56,7 +56,7 @@ export const showEnd = () => (dispatch, getState) => {
 
 export const endParty = board => (dispatch, getState) => {
   if (getState().party.playing === true) {
-    let newGrid = [...board.grid];
+    let newGrid = board.grid.map(line => ([...line]));
     let newBoard = { ...board, grid: newGrid };
     let x = 0;
     let y = board.grid.length - 1;
