@@ -16,14 +16,6 @@ import { PLAYER_UPDATE, PLAYER_SAVE } from '../../../src/actionsTypes';
 
 import { updatePlayer, savePlayer } from '../../../src/client/actions/player';
 
-const assertEqualShallowElements = (firstElem, secondElem) => {
-  firstElem.getElement().should.equal(secondElem.getElement());
-};
-
-const assertNotEqualShallowElements = (firstElem, secondElem) => {
-  firstElem.getElement().should.not.equal(secondElem.getElement());
-};
-
 describe('PlayerForm', () => {
   const PLAYER = {
     nickname: 'test'
