@@ -80,8 +80,8 @@ export const Ranking = ({ ranking }) => (
   </FullSizeContainer>
 );
 
-const mapStateToProps = ({ ranking }) => {
+export const mapStateToRankingProps = ({ ranking }) => {
   return { ranking };
 };
 
-export default connect(mapStateToProps)(Ranking);
+export default connect(mapStateToRankingProps)(Ranking);

@@ -16,14 +16,14 @@ import {
 } from '../../../actionsTypes';
 import { gridFusion, findPlace, testCollision, gridZero } from './utils';
 
-const initialState = {
+export const piecesInitialState = () => ({
   piece: null,
   next: [],
   hold: null,
   canHold: true
-};
+});
 
-const pieces = (state = initialState, action) => {
+const pieces = (state = piecesInitialState(), action) => {
   switch (action.type) {
     case GAME_PIECES_UPDATE: {
       return {
@@ -76,10 +76,6 @@ const pieces = (state = initialState, action) => {
         canHold: true
       };
 
-    case GAME_PIECES_CLAIM_PIECE: {
-      return state;
-    }
-
     case GAME_PIECES_CLAIM_PIECE_SUCCESS: {
       return {
         ...state,
@@ -118,10 +114,10 @@ const pieces = (state = initialState, action) => {
     }
 
     case PARTY_LEFT:
-      return initialState;
+      return piecesInitialState();
 
     case GAME_END:
-      return initialState;
+      return piecesInitialState();
 
     default:
       return state;
