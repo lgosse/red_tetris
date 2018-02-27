@@ -56,7 +56,7 @@ export const testCollision = (piece, grid) => {
 };
 
 export const gridFusion = (piece, grid) => {
-  let newGrid = [...grid];
+  let newGrid = grid.map(line => ([...line]));
 
   if (testCollision(piece, grid).collide) return null;
   piece.grid.forEach((line, y) => {
@@ -131,13 +131,13 @@ export const isMod = piece => {
     return (
       -1 !=
       elem.findIndex(value => {
-        if (value >= 10) type = value;
-        return value >= 10;
+        if (value >= 10 && value <= 11) type = value;
+        return (value >= 10 && value <= 11);
       })
     );
   });
   if (type != -1)
-    return { type: modTypes[type], do: false, x: piece.x, y: piece.y };
+    return { type: modTypes[type], x: piece.x, y: piece.y };
   else return null;
 };
 

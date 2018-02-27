@@ -1,4 +1,4 @@
-import { gridZero , isLighting, calcWeight, testCollision, gridFusion, checkLines, deleteLinesF} from "../../src/client/reducers/game/utils";
+import { gridZero , isLighting, calcWeight, testCollision, gridFusion, checkLines, deleteLinesF, deleteTnt, isMod, deleteBomb, findPlace} from "../../src/client/reducers/game/utils";
 import chai from "chai";
 import { expect } from "chai";
 
@@ -69,10 +69,10 @@ describe('utils', () => {
       [-1,-1,-1,-1,-1, -1,-1,-1,-1,-1],
       [5,0,0,0,0, 0,0,0,0,0],
       [0,0,0,0,0, 0,0,0,0,0],
-      [0,5,0,0,0, 0,0,0,0,0],
-      [0,0,0,0,0, 0,0,0,0,0],
-      [0,0,0,0,0, 0,0,11,0,0],
-      [0,0,0,0,0, 0,0,0,0,0],
+      [0,5,11,0,0, 0,0,0,0,0],
+      [0,0,11,11,0, 0,0,0,0,0],
+      [11,11,5,4,5, 0,0,11,10,0],
+      [-1,-1,-1,-1,-1, -1,-1,-1,11,-1],
     ],
   ];
 
@@ -130,6 +130,41 @@ describe('utils', () => {
       y: 0,
       weight: 0,
     },
+    {
+      grid: [
+        [10]
+      ],
+      x: 4,
+      y: 2,
+      weight: 0,
+    },
+    {
+      grid: [
+        [11]
+      ],
+      x: 4,
+      y: 2,
+      weight: 0,
+    },
+    {
+      grid: [
+        [0,0,0],
+        [1,1,1],
+        [1,0,0]],
+      x: 0,
+      y: 0,
+      weight: -1,
+    },
+    {
+      grid: [
+        [0,1,0,0],
+        [0,1,0,0],
+        [0,1,0,0],
+        [0,1,0,0]],
+      x: 0,
+      y: 0,
+      weight: -1,
+    },
   ];
 
   describe('gridZero', () => {
@@ -146,6 +181,7 @@ describe('utils', () => {
 
   describe('isLighting', () => {
     it('should tell if the square is in the tetris shadow', () => {
+      isLighting(grids[0], pieces[0], 7, 17).should.equal(false);
       isLighting(grids[0], pieces[0], 1, 17).should.equal(false);
       isLighting(grids[0], pieces[0], 1, 19,).should.equal(true);
       isLighting(grids[0], pieces[0], 0, 19).should.equal(false);
@@ -216,4 +252,48 @@ describe('utils', () => {
     });
   });
 
+  describe('deleteTnt', () => {
+    it('should delete all squares in a range of 3 except others tnt blocks', () => {
+      let output;
+      output = deleteTnt({ x: 2, y: 17 }, grids[2]);
+      output[14].should.be.deep.equal([5,0,0,0,0, 0,0,0,0,0]);
+      output[15].should.be.deep.equal([0,0,0,0,0, 0,0,0,0,0]);
+      output[16].should.be.deep.equal([0,0,11,0,0, 0,0,0,0,0]);
+      output[17].should.be.deep.equal([0,0,0,11,0, 0,0,0,0,0]);
+      output[18].should.be.deep.equal([11,11,0,0,0, 0,0,11,10,0]);
+      output[19].should.be.deep.equal([-1,0,0,0,-1, -1,-1,-1,11,-1]);      
+    });
+  });
+
+  describe('isMod', () => {
+    it('should tell if the piece is a Special piece (bomb or tnt) with its coordonates', () => {
+      expect(isMod(pieces[1])).to.equal(null);
+      isMod(pieces[6]).should.be.deep.equal({ type: 'bomb', x: 4, y: 2 });
+      isMod(pieces[7]).should.be.deep.equal({ type: 'tnt', x: 4, y: 2 });
+    });
+  });
+
+  describe('deleteBomb', () => {
+    it('should delete the line and column of the bomb', () => {
+      let output;
+      deleteBomb(null, grids[2]).should.equal(grids[2]);
+      output = deleteBomb({ x: 8, y: 18 }, grids[2]);
+      output[12].should.be.deep.equal([2,2,2,2,0, 0,0,2,0,0]);
+      output[17].should.be.deep.equal([0,0,11,11,0, 0,0,0,0,0]);
+      output[18].should.be.deep.equal([11,11,0,0,0, 0,0,11,0,0]);
+      output[19].should.be.deep.equal([-1,-1,-1,-1,-1, -1,-1,-1,11,-1]);
+    });
+  });
+
+  describe('findPlace', () => {
+    it('should get a new place for the piece after a rotate', () => {
+      findPlace({...pieces[0], x: 4, y: 14}, grids[1], 0).should.be.deep.equal({ x: 3 , dir: -1});
+      findPlace({...pieces[9], x: 7, y: 13}, grids[1], 0).should.be.deep.equal({ x: 8 , dir: 1});
+      findPlace({...pieces[1], x: 5, y: 13}, grids[1], 0).should.be.deep.equal({ x: 4 });
+      findPlace(pieces[0], grids[1], 0).should.be.deep.equal({ x: 0, dir: 0 });
+      expect(findPlace({...pieces[0], x: 6, y: 14}, grids[1], 0)).to.equal(null);
+      expect(findPlace({...pieces[1], x: 6, y: 14}, grids[1], 0)).to.equal(null);
+      expect(findPlace({...pieces[8], x: 6, y: 14}, grids[1], 0)).to.equal(null);
+    });
+  });
 });
