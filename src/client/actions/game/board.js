@@ -112,7 +112,7 @@ export const bombExplode = mod => (dispatch, getState) => {
 };
 
 export const tntExplode1 = mod => (dispatch, getState) => {
-  const tnt = { ...mod, type: 'tntGo' };
+  const tnt = { ...mod, type: "tntGo" };
   dispatch(setMod(tnt));
 };
 

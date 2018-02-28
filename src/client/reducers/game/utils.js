@@ -125,8 +125,8 @@ export const deleteTnt = (mod, grid) => {
 
 export const isMod = piece => {
   const modTypes = {
-    '10': 'bomb',
-    '11': 'tnt'
+    "10": "bomb",
+    "11": "tnt"
   };
   let type = -1;
   piece.grid.findIndex(elem => {
