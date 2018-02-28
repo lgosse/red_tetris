@@ -91,7 +91,7 @@ class Game {
   isOver() {
     return (
       (this.solo === true && this.findAlivePlayers().length === 0) ||
-      this.findAlivePlayers().length === 1
+      (!this.solo && this.findAlivePlayers().length === 1)
     );
   }
 }
