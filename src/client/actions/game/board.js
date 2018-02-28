@@ -6,9 +6,9 @@ import {
   GAME_HAS_FOCUS,
   GAME_LOSE_FOCUS,
   GAME_BOARD_DELETE_LINES_SOUND
-} from '../../../actionsTypes';
-import { setMod } from './mods';
-import { deleteTnt, deleteBomb } from '../../reducers/game/utils';
+} from "../../../actionsTypes";
+import { setMod } from "./mods";
+import { deleteTnt, deleteBomb } from "../../reducers/game/utils";
 
 export const gridHasFocus = () => ({
   type: GAME_HAS_FOCUS
@@ -39,45 +39,39 @@ export const deleteLinesSound = () => ({
   type: GAME_BOARD_DELETE_LINES_SOUND
 });
 
-const endAnimationSub = (board, grid, x, y) => {
-  while (x >= 0) {
-    grid[grid.length - 1 - y][grid[0].length - 1 - x] = 13;
-    grid[y][x] = 13;
-    x--;
-    y--;
-  }
-  return grid;
-};
-
 export const showEnd = () => (dispatch, getState) => {
   dispatch(updateBoard({ end: true }));
   setTimeout(() => dispatch(updateBoard({ end: false })), 1500);
 };
 
 export const endParty = board => (dispatch, getState) => {
-  if (getState().party.playing === true) {
-    let newGrid = board.grid.map(line => ([...line]));
-    let newBoard = { ...board, grid: newGrid };
-    let x = 0;
-    let y = board.grid.length - 1;
-    let interval = setInterval(() => {
-      if (getState().game.board.end === true) {
-        clearInterval(interval);
-        return;
-      }
-      newBoard = { ...newBoard, grid: endAnimationSub(board, newGrid, x, y) };
-      dispatch(updateBoard(newBoard));
-      x++;
-      if (x === board.grid[0].length) {
-        y--;
-        x--;
-      }
-      if (y < board.grid.length / 2) {
-        clearInterval(interval);
-        dispatch(showEnd());
-      }
-    }, 100);
-  }
+  if (getState().party.playing !== true) return;
+
+  let x = 0;
+  let y = board.grid.length - 1;
+
+  let interval = setInterval(() => {
+    if (getState().game.board.end === true) {
+      clearInterval(interval);
+      return;
+    }
+
+    dispatch(
+      updateBoard({
+        board: { ...board },
+        grid: endAnimationSub(board.grid.map(line => [...line]), x, y)
+      })
+    );
+
+    if (++x === board.grid[0].length) {
+      y--;
+      x--;
+    }
+    if (y < board.grid.length / 2) {
+      clearInterval(interval);
+      dispatch(showEnd());
+    }
+  }, 100);
 };
 
 export const blockLinesServer = (nbLines, except) => ({
@@ -119,7 +113,7 @@ export const bombExplode = mod => (dispatch, getState) => {
 };
 
 export const tntExplode1 = mod => (dispatch, getState) => {
-  const tnt = { ...mod, type: 'tntGo' };
+  const tnt = { ...mod, type: "tntGo" };
   dispatch(setMod(tnt));
 };
 

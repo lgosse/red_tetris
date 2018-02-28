@@ -125,8 +125,8 @@ export const deleteTnt = (mod, grid) => {
 
 export const isMod = piece => {
   const modTypes = {
-    '10': 'bomb',
-    '11': 'tnt'
+    "10": "bomb",
+    "11": "tnt"
   };
   let type = -1;
   piece.grid.findIndex(elem => {
@@ -178,4 +178,14 @@ export const findPlace = (piece, grid, dir) => {
       dir
     };
   }
+};
+
+export const endAnimationSub = (grid, x, y) => {
+  while (x >= 0) {
+    grid[grid.length - 1 - y][grid[0].length - 1 - x] = 13;
+    grid[y][x] = 13;
+    x--;
+    y--;
+  }
+  return grid;
 };
