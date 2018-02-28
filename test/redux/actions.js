@@ -23,6 +23,15 @@ import {
   INPUT_KEYBOARD_LETTER_A,
   INPUT_KEYBOARD_LETTER_H
 } from '../../src/client/actions/game/inputs';
+import {
+  showEnd,
+  endParty,
+  blockLines,
+  bombExplode,
+  tntExplode1,
+  tntExplode2
+} from '../../src/client/actions/game/board';
+import { gridZero } from '../../src/client/reducers/game/utils';
 
 describe('Action creators', () => {
   describe('pieces', () => {
@@ -839,6 +848,196 @@ describe('Action creators', () => {
           keyCode: INPUT_KEYBOARD_LETTER_H,
           preventDefault() {},
           stopPropagation() {}
+        })(dispatch, getState);
+      });
+    });
+  });
+  describe('board', () => {
+    describe('showEnd', () => {
+      it('should update board with end=true', done => {
+        let firstTime = true;
+        const dispatch = action => {
+          if (action.type === GAME_BOARD_UPDATE && firstTime) {
+            action.board.end.should.equal(true);
+            firstTime = false;
+            done();
+          }
+        };
+
+        showEnd()(dispatch, () => {});
+      });
+    });
+    describe('endParty', () => {
+      it('should not do anything if party is stopped', () => {
+        const dispatch = () => {
+          throw new Error('This should not be called.');
+        };
+        const getState = () => ({
+          party: { playing: false }
+        });
+
+        endParty()(dispatch, getState);
+      });
+    });
+    describe('endParty', () => {
+      it('should endParty if game.board.end === true', () => {
+        const dispatch = () => {
+          throw new Error('This should not be called.');
+        };
+        const getState = () => ({
+          party: { playing: true },
+          game: {
+            board: {
+              end: true
+            }
+          }
+        });
+
+        endParty({
+          grid: gridZero(10, 20)
+        })(dispatch, getState);
+      });
+      it('should endParty start animation if game.board.end === false', () => {
+        let firstTime = true;
+        const dispatch = action => {};
+        const getState = () => ({
+          party: { playing: true },
+          game: {
+            board: {
+              end: firstTime ? false : true
+            }
+          }
+        });
+
+        endParty({
+          grid: gridZero(5, 10)
+        })(dispatch, getState);
+        setTimeout(() => {
+          firstTime = false;
+        }, 1000);
+      });
+    });
+    describe('blockLines', () => {
+      it('should block lines', done => {
+        const dispatch = action => {
+          if (action.type === GAME_BOARD_UPDATE) {
+            action.board.grid.should.deep.equal([
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+            ]);
+            done();
+          }
+        };
+        const getState = () => ({
+          player: {
+            socketId: 'tptp'
+          },
+          game: {
+            board: {
+              grid: gridZero(10, 20)
+            }
+          }
+        });
+
+        blockLines({ nbLines: 1, except: 'amhdjv' })(dispatch, getState);
+      });
+      it('should not do anything if except === socketId', () => {
+        const dispatch = action => {
+          if (action.type === GAME_BOARD_UPDATE) {
+            throw new Error('This should not be called.');
+          }
+        };
+        const getState = () => ({
+          player: {
+            socketId: 'amhdjv'
+          },
+          game: {
+            board: {
+              grid: gridZero(10, 20)
+            }
+          }
+        });
+
+        blockLines({ nbLines: 1, except: 'amhdjv' })(dispatch, getState);
+      });
+    });
+    describe('bombExplode', () => {
+      it('should make bomb explode', done => {
+        const dispatch = action => {
+          if (action.type === GAME_MODS_SET) done();
+        };
+        const getState = () => ({
+          game: {
+            board: {
+              grid: gridZero(10, 20)
+            }
+          }
+        });
+
+        bombExplode({
+          x: 5,
+          y: 5
+        })(dispatch, getState);
+      });
+    });
+    describe('tntExplode1', () => {
+      it('should dispatch setMod', done => {
+        const dispatch = action => {
+          if (action.type === GAME_MODS_SET) {
+            action.mod.type.should.equal('tntGo');
+            done();
+          }
+        };
+        const getState = () => ({
+          game: {
+            board: {
+              grid: gridZero(10, 20)
+            }
+          }
+        });
+
+        tntExplode1({
+          x: 5,
+          y: 5
+        })(dispatch, getState);
+      });
+    });
+    describe('tntExplode2', () => {
+      it('should dispatch setMod', done => {
+        const dispatch = action => {
+          if (action.type === GAME_MODS_SET) {
+            done();
+          }
+        };
+        const getState = () => ({
+          game: {
+            board: {
+              grid: gridZero(10, 20)
+            }
+          }
+        });
+
+        tntExplode2({
+          x: 5,
+          y: 5
         })(dispatch, getState);
       });
     });

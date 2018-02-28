@@ -6,9 +6,13 @@ import {
   GAME_HAS_FOCUS,
   GAME_LOSE_FOCUS,
   GAME_BOARD_DELETE_LINES_SOUND
-} from "../../../actionsTypes";
-import { setMod } from "./mods";
-import { deleteTnt, deleteBomb } from "../../reducers/game/utils";
+} from '../../../actionsTypes';
+import { setMod } from './mods';
+import {
+  deleteTnt,
+  deleteBomb,
+  endAnimationSub
+} from '../../reducers/game/utils';
 
 export const gridHasFocus = () => ({
   type: GAME_HAS_FOCUS
@@ -45,33 +49,31 @@ export const showEnd = () => (dispatch, getState) => {
 };
 
 export const endParty = board => (dispatch, getState) => {
-  if (getState().party.playing !== true) return;
+  if (getState().party.playing === true) {
+    let newBoard = { ...board, grid: board.grid.map(line => [...line]) };
+    let x = 0;
+    let y = board.grid.length - 1;
 
-  let x = 0;
-  let y = board.grid.length - 1;
+    const interval = setInterval(() => {
+      if (getState().game.board.end === true) {
+        clearInterval(interval);
+        return;
+      }
 
-  let interval = setInterval(() => {
-    if (getState().game.board.end === true) {
-      clearInterval(interval);
-      return;
-    }
-
-    dispatch(
-      updateBoard({
-        board: { ...board },
-        grid: endAnimationSub(board.grid.map(line => [...line]), x, y)
-      })
-    );
-
-    if (++x === board.grid[0].length) {
-      y--;
-      x--;
-    }
-    if (y < board.grid.length / 2) {
-      clearInterval(interval);
-      dispatch(showEnd());
-    }
-  }, 100);
+      dispatch(
+        updateBoard({ ...newBoard, grid: endAnimationSub(newBoard.grid, x, y) })
+      );
+      x++;
+      if (x === board.grid[0].length) {
+        y--;
+        x--;
+      }
+      if (y < board.grid.length / 2) {
+        clearInterval(interval);
+        dispatch(showEnd());
+      }
+    }, 100);
+  }
 };
 
 export const blockLinesServer = (nbLines, except) => ({
@@ -83,10 +85,7 @@ export const blockLinesServer = (nbLines, except) => ({
 });
 
 export const blockLines = ({ nbLines, except }) => (dispatch, getState) => {
-  const state = getState();
-  const socketId = state.player.socketId;
-  const grid = state.game.board.grid;
-
+  const { player: { socketId }, game: { board: { grid } } } = getState();
   if (except === socketId) return;
 
   dispatch(

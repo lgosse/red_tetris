@@ -52,18 +52,6 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
   const playSound = createPlayer(getState().music);
 
   switch (action.type) {
-    case GAME_PIECES_PIECE_MOVE_SERVER: {
-      dispatch(movePiece(action.direction));
-
-      break;
-    }
-
-    case GAME_PIECES_PIECE_ROTATE_SERVER: {
-      dispatch(rotatePiece(action.direction));
-
-      break;
-    }
-
     case GAME_BOARD_BLOCK_LINES_SERVER: {
       dispatch(blockLines(action.payload));
 

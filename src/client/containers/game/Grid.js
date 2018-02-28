@@ -110,16 +110,17 @@ export const Mod = ({ mods, line, indexLine }) => {
       return (
         <div>
           {Math.abs(mods.y - indexLine) <= 3 &&
-            line
-              .filter(
-                (col, indexColumn) =>
-                  Math.abs(mods.y - indexLine) +
-                    Math.abs(mods.x - indexColumn) <=
-                  3
-              )
-              .map((col, indexColumn) => (
-                <TntGoBlock key={indexColumn} indexColumn={indexColumn} />
-              ))}
+            line.map((col, indexColumn) => {
+              if (
+                Math.abs(mods.y - indexLine) + Math.abs(mods.x - indexColumn) <=
+                3
+              ) {
+                return (
+                  <TntGoBlock key={indexColumn} indexColumn={indexColumn} />
+                );
+              }
+              return <span key={indexColumn} />;
+            })}
         </div>
       );
     }
@@ -229,3 +230,18 @@ export const mapDispatchToGridProps = dispatch => ({
 });
 
 export default connect(mapStateToGridProps, mapDispatchToGridProps)(Grid);
+
+// if (Math.abs(mods.y - i) <= 3) {
+//   line.map((col, j) => {
+//     if (Math.abs(mods.y - i) + Math.abs(mods.x - j) <= 3)
+//       tnt.push(
+//         <div key={i + '' + j} style={gameStyle.tnt.explode(j)}>
+//           <div style={gameStyle.tnt.anim}>
+//             <div style={gameStyle.tnt.base1} />
+//             <div style={gameStyle.tnt.base2} />
+//             <div style={gameStyle.tnt.circle} />
+//           </div>
+//         </div>
+//       );
+//   });
+// }
