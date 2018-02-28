@@ -86,9 +86,7 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
 
     case PARTY_START_SUCCESS: {
       const partyInterval = setInterval(() => {
-        console.log(getState().party.playing);
         if (!getState().party.playing) {
-          console.log('putain');
           clearInterval(partyInterval);
 
           return;

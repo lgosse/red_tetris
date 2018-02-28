@@ -54573,9 +54573,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <TntGoBlock
-          indexColumn={0}
-        />,
+        <span />,
         <TntGoBlock
           indexColumn={1}
         />,
@@ -54594,6 +54592,11 @@ ShallowWrapper {
         <TntGoBlock
           indexColumn={6}
         />,
+        <TntGoBlock
+          indexColumn={7}
+        />,
+        <span />,
+        <span />,
       ],
     },
     "ref": null,
@@ -54601,13 +54604,11 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": "0",
-        "nodeType": "function",
-        "props": Object {
-          "indexColumn": 0,
-        },
+        "nodeType": "host",
+        "props": Object {},
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "span",
       },
       Object {
         "instance": null,
@@ -54675,6 +54676,35 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
+      Object {
+        "instance": null,
+        "key": "7",
+        "nodeType": "function",
+        "props": Object {
+          "indexColumn": 7,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "8",
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "span",
+      },
+      Object {
+        "instance": null,
+        "key": "9",
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "span",
+      },
     ],
     "type": "div",
   },
@@ -54685,9 +54715,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <TntGoBlock
-            indexColumn={0}
-          />,
+          <span />,
           <TntGoBlock
             indexColumn={1}
           />,
@@ -54706,6 +54734,11 @@ ShallowWrapper {
           <TntGoBlock
             indexColumn={6}
           />,
+          <TntGoBlock
+            indexColumn={7}
+          />,
+          <span />,
+          <span />,
         ],
       },
       "ref": null,
@@ -54713,13 +54746,11 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": "0",
-          "nodeType": "function",
-          "props": Object {
-            "indexColumn": 0,
-          },
+          "nodeType": "host",
+          "props": Object {},
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "span",
         },
         Object {
           "instance": null,
@@ -54786,6 +54817,35 @@ ShallowWrapper {
           "ref": null,
           "rendered": null,
           "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "7",
+          "nodeType": "function",
+          "props": Object {
+            "indexColumn": 7,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "8",
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "span",
+        },
+        Object {
+          "instance": null,
+          "key": "9",
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "span",
         },
       ],
       "type": "div",

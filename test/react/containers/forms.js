@@ -122,7 +122,6 @@ describe('Forms', () => {
             }
           };
           const dispatch = action => {
-            console.log(action);
             action.party.should.deep.equal({
               name: 'toto',
               size: 'toto',
