@@ -156,7 +156,7 @@ export const rotatePiece = direction => (dispatch, getState) => {
   const { game: { board: { grid }, pieces: { piece } } } = getState();
 
   if (!piece) return;
-  let newGrid = gridZero(piece.grid.length);
+  let newGrid = gridZero(piece.grid.length, piece.grid.length);
 
   piece.grid.forEach((line, y) => {
     line.forEach((col, x) => {
