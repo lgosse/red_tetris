@@ -1,50 +1,49 @@
-import fs from 'fs';
-import debug from 'debug';
-import ioReducer from './serverReducer';
-import mongoose from 'mongoose';
-import { userLeaves, getParties } from './reducers/partyList';
-import { updatePlayer } from '../client/actions/player';
-import params from '../../params';
+import fs from "fs";
+import debug from "debug";
+import ioReducer from "./serverReducer";
+import mongoose from "mongoose";
+import { userLeaves, getParties } from "./reducers/partyList";
+import { updatePlayer } from "../client/actions/player";
+import params from "../../params";
 mongoose.Promise = Promise;
 mongoose.connect(`mongodb://${params.db.host}:27017/dev`);
 
-import GameModel from './models/Game';
-import { setTimeout } from 'timers';
+import GameModel from "./models/Game";
 import {
   SERVER_PING_USER,
   PARTY_KICK_PLAYER,
   PARTY_LEAVE
-} from '../actionsTypes';
+} from "../actionsTypes";
 
-const logerror = debug('tetris:error'),
-  loginfo = debug('tetris:info');
+const logerror = debug("tetris:error"),
+  loginfo = debug("tetris:info");
 
 const initApp = (app, params, cb) => {
   const { host, port } = params;
   const handler = (req, res) => {
     let file;
 
-    if (req.url.indexOf('/static/media') === 0) {
+    if (req.url.indexOf("/static/media") === 0) {
       file = `/../../build/${req.url}`;
     } else {
       file =
-        req.url === '/bundle.js'
-          ? '/../../build/bundle.js'
-          : '/../../index.html';
+        req.url === "/bundle.js"
+          ? "/../../build/bundle.js"
+          : "/../../index.html";
     }
 
     fs.readFile(__dirname + file, (err, data) => {
       if (err) {
         logerror(err);
         res.writeHead(500);
-        return res.end('Error loading index.html');
+        return res.end("Error loading index.html");
       }
       res.writeHead(200);
       res.end(data);
     });
   };
 
-  app.on('request', handler);
+  app.on("request", handler);
 
   app.listen({ host, port }, () => {
     loginfo(`tetris listen on ${params.url}`);
@@ -53,16 +52,16 @@ const initApp = (app, params, cb) => {
 };
 
 const initEngine = async io => {
-  io.on('connection', socket => {
-    socket.emit('action', updatePlayer({ socketId: socket.id }));
+  io.on("connection", socket => {
+    socket.emit("action", updatePlayer({ socketId: socket.id }));
 
-    loginfo('Socket connected: ' + socket.id);
-    socket.on('action', action => {
+    loginfo("Socket connected: " + socket.id);
+    socket.on("action", action => {
       ioReducer(io, socket, action);
     });
 
-    socket.on('disconnect', () => {
-      loginfo('Socket disconnected: ' + socket.id);
+    socket.on("disconnect", () => {
+      loginfo("Socket disconnected: " + socket.id);
       userLeaves(io, socket);
     });
   });
@@ -74,7 +73,7 @@ const initEngine = async io => {
 
 const pingPlayer = async (io, party, player, countBeforeKick) => {
   if (countBeforeKick === 0) {
-    io.emit('action', { type: PARTY_KICK_PLAYER, playerId: player.socketId });
+    io.emit("action", { type: PARTY_KICK_PLAYER, playerId: player.socketId });
     if (
       Object.keys(io.sockets.sockets).findIndex(
         key => player.socketId === key
@@ -86,7 +85,7 @@ const pingPlayer = async (io, party, player, countBeforeKick) => {
   } else {
     // Pinging user
     const date = Date.now();
-    io.to(player.socketId).emit('action', {
+    io.to(player.socketId).emit("action", {
       type: SERVER_PING_USER,
       player: player,
       partyId: party._id,
@@ -139,19 +138,19 @@ const autoPing = async io => {
 
 export function create(params) {
   const promise = new Promise((resolve, reject) => {
-    const app = require('http').createServer((req, res) => {
-      res.setHeader('Access-Control-Allow-Origin', '*');
-      res.setHeader('Access-Control-Request-Method', '*');
-      res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
-      res.setHeader('Access-Control-Allow-Headers', '*');
-      if (req.method === 'OPTIONS') {
+    const app = require("http").createServer((req, res) => {
+      res.setHeader("Access-Control-Allow-Origin", "*");
+      res.setHeader("Access-Control-Request-Method", "*");
+      res.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET");
+      res.setHeader("Access-Control-Allow-Headers", "*");
+      if (req.method === "OPTIONS") {
         res.writeHead(200);
         res.end();
         return;
       }
     });
     initApp(app, params, () => {
-      const io = require('socket.io')(app);
+      const io = require("socket.io")(app);
       const stop = cb => {
         io.close();
         app.close(() => {
