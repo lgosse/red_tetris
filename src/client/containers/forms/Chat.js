@@ -75,7 +75,7 @@ const OtherMessage = styled.div`
   color: ${global.color.primary};
 `;
 
-const Messages = ({ messages, player }) => (
+export const Messages = ({ messages, player }) => (
   <MessagesContainer
     id="messages-container"
     ref={() =>
@@ -108,11 +108,7 @@ const Messages = ({ messages, player }) => (
   </MessagesContainer>
 );
 
-<a href="http://localhost:8081/forgotten-password/{uniquegeneratedtoken}">
-  MON LIEN
-</a>;
-
-const Chat = ({ messages, player, handleSubmit }) => (
+export const Chat = ({ messages, player, handleSubmit }) => (
   <FlexContainer
     style={{
       margin: global.padding.sm,
@@ -132,12 +128,12 @@ const Chat = ({ messages, player, handleSubmit }) => (
   </FlexContainer>
 );
 
-const mapStateToProps = ({ party: { messages }, player }) => ({
+export const mapStateToChatProps = ({ party: { messages }, player }) => ({
   messages,
   player
 });
 
-const mapDispatchToProps = (dispatch, getState) => ({
+export const mapDispatchToChatProps = (dispatch, getState) => ({
   handleSubmit(event) {
     event.preventDefault();
     const message = document.getElementById('message').value.trim();
@@ -148,4 +144,4 @@ const mapDispatchToProps = (dispatch, getState) => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Chat);
+export default connect(mapStateToChatProps, mapDispatchToChatProps)(Chat);

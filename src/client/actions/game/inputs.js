@@ -15,10 +15,13 @@ export const INPUT_KEYBOARD_SPACE = 32,
   INPUT_KEYBOARD_LETTER_H = 72;
 
 export const input = event => (dispatch, getState) => {
-  const state = getState();
-  const inputs = state.game.inputs;
-  const pieces = state.game.pieces;
-  const music = state.music;
+  const { game: { inputs, pieces }, music } = getState();
+  // const state = getState();
+  // const inputs = state.game.inputs;
+  // const pieces = state.game.pieces;
+  // const music = state.music;
+
+  // Prevent reuse of same event
   const keyCode = event.keyCode;
   const playSound = createPlayer(music);
 
@@ -74,7 +77,7 @@ export const input = event => (dispatch, getState) => {
       event.stopPropagation();
       break;
     case INPUT_KEYBOARD_LETTER_H: {
-      if (state.game.pieces.canHold) {
+      if (pieces.canHold) {
         playSound(Sweep5);
         dispatch(holdPiece());
         dispatch(claimPiece());

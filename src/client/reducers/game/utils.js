@@ -3,14 +3,16 @@ export const gridZero = (sizeX, sizeY) =>
 
 export const isLighting = (grid, piece, x, y) => {
   let j = x - piece.x;
-  if (j < 0 || j >= piece.grid[0].length)
-    return false;
+  if (j < 0 || j >= piece.grid[0].length) return false;
 
   let down = piece.y;
-  while (!testCollision({ ...piece, y: down + 1 }, grid).collide)
-    down++;
+  while (!testCollision({ ...piece, y: down + 1 }, grid).collide) down++;
 
-  if (y - down >= 0 && y - down < piece.grid.length && piece.grid[y - down][j] !== 0)
+  if (
+    y - down >= 0 &&
+    y - down < piece.grid.length &&
+    piece.grid[y - down][j] !== 0
+  )
     return true;
   return false;
 };
@@ -19,7 +21,7 @@ export const calcWeight = grid => {
   let weight = 0;
   grid.forEach((line, y) => {
     line.forEach((col, x) => {
-      if (col !== 0) weight += x - ((grid.length - 1) / 2);
+      if (col !== 0) weight += x - (grid.length - 1) / 2;
     });
   });
   if (weight > 0) weight = -1;
@@ -56,7 +58,7 @@ export const testCollision = (piece, grid) => {
 };
 
 export const gridFusion = (piece, grid) => {
-  let newGrid = grid.map(line => ([...line]));
+  let newGrid = grid.map(line => [...line]);
 
   if (testCollision(piece, grid).collide) return null;
   piece.grid.forEach((line, y) => {
@@ -86,12 +88,12 @@ export const checkLines = grid => {
 };
 
 export const deleteLinesF = (grid, lines, force) => {
-  let newGrid = grid.map(line => ([...line]));
+  let newGrid = grid.map(line => [...line]);
   let newLines = [...lines];
 
   newLines.forEach(index => {
     newGrid[index].forEach((val, x) => {
-      if ((val >= 0 && val <= 9 || val === 12) || (force && val !== 11)) {
+      if ((val >= 0 && val <= 9) || val === 12 || (force && val !== 11)) {
         newGrid[index][x] = 0;
         let i;
         for (i = index; i > 0; i--) {
@@ -132,13 +134,15 @@ export const isMod = piece => {
       -1 !=
       elem.findIndex(value => {
         if (value >= 10 && value <= 11) type = value;
-        return (value >= 10 && value <= 11);
+        return value >= 10 && value <= 11;
       })
     );
   });
-  if (type != -1)
+  if (type != -1) {
     return { type: modTypes[type], x: piece.x, y: piece.y };
-  else return null;
+  } else {
+    return null;
+  }
 };
 
 export const deleteBomb = (mod, grid) => {
