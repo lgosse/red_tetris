@@ -179,3 +179,13 @@ export const findPlace = (piece, grid, dir) => {
     };
   }
 };
+
+export const endAnimationSub = (grid, x, y) => {
+  while (x >= 0) {
+    grid[grid.length - 1 - y][grid[0].length - 1 - x] = 13;
+    grid[y][x] = 13;
+    x--;
+    y--;
+  }
+  return grid;
+};

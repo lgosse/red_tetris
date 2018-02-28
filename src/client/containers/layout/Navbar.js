@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import global from "../../styles/global";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { Spacer } from "../../components/helpers/Common";
+import React from 'react';
+import styled from 'styled-components';
+import global from '../../styles/global';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Spacer } from '../../components/helpers/Common';
 
 const Bar = styled.div`
   width: 100%;
@@ -56,7 +56,7 @@ const Navbar = () => {
       </Link>
       <Link to="new-game" id="new-game-link">
         <NavLink>
-          <i className="fa fa-plus" /> NEW GAME
+          <i className="fa fa-plus" /> PLAY
         </NavLink>
       </Link>
     </Bar>

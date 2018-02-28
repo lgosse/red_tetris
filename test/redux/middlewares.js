@@ -11,7 +11,10 @@ import {
   PLAYER_GET,
   PARTY_GET,
   PARTY_LEAVE,
-  ALERT_POP
+  ALERT_POP,
+  GAME_BOARD_UPDATE,
+  GAME_MALUS_ADD_SUCCESS,
+  GAME_PIECES_PIECE_MOVE_SUCCESS
 } from '../../src/actionsTypes';
 import { alert } from '../../src/client/actions/alert';
 import reducers from '../../src/client/reducers';
@@ -29,6 +32,17 @@ import io from 'socket.io-client';
 import params from '../../params';
 import { combineReducers } from 'redux';
 import GameModel from '../../src/server/models/Game';
+import {
+  blockLinesServer,
+  deleteLinesSound
+} from '../../src/client/actions/game/board';
+import { gameAddMalus, claimPiece } from '../../src/client/actions/game/pieces';
+import thunk from 'redux-thunk';
+import gameMiddleware from '../../src/client/middleware/gameMiddleware';
+import { gameLose } from '../../src/client/actions/game/game';
+import { startPartySuccess, updateParty } from '../../src/client/actions/party';
+import { gridZero } from '../../src/client/reducers/game/utils';
+import { setMod } from '../../src/client/actions/game/mods';
 
 chai.should();
 
@@ -232,7 +246,6 @@ describe('Middlewares', () => {
   describe('effectsMiddleware', () => {
     it('should call setTimeout on ALERT_POP', () => {
       const initialState = {};
-      let firstTry = true;
       const store = configureStore(
         combineReducers({
           ...reducers
@@ -243,6 +256,356 @@ describe('Middlewares', () => {
       );
 
       store.dispatch(alert('TEST'));
+    });
+  });
+  describe('gameMiddleware', () => {
+    describe('Type: GAME_BOARD_BLOCK_LINES_SERVER', () => {
+      it('should dispatch blockLines action', done => {
+        const store = configureStore(
+          combineReducers({
+            ...reducers
+          }),
+          null,
+          {},
+          {
+            [GAME_BOARD_UPDATE]: (dispatch, getState) => {
+              done();
+            }
+          },
+          gameMiddleware,
+          ({ dispatch, getState }) => next => action => {
+            if (typeof action === 'function') action();
+          }
+        );
+
+        store.dispatch(blockLinesServer(2, 'toto'));
+      });
+    });
+    describe('Type: GAME_MALUS_ADD', () => {
+      it('should dispatch gameAddMalusSuccess if player socketId !== emitterSocketId', done => {
+        const store = configureStore(
+          combineReducers({
+            ...reducers
+          }),
+          null,
+          {
+            player: {
+              socketId: 'adjhvjhabd'
+            }
+          },
+          {
+            [GAME_MALUS_ADD_SUCCESS]: (dispatch, getState) => {
+              done();
+            }
+          },
+          gameMiddleware
+        );
+
+        store.dispatch(
+          gameAddMalus('jahvd', {
+            grid: [[-1]],
+            x: 4,
+            y: 0
+          })
+        );
+      });
+      it('should not dispatch gameAddMalusSuccess if player socketId === emitterSocketId', () => {
+        const store = configureStore(
+          combineReducers({
+            ...reducers
+          }),
+          null,
+          {
+            player: {
+              socketId: 'jahvd'
+            }
+          },
+          {
+            [GAME_MALUS_ADD_SUCCESS]: (dispatch, getState) => {
+              done();
+            }
+          },
+          gameMiddleware
+        );
+
+        store.dispatch(
+          gameAddMalus('jahvd', {
+            grid: [[-1]],
+            x: 4,
+            y: 0
+          })
+        );
+      });
+    });
+    describe('Type: GAME_BOARD_DELETE_LINES_SOUND', () => {
+      it('should playSound', done => {
+        global.Audio = class {
+          constructor(file) {
+            this.file = file;
+          }
+
+          play() {
+            done();
+
+            return {
+              catch() {}
+            };
+          }
+        };
+        const store = configureStore(
+          combineReducers({
+            ...reducers
+          }),
+          null,
+          {
+            player: {
+              socketId: 'jahvd'
+            }
+          },
+          {},
+          gameMiddleware
+        );
+
+        store.dispatch(deleteLinesSound());
+      });
+    });
+    describe('Type: GAME_PIECES_CLAIM_PIECE', () => {
+      it('should playSound', done => {
+        global.Audio = class {
+          constructor(file) {
+            this.file = file;
+          }
+
+          play() {
+            done();
+
+            return {
+              catch() {}
+            };
+          }
+        };
+
+        const store = configureStore(
+          combineReducers({
+            ...reducers
+          }),
+          null,
+          {
+            player: {
+              socketId: 'jahvd'
+            }
+          },
+          {},
+          gameMiddleware
+        );
+
+        store.dispatch(claimPiece());
+      });
+    });
+    describe('Type: GAME_LOSE', () => {
+      it('should playSound', done => {
+        global.Audio = class {
+          constructor(file) {
+            this.file = file;
+          }
+
+          play() {
+            done();
+
+            return {
+              catch() {}
+            };
+          }
+        };
+
+        const store = configureStore(
+          combineReducers({
+            ...reducers
+          }),
+          null,
+          {
+            player: {
+              socketId: 'jahvd'
+            }
+          },
+          {},
+          gameMiddleware
+        );
+
+        store.dispatch(gameLose());
+      });
+    });
+    describe('Type: PARTY_START_SUCCESS', () => {
+      it('should dispatch movePiece with 0 every seconds', done => {
+        const store = configureStore(
+          combineReducers({
+            ...reducers
+          }),
+          null,
+          {
+            party: {
+              playing: true
+            },
+            game: {
+              board: {
+                grid: gridZero(10, 20)
+              },
+              pieces: {
+                piece: {
+                  grid: [[1, 1], [1, 1]],
+                  x: 4,
+                  y: 0
+                }
+              }
+            }
+          },
+          {},
+          gameMiddleware,
+          ({ dispatch, getState }) => next => action => {
+            if (action.type === GAME_PIECES_PIECE_MOVE_SUCCESS) {
+              done();
+            }
+          }
+        );
+
+        store.dispatch(startPartySuccess());
+      });
+    });
+    describe('Type: GAME_MODS_SET', () => {
+      it('should handle bomb', () => {
+        global.Audio = class {
+          constructor(file) {
+            this.file = file;
+          }
+
+          play() {
+            return {
+              catch() {}
+            };
+          }
+        };
+
+        const store = configureStore(
+          combineReducers({
+            ...reducers
+          }),
+          null,
+          {},
+          {},
+          gameMiddleware,
+          ({ dispatch, getState }) => next => action => {
+            if (typeof action === 'function') {
+              done();
+            }
+          }
+        );
+
+        store.dispatch(
+          setMod({
+            type: 'bomb',
+            y: 4,
+            x: 4
+          })
+        );
+      });
+      it('should handle tnt', () => {
+        global.Audio = class {
+          constructor(file) {
+            this.file = file;
+          }
+
+          play() {
+            return {
+              catch() {}
+            };
+          }
+        };
+
+        const store = configureStore(
+          combineReducers({
+            ...reducers
+          }),
+          null,
+          {},
+          {},
+          gameMiddleware
+        );
+
+        store.dispatch(
+          setMod({
+            type: 'tnt',
+            y: 4,
+            x: 4
+          })
+        );
+      });
+      it('should handle tntGo', () => {
+        global.Audio = class {
+          constructor(file) {
+            this.file = file;
+          }
+
+          play() {
+            return {
+              catch() {}
+            };
+          }
+        };
+
+        const store = configureStore(
+          combineReducers({
+            ...reducers
+          }),
+          null,
+          {},
+          {},
+          gameMiddleware,
+          ({ dispatch, getState }) => next => action => {
+            if (typeof action === 'function') {
+              done();
+            }
+          }
+        );
+
+        store.dispatch(
+          setMod({
+            type: 'tntGo',
+            y: 4,
+            x: 4
+          })
+        );
+      });
+      it('should break if action doesnt contains mod type', () => {
+        global.Audio = class {
+          constructor(file) {
+            this.file = file;
+          }
+
+          play() {
+            return {
+              catch() {}
+            };
+          }
+        };
+
+        const store = configureStore(
+          combineReducers({
+            ...reducers
+          }),
+          null,
+          {},
+          {},
+          gameMiddleware
+        );
+
+        store.dispatch(
+          setMod({
+            type: 'lkjag',
+            y: 4,
+            x: 4
+          })
+        );
+      });
     });
   });
 });

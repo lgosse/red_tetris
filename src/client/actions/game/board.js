@@ -8,7 +8,11 @@ import {
   GAME_BOARD_DELETE_LINES_SOUND
 } from '../../../actionsTypes';
 import { setMod } from './mods';
-import { deleteTnt, deleteBomb } from '../../reducers/game/utils';
+import {
+  deleteTnt,
+  deleteBomb,
+  endAnimationSub
+} from '../../reducers/game/utils';
 
 export const gridHasFocus = () => ({
   type: GAME_HAS_FOCUS
@@ -39,16 +43,6 @@ export const deleteLinesSound = () => ({
   type: GAME_BOARD_DELETE_LINES_SOUND
 });
 
-const endAnimationSub = (board, grid, x, y) => {
-  while (x >= 0) {
-    grid[grid.length - 1 - y][grid[0].length - 1 - x] = 13;
-    grid[y][x] = 13;
-    x--;
-    y--;
-  }
-  return grid;
-};
-
 export const showEnd = () => (dispatch, getState) => {
   dispatch(updateBoard({ end: true }));
   setTimeout(() => dispatch(updateBoard({ end: false })), 1500);
@@ -56,17 +50,19 @@ export const showEnd = () => (dispatch, getState) => {
 
 export const endParty = board => (dispatch, getState) => {
   if (getState().party.playing === true) {
-    let newGrid = board.grid.map(line => ([...line]));
-    let newBoard = { ...board, grid: newGrid };
+    let newBoard = { ...board, grid: board.grid.map(line => [...line]) };
     let x = 0;
     let y = board.grid.length - 1;
-    let interval = setInterval(() => {
+
+    const interval = setInterval(() => {
       if (getState().game.board.end === true) {
         clearInterval(interval);
         return;
       }
-      newBoard = { ...newBoard, grid: endAnimationSub(board, newGrid, x, y) };
-      dispatch(updateBoard(newBoard));
+
+      dispatch(
+        updateBoard({ ...newBoard, grid: endAnimationSub(newBoard.grid, x, y) })
+      );
       x++;
       if (x === board.grid[0].length) {
         y--;
@@ -89,10 +85,7 @@ export const blockLinesServer = (nbLines, except) => ({
 });
 
 export const blockLines = ({ nbLines, except }) => (dispatch, getState) => {
-  const state = getState();
-  const socketId = state.player.socketId;
-  const grid = state.game.board.grid;
-
+  const { player: { socketId }, game: { board: { grid } } } = getState();
   if (except === socketId) return;
 
   dispatch(
