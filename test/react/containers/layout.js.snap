@@ -374,7 +374,7 @@ ShallowWrapper {
             <i
               className="fa fa-plus"
             />
-             NEW GAME
+             PLAY
           </styled.button>
         </Link>,
       ],
@@ -504,7 +504,7 @@ ShallowWrapper {
             <i
               className="fa fa-plus"
             />
-             NEW GAME
+             PLAY
           </styled.button>,
           "id": "new-game-link",
           "replace": false,
@@ -520,7 +520,7 @@ ShallowWrapper {
               <i
                 className="fa fa-plus"
               />,
-              " NEW GAME",
+              " PLAY",
             ],
           },
           "ref": null,
@@ -536,7 +536,7 @@ ShallowWrapper {
               "rendered": null,
               "type": "i",
             },
-            " NEW GAME",
+            " PLAY",
           ],
           "type": [Function],
         },
@@ -589,7 +589,7 @@ ShallowWrapper {
               <i
                 className="fa fa-plus"
               />
-               NEW GAME
+               PLAY
             </styled.button>
           </Link>,
         ],
@@ -719,7 +719,7 @@ ShallowWrapper {
               <i
                 className="fa fa-plus"
               />
-               NEW GAME
+               PLAY
             </styled.button>,
             "id": "new-game-link",
             "replace": false,
@@ -735,7 +735,7 @@ ShallowWrapper {
                 <i
                   className="fa fa-plus"
                 />,
-                " NEW GAME",
+                " PLAY",
               ],
             },
             "ref": null,
@@ -751,7 +751,7 @@ ShallowWrapper {
                 "rendered": null,
                 "type": "i",
               },
-              " NEW GAME",
+              " PLAY",
             ],
             "type": [Function],
           },
