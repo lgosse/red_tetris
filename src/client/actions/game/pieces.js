@@ -11,7 +11,7 @@ import {
   GAME_PIECE_UPDATE,
   GAME_PIECES_HOLD,
   GAME_PIECES_RESET_HOLD
-} from '../../../actionsTypes';
+} from "../../../actionsTypes";
 import {
   gridFusion,
   checkLines,
@@ -20,17 +20,17 @@ import {
   gridZero,
   findPlace,
   deleteBomb
-} from '../../reducers/game/utils';
-import { setMod, useMod } from './mods';
+} from "../../reducers/game/utils";
+import { setMod, useMod } from "./mods";
 import {
   updateBoard,
   deleteLines,
   notifyGridUpdate,
   endParty,
   deleteLinesSound
-} from './board';
-import { gameLose } from './game';
-import { setTimeout } from 'timers';
+} from "./board";
+import { gameLose } from "./game";
+import { setTimeout } from "timers";
 
 export const updatePiecesGame = pieces => ({
   type: GAME_PIECES_UPDATE,
@@ -125,8 +125,7 @@ export const movePiece = direction => (dispatch, getState) => {
       dispatch(resetHold());
       dispatch(
         updateBoard({
-          grid: newGrid,
-          lines
+          grid: newGrid
         })
       );
 
@@ -141,6 +140,12 @@ export const movePiece = direction => (dispatch, getState) => {
 
       if (lines) dispatch(deleteLinesSound());
       setTimeout(() => {
+        lines = checkLines(getState().game.board.grid);
+        dispatch(
+          updateBoard({
+            lines
+          })
+        );
         if (lines) dispatch(deleteLines());
         dispatch(
           notifyGridUpdate(getState().game.board.grid, lines ? lines.length : 0)

@@ -9,9 +9,9 @@ import {
   GAME_PIECES_PIECE_ROTATE_SUCCESS,
   INPUT_KEYBOARD,
   GAME_PIECES_HOLD
-} from '../../src/actionsTypes';
-import { movePiece, rotatePiece } from '../../src/client/actions/game/pieces';
-import { gameLose } from '../../src/client/actions/game/game';
+} from "../../src/actionsTypes";
+import { movePiece, rotatePiece } from "../../src/client/actions/game/pieces";
+import { gameLose } from "../../src/client/actions/game/game";
 import {
   input,
   INPUT_KEYBOARD_RIGHT,
@@ -22,7 +22,7 @@ import {
   INPUT_KEYBOARD_LETTER_D,
   INPUT_KEYBOARD_LETTER_A,
   INPUT_KEYBOARD_LETTER_H
-} from '../../src/client/actions/game/inputs';
+} from "../../src/client/actions/game/inputs";
 import {
   showEnd,
   endParty,
@@ -30,38 +30,39 @@ import {
   bombExplode,
   tntExplode1,
   tntExplode2
-} from '../../src/client/actions/game/board';
-import { gridZero } from '../../src/client/reducers/game/utils';
+} from "../../src/client/actions/game/board";
+import { gridZero } from "../../src/client/reducers/game/utils";
 
-describe('Action creators', () => {
-  describe('pieces', () => {
-    describe('movePiece', () => {
-      it('should handle space', () => {
+describe("Action creators", () => {
+  describe("pieces", () => {
+    describe("movePiece", () => {
+      it("should handle space", () => {
         const dispatch = action => {
           switch (action.type) {
             case GAME_BOARD_UPDATE:
-              action.board.grid.should.deep.equal([
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
-              ]);
+              action.board.grid &&
+                action.board.grid.should.deep.equal([
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
+                ]);
               break;
 
             default:
@@ -115,9 +116,9 @@ describe('Action creators', () => {
 
         movePiece(20)(dispatch, getState);
       });
-      it('should return if pieces.piece is null', () => {
+      it("should return if pieces.piece is null", () => {
         const dispatch = () => {
-          throw new Error('This should not be call.');
+          throw new Error("This should not be call.");
         };
         const getState = () => {
           return {
@@ -155,7 +156,7 @@ describe('Action creators', () => {
 
         movePiece(10)(dispatch, getState);
       });
-      it('should handle regular direction down without collision', done => {
+      it("should handle regular direction down without collision", done => {
         const dispatch = action => {
           switch (action.type) {
             case GAME_PIECES_PIECE_MOVE_SUCCESS:
@@ -211,7 +212,7 @@ describe('Action creators', () => {
 
         movePiece(1)(dispatch, getState);
       });
-      it('should handle regular direction down without collision with mod', done => {
+      it("should handle regular direction down without collision with mod", done => {
         const dispatch = action => {
           switch (action.type) {
             case GAME_MODS_SET:
@@ -267,7 +268,7 @@ describe('Action creators', () => {
 
         movePiece(20)(dispatch, getState);
       });
-      it('should handle regular direction down with collision and line destruction', done => {
+      it("should handle regular direction down with collision and line destruction", done => {
         const dispatch = action => {
           switch (action.type) {
             case GAME_BOARD_DELETE_LINES_SOUND:
@@ -324,11 +325,11 @@ describe('Action creators', () => {
 
         movePiece(20)(dispatch, getState);
       });
-      it('should handle regular direction right with collision', () => {
+      it("should handle regular direction right with collision", () => {
         const dispatch = action => {
           switch (action.type) {
             case GAME_PIECES_PIECE_MOVE_SUCCESS:
-              throw new Error('This should not be called.');
+              throw new Error("This should not be called.");
             default:
               return;
           }
@@ -379,9 +380,9 @@ describe('Action creators', () => {
 
         movePiece(1)(dispatch, getState);
       });
-      it('should handle collision that causes game to end', done => {
+      it("should handle collision that causes game to end", done => {
         const dispatch = action => {
-          if (typeof action === 'function') {
+          if (typeof action === "function") {
             action(dispatch, () => ({
               game: {
                 score: 2000
@@ -438,16 +439,16 @@ describe('Action creators', () => {
 
         movePiece(0)(dispatch, getState);
       });
-      it('should handle collision when game already ended', () => {
+      it("should handle collision when game already ended", () => {
         const dispatch = action => {
-          if (typeof action === 'function') {
+          if (typeof action === "function") {
             action(dispatch, () => ({
               game: {
                 score: 2000
               }
             }));
           } else if (action.type === GAME_LOSE) {
-            throw new Error('gameLose should not be called');
+            throw new Error("gameLose should not be called");
           }
         };
         const getState = () => {
@@ -499,10 +500,10 @@ describe('Action creators', () => {
         movePiece(0)(dispatch, getState);
       });
     });
-    describe('rotatePiece', () => {
-      it('should not crash if no piece is provided', () => {
+    describe("rotatePiece", () => {
+      it("should not crash if no piece is provided", () => {
         const dispatch = () => {
-          throw new Error('This should not be called');
+          throw new Error("This should not be called");
         };
         const getState = () => ({
           game: {
@@ -538,7 +539,7 @@ describe('Action creators', () => {
 
         rotatePiece(1)(dispatch, getState);
       });
-      it('should rotate the piece', done => {
+      it("should rotate the piece", done => {
         const dispatch = action => {
           if (action.type === GAME_PIECES_PIECE_ROTATE_SUCCESS) done();
         };
@@ -580,10 +581,10 @@ describe('Action creators', () => {
 
         rotatePiece(1)(dispatch, getState);
       });
-      it('should not rotate the piece if impossible', () => {
+      it("should not rotate the piece if impossible", () => {
         const dispatch = action => {
           if (action.type === GAME_PIECES_PIECE_ROTATE_SUCCESS) {
-            throw new Error('This should not be called');
+            throw new Error("This should not be called");
           }
         };
         const getState = () => ({
@@ -626,11 +627,11 @@ describe('Action creators', () => {
       });
     });
   });
-  describe('inputs', () => {
-    describe('input', () => {
-      it('should not do anything if input is already in state (anti-spam)', () => {
+  describe("inputs", () => {
+    describe("input", () => {
+      it("should not do anything if input is already in state (anti-spam)", () => {
         const dispatch = action => {
-          throw new Error('This should not be called.');
+          throw new Error("This should not be called.");
         };
         const getState = () => ({
           game: {
@@ -644,7 +645,7 @@ describe('Action creators', () => {
 
         input({ keyCode: 42 })(dispatch, getState);
       });
-      it('should handle INPUT_KEYBOARD_RIGHT', done => {
+      it("should handle INPUT_KEYBOARD_RIGHT", done => {
         const dispatch = action => {
           if (action.type === INPUT_KEYBOARD) {
             action.input.should.equal(INPUT_KEYBOARD_RIGHT);
@@ -667,7 +668,7 @@ describe('Action creators', () => {
           stopPropagation() {}
         })(dispatch, getState);
       });
-      it('should handle INPUT_KEYBOARD_LEFT', done => {
+      it("should handle INPUT_KEYBOARD_LEFT", done => {
         const dispatch = action => {
           if (action.type === INPUT_KEYBOARD) {
             action.input.should.equal(INPUT_KEYBOARD_LEFT);
@@ -690,7 +691,7 @@ describe('Action creators', () => {
           stopPropagation() {}
         })(dispatch, getState);
       });
-      it('should handle INPUT_KEYBOARD_UP', done => {
+      it("should handle INPUT_KEYBOARD_UP", done => {
         const dispatch = action => {
           if (action.type === INPUT_KEYBOARD) {
             action.input.should.equal(INPUT_KEYBOARD_UP);
@@ -713,7 +714,7 @@ describe('Action creators', () => {
           stopPropagation() {}
         })(dispatch, getState);
       });
-      it('should handle INPUT_KEYBOARD_DOWN', done => {
+      it("should handle INPUT_KEYBOARD_DOWN", done => {
         const dispatch = action => {
           if (action.type === INPUT_KEYBOARD) {
             action.input.should.equal(INPUT_KEYBOARD_DOWN);
@@ -736,7 +737,7 @@ describe('Action creators', () => {
           stopPropagation() {}
         })(dispatch, getState);
       });
-      it('should handle INPUT_KEYBOARD_SPACE', done => {
+      it("should handle INPUT_KEYBOARD_SPACE", done => {
         const dispatch = action => {
           if (action.type === INPUT_KEYBOARD) {
             action.input.should.equal(INPUT_KEYBOARD_SPACE);
@@ -759,7 +760,7 @@ describe('Action creators', () => {
           stopPropagation() {}
         })(dispatch, getState);
       });
-      it('should handle INPUT_KEYBOARD_LETTER_D', done => {
+      it("should handle INPUT_KEYBOARD_LETTER_D", done => {
         const dispatch = action => {
           if (action.type === INPUT_KEYBOARD) {
             action.input.should.equal(INPUT_KEYBOARD_LETTER_D);
@@ -782,7 +783,7 @@ describe('Action creators', () => {
           stopPropagation() {}
         })(dispatch, getState);
       });
-      it('should handle INPUT_KEYBOARD_LETTER_A', done => {
+      it("should handle INPUT_KEYBOARD_LETTER_A", done => {
         const dispatch = action => {
           if (action.type === INPUT_KEYBOARD) {
             action.input.should.equal(INPUT_KEYBOARD_LETTER_A);
@@ -805,7 +806,7 @@ describe('Action creators', () => {
           stopPropagation() {}
         })(dispatch, getState);
       });
-      it('should handle INPUT_KEYBOARD_LETTER_H if canHold', done => {
+      it("should handle INPUT_KEYBOARD_LETTER_H if canHold", done => {
         const dispatch = action => {
           if (action.type === INPUT_KEYBOARD) {
             action.input.should.equal(INPUT_KEYBOARD_LETTER_H);
@@ -828,10 +829,10 @@ describe('Action creators', () => {
           stopPropagation() {}
         })(dispatch, getState);
       });
-      it('should handle INPUT_KEYBOARD_LETTER_H if !canHold', () => {
+      it("should handle INPUT_KEYBOARD_LETTER_H if !canHold", () => {
         const dispatch = action => {
           if (action.type === GAME_PIECES_HOLD) {
-            throw new Error('This should not be called.');
+            throw new Error("This should not be called.");
           }
         };
         const getState = () => ({
@@ -852,9 +853,9 @@ describe('Action creators', () => {
       });
     });
   });
-  describe('board', () => {
-    describe('showEnd', () => {
-      it('should update board with end=true', done => {
+  describe("board", () => {
+    describe("showEnd", () => {
+      it("should update board with end=true", done => {
         let firstTime = true;
         const dispatch = action => {
           if (action.type === GAME_BOARD_UPDATE && firstTime) {
@@ -867,10 +868,10 @@ describe('Action creators', () => {
         showEnd()(dispatch, () => {});
       });
     });
-    describe('endParty', () => {
-      it('should not do anything if party is stopped', () => {
+    describe("endParty", () => {
+      it("should not do anything if party is stopped", () => {
         const dispatch = () => {
-          throw new Error('This should not be called.');
+          throw new Error("This should not be called.");
         };
         const getState = () => ({
           party: { playing: false }
@@ -879,10 +880,10 @@ describe('Action creators', () => {
         endParty()(dispatch, getState);
       });
     });
-    describe('endParty', () => {
-      it('should endParty if game.board.end === true', () => {
+    describe("endParty", () => {
+      it("should endParty if game.board.end === true", () => {
         const dispatch = () => {
-          throw new Error('This should not be called.');
+          throw new Error("This should not be called.");
         };
         const getState = () => ({
           party: { playing: true },
@@ -897,7 +898,7 @@ describe('Action creators', () => {
           grid: gridZero(10, 20)
         })(dispatch, getState);
       });
-      it('should endParty start animation if game.board.end === false', () => {
+      it("should endParty start animation if game.board.end === false", () => {
         let firstTime = true;
         const dispatch = action => {};
         const getState = () => ({
@@ -917,8 +918,8 @@ describe('Action creators', () => {
         }, 1000);
       });
     });
-    describe('blockLines', () => {
-      it('should block lines', done => {
+    describe("blockLines", () => {
+      it("should block lines", done => {
         const dispatch = action => {
           if (action.type === GAME_BOARD_UPDATE) {
             action.board.grid.should.deep.equal([
@@ -948,7 +949,7 @@ describe('Action creators', () => {
         };
         const getState = () => ({
           player: {
-            socketId: 'tptp'
+            socketId: "tptp"
           },
           game: {
             board: {
@@ -957,17 +958,17 @@ describe('Action creators', () => {
           }
         });
 
-        blockLines({ nbLines: 1, except: 'amhdjv' })(dispatch, getState);
+        blockLines({ nbLines: 1, except: "amhdjv" })(dispatch, getState);
       });
-      it('should not do anything if except === socketId', () => {
+      it("should not do anything if except === socketId", () => {
         const dispatch = action => {
           if (action.type === GAME_BOARD_UPDATE) {
-            throw new Error('This should not be called.');
+            throw new Error("This should not be called.");
           }
         };
         const getState = () => ({
           player: {
-            socketId: 'amhdjv'
+            socketId: "amhdjv"
           },
           game: {
             board: {
@@ -976,11 +977,11 @@ describe('Action creators', () => {
           }
         });
 
-        blockLines({ nbLines: 1, except: 'amhdjv' })(dispatch, getState);
+        blockLines({ nbLines: 1, except: "amhdjv" })(dispatch, getState);
       });
     });
-    describe('bombExplode', () => {
-      it('should make bomb explode', done => {
+    describe("bombExplode", () => {
+      it("should make bomb explode", done => {
         const dispatch = action => {
           if (action.type === GAME_MODS_SET) done();
         };
@@ -998,11 +999,11 @@ describe('Action creators', () => {
         })(dispatch, getState);
       });
     });
-    describe('tntExplode1', () => {
-      it('should dispatch setMod', done => {
+    describe("tntExplode1", () => {
+      it("should dispatch setMod", done => {
         const dispatch = action => {
           if (action.type === GAME_MODS_SET) {
-            action.mod.type.should.equal('tntGo');
+            action.mod.type.should.equal("tntGo");
             done();
           }
         };
@@ -1020,8 +1021,8 @@ describe('Action creators', () => {
         })(dispatch, getState);
       });
     });
-    describe('tntExplode2', () => {
-      it('should dispatch setMod', done => {
+    describe("tntExplode2", () => {
+      it("should dispatch setMod", done => {
         const dispatch = action => {
           if (action.type === GAME_MODS_SET) {
             done();

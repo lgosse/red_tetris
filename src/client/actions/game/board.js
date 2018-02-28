@@ -6,13 +6,13 @@ import {
   GAME_HAS_FOCUS,
   GAME_LOSE_FOCUS,
   GAME_BOARD_DELETE_LINES_SOUND
-} from '../../../actionsTypes';
-import { setMod } from './mods';
+} from "../../../actionsTypes";
+import { setMod } from "./mods";
 import {
   deleteTnt,
   deleteBomb,
   endAnimationSub
-} from '../../reducers/game/utils';
+} from "../../reducers/game/utils";
 
 export const gridHasFocus = () => ({
   type: GAME_HAS_FOCUS
@@ -88,6 +88,15 @@ export const blockLines = ({ nbLines, except }) => (dispatch, getState) => {
   const { player: { socketId }, game: { board: { grid } } } = getState();
   if (except === socketId) return;
 
+  const mod = getState().game.mod;
+  if (mod) {
+    dispatch(
+      setMod({
+        ...mod,
+        y: mod.y - nbLines < 0 ? 0 : mod.y - nbLines
+      })
+    );
+  }
   dispatch(
     updateBoard({
       grid: grid
