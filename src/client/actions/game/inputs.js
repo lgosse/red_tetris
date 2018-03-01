@@ -25,6 +25,8 @@ export const input = event => (dispatch, getState) => {
   const keyCode = event.keyCode;
   const playSound = createPlayer(music);
 
+  event.preventDefault();
+  event.stopPropagation();
   if (inputs.indexOf(keyCode) !== -1) return;
 
   dispatch({
@@ -44,37 +46,25 @@ export const input = event => (dispatch, getState) => {
   switch (keyCode) {
     case INPUT_KEYBOARD_RIGHT:
       dispatch(movePiece(1));
-      event.preventDefault();
-      event.stopPropagation();
       break;
     case INPUT_KEYBOARD_LEFT:
       dispatch(movePiece(-1));
-      event.preventDefault();
-      event.stopPropagation();
       break;
     case INPUT_KEYBOARD_DOWN:
       dispatch(movePiece(0));
-      event.preventDefault();
-      event.stopPropagation();
       break;
     case INPUT_KEYBOARD_SPACE: {
       dispatch(movePiece(20));
-      event.stopPropagation();
-      event.preventDefault();
       break;
     }
     case INPUT_KEYBOARD_UP:
     case INPUT_KEYBOARD_LETTER_D:
       playSound(Beep4);
       dispatch(rotatePiece(1));
-      event.preventDefault();
-      event.stopPropagation();
       break;
     case INPUT_KEYBOARD_LETTER_A:
       playSound(Beep4);
       dispatch(rotatePiece(-1));
-      event.preventDefault();
-      event.stopPropagation();
       break;
     case INPUT_KEYBOARD_LETTER_H: {
       if (pieces.canHold) {
@@ -82,8 +72,6 @@ export const input = event => (dispatch, getState) => {
         dispatch(holdPiece());
         dispatch(claimPiece());
       }
-      event.preventDefault();
-      event.stopPropagation();
       break;
     }
     default:
