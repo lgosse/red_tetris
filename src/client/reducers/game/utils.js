@@ -33,6 +33,7 @@ export const testCollision = (piece, grid) => {
   let collisionLocation = 0;
   let collision = false;
 
+  if (!piece.grid) return { collidde: false, location: 0 };
   piece.grid.forEach((line, y) => {
     line.forEach((col, x) => {
       if (col !== 0) {
@@ -125,8 +126,8 @@ export const deleteTnt = (mod, grid) => {
 
 export const isMod = piece => {
   const modTypes = {
-    "10": "bomb",
-    "11": "tnt"
+    '10': 'bomb',
+    '11': 'tnt'
   };
   let type = -1;
   piece.grid.findIndex(elem => {

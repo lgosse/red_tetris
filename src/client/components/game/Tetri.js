@@ -24,18 +24,20 @@ export const Line = ({ line }) => (
 );
 
 const reduceColumnsEndTetri = tetri =>
-  !tetri.reduce(
-    (lineAccumulator, line) =>
-      line.reduce(
-        (blockAccumulator, block, index) =>
-          index === line.length - 1 ? !!block : true
-      ) || lineAccumulator,
-    false
-  )
-    ? tetri.map(line =>
-        line.filter((block, index) => index !== line.length - 1)
+  !tetri
+    ? [[]]
+    : !tetri.reduce(
+        (lineAccumulator, line) =>
+          line.reduce(
+            (blockAccumulator, block, index) =>
+              index === line.length - 1 ? !!block : true
+          ) || lineAccumulator,
+        false
       )
-    : tetri;
+      ? tetri.map(line =>
+          line.filter((block, index) => index !== line.length - 1)
+        )
+      : tetri;
 
 export const reduceTetri = tetri =>
   reduceColumnsEndTetri(reduceColumnsEndTetri(tetri));
