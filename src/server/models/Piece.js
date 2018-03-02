@@ -19,12 +19,24 @@ const maluses = {
   1: [[9, 0, 9], [0, 9, 0], [9, 0, 9]] // cancer
 };
 
+const generateId = () =>
+  [...Array(4)].reduce(
+    acc =>
+      acc.concat(
+        Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16)
+          .substring(1)
+      ),
+    ''
+  );
+
 export class Piece {
   constructor() {
     this.grid =
       tetriminos[Math.trunc(Math.random() * Object.keys(tetriminos).length)];
     this.x = 4;
     this.y = 0;
+    this.id = generateId();
   }
 }
 
@@ -34,6 +46,7 @@ export class PieceBonus {
       bonuses[Math.trunc(Math.random() * Object.keys(bonuses).length)];
     this.x = 4;
     this.y = 0;
+    this.id = generateId();
   }
 }
 
@@ -43,5 +56,6 @@ export class PieceMalus {
       maluses[Math.trunc(Math.random() * Object.keys(maluses).length)];
     this.x = 4;
     this.y = 0;
+    this.id = generateId();
   }
 }
