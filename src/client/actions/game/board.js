@@ -88,7 +88,7 @@ export const blockLines = ({ nbLines, except }) => (dispatch, getState) => {
   const { player: { socketId }, game: { board: { grid } } } = getState();
   if (except === socketId) return;
 
-  const { game: { mod, board: { lines } } } = getState();
+  const { game: { mods, board: { lines } } } = getState();
   if (mod) {
     dispatch(
       setMod({
@@ -124,7 +124,7 @@ export const bombExplode = mod => (dispatch, getState) => {
     })
   );
   dispatch(notifyGridUpdate(newGrid, 1));
-  dispatch(setMod(null));
+  dispatch(setMod({ ...mod, type: null }));
 };
 
 export const tntExplode1 = mod => (dispatch, getState) => {
@@ -140,5 +140,5 @@ export const tntExplode2 = mod => (dispatch, getState) => {
     })
   );
   dispatch(notifyGridUpdate(newGrid, 1));
-  dispatch(setMod(null));
+  dispatch(setMod({ ...mod, type: null }));
 };

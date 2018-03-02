@@ -10,14 +10,14 @@ import {
   GAME_BONUS_ADD,
   GAME_BOARD_DELETE_LINES,
   GAME_BOARD_DELETE_LINES_SOUND
-} from '../../actionsTypes';
+} from "../../actionsTypes";
 import {
   updatePiecesGame,
   claimPiece,
   movePiece,
   rotatePiece,
   gameAddMalusSuccess
-} from '../actions/game/pieces';
+} from "../actions/game/pieces";
 import {
   gridFusion,
   findPlace,
@@ -28,7 +28,7 @@ import {
   deleteLinesF,
   deleteTnt,
   deleteBomb
-} from '../reducers/game/utils';
+} from "../reducers/game/utils";
 import {
   updateBoard,
   deleteLines,
@@ -38,15 +38,14 @@ import {
   tntExplode1,
   tntExplode2,
   bombExplode
-} from '../actions/game/board';
-import { gameLose } from '../actions/game/game';
-import { setMod } from '../actions/game/mods';
-import Beep1 from '../../media/Beep1.wav';
-import ShutDown1 from '../../media/Shut_Down1.wav';
-import Explosion3 from '../../media/Explosion3.wav';
-import Explosion4 from '../../media/Explosion4.wav';
-import DeleteLines from '../../media/DeleteLines.wav';
-import { createPlayer } from '../../media/playSound';
+} from "../actions/game/board";
+import { gameLose } from "../actions/game/game";
+import Beep1 from "../../media/Beep1.wav";
+import ShutDown1 from "../../media/Shut_Down1.wav";
+import Explosion3 from "../../media/Explosion3.wav";
+import Explosion4 from "../../media/Explosion4.wav";
+import DeleteLines from "../../media/DeleteLines.wav";
+import { createPlayer } from "../../media/playSound";
 
 const gameMiddleware = ({ dispatch, getState }) => next => action => {
   const playSound = createPlayer(getState().music);
@@ -103,7 +102,7 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
       if (!action.mod || !action.mod.type) break;
 
       switch (action.mod.type) {
-        case 'bomb': {
+        case "bomb": {
           const mod = action.mod;
           playSound(Explosion3);
           setTimeout(() => {
@@ -112,15 +111,15 @@ const gameMiddleware = ({ dispatch, getState }) => next => action => {
           break;
         }
 
-        case 'tnt': {
+        case "tnt": {
           const mod = action.mod;
           setTimeout(() => {
-            dispatch(tntExplode1(mod));
+            dispatch(tntExplode1(getState().game.mods[mod.id]));
           }, 5000);
           break;
         }
 
-        case 'tntGo': {
+        case "tntGo": {
           const mod = action.mod;
           playSound(Explosion4);
           setTimeout(() => {

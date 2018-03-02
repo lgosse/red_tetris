@@ -2,8 +2,6 @@ import React from 'react';
 import gameStyle from '../../styles/gameStyle';
 import Square from './Square';
 
-import { isMod } from '../../reducers/game/utils';
-
 export const Line = ({ line }) => (
   <div style={{ display: 'flex' }}>
     {line.map(

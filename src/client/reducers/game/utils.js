@@ -126,8 +126,8 @@ export const deleteTnt = (mod, grid) => {
 
 export const isMod = piece => {
   const modTypes = {
-    '10': 'bomb',
-    '11': 'tnt'
+    "10": "bomb",
+    "11": "tnt"
   };
   let type = -1;
   piece.grid.findIndex(elem => {
@@ -140,14 +140,14 @@ export const isMod = piece => {
     );
   });
   if (type != -1) {
-    return { type: modTypes[type], x: piece.x, y: piece.y };
+    return { type: modTypes[type], x: piece.x, y: piece.y, id: piece.id };
   } else {
     return null;
   }
 };
 
 export const deleteBomb = (mod, grid) => {
-  if (!mod) return grid;
+  if (!mod || !mod.type) return grid;
   let newGrid = deleteLinesF(grid, [mod.y], 1);
   newGrid.forEach((line, i) => {
     if (line[mod.x] !== 11) newGrid[i][mod.x] = 0;
