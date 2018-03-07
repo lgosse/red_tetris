@@ -130,10 +130,8 @@ export const GridContent = ({ board, mods, pieces }) => (
     {board.grid.map((line, indexLine) => (
       <div style={{ ...gameStyle.line, position: "relative" }} key={indexLine}>
         <LinesDestroying board={board} indexLine={indexLine} />
-        {mods.length &&
-          mods
-            .filter(mod => mod.y === indexLine)
-            .map(mod => <Mod mod={mod} line={line} indexLine={indexLine} />)}
+        {Object.keys(mods)
+          .map(key => <Mod key={key} mod={mods[key]} line={line} indexLine={indexLine} />)}
         {line.map(
           (column, indexColumn) =>
             column === 0 &&

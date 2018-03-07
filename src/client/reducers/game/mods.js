@@ -3,7 +3,7 @@ import { GAME_MODS_SET } from "../../../actionsTypes";
 const mods = (state = {}, action) => {
   switch (action.type) {
     case GAME_MODS_SET: {
-      if (action.mod.type === null || action.mod.type === "tnt") {
+      if (action.mod.type === null) {
         const newState = {
           ...state
         };
