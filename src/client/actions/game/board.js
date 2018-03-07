@@ -89,14 +89,17 @@ export const blockLines = ({ nbLines, except }) => (dispatch, getState) => {
   if (except === socketId) return;
 
   const { game: { mods, board: { lines } } } = getState();
-  if (mod) {
-    dispatch(
-      setMod({
-        ...mod,
-        y: mod.y - nbLines < 0 ? 0 : mod.y - nbLines
-      })
-    );
-  }
+  Object.keys(mods)
+    .map(key => mods[key])
+    .forEach(mod => {
+      dispatch(
+        setMod({
+          mod,
+          y: mod - nbLines < 0 ? 0 : mod - nbLines
+        })
+      )
+    });
+
   if (lines) {
     dispatch(
       updateBoard({
