@@ -167,11 +167,10 @@ const partyList = async (action, io, socket) => {
       }
 
       socket.partyId = partyEdit._id;
-      socket.join(partyEdit._id, () => {
-        io.to(partyEdit._id).emit('action', {
-          type: PARTY_UPDATE,
-          party: partyEdit
-        });
+      socket.join(partyEdit._id);
+      io.to(partyEdit._id).emit('action', {
+        type: PARTY_UPDATE,
+        party: partyEdit
       });
 
       break;
@@ -225,11 +224,14 @@ const partyList = async (action, io, socket) => {
         await party.save();
 
         io.emit('action', await getParties());
-        const room = io.to(party._id);
-        room.emit('action', startPartySuccess());
-        room.emit('action', updateParty(party));
-        room.emit('action', updatePiecesGame({ piece: new Piece() }));
-        room.emit('action', claimPieceSuccess([new Piece(), new Piece()]));
+        io.to(party._id).emit('action', startPartySuccess());
+        io.to(party._id).emit('action', updateParty(party));
+        io
+          .to(party._id)
+          .emit('action', updatePiecesGame({ piece: new Piece() }));
+        io
+          .to(party._id)
+          .emit('action', claimPieceSuccess([new Piece(), new Piece()]));
       } catch (error) {
         console.error(error);
       }
