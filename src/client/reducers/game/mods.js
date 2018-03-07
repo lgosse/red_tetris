@@ -1,12 +1,19 @@
-import { GAME_MODS_SET } from '../../../actionsTypes';
+import { GAME_MODS_SET } from "../../../actionsTypes";
 
 const mods = (state = {}, action) => {
   switch (action.type) {
     case GAME_MODS_SET: {
-      if (action.mod === null || action.mod.type === 'tnt')
-        return { ...state, type: null };
+      if (action.mod.type === null) {
+        const newState = {
+          ...state
+        };
+        delete newState[action.mod.id];
+
+        return newState;
+      }
       return {
-        ...action.mod
+        ...state,
+        [action.mod.id]: { ...action.mod }
       };
     }
 

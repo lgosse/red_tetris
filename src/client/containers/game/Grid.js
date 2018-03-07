@@ -1,20 +1,20 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import styled, { keyframes } from 'styled-components';
-import Square from '../../components/game/Square';
-import { Paragraph, Icon } from '../../components/helpers/Common';
+import React from "react";
+import { connect } from "react-redux";
+import styled, { keyframes } from "styled-components";
+import Square from "../../components/game/Square";
+import { Paragraph, Icon } from "../../components/helpers/Common";
 
-import musicTetris from '../../../media/music.mp3';
+import musicTetris from "../../../media/music.mp3";
 
-import { Tetri } from '../../components/game/Tetri';
-import gameStyle from '../../styles/gameStyle';
-import globalStyle from '../../styles/global';
+import { Tetri } from "../../components/game/Tetri";
+import gameStyle from "../../styles/gameStyle";
+import globalStyle from "../../styles/global";
 import {
   deleteTnt,
   testCollision,
   isLighting
-} from '../../reducers/game/utils';
-import { rotatePiece, movePiece, claimPiece } from '../../actions/game/pieces';
+} from "../../reducers/game/utils";
+import { rotatePiece, movePiece, claimPiece } from "../../actions/game/pieces";
 import {
   deleteLines,
   endParty,
@@ -22,21 +22,20 @@ import {
   gridLoseFocus,
   notifyGridUpdate,
   tntExplode
-} from '../../actions/game/board';
-import { updateBoard } from '../../actions/game/board';
-import { setMod } from '../../actions/game/mods';
-import { input } from '../../actions/game/inputs';
-import { toggleMusic } from '../../actions/game/music';
+} from "../../actions/game/board";
+import { updateBoard } from "../../actions/game/board";
+import { input } from "../../actions/game/inputs";
+import { toggleMusic } from "../../actions/game/music";
 
 export const MusicPlayer = ({ music, toggleSound }) => {
   return (
     <div
       onClick={toggleSound}
       style={{
-        zIndex: '50000',
-        position: 'absolute',
-        right: '10px',
-        top: '10px'
+        zIndex: "50000",
+        position: "absolute",
+        right: "10px",
+        top: "10px"
       }}
     >
       <Icon
@@ -74,19 +73,15 @@ export const LinesDestroying = ({ board, indexLine }) =>
     <div />
   );
 
-export const Bomb = ({ mods, indexLine }) => (
+export const Bomb = ({ mod, indexLine }) => (
   <div>
-    {indexLine === mods.y ? (
-      <div style={gameStyle.bomb.explode(mods.x, mods.y, 0)} />
+    {indexLine === mod.y ? (
+      <div style={gameStyle.bomb.explode(mod.x, mod.y, 0)} />
     ) : (
       <div />
     )}
     <div
-      style={gameStyle.bomb.explode(
-        mods.x,
-        mods.y,
-        indexLine === mods.y ? 2 : 1
-      )}
+      style={gameStyle.bomb.explode(mod.x, mod.y, indexLine === mod.y ? 2 : 1)}
     />
   </div>
 );
@@ -101,18 +96,18 @@ export const TntGoBlock = ({ indexColumn }) => (
   </div>
 );
 
-export const Mod = ({ mods, line, indexLine }) => {
-  switch (mods.type) {
-    case 'bomb':
-      return <Bomb mods={mods} indexLine={indexLine} />;
+export const Mod = ({ mod, line, indexLine }) => {
+  switch (mod.type) {
+    case "bomb":
+      return <Bomb mod={mod} indexLine={indexLine} />;
 
-    case 'tntGo': {
+    case "tntGo": {
       return (
         <div>
-          {Math.abs(mods.y - indexLine) <= 3 &&
+          {Math.abs(mod.y - indexLine) <= 3 &&
             line.map((col, indexColumn) => {
               if (
-                Math.abs(mods.y - indexLine) + Math.abs(mods.x - indexColumn) <=
+                Math.abs(mod.y - indexLine) + Math.abs(mod.x - indexColumn) <=
                 3
               ) {
                 return (
@@ -133,9 +128,10 @@ export const Mod = ({ mods, line, indexLine }) => {
 export const GridContent = ({ board, mods, pieces }) => (
   <div>
     {board.grid.map((line, indexLine) => (
-      <div style={{ ...gameStyle.line, position: 'relative' }} key={indexLine}>
+      <div style={{ ...gameStyle.line, position: "relative" }} key={indexLine}>
         <LinesDestroying board={board} indexLine={indexLine} />
-        {mods && <Mod mods={mods} line={line} indexLine={indexLine} />}
+        {Object.keys(mods)
+          .map(key => <Mod key={key} mod={mods[key]} line={line} indexLine={indexLine} />)}
         {line.map(
           (column, indexColumn) =>
             column === 0 &&
@@ -171,7 +167,7 @@ export const Grid = ({
 
   return (
     <div
-      tabIndex={'0'}
+      tabIndex={"0"}
       onKeyDown={e => rotateit(e, pieces.piece, board)}
       id="game"
       ref={refCallback}
@@ -179,8 +175,8 @@ export const Grid = ({
       onBlur={onBlur}
       style={{
         ...gameStyle.grid,
-        position: 'relative',
-        outline: 'none'
+        position: "relative",
+        outline: "none"
       }}
     >
       <MusicPlayer music={music} toggleSound={toggleSound} />
@@ -230,18 +226,3 @@ export const mapDispatchToGridProps = dispatch => ({
 });
 
 export default connect(mapStateToGridProps, mapDispatchToGridProps)(Grid);
-
-// if (Math.abs(mods.y - i) <= 3) {
-//   line.map((col, j) => {
-//     if (Math.abs(mods.y - i) + Math.abs(mods.x - j) <= 3)
-//       tnt.push(
-//         <div key={i + '' + j} style={gameStyle.tnt.explode(j)}>
-//           <div style={gameStyle.tnt.anim}>
-//             <div style={gameStyle.tnt.base1} />
-//             <div style={gameStyle.tnt.base2} />
-//             <div style={gameStyle.tnt.circle} />
-//           </div>
-//         </div>
-//       );
-//   });
-// }
