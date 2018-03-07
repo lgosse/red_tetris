@@ -94,8 +94,8 @@ export const blockLines = ({ nbLines, except }) => (dispatch, getState) => {
     .forEach(mod => {
       dispatch(
         setMod({
-          mod,
-          y: mod - nbLines < 0 ? 0 : mod - nbLines
+          ...mod,
+          y: mod.y - nbLines < 0 ? 0 : mod.y - nbLines
         })
       )
     });
