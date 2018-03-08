@@ -43,9 +43,13 @@ export const reduceTetri = tetri =>
 export const Tetri = ({ tetri, position }) => {
   return (
     <div style={gameStyle.pieces.all(position)}>
-      {reduceTetri(tetri).map((line, index) => (
-        <Line key={index} line={line} />
-      ))}
+      {tetri && tetri.length ? (
+        reduceTetri(tetri).map((line, index) => (
+          <Line key={index} line={line} />
+        ))
+      ) : (
+        <div />
+      )}
     </div>
   );
 };
