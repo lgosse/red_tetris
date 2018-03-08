@@ -741,7 +741,7 @@ describe('Reducers', () => {
           {
             [GAME_MODS_SET]: ({ dispatch, getState }) => {
               const mods = getState().game.mods;
-              expect(mods.type).to.equal(null);
+              expect(mods['2'].type).to.equal('tnt');
               done();
             }
           }
@@ -749,7 +749,8 @@ describe('Reducers', () => {
 
         store.dispatch(
           setMod({
-            type: 'tnt'
+            type: 'tnt',
+            id: '2'
           })
         );
       });
@@ -761,7 +762,8 @@ describe('Reducers', () => {
           {
             [GAME_MODS_SET]: ({ dispatch, getState }) => {
               const mods = getState().game.mods;
-              mods.type.should.equal('bomb');
+              mods['2'].type.should.equal('bomb');
+              Object.keys(mods).length.should.equal(1);
               done();
             }
           }
@@ -769,7 +771,8 @@ describe('Reducers', () => {
 
         store.dispatch(
           setMod({
-            type: 'bomb'
+            type: 'bomb',
+            id: '2'
           })
         );
       });

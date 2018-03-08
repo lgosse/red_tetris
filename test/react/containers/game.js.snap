@@ -6,7 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Bomb
     indexLine={6}
-    mods={
+    mod={
       Object {
         "x": 4,
         "y": 6,
@@ -208,7 +208,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Bomb
     indexLine={6}
-    mods={
+    mod={
       Object {
         "x": 4,
         "y": 5,
@@ -1080,9 +1080,11 @@ ShallowWrapper {
     endGame={[Function]}
     mods={
       Object {
-        "type": "bomb",
-        "x": 5,
-        "y": 6,
+        "toto": Object {
+          "type": "bomb",
+          "x": 5,
+          "y": 6,
+        },
       }
     }
     pieces={
@@ -1662,9 +1664,11 @@ ShallowWrapper {
           }
           mods={
             Object {
-              "type": "bomb",
-              "x": 5,
-              "y": 6,
+              "toto": Object {
+                "type": "bomb",
+                "x": 5,
+                "y": 6,
+              },
             }
           }
           pieces={
@@ -2284,9 +2288,11 @@ ShallowWrapper {
             "lines": null,
           },
           "mods": Object {
-            "type": "bomb",
-            "x": 5,
-            "y": 6,
+            "toto": Object {
+              "type": "bomb",
+              "x": 5,
+              "y": 6,
+            },
           },
           "pieces": Object {
             "piece": null,
@@ -2864,9 +2870,11 @@ ShallowWrapper {
             }
             mods={
               Object {
-                "type": "bomb",
-                "x": 5,
-                "y": 6,
+                "toto": Object {
+                  "type": "bomb",
+                  "x": 5,
+                  "y": 6,
+                },
               }
             }
             pieces={
@@ -3486,9 +3494,11 @@ ShallowWrapper {
               "lines": null,
             },
             "mods": Object {
-              "type": "bomb",
-              "x": 5,
-              "y": 6,
+              "toto": Object {
+                "type": "bomb",
+                "x": 5,
+                "y": 6,
+              },
             },
             "pieces": Object {
               "piece": null,
@@ -3781,9 +3791,11 @@ ShallowWrapper {
     }
     mods={
       Object {
-        "type": "bomb",
-        "x": 5,
-        "y": 6,
+        "toto": Object {
+          "type": "bomb",
+          "x": 5,
+          "y": 6,
+        },
       }
     }
     pieces={
@@ -4368,9 +4380,11 @@ ShallowWrapper {
           }
           mods={
             Object {
-              "type": "bomb",
-              "x": 5,
-              "y": 6,
+              "toto": Object {
+                "type": "bomb",
+                "x": 5,
+                "y": 6,
+              },
             }
           }
           pieces={
@@ -4982,9 +4996,11 @@ ShallowWrapper {
             "lines": null,
           },
           "mods": Object {
-            "type": "bomb",
-            "x": 5,
-            "y": 6,
+            "toto": Object {
+              "type": "bomb",
+              "x": 5,
+              "y": 6,
+            },
           },
           "pieces": Object {
             "piece": Object {
@@ -5567,9 +5583,11 @@ ShallowWrapper {
             }
             mods={
               Object {
-                "type": "bomb",
-                "x": 5,
-                "y": 6,
+                "toto": Object {
+                  "type": "bomb",
+                  "x": 5,
+                  "y": 6,
+                },
               }
             }
             pieces={
@@ -6181,9 +6199,11 @@ ShallowWrapper {
               "lines": null,
             },
             "mods": Object {
-              "type": "bomb",
-              "x": 5,
-              "y": 6,
+              "toto": Object {
+                "type": "bomb",
+                "x": 5,
+                "y": 6,
+              },
             },
             "pieces": Object {
               "piece": Object {
@@ -6489,9 +6509,11 @@ ShallowWrapper {
     }
     mods={
       Object {
-        "type": "bomb",
-        "x": 5,
-        "y": 6,
+        "toto": Object {
+          "type": "bomb",
+          "x": 5,
+          "y": 6,
+        },
       }
     }
     pieces={
@@ -7099,9 +7121,11 @@ ShallowWrapper {
           }
           mods={
             Object {
-              "type": "bomb",
-              "x": 5,
-              "y": 6,
+              "toto": Object {
+                "type": "bomb",
+                "x": 5,
+                "y": 6,
+              },
             }
           }
           pieces={
@@ -7747,9 +7771,11 @@ ShallowWrapper {
             "lines": null,
           },
           "mods": Object {
-            "type": "bomb",
-            "x": 5,
-            "y": 6,
+            "toto": Object {
+              "type": "bomb",
+              "x": 5,
+              "y": 6,
+            },
           },
           "pieces": Object {
             "piece": Object {
@@ -8355,9 +8381,11 @@ ShallowWrapper {
             }
             mods={
               Object {
-                "type": "bomb",
-                "x": 5,
-                "y": 6,
+                "toto": Object {
+                  "type": "bomb",
+                  "x": 5,
+                  "y": 6,
+                },
               }
             }
             pieces={
@@ -9003,9 +9031,11 @@ ShallowWrapper {
               "lines": null,
             },
             "mods": Object {
-              "type": "bomb",
-              "x": 5,
-              "y": 6,
+              "toto": Object {
+                "type": "bomb",
+                "x": 5,
+                "y": 6,
+              },
             },
             "pieces": Object {
               "piece": Object {
@@ -9307,9 +9337,11 @@ ShallowWrapper {
     }
     mods={
       Object {
-        "type": "bomb",
-        "x": 5,
-        "y": 6,
+        "55": Object {
+          "type": "bomb",
+          "x": 5,
+          "y": 6,
+        },
       }
     }
     pieces={
@@ -9631,7 +9663,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -9957,7 +9989,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -10283,7 +10315,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -10609,7 +10641,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -10935,7 +10967,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -11261,7 +11293,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -11587,7 +11619,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -11913,7 +11945,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -12239,7 +12271,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -12565,7 +12597,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -12891,7 +12923,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -13217,7 +13249,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -13543,7 +13575,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -13869,7 +13901,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -14195,7 +14227,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -14521,7 +14553,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -14847,7 +14879,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -15173,7 +15205,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -15499,7 +15531,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -15825,7 +15857,7 @@ ShallowWrapper {
                 0,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -16151,7 +16183,7 @@ ShallowWrapper {
                 1,
               ]
             }
-            mods={
+            mod={
               Object {
                 "type": "bomb",
                 "x": 5,
@@ -16461,30 +16493,32 @@ ShallowWrapper {
               }
               indexLine={0}
             />,
-            <Mod
-              indexLine={0}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={0}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -16796,7 +16830,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 0,
@@ -16812,7 +16846,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -17202,30 +17236,32 @@ ShallowWrapper {
               }
               indexLine={1}
             />,
-            <Mod
-              indexLine={1}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={1}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -17537,7 +17573,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 1,
@@ -17553,7 +17589,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -17943,30 +17979,32 @@ ShallowWrapper {
               }
               indexLine={2}
             />,
-            <Mod
-              indexLine={2}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={2}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -18278,7 +18316,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 2,
@@ -18294,7 +18332,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -18684,30 +18722,32 @@ ShallowWrapper {
               }
               indexLine={3}
             />,
-            <Mod
-              indexLine={3}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={3}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -19019,7 +19059,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 3,
@@ -19035,7 +19075,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -19425,30 +19465,32 @@ ShallowWrapper {
               }
               indexLine={4}
             />,
-            <Mod
-              indexLine={4}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={4}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -19760,7 +19802,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 4,
@@ -19776,7 +19818,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -20166,30 +20208,32 @@ ShallowWrapper {
               }
               indexLine={5}
             />,
-            <Mod
-              indexLine={5}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={5}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -20501,7 +20545,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 5,
@@ -20517,7 +20561,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -20907,30 +20951,32 @@ ShallowWrapper {
               }
               indexLine={6}
             />,
-            <Mod
-              indexLine={6}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={6}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -21242,7 +21288,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 6,
@@ -21258,7 +21304,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -21648,30 +21694,32 @@ ShallowWrapper {
               }
               indexLine={7}
             />,
-            <Mod
-              indexLine={7}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={7}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -21983,7 +22031,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 7,
@@ -21999,7 +22047,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -22389,30 +22437,32 @@ ShallowWrapper {
               }
               indexLine={8}
             />,
-            <Mod
-              indexLine={8}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={8}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -22724,7 +22774,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 8,
@@ -22740,7 +22790,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -23130,30 +23180,32 @@ ShallowWrapper {
               }
               indexLine={9}
             />,
-            <Mod
-              indexLine={9}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={9}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -23465,7 +23517,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 9,
@@ -23481,7 +23533,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -23871,30 +23923,32 @@ ShallowWrapper {
               }
               indexLine={10}
             />,
-            <Mod
-              indexLine={10}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={10}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -24206,7 +24260,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 10,
@@ -24222,7 +24276,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -24612,30 +24666,32 @@ ShallowWrapper {
               }
               indexLine={11}
             />,
-            <Mod
-              indexLine={11}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={11}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -24947,7 +25003,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 11,
@@ -24963,7 +25019,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -25353,30 +25409,32 @@ ShallowWrapper {
               }
               indexLine={12}
             />,
-            <Mod
-              indexLine={12}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={12}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -25688,7 +25746,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 12,
@@ -25704,7 +25762,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -26094,30 +26152,32 @@ ShallowWrapper {
               }
               indexLine={13}
             />,
-            <Mod
-              indexLine={13}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={13}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -26429,7 +26489,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 13,
@@ -26445,7 +26505,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -26835,30 +26895,32 @@ ShallowWrapper {
               }
               indexLine={14}
             />,
-            <Mod
-              indexLine={14}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={14}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -27170,7 +27232,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 14,
@@ -27186,7 +27248,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -27576,30 +27638,32 @@ ShallowWrapper {
               }
               indexLine={15}
             />,
-            <Mod
-              indexLine={15}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={15}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -27911,7 +27975,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 15,
@@ -27927,7 +27991,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -28317,30 +28381,32 @@ ShallowWrapper {
               }
               indexLine={16}
             />,
-            <Mod
-              indexLine={16}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={16}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -28652,7 +28718,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 16,
@@ -28668,7 +28734,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -29058,30 +29124,32 @@ ShallowWrapper {
               }
               indexLine={17}
             />,
-            <Mod
-              indexLine={17}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={17}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -29393,7 +29461,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 17,
@@ -29409,7 +29477,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -29799,30 +29867,32 @@ ShallowWrapper {
               }
               indexLine={18}
             />,
-            <Mod
-              indexLine={18}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={18}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -30134,7 +30204,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 18,
@@ -30150,7 +30220,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -30540,30 +30610,32 @@ ShallowWrapper {
               }
               indexLine={19}
             />,
-            <Mod
-              indexLine={19}
-              line={
-                Array [
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={19}
+                line={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={0}
@@ -30875,7 +30947,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 19,
@@ -30891,7 +30963,7 @@ ShallowWrapper {
                 0,
                 0,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -31281,30 +31353,32 @@ ShallowWrapper {
               }
               indexLine={20}
             />,
-            <Mod
-              indexLine={20}
-              line={
-                Array [
-                  1,
-                  1,
-                  1,
-                  1,
-                  0,
-                  1,
-                  1,
-                  1,
-                  1,
-                  1,
-                ]
-              }
-              mods={
-                Object {
-                  "type": "bomb",
-                  "x": 5,
-                  "y": 6,
+            Array [
+              <Mod
+                indexLine={20}
+                line={
+                  Array [
+                    1,
+                    1,
+                    1,
+                    1,
+                    0,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                  ]
                 }
-              }
-            />,
+                mod={
+                  Object {
+                    "type": "bomb",
+                    "x": 5,
+                    "y": 6,
+                  }
+                }
+              />,
+            ],
             Array [
               <Square
                 color={1}
@@ -31616,7 +31690,7 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "55",
             "nodeType": "function",
             "props": Object {
               "indexLine": 20,
@@ -31632,7 +31706,7 @@ ShallowWrapper {
                 1,
                 1,
               ],
-              "mods": Object {
+              "mod": Object {
                 "type": "bomb",
                 "x": 5,
                 "y": 6,
@@ -32052,7 +32126,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -32378,7 +32452,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -32704,7 +32778,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -33030,7 +33104,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -33356,7 +33430,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -33682,7 +33756,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -34008,7 +34082,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -34334,7 +34408,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -34660,7 +34734,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -34986,7 +35060,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -35312,7 +35386,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -35638,7 +35712,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -35964,7 +36038,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -36290,7 +36364,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -36616,7 +36690,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -36942,7 +37016,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -37268,7 +37342,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -37594,7 +37668,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -37920,7 +37994,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -38246,7 +38320,7 @@ ShallowWrapper {
                   0,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -38572,7 +38646,7 @@ ShallowWrapper {
                   1,
                 ]
               }
-              mods={
+              mod={
                 Object {
                   "type": "bomb",
                   "x": 5,
@@ -38882,30 +38956,32 @@ ShallowWrapper {
                 }
                 indexLine={0}
               />,
-              <Mod
-                indexLine={0}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={0}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -39217,7 +39293,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 0,
@@ -39233,7 +39309,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -39623,30 +39699,32 @@ ShallowWrapper {
                 }
                 indexLine={1}
               />,
-              <Mod
-                indexLine={1}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={1}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -39958,7 +40036,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 1,
@@ -39974,7 +40052,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -40364,30 +40442,32 @@ ShallowWrapper {
                 }
                 indexLine={2}
               />,
-              <Mod
-                indexLine={2}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={2}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -40699,7 +40779,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 2,
@@ -40715,7 +40795,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -41105,30 +41185,32 @@ ShallowWrapper {
                 }
                 indexLine={3}
               />,
-              <Mod
-                indexLine={3}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={3}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -41440,7 +41522,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 3,
@@ -41456,7 +41538,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -41846,30 +41928,32 @@ ShallowWrapper {
                 }
                 indexLine={4}
               />,
-              <Mod
-                indexLine={4}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={4}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -42181,7 +42265,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 4,
@@ -42197,7 +42281,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -42587,30 +42671,32 @@ ShallowWrapper {
                 }
                 indexLine={5}
               />,
-              <Mod
-                indexLine={5}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={5}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -42922,7 +43008,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 5,
@@ -42938,7 +43024,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -43328,30 +43414,32 @@ ShallowWrapper {
                 }
                 indexLine={6}
               />,
-              <Mod
-                indexLine={6}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={6}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -43663,7 +43751,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 6,
@@ -43679,7 +43767,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -44069,30 +44157,32 @@ ShallowWrapper {
                 }
                 indexLine={7}
               />,
-              <Mod
-                indexLine={7}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={7}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -44404,7 +44494,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 7,
@@ -44420,7 +44510,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -44810,30 +44900,32 @@ ShallowWrapper {
                 }
                 indexLine={8}
               />,
-              <Mod
-                indexLine={8}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={8}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -45145,7 +45237,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 8,
@@ -45161,7 +45253,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -45551,30 +45643,32 @@ ShallowWrapper {
                 }
                 indexLine={9}
               />,
-              <Mod
-                indexLine={9}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={9}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -45886,7 +45980,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 9,
@@ -45902,7 +45996,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -46292,30 +46386,32 @@ ShallowWrapper {
                 }
                 indexLine={10}
               />,
-              <Mod
-                indexLine={10}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={10}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -46627,7 +46723,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 10,
@@ -46643,7 +46739,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -47033,30 +47129,32 @@ ShallowWrapper {
                 }
                 indexLine={11}
               />,
-              <Mod
-                indexLine={11}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={11}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -47368,7 +47466,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 11,
@@ -47384,7 +47482,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -47774,30 +47872,32 @@ ShallowWrapper {
                 }
                 indexLine={12}
               />,
-              <Mod
-                indexLine={12}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={12}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -48109,7 +48209,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 12,
@@ -48125,7 +48225,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -48515,30 +48615,32 @@ ShallowWrapper {
                 }
                 indexLine={13}
               />,
-              <Mod
-                indexLine={13}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={13}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -48850,7 +48952,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 13,
@@ -48866,7 +48968,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -49256,30 +49358,32 @@ ShallowWrapper {
                 }
                 indexLine={14}
               />,
-              <Mod
-                indexLine={14}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={14}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -49591,7 +49695,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 14,
@@ -49607,7 +49711,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -49997,30 +50101,32 @@ ShallowWrapper {
                 }
                 indexLine={15}
               />,
-              <Mod
-                indexLine={15}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={15}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -50332,7 +50438,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 15,
@@ -50348,7 +50454,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -50738,30 +50844,32 @@ ShallowWrapper {
                 }
                 indexLine={16}
               />,
-              <Mod
-                indexLine={16}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={16}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -51073,7 +51181,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 16,
@@ -51089,7 +51197,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -51479,30 +51587,32 @@ ShallowWrapper {
                 }
                 indexLine={17}
               />,
-              <Mod
-                indexLine={17}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={17}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -51814,7 +51924,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 17,
@@ -51830,7 +51940,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -52220,30 +52330,32 @@ ShallowWrapper {
                 }
                 indexLine={18}
               />,
-              <Mod
-                indexLine={18}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={18}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -52555,7 +52667,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 18,
@@ -52571,7 +52683,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -52961,30 +53073,32 @@ ShallowWrapper {
                 }
                 indexLine={19}
               />,
-              <Mod
-                indexLine={19}
-                line={
-                  Array [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={19}
+                  line={
+                    Array [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={0}
@@ -53296,7 +53410,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 19,
@@ -53312,7 +53426,7 @@ ShallowWrapper {
                   0,
                   0,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -53702,30 +53816,32 @@ ShallowWrapper {
                 }
                 indexLine={20}
               />,
-              <Mod
-                indexLine={20}
-                line={
-                  Array [
-                    1,
-                    1,
-                    1,
-                    1,
-                    0,
-                    1,
-                    1,
-                    1,
-                    1,
-                    1,
-                  ]
-                }
-                mods={
-                  Object {
-                    "type": "bomb",
-                    "x": 5,
-                    "y": 6,
+              Array [
+                <Mod
+                  indexLine={20}
+                  line={
+                    Array [
+                      1,
+                      1,
+                      1,
+                      1,
+                      0,
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                    ]
                   }
-                }
-              />,
+                  mod={
+                    Object {
+                      "type": "bomb",
+                      "x": 5,
+                      "y": 6,
+                    }
+                  }
+                />,
+              ],
               Array [
                 <Square
                   color={1}
@@ -54037,7 +54153,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "55",
               "nodeType": "function",
               "props": Object {
                 "indexLine": 20,
@@ -54053,7 +54169,7 @@ ShallowWrapper {
                   1,
                   1,
                 ],
-                "mods": Object {
+                "mod": Object {
                   "type": "bomb",
                   "x": 5,
                   "y": 6,
@@ -54377,6 +54493,478 @@ ShallowWrapper {
       "ref": null,
       "rendered": null,
       "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game containers Mod should render as expected when mod.type is bomb 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Mod
+    indexLine={5}
+    line={
+      Array [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+      ]
+    }
+    mod={
+      Object {
+        "type": "bomb",
+        "x": 4,
+        "y": 5,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "indexLine": 5,
+      "mod": Object {
+        "type": "bomb",
+        "x": 4,
+        "y": 5,
+      },
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "indexLine": 5,
+        "mod": Object {
+          "type": "bomb",
+          "x": 4,
+          "y": 5,
+        },
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game containers Mod should render as expected when mod.type is nothing 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Mod
+    indexLine={5}
+    line={
+      Array [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+      ]
+    }
+    mod={
+      Object {
+        "x": 4,
+        "y": 5,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {},
+    "ref": null,
+    "rendered": null,
+    "type": "span",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {},
+      "ref": null,
+      "rendered": null,
+      "type": "span",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game containers Mod should render as expected when mod.type is tntGo 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Mod
+    indexLine={5}
+    line={
+      Array [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+      ]
+    }
+    mod={
+      Object {
+        "type": "tntGo",
+        "x": 4,
+        "y": 5,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <span />,
+        <TntGoBlock
+          indexColumn={1}
+        />,
+        <TntGoBlock
+          indexColumn={2}
+        />,
+        <TntGoBlock
+          indexColumn={3}
+        />,
+        <TntGoBlock
+          indexColumn={4}
+        />,
+        <TntGoBlock
+          indexColumn={5}
+        />,
+        <TntGoBlock
+          indexColumn={6}
+        />,
+        <TntGoBlock
+          indexColumn={7}
+        />,
+        <span />,
+        <span />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "span",
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "function",
+        "props": Object {
+          "indexColumn": 1,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "function",
+        "props": Object {
+          "indexColumn": 2,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "3",
+        "nodeType": "function",
+        "props": Object {
+          "indexColumn": 3,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "4",
+        "nodeType": "function",
+        "props": Object {
+          "indexColumn": 4,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "5",
+        "nodeType": "function",
+        "props": Object {
+          "indexColumn": 5,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "6",
+        "nodeType": "function",
+        "props": Object {
+          "indexColumn": 6,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "7",
+        "nodeType": "function",
+        "props": Object {
+          "indexColumn": 7,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "8",
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "span",
+      },
+      Object {
+        "instance": null,
+        "key": "9",
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "span",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <span />,
+          <TntGoBlock
+            indexColumn={1}
+          />,
+          <TntGoBlock
+            indexColumn={2}
+          />,
+          <TntGoBlock
+            indexColumn={3}
+          />,
+          <TntGoBlock
+            indexColumn={4}
+          />,
+          <TntGoBlock
+            indexColumn={5}
+          />,
+          <TntGoBlock
+            indexColumn={6}
+          />,
+          <TntGoBlock
+            indexColumn={7}
+          />,
+          <span />,
+          <span />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "span",
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "function",
+          "props": Object {
+            "indexColumn": 1,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "function",
+          "props": Object {
+            "indexColumn": 2,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "3",
+          "nodeType": "function",
+          "props": Object {
+            "indexColumn": 3,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "4",
+          "nodeType": "function",
+          "props": Object {
+            "indexColumn": 4,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "5",
+          "nodeType": "function",
+          "props": Object {
+            "indexColumn": 5,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "6",
+          "nodeType": "function",
+          "props": Object {
+            "indexColumn": 6,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "7",
+          "nodeType": "function",
+          "props": Object {
+            "indexColumn": 7,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "8",
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "span",
+        },
+        Object {
+          "instance": null,
+          "key": "9",
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "span",
+        },
+      ],
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

@@ -958,7 +958,8 @@ describe('Action creators', () => {
           game: {
             board: {
               grid: gridZero(10, 20)
-            }
+            },
+            mods: {}
           }
         });
 

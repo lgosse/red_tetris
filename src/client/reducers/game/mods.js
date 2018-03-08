@@ -1,4 +1,4 @@
-import { GAME_MODS_SET } from "../../../actionsTypes";
+import { GAME_MODS_SET, GAME_END } from "../../../actionsTypes";
 
 const mods = (state = {}, action) => {
   switch (action.type) {
@@ -15,6 +15,10 @@ const mods = (state = {}, action) => {
         ...state,
         [action.mod.id]: { ...action.mod }
       };
+    }
+
+    case GAME_END: {
+      return {};
     }
 
     default:

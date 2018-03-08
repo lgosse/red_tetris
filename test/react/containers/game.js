@@ -58,11 +58,11 @@ describe('Game containers', () => {
   });
   describe('Bomb', () => {
     it('should render as expected when not exploding', () => {
-      const output = shallow(<Bomb mods={{ x: 4, y: 5 }} indexLine={6} />);
+      const output = shallow(<Bomb mod={{ x: 4, y: 5 }} indexLine={6} />);
       output.should.matchSnapshot();
     });
     it('should render as expected when exploding', () => {
-      const output = shallow(<Bomb mods={{ x: 4, y: 6 }} indexLine={6} />);
+      const output = shallow(<Bomb mod={{ x: 4, y: 6 }} indexLine={6} />);
       output.should.matchSnapshot();
     });
   });
@@ -73,30 +73,30 @@ describe('Game containers', () => {
     });
   });
   describe('Mod', () => {
-    it('should render as expected when mods.type is bomb', () => {
+    it('should render as expected when mod.type is bomb', () => {
       const output = shallow(
         <Mod
-          mods={{ x: 4, y: 5, type: 'bomb' }}
+          mod={{ x: 4, y: 5, type: 'bomb' }}
           line={[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
           indexLine={5}
         />
       );
       output.should.matchSnapshot();
     });
-    it('should render as expected when mods.type is tntGo', () => {
+    it('should render as expected when mod.type is tntGo', () => {
       const output = shallow(
         <Mod
-          mods={{ x: 4, y: 5, type: 'tntGo' }}
+          mod={{ x: 4, y: 5, type: 'tntGo' }}
           line={[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
           indexLine={5}
         />
       );
       output.should.matchSnapshot();
     });
-    it('should render as expected when mods.type is nothing', () => {
+    it('should render as expected when mod.type is nothing', () => {
       const output = shallow(
         <Mod
-          mods={{ x: 4, y: 5 }}
+          mod={{ x: 4, y: 5 }}
           line={[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
           indexLine={5}
         />
@@ -131,7 +131,7 @@ describe('Game containers', () => {
           [1, 1, 1, 1, 0, 1, 1, 1, 1, 1]
         ]
       };
-      const mods = { x: 5, y: 6, type: 'bomb' };
+      const mods = { '55': { x: 5, y: 6, type: 'bomb' }};
       const pieces = {
         piece: {
           x: 5,
@@ -176,7 +176,7 @@ describe('Game containers', () => {
         focus: true,
         hasFocusedOnce: true
       };
-      const mods = { x: 5, y: 6, type: 'bomb' };
+      const mods = { toto: { x: 5, y: 6, type: 'bomb' }};
       const pieces = {
         piece: {
           x: 5,
@@ -220,7 +220,7 @@ describe('Game containers', () => {
         focus: false,
         hasFocusedOnce: false
       };
-      const mods = { x: 5, y: 6, type: 'bomb' };
+      const mods = { toto: { x: 5, y: 6, type: 'bomb' }};
       const pieces = {
         piece: {
           x: 5,
@@ -266,7 +266,7 @@ describe('Game containers', () => {
         focus: false,
         hasFocusedOnce: true
       };
-      const mods = { x: 5, y: 6, type: 'bomb' };
+      const mods = { toto: { x: 5, y: 6, type: 'bomb' } };
       const pieces = {
         piece: null
       };
