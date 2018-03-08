@@ -52,6 +52,7 @@ const MessagesContainer = styled.div`
 const OwnerMessage = styled.div`
   background-color: ${global.color.accent};
   max-width: 200px;
+  word-wrap: break-word;
   border-radius: ${global.border.radius};
   margin-left: ${global.padding.md};
   padding: ${global.padding.sm};
@@ -68,6 +69,7 @@ const SenderName = styled.div`
 const OtherMessage = styled.div`
   background-color: ${global.color.accent};
   max-width: 200px;
+  word-wrap: break-word;
   border-radius: ${global.border.radius};
   margin-right: ${global.padding.md};
   padding: ${global.padding.sm};
