@@ -16,14 +16,15 @@ export const INPUT_KEYBOARD_SPACE = 32,
 
 export const input = event => (dispatch, getState) => {
   const { game: { inputs, pieces }, music } = getState();
-  // const state = getState();
-  // const inputs = state.game.inputs;
-  // const pieces = state.game.pieces;
-  // const music = state.music;
+  let timeout = 100;
 
   // Prevent reuse of same event
   const keyCode = event.keyCode;
   const playSound = createPlayer(music);
+
+  if (keyCode === INPUT_KEYBOARD_LEFT || keyCode === INPUT_KEYBOARD_RIGHT) {
+    timeout = 20;
+  }
 
   event.preventDefault();
   event.stopPropagation();
@@ -40,7 +41,7 @@ export const input = event => (dispatch, getState) => {
         type: REMOVE_INPUT_KEYBOARD,
         input: keyCode
       }),
-    100
+    timeout
   );
 
   switch (keyCode) {

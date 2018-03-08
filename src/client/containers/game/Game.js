@@ -18,7 +18,7 @@ export const Game = ({ party, player, game, winner }) => (
     }}
   >
     <LeftSide party={party} player={player} game={game} />
-    <Grid party={party} player={player} />
+    <Grid />
     <RightSide
       players={party.players.filter(
         currentPlayer => player.socketId !== currentPlayer.socketId
