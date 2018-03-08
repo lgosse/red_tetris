@@ -152,12 +152,14 @@ describe("utils", () => {
       grid: [[10]],
       x: 4,
       y: 2,
+      id: '45',
       weight: 0
     },
     {
       grid: [[11]],
       x: 4,
       y: 2,
+      id: '45',
       weight: 0
     },
     {
@@ -275,8 +277,8 @@ describe("utils", () => {
   describe("isMod", () => {
     it("should tell if the piece is a Special piece (bomb or tnt) with its coordonates", () => {
       expect(isMod(pieces[1])).to.equal(null);
-      isMod(pieces[6]).should.be.deep.equal({ type: "bomb", x: 4, y: 2 });
-      isMod(pieces[7]).should.be.deep.equal({ type: "tnt", x: 4, y: 2 });
+      isMod(pieces[6]).should.be.deep.equal({ type: "bomb", x: 4, y: 2, id: '45' });
+      isMod(pieces[7]).should.be.deep.equal({ type: "tnt", x: 4, y: 2, id: '45' });
     });
   });
 
@@ -284,7 +286,7 @@ describe("utils", () => {
     it("should delete the line and column of the bomb", () => {
       let output;
       deleteBomb(null, grids[2]).should.equal(grids[2]);
-      output = deleteBomb({ x: 8, y: 18 }, grids[2]);
+      output = deleteBomb({ x: 8, y: 18, type: 'bomb' }, grids[2]);
       output[12].should.be.deep.equal([2, 2, 2, 2, 0, 0, 0, 2, 0, 0]);
       output[17].should.be.deep.equal([0, 0, 11, 11, 0, 0, 0, 0, 0, 0]);
       output[18].should.be.deep.equal([11, 11, 0, 0, 0, 0, 0, 11, 0, 0]);
