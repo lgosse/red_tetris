@@ -14,21 +14,31 @@ import {
   Icon
 } from '../../components/helpers/Common';
 
-export const PartyButton = ({ party, player, onClick }) => {
-  return (
+export const PartyButtonLink = ({ party, player, children }) =>
+  !party.open || party.players.length >= party.size ? (
     <Link
       to={`/#${party.name}[${player.nickname || 'Unknown'}]`}
-      style={
-        !party.open || party.players.length >= party.size
-          ? {
-              textDecoration: 'none',
-              pointerEvents: 'none'
-            }
-          : {
-              textDecoration: 'none'
-            }
-      }
+      style={{
+        textDecoration: 'none',
+        pointerEvents: 'none'
+      }}
     >
+      {children}
+    </Link>
+  ) : (
+    <div
+      to={`/#${party.name}[${player.nickname || 'Unknown'}]`}
+      style={{
+        textDecoration: 'none'
+      }}
+    >
+      {children}
+    </div>
+  );
+
+export const PartyButton = ({ party, player, onClick }) => {
+  return (
+    <PartyButtonLink party={party} player={player}>
       <Button
         width="400px"
         primary
@@ -48,7 +58,7 @@ export const PartyButton = ({ party, player, onClick }) => {
           <Icon marginTop="-2px" marginLeft="5px" className="bomb" />
         )}
       </Button>
-    </Link>
+    </PartyButtonLink>
   );
 };
 
