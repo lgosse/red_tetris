@@ -17754,7 +17754,7 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
+    "nodeType": "function",
     "props": Object {
       "children": <styled.button
         className="join-button"
@@ -17786,12 +17786,25 @@ ShallowWrapper {
           10
         </div>
       </styled.button>,
-      "replace": false,
-      "style": Object {
-        "pointerEvents": "none",
-        "textDecoration": "none",
+      "party": Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": false,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": false,
+        "size": 10,
       },
-      "to": "/#Sasuke[Naruto]",
+      "player": Object {
+        "nickname": "Naruto",
+        "socketId": "toto",
+      },
     },
     "ref": null,
     "rendered": Object {
@@ -17876,7 +17889,7 @@ ShallowWrapper {
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "function",
       "props": Object {
         "children": <styled.button
           className="join-button"
@@ -17908,12 +17921,25 @@ ShallowWrapper {
             10
           </div>
         </styled.button>,
-        "replace": false,
-        "style": Object {
-          "pointerEvents": "none",
-          "textDecoration": "none",
+        "party": Object {
+          "__v": 3,
+          "_id": "5a73305e4dbfed22aa7d0df5",
+          "name": "Sasuke",
+          "open": false,
+          "players": Array [
+            Object {
+              "_id": "5a73305e4dbfed22aa7d0df6",
+              "nickname": "Sakura",
+              "socketId": "wcnjn-T8ENU4iD1XAAAC",
+            },
+          ],
+          "playing": false,
+          "size": 10,
         },
-        "to": "/#Sasuke[Naruto]",
+        "player": Object {
+          "nickname": "Naruto",
+          "socketId": "toto",
+        },
       },
       "ref": null,
       "rendered": Object {
@@ -18010,7 +18036,6 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <PartyButton
-    goToParty={[Function]}
     party={
       Object {
         "__v": 3,
@@ -18044,7 +18069,7 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
+    "nodeType": "function",
     "props": Object {
       "children": <styled.button
         className="join-button"
@@ -18076,12 +18101,24 @@ ShallowWrapper {
           1
         </div>
       </styled.button>,
-      "replace": false,
-      "style": Object {
-        "pointerEvents": "none",
-        "textDecoration": "none",
+      "party": Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": true,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": false,
+        "size": 1,
       },
-      "to": "/#Sasuke[Unknown]",
+      "player": Object {
+        "socketId": "toto",
+      },
     },
     "ref": null,
     "rendered": Object {
@@ -18166,7 +18203,7 @@ ShallowWrapper {
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "function",
       "props": Object {
         "children": <styled.button
           className="join-button"
@@ -18198,12 +18235,24 @@ ShallowWrapper {
             1
           </div>
         </styled.button>,
-        "replace": false,
-        "style": Object {
-          "pointerEvents": "none",
-          "textDecoration": "none",
+        "party": Object {
+          "__v": 3,
+          "_id": "5a73305e4dbfed22aa7d0df5",
+          "name": "Sasuke",
+          "open": true,
+          "players": Array [
+            Object {
+              "_id": "5a73305e4dbfed22aa7d0df6",
+              "nickname": "Sakura",
+              "socketId": "wcnjn-T8ENU4iD1XAAAC",
+            },
+          ],
+          "playing": false,
+          "size": 1,
         },
-        "to": "/#Sasuke[Unknown]",
+        "player": Object {
+          "socketId": "toto",
+        },
       },
       "ref": null,
       "rendered": Object {
@@ -18300,7 +18349,6 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <PartyButton
-    goToParty={[Function]}
     party={
       Object {
         "__v": 3,
@@ -18334,7 +18382,7 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
+    "nodeType": "function",
     "props": Object {
       "children": <styled.button
         className="join-button"
@@ -18366,12 +18414,24 @@ ShallowWrapper {
           10
         </div>
       </styled.button>,
-      "replace": false,
-      "style": Object {
-        "pointerEvents": "none",
-        "textDecoration": "none",
+      "party": Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": false,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": false,
+        "size": 10,
       },
-      "to": "/#Sasuke[Unknown]",
+      "player": Object {
+        "socketId": "toto",
+      },
     },
     "ref": null,
     "rendered": Object {
@@ -18456,7 +18516,7 @@ ShallowWrapper {
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "function",
       "props": Object {
         "children": <styled.button
           className="join-button"
@@ -18488,12 +18548,24 @@ ShallowWrapper {
             10
           </div>
         </styled.button>,
-        "replace": false,
-        "style": Object {
-          "pointerEvents": "none",
-          "textDecoration": "none",
+        "party": Object {
+          "__v": 3,
+          "_id": "5a73305e4dbfed22aa7d0df5",
+          "name": "Sasuke",
+          "open": false,
+          "players": Array [
+            Object {
+              "_id": "5a73305e4dbfed22aa7d0df6",
+              "nickname": "Sakura",
+              "socketId": "wcnjn-T8ENU4iD1XAAAC",
+            },
+          ],
+          "playing": false,
+          "size": 10,
         },
-        "to": "/#Sasuke[Unknown]",
+        "player": Object {
+          "socketId": "toto",
+        },
       },
       "ref": null,
       "rendered": Object {
@@ -18572,6 +18644,164 @@ ShallowWrapper {
         ],
         "type": [Function],
       },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Views PartyList render PartyButtonLink should render as expected when game is joinable 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PartyButtonLink
+    party={
+      Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": true,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": false,
+        "size": 2,
+      }
+    }
+    player={
+      Object {
+        "socketId": "toto",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": undefined,
+      "style": Object {
+        "textDecoration": "none",
+      },
+      "to": "/#Sasuke[Unknown]",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": undefined,
+        "style": Object {
+          "textDecoration": "none",
+        },
+        "to": "/#Sasuke[Unknown]",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Views PartyList render PartyButtonLink should render as expected when game is not joinable 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PartyButtonLink
+    party={
+      Object {
+        "__v": 3,
+        "_id": "5a73305e4dbfed22aa7d0df5",
+        "name": "Sasuke",
+        "open": true,
+        "players": Array [
+          Object {
+            "_id": "5a73305e4dbfed22aa7d0df6",
+            "nickname": "Sakura",
+            "socketId": "wcnjn-T8ENU4iD1XAAAC",
+          },
+        ],
+        "playing": false,
+        "size": 1,
+      }
+    }
+    player={
+      Object {
+        "socketId": "toto",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": undefined,
+      "replace": false,
+      "style": Object {
+        "pointerEvents": "none",
+        "textDecoration": "none",
+      },
+      "to": "/#Sasuke[Unknown]",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": undefined,
+        "replace": false,
+        "style": Object {
+          "pointerEvents": "none",
+          "textDecoration": "none",
+        },
+        "to": "/#Sasuke[Unknown]",
+      },
+      "ref": null,
+      "rendered": null,
       "type": [Function],
     },
   ],
