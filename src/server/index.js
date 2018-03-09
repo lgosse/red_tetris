@@ -102,6 +102,7 @@ const pingPlayer = async (io, party, player, countBeforeKick) => {
     } catch (e) {
       console.error(e);
     }
+
     if (!partyNow) return;
 
     const playerNow = partyNow.getPlayerBySocketId(player.socketId);
@@ -127,11 +128,11 @@ const autoPing = async io => {
   if (!partyList) return;
 
   const promises = [];
-  partyList.forEach(party =>
+  partyList.forEach(party => {
     party.players.forEach(player => {
       promises.push(pingPlayer(io, party, player, 2));
-    })
-  );
+    });
+  });
 
   await Promise.all(promises);
 };
