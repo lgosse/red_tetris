@@ -29,7 +29,7 @@ const ping = async (action, io, socket) => {
           .emit("action", updateParty({ players: party.players }));
         socket.emit("action", updatePlayer({ ready: player.ready }));
       } catch (error) {
-        console.error(error);
+        if (error.name !== "VersionError") console.error(error);
       }
       socket.emit("action", { type: PLAYER_UPDATE, player: player });
       break;

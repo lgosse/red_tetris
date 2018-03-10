@@ -1,7 +1,7 @@
-import GameModel from '../models/Game';
-import { PLAYER_TOGGLE_READY } from '../../actionsTypes';
-import { updatePlayer } from '../../client/actions/player';
-import { updateParty } from '../../client/actions/party';
+import GameModel from "../models/Game";
+import { PLAYER_TOGGLE_READY } from "../../actionsTypes";
+import { updatePlayer } from "../../client/actions/player";
+import { updateParty } from "../../client/actions/party";
 
 const player = async (action, io, socket) => {
   switch (action.type) {
@@ -28,10 +28,10 @@ const player = async (action, io, socket) => {
         await party.save();
         io
           .to(socket.partyId)
-          .emit('action', updateParty({ players: party.players }));
-        socket.emit('action', updatePlayer({ ready: player.ready }));
+          .emit("action", updateParty({ players: party.players }));
+        socket.emit("action", updatePlayer({ ready: player.ready }));
       } catch (error) {
-        console.error(error);
+        if (error.name !== "VersionError") console.error(error);
       }
 
       break;

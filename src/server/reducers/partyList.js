@@ -164,7 +164,7 @@ const partyList = async (action, io, socket) => {
         try {
           await partyEdit.save();
         } catch (error) {
-          console.error(error);
+          if (error.name !== "VersionError") console.error(error);
         }
 
         io.emit("action", await getParties());
@@ -237,7 +237,7 @@ const partyList = async (action, io, socket) => {
           .to(party._id)
           .emit("action", claimPieceSuccess([new Piece(), new Piece()]));
       } catch (error) {
-        console.error(error);
+        if (error.name !== "VersionError") console.error(error);
       }
 
       break;
