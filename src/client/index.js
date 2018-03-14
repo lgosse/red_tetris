@@ -43,11 +43,10 @@ const history = createBrowserHistory();
 
 const routingMiddleware = routerMiddleware(history);
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export const store = createStore(
   combineReducers({ ...reducers, routing: routerReducer }),
   {},
-  composeEnhancers(
+  compose(
     applyMiddleware(
       thunk,
       routingMiddleware,
