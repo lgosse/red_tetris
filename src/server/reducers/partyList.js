@@ -1,6 +1,6 @@
 // Models
-import GameModel, { Game } from '../models/Game';
-import { Player } from '../models/Player';
+import GameModel, { Game } from "../models/Game";
+import { Player } from "../models/Player";
 
 // Action Types
 import {
@@ -15,19 +15,19 @@ import {
   PARTY_OPEN,
   PARTY_START,
   PARTY_LEFT
-} from '../../actionsTypes';
+} from "../../actionsTypes";
 
 // Actions
-import { push } from 'react-router-redux';
-import { updateParty, startPartySuccess } from '../../client/actions/party';
+import { push } from "react-router-redux";
+import { updateParty, startPartySuccess } from "../../client/actions/party";
 import {
   claimPieceSuccess,
   movePieceServer
-} from '../../client/actions/game/pieces';
-import { Piece } from '../models/Piece';
-import { updatePiecesGame } from '../../client/actions/game/pieces';
-import { updateBoard } from '../../client/actions/game/board';
-import { updateScore, resetScore } from '../../client/actions/game/score';
+} from "../../client/actions/game/pieces";
+import { Piece } from "../models/Piece";
+import { updatePiecesGame } from "../../client/actions/game/pieces";
+import { updateBoard } from "../../client/actions/game/board";
+import { updateScore, resetScore } from "../../client/actions/game/score";
 
 export const userLeaves = async (io, socket) => {
   if (!socket.partyId) return;
@@ -49,7 +49,7 @@ export const userLeaves = async (io, socket) => {
     if (!socket.fake) {
       socket.leave(party._id, err => {
         if (err) console.error(err);
-        socket.emit('action', { type: PARTY_LEFT });
+        socket.emit("action", { type: PARTY_LEFT });
       });
     }
   }
@@ -57,15 +57,19 @@ export const userLeaves = async (io, socket) => {
   if (party.players.length === 0) {
     await party.remove();
   } else {
-    await party.save();
+    try {
+      await party.save();
+    } catch (error) {
+      if (error.name !== "VersionError") console.error(error);
+    }
   }
 
-  io.to(party._id).emit('action', {
+  io.to(party._id).emit("action", {
     type: PARTY_UPDATE,
     party
   });
 
-  io.emit('action', await getParties());
+  io.emit("action", await getParties());
 };
 
 export const getParties = async () => {
@@ -80,7 +84,7 @@ export const getParties = async () => {
 const partyList = async (action, io, socket) => {
   switch (action.type) {
     case PARTY_LIST: {
-      socket.emit('action', await getParties());
+      socket.emit("action", await getParties());
       break;
     }
 
@@ -94,9 +98,9 @@ const partyList = async (action, io, socket) => {
       }
 
       if (party) {
-        socket.emit('action', {
+        socket.emit("action", {
           type: ALERT_POP,
-          message: 'This party name is not available! Choose another one.'
+          message: "This party name is not available! Choose another one."
         });
 
         return;
@@ -106,16 +110,16 @@ const partyList = async (action, io, socket) => {
         party = await new GameModel(new Game(action.party)).save();
       } catch (error) {
         console.error(error);
-        socket.emit('action', {
+        socket.emit("action", {
           type: ALERT_POP,
-          message: 'An error occured. Cannot save the party'
+          message: "An error occured. Cannot save the party"
         });
 
         break;
       }
 
-      io.emit('action', await getParties());
-      socket.emit('action', push(`/#${party.name}[${action.player.nickname}]`));
+      io.emit("action", await getParties());
+      socket.emit("action", push(`/#${party.name}[${action.player.nickname}]`));
       break;
     }
 
@@ -136,15 +140,15 @@ const partyList = async (action, io, socket) => {
         }
 
         if (!partyEdit) {
-          socket.emit('action', {
+          socket.emit("action", {
             type: ALERT_POP,
-            message: 'A problem occured while trying to join your party.'
+            message: "A problem occured while trying to join your party."
           });
         }
       } else {
         partyEdit = party;
         if (party.open === false) {
-          socket.emit('action', push('/'));
+          socket.emit("action", push("/"));
           return;
         }
       }
@@ -160,15 +164,15 @@ const partyList = async (action, io, socket) => {
         try {
           await partyEdit.save();
         } catch (error) {
-          console.error(error);
+          if (error.name !== "VersionError") console.error(error);
         }
 
-        io.emit('action', await getParties());
+        io.emit("action", await getParties());
       }
 
       socket.partyId = partyEdit._id;
       socket.join(partyEdit._id);
-      io.to(partyEdit._id).emit('action', {
+      io.to(partyEdit._id).emit("action", {
         type: PARTY_UPDATE,
         party: partyEdit
       });
@@ -183,7 +187,7 @@ const partyList = async (action, io, socket) => {
 
     case PARTY_KICK_PLAYER: {
       if (io.sockets.connected[action.playerId])
-        io.sockets.connected[action.playerId].emit('action', push('/'));
+        io.sockets.connected[action.playerId].emit("action", push("/"));
 
       break;
     }
@@ -199,8 +203,8 @@ const partyList = async (action, io, socket) => {
 
       party.toggleOpen();
       party.save().then(async res => {
-        io.emit('action', await getParties());
-        io.to(party._id).emit('action', {
+        io.emit("action", await getParties());
+        io.to(party._id).emit("action", {
           type: PARTY_UPDATE,
           party
         });
@@ -223,23 +227,23 @@ const partyList = async (action, io, socket) => {
       try {
         await party.save();
 
-        io.emit('action', await getParties());
-        io.to(party._id).emit('action', startPartySuccess());
-        io.to(party._id).emit('action', updateParty(party));
+        io.emit("action", await getParties());
+        io.to(party._id).emit("action", startPartySuccess());
+        io.to(party._id).emit("action", updateParty(party));
         io
           .to(party._id)
-          .emit('action', updatePiecesGame({ piece: new Piece() }));
+          .emit("action", updatePiecesGame({ piece: new Piece() }));
         io
           .to(party._id)
-          .emit('action', claimPieceSuccess([new Piece(), new Piece()]));
+          .emit("action", claimPieceSuccess([new Piece(), new Piece()]));
       } catch (error) {
-        console.error(error);
+        if (error.name !== "VersionError") console.error(error);
       }
 
       break;
     }
 
-    case 'PARTY_DELETE_ALL': {
+    case "PARTY_DELETE_ALL": {
       try {
         await GameModel.remove({}).exec();
       } catch (error) {
