@@ -14,7 +14,7 @@ const params = {
     }
   },
   db: {
-    host: process.env.RED_TETRIS_DB_HOST || '192.168.99.100'
+    host: '192.168.99.100'
   }
 };
 

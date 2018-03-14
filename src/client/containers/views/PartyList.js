@@ -15,12 +15,11 @@ import {
 } from '../../components/helpers/Common';
 
 export const PartyButtonLink = ({ party, player, children }) =>
-  !party.open || party.players.length >= party.size ? (
+  party.open && party.players.length < party.size ? (
     <Link
       to={`/#${party.name}[${player.nickname || 'Unknown'}]`}
       style={{
-        textDecoration: 'none',
-        pointerEvents: 'none'
+        textDecoration: 'none'
       }}
     >
       {children}
@@ -29,7 +28,8 @@ export const PartyButtonLink = ({ party, player, children }) =>
     <div
       to={`/#${party.name}[${player.nickname || 'Unknown'}]`}
       style={{
-        textDecoration: 'none'
+        textDecoration: 'none',
+        pointerEvents: 'none'
       }}
     >
       {children}
