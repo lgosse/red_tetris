@@ -40,8 +40,9 @@ const roomHandler = (socket, action, dispatch, getState) => {
           dispatch(push("/"));
           break;
         }
+
         playerNickname = playerNickname.substring(0, playerNickname.length - 1);
-        dispatch(getPlayer());
+        dispatch(updatePlayer({ nickname: playerNickname }));
         const state = getState();
         const player = state.player &&
           state.player.nickname && {

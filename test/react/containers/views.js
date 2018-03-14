@@ -14,7 +14,8 @@ import NewGame from '../../../src/client/containers/views/NewGame';
 import NotFound from '../../../src/client/containers/views/NotFound';
 import {
   PartyButton,
-  PartyList
+  PartyList,
+  PartyButtonLink
 } from '../../../src/client/containers/views/PartyList';
 import {
   Lobby,
@@ -169,10 +170,7 @@ describe('Views', () => {
             __v: 3
           };
           const player = { socketId: 'toto' };
-          const goToParty = () => {};
-          const output = shallow(
-            <PartyButton party={party} player={player} goToParty={goToParty} />
-          );
+          const output = shallow(<PartyButton party={party} player={player} />);
           output.should.matchSnapshot();
         });
         it('should render as expected with party open but as much players as party size', () => {
@@ -192,9 +190,52 @@ describe('Views', () => {
             __v: 3
           };
           const player = { socketId: 'toto' };
-          const goToParty = () => {};
+          const output = shallow(<PartyButton party={party} player={player} />);
+          output.should.matchSnapshot();
+        });
+      });
+      describe('PartyButtonLink', () => {
+        it('should render as expected when game is joinable', () => {
+          const party = {
+            players: [
+              {
+                _id: '5a73305e4dbfed22aa7d0df6',
+                nickname: 'Sakura',
+                socketId: 'wcnjn-T8ENU4iD1XAAAC'
+              }
+            ],
+            _id: '5a73305e4dbfed22aa7d0df5',
+            size: 2,
+            name: 'Sasuke',
+            open: true,
+            playing: false,
+            __v: 3
+          };
+          const player = { socketId: 'toto' };
           const output = shallow(
-            <PartyButton party={party} player={player} goToParty={goToParty} />
+            <PartyButtonLink party={party} player={player} />
+          );
+          output.should.matchSnapshot();
+        });
+        it('should render as expected when game is not joinable', () => {
+          const party = {
+            players: [
+              {
+                _id: '5a73305e4dbfed22aa7d0df6',
+                nickname: 'Sakura',
+                socketId: 'wcnjn-T8ENU4iD1XAAAC'
+              }
+            ],
+            _id: '5a73305e4dbfed22aa7d0df5',
+            size: 1,
+            name: 'Sasuke',
+            open: true,
+            playing: false,
+            __v: 3
+          };
+          const player = { socketId: 'toto' };
+          const output = shallow(
+            <PartyButtonLink party={party} player={player} />
           );
           output.should.matchSnapshot();
         });

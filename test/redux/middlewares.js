@@ -14,7 +14,8 @@ import {
   ALERT_POP,
   GAME_BOARD_UPDATE,
   GAME_MALUS_ADD_SUCCESS,
-  GAME_PIECES_PIECE_MOVE_SUCCESS
+  GAME_PIECES_PIECE_MOVE_SUCCESS,
+  PLAYER_UPDATE
 } from '../../src/actionsTypes';
 import { alert } from '../../src/client/actions/alert';
 import reducers from '../../src/client/reducers';
@@ -160,10 +161,9 @@ describe('Middlewares', () => {
             payload: { pathname: '/', hash: '#Konoha' }
           });
         });
-        it('should dispatch getPlayer if player nickname is ok', done => {
+        it('should dispatch updatePlayer if player nickname is ok', done => {
           global.localStorage = {
-            getItem: key =>
-              key === 'player' ? 'toto' : JSON.stringify({ name: 'wsh' })
+            setItem: key => {}
           };
 
           const initialState = {};
@@ -173,7 +173,7 @@ describe('Middlewares', () => {
             socket,
             initialState,
             {
-              [PLAYER_GET]: () => {
+              [PLAYER_UPDATE]: () => {
                 done();
               }
             }
